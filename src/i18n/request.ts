@@ -14,6 +14,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const tools = (await import(`../messages/${locale}/tools.json`)).default;
   const toolUi = (await import(`../messages/${locale}/tool-ui.json`)).default;
   const seo = (await import(`../messages/${locale}/seo.json`)).default;
+  const pages = (await import(`../messages/${locale}/pages.json`)).default;
 
   return {
     locale,
@@ -23,6 +24,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
       tools,
       toolUi,
       seo,
+      pages,
     },
   };
 });

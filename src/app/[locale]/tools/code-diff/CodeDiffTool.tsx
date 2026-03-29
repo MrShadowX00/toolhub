@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import {
   Copy,
   Check,
@@ -286,6 +287,7 @@ function emptyRowBg(status: LineStatus) {
 // ---------------------------------------------------------------------------
 
 function SideBySideView({ lines }: { lines: DiffLine[] }) {
+  const t = useTranslations("toolUi");
   if (lines.length === 0) return null;
 
   return (
@@ -295,11 +297,11 @@ function SideBySideView({ lines }: { lines: DiffLine[] }) {
           <tr className="border-b border-gray-700 bg-gray-800 text-xs text-gray-400">
             <th className="w-10 px-2 py-1.5 text-right font-medium">#</th>
             <th className="px-3 py-1.5 text-left font-medium border-r border-gray-700 w-1/2">
-              Original
+              {t("originalCode")}
             </th>
             <th className="w-10 px-2 py-1.5 text-right font-medium">#</th>
             <th className="px-3 py-1.5 text-left font-medium w-1/2">
-              Modified
+              {t("modifiedCode")}
             </th>
           </tr>
         </thead>
@@ -391,6 +393,7 @@ function SideBySideView({ lines }: { lines: DiffLine[] }) {
 // ---------------------------------------------------------------------------
 
 function UnifiedView({ lines }: { lines: DiffLine[] }) {
+  const t = useTranslations("toolUi");
   if (lines.length === 0) return null;
 
   const unifiedLines: {
@@ -468,12 +471,12 @@ function UnifiedView({ lines }: { lines: DiffLine[] }) {
       <table className="w-full border-collapse text-sm font-mono">
         <thead>
           <tr className="border-b border-gray-700 bg-gray-800 text-xs text-gray-400">
-            <th className="w-10 px-2 py-1.5 text-right font-medium">Orig</th>
+            <th className="w-10 px-2 py-1.5 text-right font-medium">{t("originalCode")}</th>
             <th className="w-10 px-2 py-1.5 text-right font-medium border-r border-gray-700">
-              Mod
+              {t("modifiedCode")}
             </th>
             <th className="w-6 px-1 py-1.5 text-center font-medium"></th>
-            <th className="px-3 py-1.5 text-left font-medium">Content</th>
+            <th className="px-3 py-1.5 text-left font-medium"></th>
           </tr>
         </thead>
         <tbody>
@@ -525,23 +528,24 @@ function UnifiedView({ lines }: { lines: DiffLine[] }) {
 // ---------------------------------------------------------------------------
 
 function StatsBar({ stats }: { stats: DiffStats }) {
+  const t = useTranslations("toolUi");
   return (
     <div className="flex flex-wrap items-center gap-4 text-xs">
       <span className="flex items-center gap-1.5 text-green-400">
         <span className="h-2 w-2 rounded-full bg-green-400" />
-        {stats.added} added
+        {stats.added} {t("added")}
       </span>
       <span className="flex items-center gap-1.5 text-red-400">
         <span className="h-2 w-2 rounded-full bg-red-400" />
-        {stats.removed} removed
+        {stats.removed} {t("removed")}
       </span>
       <span className="flex items-center gap-1.5 text-yellow-400">
         <span className="h-2 w-2 rounded-full bg-yellow-400" />
-        {stats.changed} changed
+        {stats.changed} {t("differences")}
       </span>
       <span className="flex items-center gap-1.5 text-gray-500">
         <span className="h-2 w-2 rounded-full bg-gray-600" />
-        {stats.equal} equal
+        {stats.equal} {t("unchanged")}
       </span>
     </div>
   );
@@ -553,6 +557,7 @@ function StatsBar({ stats }: { stats: DiffStats }) {
 
 function CopyButton({ text, label }: { text: string; label: string }) {
   const [copied, setCopied] = useState(false);
+  const t = useTranslations("toolUi");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(text).then(() => {
@@ -569,12 +574,12 @@ function CopyButton({ text, label }: { text: string; label: string }) {
           ? "bg-green-600/20 text-green-400"
           : "bg-gray-700 hover:bg-gray-600 text-gray-300"
       }`}
-      title={`Copy ${label}`}
+      title={`${t("copy")} ${label}`}
     >
       {copied ? (
         <>
           <Check className="h-3.5 w-3.5" />
-          Copied
+          {t("copied")}
         </>
       ) : (
         <>
@@ -608,6 +613,7 @@ const result = greet("World", "Hi");
 console.log(result);`;
 
 export default function CodeDiffTool() {
+  const t = useTranslations("toolUi");
   const [original, setOriginal] = useState("");
   const [modified, setModified] = useState("");
   const [viewMode, setViewMode] = useState<ViewMode>("side-by-side");
@@ -636,7 +642,7 @@ export default function CodeDiffTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
             <span className="text-sm font-medium text-gray-300">
-              Original
+              {t("originalCode")}
             </span>
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500">
@@ -646,7 +652,7 @@ export default function CodeDiffTool() {
                 <button
                   onClick={() => setOriginal("")}
                   className="rounded p-1 text-gray-500 hover:text-gray-300 transition-colors"
-                  title="Clear"
+                  title={t("clear")}
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>
@@ -666,7 +672,7 @@ export default function CodeDiffTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
             <span className="text-sm font-medium text-gray-300">
-              Modified
+              {t("modifiedCode")}
             </span>
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-500">
@@ -676,7 +682,7 @@ export default function CodeDiffTool() {
                 <button
                   onClick={() => setModified("")}
                   className="rounded p-1 text-gray-500 hover:text-gray-300 transition-colors"
-                  title="Clear"
+                  title={t("clear")}
                 >
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>
@@ -700,10 +706,10 @@ export default function CodeDiffTool() {
             <GitCompare className="h-8 w-8 text-blue-400" />
           </div>
           <h3 className="text-base font-semibold text-white">
-            Paste code in both editors
+            {t("pasteText")}
           </h3>
           <p className="mt-1.5 max-w-sm text-center text-sm text-gray-500">
-            Differences will appear automatically as you type.
+            {t("resultWillAppear")}
           </p>
         </div>
       )}
@@ -713,7 +719,7 @@ export default function CodeDiffTool() {
         <div className="flex items-center gap-3 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3">
           <Info className="h-4 w-4 text-green-400 flex-shrink-0" />
           <p className="text-sm font-medium text-green-300">
-            The two inputs are identical — no differences found.
+            {t("noDifferences")}
           </p>
         </div>
       )}
@@ -755,8 +761,8 @@ export default function CodeDiffTool() {
               </div>
 
               {/* Copy buttons */}
-              <CopyButton text={original} label="Original" />
-              <CopyButton text={modified} label="Modified" />
+              <CopyButton text={original} label={t("originalCode")} />
+              <CopyButton text={modified} label={t("modifiedCode")} />
             </div>
           </div>
 
@@ -780,24 +786,24 @@ export default function CodeDiffTool() {
       {/* Legend */}
       {!isEmpty && !isIdentical && (
         <div className="flex flex-wrap items-center gap-4 rounded-lg border border-gray-800 bg-gray-900/50 px-4 py-3 text-xs text-gray-400">
-          <span className="font-medium text-gray-300">Legend:</span>
+          <span className="font-medium text-gray-300">{t("info")}:</span>
           <span className="flex items-center gap-1.5">
             <span className="h-3 w-5 rounded-sm bg-green-500/20 border border-green-500/30" />
-            Added
+            {t("added")}
           </span>
           <span className="flex items-center gap-1.5">
             <span className="h-3 w-5 rounded-sm bg-red-500/20 border border-red-500/30" />
-            Removed
+            {t("removed")}
           </span>
           <span className="flex items-center gap-1.5">
             <span className="h-3 w-5 rounded-sm bg-yellow-500/20 border border-yellow-500/30" />
-            Changed
+            {t("differences")}
           </span>
           <span className="flex items-center gap-1.5">
             <span className="inline font-mono bg-green-500/30 rounded-sm px-0.5">
               chars
             </span>
-            Inline character diff
+            {t("differences")}
           </span>
         </div>
       )}

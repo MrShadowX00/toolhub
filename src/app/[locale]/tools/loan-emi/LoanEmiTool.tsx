@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 interface AmortizationRow {
   month: number;
@@ -19,6 +20,7 @@ const formatCurrency = (value: number): string =>
   }).format(value);
 
 export default function LoanEmiTool() {
+  const t = useTranslations("toolUi");
   const [loanAmount, setLoanAmount] = useState<number>(100000);
   const [annualRate, setAnnualRate] = useState<number>(8);
   const [termValue, setTermValue] = useState<number>(5);
@@ -71,11 +73,11 @@ export default function LoanEmiTool() {
 
   const downloadCSV = () => {
     const headers = [
-      "Month",
-      "Payment",
-      "Principal",
-      "Interest",
-      "Remaining Balance",
+      t("month"),
+      t("payment"),
+      t("principal"),
+      t("totalInterest"),
+      t("remainingBalance"),
     ];
     const csvRows = [
       headers.join(","),
@@ -106,13 +108,13 @@ export default function LoanEmiTool() {
         {/* Input Section */}
         <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
           <h2 className="mb-6 text-xl font-semibold text-white">
-            Loan Details
+            {t("loanDetails")}
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Loan Amount */}
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Loan Amount ($)
+                {t("loanAmountDollar")}
               </label>
               <input
                 type="number"
@@ -127,7 +129,7 @@ export default function LoanEmiTool() {
             {/* Interest Rate */}
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Interest Rate (% per year)
+                {t("interestRatePerYear")}
               </label>
               <input
                 type="number"
@@ -143,7 +145,7 @@ export default function LoanEmiTool() {
             {/* Loan Term */}
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Loan Term
+                {t("loanTerm")}
               </label>
               <div className="flex gap-2">
                 <input
@@ -160,7 +162,7 @@ export default function LoanEmiTool() {
                   }
                   className="shrink-0 rounded-lg border border-gray-700 bg-gray-900 px-4 py-2.5 text-sm font-medium text-orange-400 transition-colors hover:bg-gray-700"
                 >
-                  {termUnit === "years" ? "Years" : "Months"}
+                  {termUnit === "years" ? t("years") : t("months")}
                 </button>
               </div>
             </div>
@@ -173,7 +175,7 @@ export default function LoanEmiTool() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <div className="rounded-xl border border-gray-700 bg-gray-800 p-6 text-center">
                 <p className="text-sm font-medium text-gray-400">
-                  Monthly EMI
+                  {t("monthlyEmi")}
                 </p>
                 <p className="mt-2 text-3xl font-bold text-orange-400">
                   {formatCurrency(emi)}
@@ -181,7 +183,7 @@ export default function LoanEmiTool() {
               </div>
               <div className="rounded-xl border border-gray-700 bg-gray-800 p-6 text-center">
                 <p className="text-sm font-medium text-gray-400">
-                  Total Payment
+                  {t("totalPayment")}
                 </p>
                 <p className="mt-2 text-3xl font-bold text-white">
                   {formatCurrency(totalPayment)}
@@ -189,7 +191,7 @@ export default function LoanEmiTool() {
               </div>
               <div className="rounded-xl border border-gray-700 bg-gray-800 p-6 text-center">
                 <p className="text-sm font-medium text-gray-400">
-                  Total Interest
+                  {t("totalInterest")}
                 </p>
                 <p className="mt-2 text-3xl font-bold text-red-400">
                   {formatCurrency(totalInterest)}
@@ -200,7 +202,7 @@ export default function LoanEmiTool() {
             {/* Pie Chart */}
             <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
               <h2 className="mb-6 text-xl font-semibold text-white">
-                Principal vs Interest
+                {t("principalVsInterest")}
               </h2>
               <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center">
                 <svg
@@ -240,7 +242,7 @@ export default function LoanEmiTool() {
                   <div className="flex items-center gap-3">
                     <span className="inline-block h-4 w-4 rounded-sm bg-orange-500" />
                     <span className="text-gray-300">
-                      Principal:{" "}
+                      {t("principal")}:{" "}
                       <span className="font-semibold text-white">
                         {formatCurrency(loanAmount)}
                       </span>{" "}
@@ -252,7 +254,7 @@ export default function LoanEmiTool() {
                   <div className="flex items-center gap-3">
                     <span className="inline-block h-4 w-4 rounded-sm bg-red-500" />
                     <span className="text-gray-300">
-                      Interest:{" "}
+                      {t("totalInterest")}:{" "}
                       <span className="font-semibold text-white">
                         {formatCurrency(totalInterest)}
                       </span>{" "}
@@ -269,24 +271,24 @@ export default function LoanEmiTool() {
             <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
               <div className="mb-6 flex items-center justify-between">
                 <h2 className="text-xl font-semibold text-white">
-                  Amortization Schedule
+                  {t("amortizationSchedule")}
                 </h2>
                 <button
                   onClick={downloadCSV}
                   className="rounded-lg bg-orange-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-500"
                 >
-                  Download CSV
+                  {t("downloadCsv")}
                 </button>
               </div>
               <div className="max-h-[500px] overflow-auto rounded-lg border border-gray-700">
                 <table className="w-full text-sm">
                   <thead className="sticky top-0 bg-gray-900">
                     <tr className="text-left text-gray-400">
-                      <th className="px-4 py-3 font-medium">Month</th>
-                      <th className="px-4 py-3 font-medium">Payment</th>
-                      <th className="px-4 py-3 font-medium">Principal</th>
-                      <th className="px-4 py-3 font-medium">Interest</th>
-                      <th className="px-4 py-3 font-medium">Balance</th>
+                      <th className="px-4 py-3 font-medium">{t("month")}</th>
+                      <th className="px-4 py-3 font-medium">{t("payment")}</th>
+                      <th className="px-4 py-3 font-medium">{t("principal")}</th>
+                      <th className="px-4 py-3 font-medium">{t("totalInterest")}</th>
+                      <th className="px-4 py-3 font-medium">{t("balance")}</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-700">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Download, QrCode } from "lucide-react";
 import QRCode from "qrcode";
 
@@ -14,6 +15,7 @@ const ERROR_LEVELS = [
 type ErrorLevel = "L" | "M" | "Q" | "H";
 
 export default function QrGeneratorTool() {
+  const t = useTranslations("toolUi");
   const [text, setText] = useState("https://example.com");
   const [size, setSize] = useState(300);
   const [errorLevel, setErrorLevel] = useState<ErrorLevel>("M");
@@ -43,10 +45,10 @@ export default function QrGeneratorTool() {
         ctx.fillStyle = "#ef4444";
         ctx.font = "14px sans-serif";
         ctx.textAlign = "center";
-        ctx.fillText("Invalid input", size / 2, size / 2);
+        ctx.fillText(t("invalidInput"), size / 2, size / 2);
       }
     }
-  }, [text, size, errorLevel, fgColor, bgColor]);
+  }, [text, size, errorLevel, fgColor, bgColor, t]);
 
   useEffect(() => {
     generateQR();
@@ -67,13 +69,13 @@ export default function QrGeneratorTool() {
         {/* Text Input */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Text or URL
+            {t("textOrUrl")}
           </label>
           <textarea
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={3}
-            placeholder="Enter text or URL..."
+            placeholder={t("enterTextOrUrl")}
             className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-500 outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500"
           />
         </div>
@@ -81,7 +83,7 @@ export default function QrGeneratorTool() {
         {/* Size Slider */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Size: {size}px
+            {t("size")}: {size}px
           </label>
           <input
             type="range"
@@ -101,7 +103,7 @@ export default function QrGeneratorTool() {
         {/* Error Correction Level */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Error Correction Level
+            {t("errorCorrectionLevel")}
           </label>
           <select
             value={errorLevel}
@@ -120,7 +122,7 @@ export default function QrGeneratorTool() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="mb-1.5 block text-sm font-medium text-gray-300">
-              Foreground Color
+              {t("foregroundColor")}
             </label>
             <div className="flex items-center gap-3 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2">
               <input
@@ -139,7 +141,7 @@ export default function QrGeneratorTool() {
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-gray-300">
-              Background Color
+              {t("backgroundColor")}
             </label>
             <div className="flex items-center gap-3 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2">
               <input
@@ -165,7 +167,7 @@ export default function QrGeneratorTool() {
           className="flex w-full items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-3 font-medium text-white transition-colors hover:bg-purple-700 disabled:opacity-50"
         >
           <Download className="h-4 w-4" />
-          Download PNG
+          {t("download")} PNG
         </button>
       </div>
 
@@ -181,7 +183,7 @@ export default function QrGeneratorTool() {
             >
               <div className="text-center text-gray-500">
                 <QrCode className="mx-auto mb-2 h-12 w-12" />
-                <p className="text-sm">Enter text to generate QR code</p>
+                <p className="text-sm">{t("enterTextOrUrl")}</p>
               </div>
             </div>
           )}

@@ -19,5 +19,8 @@
     "description": "Aradığınız araç veya sayfa mevcut değil.",
     "backHome": "Ana Sayfaya Dön"
   },
-  "language": "Dil"
+  "language": "Dil",
+  "openSearch": "Aramayı aç",
+  "closeSearch": "Aramayı kapat",
+  "toggleMenu": "Menüyü değiştir"
 }

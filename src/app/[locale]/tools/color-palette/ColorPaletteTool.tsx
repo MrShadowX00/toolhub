@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Upload, Copy, Check, ImageIcon } from "lucide-react";
 
 interface ColorInfo {
@@ -228,7 +229,7 @@ function getHarmonyColors(
   ];
 }
 
-function CopyButton({ text }: { text: string }) {
+function CopyButton({ text, copyLabel }: { text: string; copyLabel: string }) {
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
@@ -239,7 +240,7 @@ function CopyButton({ text }: { text: string }) {
     <button
       onClick={handleCopy}
       className="rounded p-1 text-gray-500 transition-colors hover:bg-gray-700 hover:text-white"
-      title="Copy"
+      title={copyLabel}
     >
       {copied ? (
         <Check className="h-3 w-3 text-green-400" />
@@ -251,6 +252,7 @@ function CopyButton({ text }: { text: string }) {
 }
 
 export default function ColorPaletteTool() {
+  const t = useTranslations("toolUi");
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [colors, setColors] = useState<ColorInfo[]>([]);
   const [harmonies, setHarmonies] = useState<
@@ -320,7 +322,7 @@ export default function ColorPaletteTool() {
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
         )}
         <p className="text-sm text-gray-400">
-          {imageSrc ? "Click to upload a different image" : "Click to upload an image"}
+          {t("dragDrop")}
         </p>
         <p className="mt-1 text-xs text-gray-500">PNG, JPG, WebP, etc.</p>
       </div>
@@ -336,7 +338,7 @@ export default function ColorPaletteTool() {
         <div className="flex items-center justify-center py-8">
           <div className="h-6 w-6 animate-spin rounded-full border-2 border-purple-500 border-t-transparent" />
           <span className="ml-3 text-sm text-gray-400">
-            Extracting colors...
+            {t("processing")}
           </span>
         </div>
       )}
@@ -345,7 +347,7 @@ export default function ColorPaletteTool() {
       {colors.length > 0 && !extracting && (
         <div>
           <h3 className="mb-3 text-lg font-semibold text-white">
-            Dominant Colors
+            {t("extractColors")}
           </h3>
           {/* Palette bar */}
           <div className="mb-4 flex h-16 overflow-hidden rounded-xl">
@@ -378,13 +380,13 @@ export default function ColorPaletteTool() {
                     <span className="text-xs font-medium text-white">
                       {c.hex.toUpperCase()}
                     </span>
-                    <CopyButton text={c.hex} />
+                    <CopyButton text={c.hex} copyLabel={t("copy")} />
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-gray-400">
                       rgb({c.rgb.join(", ")})
                     </span>
-                    <CopyButton text={`rgb(${c.rgb.join(", ")})`} />
+                    <CopyButton text={`rgb(${c.rgb.join(", ")})`} copyLabel={t("copy")} />
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-gray-400">
@@ -392,6 +394,7 @@ export default function ColorPaletteTool() {
                     </span>
                     <CopyButton
                       text={`hsl(${c.hsl[0]}, ${c.hsl[1]}%, ${c.hsl[2]}%)`}
+                      copyLabel={t("copy")}
                     />
                   </div>
                 </div>
@@ -405,7 +408,7 @@ export default function ColorPaletteTool() {
       {harmonies.length > 0 && !extracting && (
         <div>
           <h3 className="mb-3 text-lg font-semibold text-white">
-            Color Harmonies
+            {t("palette")}
           </h3>
           <p className="mb-4 text-sm text-gray-400">
             Based on the dominant color{" "}
@@ -449,7 +452,7 @@ export default function ColorPaletteTool() {
                         <span className="font-mono text-xs text-gray-300">
                           {color.toUpperCase()}
                         </span>
-                        <CopyButton text={color} />
+                        <CopyButton text={color} copyLabel={t("copy")} />
                       </div>
                     ))}
                   </div>
@@ -465,7 +468,7 @@ export default function ColorPaletteTool() {
         <div className="flex flex-col items-center py-12 text-center">
           <ImageIcon className="mb-3 h-16 w-16 text-gray-700" />
           <p className="text-gray-500">
-            Upload an image to extract its color palette
+            {t("resultWillAppear")}
           </p>
         </div>
       )}

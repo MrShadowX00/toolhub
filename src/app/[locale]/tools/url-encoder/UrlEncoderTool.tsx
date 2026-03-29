@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, X, ArrowRightLeft } from "lucide-react";
 
 // ---------------------------------------------------------------------------
@@ -144,6 +145,7 @@ function HighlightedOutput({ segments }: { segments: Segment[] }) {
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
+  const t = useTranslations("toolUi");
 
   const handleCopy = useCallback(() => {
     if (!text) return;
@@ -166,12 +168,12 @@ function CopyButton({ text }: { text: string }) {
       {copied ? (
         <>
           <Check className="h-3.5 w-3.5" />
-          Copied
+          {t("copied")}
         </>
       ) : (
         <>
           <Copy className="h-3.5 w-3.5" />
-          Copy
+          {t("copy")}
         </>
       )}
     </button>
@@ -183,6 +185,7 @@ function CopyButton({ text }: { text: string }) {
 // ---------------------------------------------------------------------------
 
 export default function UrlEncoderTool() {
+  const t = useTranslations("toolUi");
   const [activeTab, setActiveTab] = useState<ActiveTab>("encode");
   const [encodeInput, setEncodeInput] = useState("");
   const [decodeInput, setDecodeInput] = useState("");
@@ -213,7 +216,7 @@ export default function UrlEncoderTool() {
                 : "text-gray-400 hover:text-gray-200"
             }`}
           >
-            {tab === "encode" ? "Encode" : "Decode"}
+            {tab === "encode" ? t("encode") : t("decode")}
           </button>
         ))}
       </div>
@@ -256,10 +259,10 @@ export default function UrlEncoderTool() {
           {/* Input */}
           <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
-              <span className="text-sm font-medium text-gray-300">Input</span>
+              <span className="text-sm font-medium text-gray-300">{t("input")}</span>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-500">
-                  {encodeInput.length.toLocaleString()} chars
+                  {encodeInput.length.toLocaleString()} {t("characters").toLowerCase()}
                 </span>
                 {encodeInput && (
                   <button
@@ -267,7 +270,7 @@ export default function UrlEncoderTool() {
                     className="flex items-center gap-1 rounded px-2 py-0.5 text-xs text-gray-500 hover:text-gray-300 hover:bg-gray-700 transition-colors"
                   >
                     <X className="h-3 w-3" />
-                    Clear
+                    {t("clear")}
                   </button>
                 )}
               </div>
@@ -275,7 +278,7 @@ export default function UrlEncoderTool() {
             <textarea
               value={encodeInput}
               onChange={(e) => setEncodeInput(e.target.value)}
-              placeholder="Enter text or URL to encode&#10;e.g. https://example.com/search?q=hello world&lang=en"
+              placeholder={t("enterTextOrUrl")}
               className="w-full bg-gray-900 text-gray-100 font-mono text-sm p-4 resize-none focus:outline-none placeholder-gray-600 min-h-[140px]"
               spellCheck={false}
             />
@@ -285,7 +288,7 @@ export default function UrlEncoderTool() {
           <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-300">Encoded Output</span>
+                <span className="text-sm font-medium text-gray-300">{t("output")}</span>
                 {encodeInput && changedEncodeCount > 0 && (
                   <span className="rounded-full bg-yellow-400/15 px-2 py-0.5 text-xs text-yellow-400">
                     {changedEncodeCount} change{changedEncodeCount !== 1 ? "s" : ""}
@@ -301,10 +304,10 @@ export default function UrlEncoderTool() {
                       setActiveTab("decode");
                     }}
                     className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-700 transition-colors"
-                    title="Send to Decode"
+                    title={t("decode")}
                   >
                     <ArrowRightLeft className="h-3.5 w-3.5" />
-                    Use in Decode
+                    {t("decode")}
                   </button>
                 )}
                 <CopyButton text={encodedOutput} />
@@ -318,14 +321,14 @@ export default function UrlEncoderTool() {
                       {encodedOutput}
                     </p>
                     <p className="text-xs text-gray-500 mt-2">
-                      No characters needed encoding.
+                      {t("noChange")}
                     </p>
                   </div>
                 ) : (
                   <HighlightedOutput segments={encodeSegments} />
                 )
               ) : (
-                <p className="text-gray-600 font-mono">Output will appear here…</p>
+                <p className="text-gray-600 font-mono">{t("resultWillAppear")}</p>
               )}
             </div>
           </div>
@@ -336,7 +339,7 @@ export default function UrlEncoderTool() {
               <mark className="bg-yellow-400/25 text-yellow-300 rounded-sm px-1 not-italic">
                 highlighted
               </mark>
-              characters were encoded
+              {t("encode").toLowerCase()}
             </p>
           )}
         </div>
@@ -380,10 +383,10 @@ export default function UrlEncoderTool() {
           {/* Input */}
           <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
-              <span className="text-sm font-medium text-gray-300">Input</span>
+              <span className="text-sm font-medium text-gray-300">{t("input")}</span>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-500">
-                  {decodeInput.length.toLocaleString()} chars
+                  {decodeInput.length.toLocaleString()} {t("characters").toLowerCase()}
                 </span>
                 {decodeInput && (
                   <button
@@ -391,7 +394,7 @@ export default function UrlEncoderTool() {
                     className="flex items-center gap-1 rounded px-2 py-0.5 text-xs text-gray-500 hover:text-gray-300 hover:bg-gray-700 transition-colors"
                   >
                     <X className="h-3 w-3" />
-                    Clear
+                    {t("clear")}
                   </button>
                 )}
               </div>
@@ -399,7 +402,7 @@ export default function UrlEncoderTool() {
             <textarea
               value={decodeInput}
               onChange={(e) => setDecodeInput(e.target.value)}
-              placeholder="Enter a percent-encoded string to decode&#10;e.g. https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dhello%20world"
+              placeholder={t("enterTextOrUrl")}
               className="w-full bg-gray-900 text-gray-100 font-mono text-sm p-4 resize-none focus:outline-none placeholder-gray-600 min-h-[140px]"
               spellCheck={false}
             />
@@ -409,7 +412,7 @@ export default function UrlEncoderTool() {
           <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-gray-300">Decoded Output</span>
+                <span className="text-sm font-medium text-gray-300">{t("output")}</span>
                 {decodeInput && changedDecodeCount > 0 && (
                   <span className="rounded-full bg-green-400/15 px-2 py-0.5 text-xs text-green-400">
                     {changedDecodeCount} change{changedDecodeCount !== 1 ? "s" : ""}
@@ -425,10 +428,10 @@ export default function UrlEncoderTool() {
                       setActiveTab("encode");
                     }}
                     className="flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium text-gray-400 hover:text-gray-200 hover:bg-gray-700 transition-colors"
-                    title="Send to Encode"
+                    title={t("encode")}
                   >
                     <ArrowRightLeft className="h-3.5 w-3.5" />
-                    Use in Encode
+                    {t("encode")}
                   </button>
                 )}
                 <CopyButton text={decodedOutput} />
@@ -442,7 +445,7 @@ export default function UrlEncoderTool() {
                       {decodedOutput}
                     </p>
                     <p className="text-xs text-gray-500 mt-2">
-                      No percent-encoded sequences found.
+                      {t("noChange")}
                     </p>
                   </div>
                 ) : (
@@ -455,7 +458,7 @@ export default function UrlEncoderTool() {
                   />
                 )
               ) : (
-                <p className="text-gray-600 font-mono">Output will appear here…</p>
+                <p className="text-gray-600 font-mono">{t("resultWillAppear")}</p>
               )}
             </div>
           </div>
@@ -466,7 +469,7 @@ export default function UrlEncoderTool() {
               <mark className="bg-yellow-400/25 text-yellow-300 rounded-sm px-1 not-italic">
                 highlighted
               </mark>
-              characters were decoded
+              {t("decode").toLowerCase()}
             </p>
           )}
         </div>
@@ -475,7 +478,7 @@ export default function UrlEncoderTool() {
       {/* Reference card */}
       <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4">
         <h3 className="mb-3 text-sm font-semibold text-gray-300">
-          Common Encoded Characters
+          {t("commonPresets")}
         </h3>
         <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-3 md:grid-cols-4">
           {[

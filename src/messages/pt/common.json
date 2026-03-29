@@ -19,5 +19,8 @@
     "description": "A ferramenta ou pagina que voce procura nao existe.",
     "backHome": "Voltar ao inicio"
   },
-  "language": "Idioma"
+  "language": "Idioma",
+  "openSearch": "Abrir pesquisa",
+  "closeSearch": "Fechar pesquisa",
+  "toggleMenu": "Alternar menu"
 }

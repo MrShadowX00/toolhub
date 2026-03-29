@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Search,
   Calendar,
@@ -64,6 +65,7 @@ function formatDate(dateStr: string | undefined): string {
 }
 
 export default function DomainAgeTool() {
+  const t = useTranslations("toolUi");
   const [domain, setDomain] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -76,7 +78,7 @@ export default function DomainAgeTool() {
       .replace(/^https?:\/\//, "")
       .replace(/\/.*$/, "");
     if (!cleaned) {
-      setError("Please enter a domain name");
+      setError(t("pleaseEnterDomain"));
       return;
     }
 
@@ -89,7 +91,7 @@ export default function DomainAgeTool() {
       const res = await fetch(
         `https://whois.freeaiapi.xyz/?name=${encodeURIComponent(cleaned)}`
       );
-      if (!res.ok) throw new Error("Failed to fetch WHOIS data");
+      if (!res.ok) throw new Error(t("error"));
       const data = await res.json();
 
       if (data.error) throw new Error(data.error);
@@ -109,7 +111,7 @@ export default function DomainAgeTool() {
       }
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to lookup domain"
+        err instanceof Error ? err.message : t("error")
       );
     } finally {
       setLoading(false);
@@ -133,7 +135,7 @@ export default function DomainAgeTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
           <label className="mb-2 block text-sm font-medium text-gray-300">
-            Domain Name
+            {t("domainName")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -143,7 +145,7 @@ export default function DomainAgeTool() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleLookup()}
-                placeholder="e.g. google.com"
+                placeholder={t("enterDomain")}
                 className="w-full rounded-lg border border-gray-700 bg-gray-800 py-2.5 pl-10 pr-4 text-white placeholder-gray-500 transition-colors focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
               />
             </div>
@@ -157,7 +159,7 @@ export default function DomainAgeTool() {
               ) : (
                 <Search className="h-4 w-4" />
               )}
-              {loading ? "Checking..." : "Check Age"}
+              {loading ? t("checking") : t("check")}
             </button>
           </div>
         </div>
@@ -176,37 +178,37 @@ export default function DomainAgeTool() {
             {/* Age Card */}
             <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
               <h3 className="mb-4 text-lg font-semibold text-white">
-                Domain Age
+                {t("age")}
               </h3>
               <div className="grid grid-cols-3 gap-4">
                 <div className="rounded-lg bg-gray-800 p-4 text-center">
                   <div className="text-3xl font-bold text-green-400">
                     {age.years}
                   </div>
-                  <div className="mt-1 text-sm text-gray-400">Years</div>
+                  <div className="mt-1 text-sm text-gray-400">{t("years")}</div>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-4 text-center">
                   <div className="text-3xl font-bold text-blue-400">
                     {age.months}
                   </div>
-                  <div className="mt-1 text-sm text-gray-400">Months</div>
+                  <div className="mt-1 text-sm text-gray-400">{t("months")}</div>
                 </div>
                 <div className="rounded-lg bg-gray-800 p-4 text-center">
                   <div className="text-3xl font-bold text-purple-400">
                     {age.days}
                   </div>
-                  <div className="mt-1 text-sm text-gray-400">Days</div>
+                  <div className="mt-1 text-sm text-gray-400">{t("days")}</div>
                 </div>
               </div>
               <p className="mt-3 text-center text-sm text-gray-500">
-                Total: {age.totalDays.toLocaleString()} days
+                {age.totalDays.toLocaleString()} {t("days")}
               </p>
 
               {/* Visual timeline bar */}
               <div className="mt-5">
                 <div className="mb-1 flex justify-between text-xs text-gray-500">
                   <span>{formatDate(creationDate)}</span>
-                  <span>Today</span>
+                  <span>{t("date")}</span>
                 </div>
                 <div className="h-3 w-full overflow-hidden rounded-full bg-gray-800">
                   <div
@@ -214,23 +216,20 @@ export default function DomainAgeTool() {
                     style={{ width: `${progressPercent}%` }}
                   />
                 </div>
-                <p className="mt-1 text-center text-xs text-gray-600">
-                  Timeline (max 30 years)
-                </p>
               </div>
             </div>
 
             {/* Details Card */}
             <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
               <h3 className="mb-4 text-lg font-semibold text-white">
-                WHOIS Details
+                {t("info")}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3 rounded-lg bg-gray-800 p-4">
                   <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-green-400" />
                   <div>
                     <div className="text-sm font-medium text-gray-400">
-                      Created Date
+                      {t("createdDate")}
                     </div>
                     <div className="text-white">
                       {formatDate(creationDate)}
@@ -242,7 +241,7 @@ export default function DomainAgeTool() {
                   <RefreshCw className="mt-0.5 h-5 w-5 shrink-0 text-blue-400" />
                   <div>
                     <div className="text-sm font-medium text-gray-400">
-                      Updated Date
+                      {t("date")}
                     </div>
                     <div className="text-white">
                       {formatDate(updatedDate)}
@@ -254,7 +253,7 @@ export default function DomainAgeTool() {
                   <Clock className="mt-0.5 h-5 w-5 shrink-0 text-yellow-400" />
                   <div>
                     <div className="text-sm font-medium text-gray-400">
-                      Expires Date
+                      {t("expiryDate")}
                     </div>
                     <div className="text-white">
                       {formatDate(expirationDate)}
@@ -266,7 +265,7 @@ export default function DomainAgeTool() {
                   <Building2 className="mt-0.5 h-5 w-5 shrink-0 text-purple-400" />
                   <div>
                     <div className="text-sm font-medium text-gray-400">
-                      Registrar
+                      {t("registrar")}
                     </div>
                     <div className="text-white">
                       {registrar || "N/A"}

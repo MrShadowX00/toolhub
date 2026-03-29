@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, Clock } from "lucide-react";
 
 // ---------------------------------------------------------------------------
@@ -70,6 +71,7 @@ function validateUnixSeconds(value: number): string | null {
 
 function CopyButton({ value }: { value: string }) {
   const [copied, setCopied] = useState(false);
+  const t = useTranslations("toolUi");
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(value).then(() => {
@@ -81,7 +83,7 @@ function CopyButton({ value }: { value: string }) {
   return (
     <button
       onClick={handleCopy}
-      title="Copy to clipboard"
+      title={t("copyToClipboard")}
       className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
         copied
           ? "bg-green-600/20 text-green-400"
@@ -91,12 +93,12 @@ function CopyButton({ value }: { value: string }) {
       {copied ? (
         <>
           <Check className="h-3.5 w-3.5" />
-          Copied
+          {t("copied")}
         </>
       ) : (
         <>
           <Copy className="h-3.5 w-3.5" />
-          Copy
+          {t("copy")}
         </>
       )}
     </button>
@@ -108,6 +110,7 @@ function CopyButton({ value }: { value: string }) {
 // ---------------------------------------------------------------------------
 
 function LiveClock({ unit }: { unit: "s" | "ms" }) {
+  const t = useTranslations("toolUi");
   const [now, setNow] = useState<number>(() =>
     unit === "ms" ? Date.now() : Math.floor(Date.now() / 1000),
   );
@@ -126,7 +129,7 @@ function LiveClock({ unit }: { unit: "s" | "ms" }) {
       <div className="mb-3 flex items-center gap-2">
         <Clock className="h-4 w-4 text-blue-400" />
         <span className="text-sm font-semibold text-gray-300">
-          Current Unix Timestamp
+          {t("currentTimestamp")}
         </span>
         <span className="ml-auto rounded bg-gray-700 px-2 py-0.5 text-xs text-gray-400">
           live
@@ -141,7 +144,7 @@ function LiveClock({ unit }: { unit: "s" | "ms" }) {
       </div>
 
       <p className="mt-2 text-xs text-gray-500">
-        {unit === "ms" ? "Milliseconds" : "Seconds"} since Unix epoch
+        {unit === "ms" ? "Milliseconds" : t("seconds")} since Unix epoch
         (1970-01-01 00:00:00 UTC)
       </p>
     </div>
@@ -153,11 +156,12 @@ function LiveClock({ unit }: { unit: "s" | "ms" }) {
 // ---------------------------------------------------------------------------
 
 function TimezoneTable({ date }: { date: Date }) {
+  const t = useTranslations("toolUi");
   return (
     <div className="overflow-hidden rounded-xl border border-gray-700 bg-gray-800">
       <div className="border-b border-gray-700 bg-gray-900 px-4 py-2">
         <span className="text-sm font-semibold text-gray-300">
-          Timestamp in multiple timezones
+          {t("timestamp")} - {t("timezone")}
         </span>
       </div>
       <table className="w-full text-sm">
@@ -186,6 +190,7 @@ function TimezoneTable({ date }: { date: Date }) {
 // ---------------------------------------------------------------------------
 
 function UnixToHuman({ unit }: { unit: "s" | "ms" }) {
+  const t = useTranslations("toolUi");
   const [input, setInput] = useState("");
   const [result, setResult] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -193,14 +198,14 @@ function UnixToHuman({ unit }: { unit: "s" | "ms" }) {
   const convert = useCallback(() => {
     const trimmed = input.trim();
     if (!trimmed) {
-      setError("Please enter a timestamp.");
+      setError(t("pleaseEnterTimestamp"));
       setResult(null);
       return;
     }
 
     const raw = Number(trimmed);
     if (Number.isNaN(raw)) {
-      setError("Input is not a valid number.");
+      setError(t("invalidInput"));
       setResult(null);
       return;
     }
@@ -216,14 +221,14 @@ function UnixToHuman({ unit }: { unit: "s" | "ms" }) {
     const ms = unit === "ms" ? raw : raw * 1000;
     const date = new Date(ms);
     if (isNaN(date.getTime())) {
-      setError("Could not construct a valid date from this timestamp.");
+      setError(t("invalidInput"));
       setResult(null);
       return;
     }
 
     setError(null);
     setResult(date);
-  }, [input, unit]);
+  }, [input, unit, t]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -235,7 +240,7 @@ function UnixToHuman({ unit }: { unit: "s" | "ms" }) {
   return (
     <div className="rounded-xl border border-gray-700 bg-gray-800 p-5 space-y-4">
       <h2 className="text-sm font-semibold text-gray-300">
-        Unix Timestamp &rarr; Human Date
+        {t("timestamp")} &rarr; {t("date")}
       </h2>
 
       <div className="flex gap-2">
@@ -256,7 +261,7 @@ function UnixToHuman({ unit }: { unit: "s" | "ms" }) {
           onClick={convert}
           className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-500 active:bg-blue-700"
         >
-          Convert
+          {t("convert")}
         </button>
       </div>
 
@@ -289,6 +294,7 @@ function UnixToHuman({ unit }: { unit: "s" | "ms" }) {
 // ---------------------------------------------------------------------------
 
 function HumanToUnix({ unit }: { unit: "s" | "ms" }) {
+  const t = useTranslations("toolUi");
   // Default to current local time
   const [input, setInput] = useState(() => toDatetimeLocal(new Date()));
   const [result, setResult] = useState<number | null>(null);
@@ -298,14 +304,14 @@ function HumanToUnix({ unit }: { unit: "s" | "ms" }) {
   /* eslint-disable react-hooks/set-state-in-effect -- synchronize computed result from input */
   useEffect(() => {
     if (!input) {
-      setError("Please select a date and time.");
+      setError(t("pleaseEnter"));
       setResult(null);
       return;
     }
 
     const date = new Date(input);
     if (isNaN(date.getTime())) {
-      setError("Could not parse the selected date and time.");
+      setError(t("invalidInput"));
       setResult(null);
       return;
     }
@@ -321,7 +327,7 @@ function HumanToUnix({ unit }: { unit: "s" | "ms" }) {
 
     setError(null);
     setResult(unit === "ms" ? ms : Math.floor(seconds));
-  }, [input, unit]);
+  }, [input, unit, t]);
   /* eslint-enable react-hooks/set-state-in-effect */
 
   const display = result !== null ? String(result) : "";
@@ -329,7 +335,7 @@ function HumanToUnix({ unit }: { unit: "s" | "ms" }) {
   return (
     <div className="rounded-xl border border-gray-700 bg-gray-800 p-5 space-y-4">
       <h2 className="text-sm font-semibold text-gray-300">
-        Date / Time &rarr; Unix Timestamp
+        {t("date")} / {t("time")} &rarr; {t("timestamp")}
       </h2>
 
       <input
@@ -351,7 +357,7 @@ function HumanToUnix({ unit }: { unit: "s" | "ms" }) {
           <div className="flex items-center justify-between rounded-lg border border-gray-700 bg-gray-900 px-4 py-3">
             <div>
               <p className="text-xs text-gray-500 mb-0.5">
-                Unix timestamp ({unit === "ms" ? "milliseconds" : "seconds"})
+                {t("timestamp")} ({unit === "ms" ? "ms" : t("seconds")})
               </p>
               <p className="font-mono text-2xl font-bold text-white">
                 {display}
@@ -378,6 +384,7 @@ function UnitToggle({
   unit: "s" | "ms";
   onChange: (u: "s" | "ms") => void;
 }) {
+  const t = useTranslations("toolUi");
   return (
     <div className="flex items-center gap-1 rounded-lg border border-gray-700 bg-gray-800 p-1">
       {(["s", "ms"] as const).map((u) => (
@@ -390,7 +397,7 @@ function UnitToggle({
               : "text-gray-400 hover:text-gray-200"
           }`}
         >
-          {u === "s" ? "Seconds" : "Milliseconds"}
+          {u === "s" ? t("seconds") : "Milliseconds"}
         </button>
       ))}
     </div>
@@ -402,13 +409,14 @@ function UnitToggle({
 // ---------------------------------------------------------------------------
 
 export default function UnixTimestampTool() {
+  const t = useTranslations("toolUi");
   const [unit, setUnit] = useState<"s" | "ms">("s");
 
   return (
     <div className="space-y-6">
       {/* Unit toggle */}
       <div className="flex items-center gap-3">
-        <span className="text-sm text-gray-400">Unit:</span>
+        <span className="text-sm text-gray-400">{t("type")}:</span>
         <UnitToggle unit={unit} onChange={setUnit} />
       </div>
 

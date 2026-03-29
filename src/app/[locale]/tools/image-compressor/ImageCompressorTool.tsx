@@ -2,8 +2,10 @@
 
 import { useState, useRef, useCallback } from "react";
 import { Upload, Download, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ImageCompressorTool() {
+  const t = useTranslations("toolUi");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [compressedUrl, setCompressedUrl] = useState<string | null>(null);
@@ -85,7 +87,7 @@ export default function ImageCompressorTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. All processing happens in your browser.</p>
+        <p className="text-xs text-gray-500">{t("privacyNotice")}</p>
       </div>
 
       {!file ? (
@@ -96,8 +98,8 @@ export default function ImageCompressorTool() {
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-16 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
         >
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
-          <p className="text-sm font-medium text-white">Drop an image here or click to upload</p>
-          <p className="mt-1 text-xs text-gray-500">Supports JPG, PNG, WebP</p>
+          <p className="text-sm font-medium text-white">{t("dropImageOrClick")}</p>
+          <p className="mt-1 text-xs text-gray-500">{t("supportsJpgPngWebp")}</p>
           <input
             ref={inputRef}
             type="file"
@@ -111,9 +113,9 @@ export default function ImageCompressorTool() {
           {/* Quality Slider */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
             <div className="flex items-center justify-between mb-3">
-              <label className="text-sm font-medium text-white">Quality: {quality}%</label>
+              <label className="text-sm font-medium text-white">{t("qualityPercent", { value: quality })}</label>
               <button onClick={reset} className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300">
-                <Trash2 className="h-3 w-3" /> Remove
+                <Trash2 className="h-3 w-3" /> {t("remove")}
               </button>
             </div>
             <input
@@ -125,22 +127,22 @@ export default function ImageCompressorTool() {
               className="w-full accent-pink-500"
             />
             <div className="mt-2 flex justify-between text-xs text-gray-500">
-              <span>1% (smallest)</span>
-              <span>100% (best quality)</span>
+              <span>{t("smallestSize")}</span>
+              <span>{t("bestQuality")}</span>
             </div>
           </div>
 
           {/* Size Comparison */}
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-              <p className="text-xs text-gray-500 mb-1">Original</p>
+              <p className="text-xs text-gray-500 mb-1">{t("original")}</p>
               <p className="text-lg font-bold text-white">{formatSize(originalSize)}</p>
             </div>
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-              <p className="text-xs text-gray-500 mb-1">Compressed</p>
+              <p className="text-xs text-gray-500 mb-1">{t("compressed")}</p>
               <p className="text-lg font-bold text-green-400">{formatSize(compressedSize)}</p>
               {Number(savings) > 0 && (
-                <p className="text-xs text-green-500 mt-1">-{savings}% smaller</p>
+                <p className="text-xs text-green-500 mt-1">{t("percentSmaller", { value: savings })}</p>
               )}
             </div>
           </div>
@@ -148,12 +150,12 @@ export default function ImageCompressorTool() {
           {/* Before/After Preview */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
-              <p className="mb-2 text-xs font-medium text-gray-400">Original</p>
-              {preview && <img src={preview} alt="Original" className="w-full rounded-lg object-contain max-h-64" />}
+              <p className="mb-2 text-xs font-medium text-gray-400">{t("original")}</p>
+              {preview && <img src={preview} alt={t("original")} className="w-full rounded-lg object-contain max-h-64" />}
             </div>
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
-              <p className="mb-2 text-xs font-medium text-gray-400">Compressed</p>
-              {compressedUrl && <img src={compressedUrl} alt="Compressed" className="w-full rounded-lg object-contain max-h-64" />}
+              <p className="mb-2 text-xs font-medium text-gray-400">{t("compressed")}</p>
+              {compressedUrl && <img src={compressedUrl} alt={t("compressed")} className="w-full rounded-lg object-contain max-h-64" />}
             </div>
           </div>
 
@@ -164,14 +166,14 @@ export default function ImageCompressorTool() {
               download={`compressed-${file.name}`}
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-600 px-6 py-3 font-medium text-white transition-colors hover:bg-pink-700"
             >
-              <Download className="h-4 w-4" /> Download Compressed Image
+              <Download className="h-4 w-4" /> {t("downloadCompressedImage")}
             </a>
           )}
 
           {processing && (
             <div className="flex items-center justify-center gap-2 rounded-xl border border-gray-800 bg-gray-900/50 py-4">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-pink-500 border-t-transparent" />
-              <span className="text-sm text-gray-400">Compressing...</span>
+              <span className="text-sm text-gray-400">{t("compressing")}</span>
             </div>
           )}
         </>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   Search,
   Loader2,
@@ -35,6 +36,7 @@ interface HeadersResult {
 }
 
 export default function HttpHeadersTool() {
+  const t = useTranslations("toolUi");
   const [url, setUrl] = useState("");
   const [result, setResult] = useState<HeadersResult | null>(null);
   const [loading, setLoading] = useState(false);
@@ -44,7 +46,7 @@ export default function HttpHeadersTool() {
   const handleCheck = useCallback(async () => {
     const cleaned = url.trim();
     if (!cleaned) {
-      setError("Please enter a URL.");
+      setError(t("pleaseEnterUrl"));
       return;
     }
 
@@ -61,12 +63,12 @@ export default function HttpHeadersTool() {
       setResult(data as HeadersResult);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to fetch headers."
+        err instanceof Error ? err.message : t("error")
       );
     } finally {
       setLoading(false);
     }
-  }, [url]);
+  }, [url, t]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleCheck();
@@ -104,7 +106,7 @@ export default function HttpHeadersTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            URL
+            {t("url")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -114,7 +116,7 @@ export default function HttpHeadersTool() {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="https://example.com"
+                placeholder={t("enterUrl")}
                 className="w-full rounded-lg border border-gray-700 bg-gray-800 py-2.5 pl-10 pr-4 text-sm text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors"
               />
             </div>
@@ -128,7 +130,7 @@ export default function HttpHeadersTool() {
               ) : (
                 <Search className="h-4 w-4" />
               )}
-              Inspect
+              {t("check")}
             </button>
           </div>
         </div>
@@ -138,7 +140,7 @@ export default function HttpHeadersTool() {
           <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
             <AlertCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
             <div className="flex-1">
-              <p className="text-sm font-medium text-red-300">Request Failed</p>
+              <p className="text-sm font-medium text-red-300">{t("error")}</p>
               <p className="mt-1 text-sm text-red-400">{error}</p>
             </div>
             <button onClick={() => setError(null)} className="text-red-400 hover:text-red-300">
@@ -152,7 +154,7 @@ export default function HttpHeadersTool() {
           <div className="flex items-center justify-center rounded-xl border border-gray-800 bg-gray-900/50 py-16">
             <div className="flex flex-col items-center gap-3">
               <Loader2 className="h-8 w-8 text-indigo-400 animate-spin" />
-              <p className="text-sm text-gray-400">Fetching headers...</p>
+              <p className="text-sm text-gray-400">{t("loading")}</p>
             </div>
           </div>
         )}
@@ -187,12 +189,12 @@ export default function HttpHeadersTool() {
                 {copied ? (
                   <>
                     <Check className="h-3.5 w-3.5" />
-                    Copied
+                    {t("copied")}
                   </>
                 ) : (
                   <>
                     <Copy className="h-3.5 w-3.5" />
-                    Copy All
+                    {t("copy")}
                   </>
                 )}
               </button>
@@ -203,10 +205,10 @@ export default function HttpHeadersTool() {
               <div className="px-4 py-3 border-b border-gray-700 bg-gray-800 flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-indigo-400" />
                 <span className="text-sm font-medium text-gray-300">
-                  Security Headers Audit
+                  {t("responseHeaders")}
                 </span>
                 <span className="ml-auto text-xs text-gray-500">
-                  {presentSecurity.length}/{securityHeaderKeys.length} present
+                  {presentSecurity.length}/{securityHeaderKeys.length}
                 </span>
               </div>
               <div className="p-4 space-y-2">
@@ -225,7 +227,7 @@ export default function HttpHeadersTool() {
                             {header}
                           </span>
                           <span className="inline-flex rounded bg-green-500/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-green-400">
-                            Present
+                            {t("success")}
                           </span>
                         </div>
                         <p className="mt-0.5 text-xs text-gray-500">
@@ -249,7 +251,7 @@ export default function HttpHeadersTool() {
                           {header}
                         </span>
                         <span className="inline-flex rounded bg-yellow-500/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-yellow-400">
-                          Missing
+                          {t("warning")}
                         </span>
                       </div>
                       <p className="mt-0.5 text-xs text-gray-500">
@@ -266,7 +268,7 @@ export default function HttpHeadersTool() {
             <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
               <div className="px-4 py-3 border-b border-gray-700 bg-gray-800">
                 <span className="text-sm font-medium text-gray-300">
-                  All Response Headers
+                  {t("responseHeaders")}
                 </span>
                 <span className="ml-2 text-xs text-gray-500">
                   ({Object.keys(result.headers).length})
@@ -277,10 +279,10 @@ export default function HttpHeadersTool() {
                   <thead>
                     <tr className="border-b border-gray-800">
                       <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-400 w-1/3">
-                        Header
+                        {t("header")}
                       </th>
                       <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
-                        Value
+                        {t("value")}
                       </th>
                     </tr>
                   </thead>

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { Plus, X, Clock, Search, ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const MAX_TARGETS = 5;
 
@@ -92,6 +93,9 @@ interface TimezoneSearchSelectProps {
   onChange: (tz: string) => void;
   timezones: string[];
   label: string;
+  searchPlaceholder: string;
+  noResultsText: string;
+  selectPlaceholder: string;
 }
 
 function TimezoneSearchSelect({
@@ -99,6 +103,9 @@ function TimezoneSearchSelect({
   onChange,
   timezones,
   label,
+  searchPlaceholder,
+  noResultsText,
+  selectPlaceholder,
 }: TimezoneSearchSelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -140,7 +147,7 @@ function TimezoneSearchSelect({
         className="flex w-full items-center justify-between rounded-lg border border-gray-700 bg-gray-800 px-3 py-2.5 text-left text-sm text-white transition-colors hover:border-orange-500/50 focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
       >
         <span className="truncate">
-          {value ? formatTzDisplay(value) : "Select timezone..."}
+          {value ? formatTzDisplay(value) : selectPlaceholder}
         </span>
         <ChevronDown
           className={`ml-2 h-4 w-4 shrink-0 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
@@ -154,7 +161,7 @@ function TimezoneSearchSelect({
               <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search timezones..."
+                placeholder={searchPlaceholder}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full rounded-md border border-gray-600 bg-gray-900 py-1.5 pl-8 pr-3 text-sm text-white placeholder-gray-500 focus:border-orange-500 focus:outline-none"
@@ -165,7 +172,7 @@ function TimezoneSearchSelect({
           <ul className="max-h-56 overflow-y-auto py-1">
             {filtered.length === 0 ? (
               <li className="px-3 py-2 text-sm text-gray-500">
-                No timezones found
+                {noResultsText}
               </li>
             ) : (
               filtered.map((tz) => (
@@ -196,6 +203,7 @@ function TimezoneSearchSelect({
 }
 
 export default function TimeZoneConverterTool() {
+  const t = useTranslations("toolUi");
   const timezones = useMemo(() => getTimezones(), []);
 
   const localTz = useMemo(() => {
@@ -257,12 +265,12 @@ export default function TimeZoneConverterTool() {
         {/* Source Input Section */}
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
           <h2 className="mb-4 text-lg font-semibold text-white">
-            Source Time
+            {t("sourceTime")}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div>
               <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                Date
+                {t("date")}
               </label>
               <input
                 type="date"
@@ -273,7 +281,7 @@ export default function TimeZoneConverterTool() {
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                Time
+                {t("time")}
               </label>
               <input
                 type="time"
@@ -287,7 +295,10 @@ export default function TimeZoneConverterTool() {
                 value={sourceTz}
                 onChange={setSourceTz}
                 timezones={timezones}
-                label="Source Timezone"
+                label={t("sourceTimezone")}
+                searchPlaceholder={t("searchTimezones")}
+                noResultsText={t("noTimezonesFound")}
+                selectPlaceholder={t("selectTimezone")}
               />
             </div>
           </div>
@@ -301,7 +312,7 @@ export default function TimeZoneConverterTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-white">
-              Target Timezones
+              {t("targetTimezones")}
             </h2>
             {targetTzs.length < MAX_TARGETS && (
               <button
@@ -310,7 +321,7 @@ export default function TimeZoneConverterTool() {
                 className="flex items-center gap-1.5 rounded-lg bg-orange-500/10 px-3 py-1.5 text-sm font-medium text-orange-400 transition-colors hover:bg-orange-500/20"
               >
                 <Plus className="h-4 w-4" />
-                Add Timezone
+                {t("addTimezone")}
               </button>
             )}
           </div>
@@ -329,7 +340,10 @@ export default function TimeZoneConverterTool() {
                         value={tz}
                         onChange={(newTz) => updateTarget(index, newTz)}
                         timezones={timezones}
-                        label={`Target ${index + 1}`}
+                        label={`${t("target")} ${index + 1}`}
+                        searchPlaceholder={t("searchTimezones")}
+                        noResultsText={t("noTimezonesFound")}
+                        selectPlaceholder={t("selectTimezone")}
                       />
                     </div>
                     {targetTzs.length > 1 && (
@@ -337,7 +351,7 @@ export default function TimeZoneConverterTool() {
                         type="button"
                         onClick={() => removeTarget(index)}
                         className="mt-7 rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-red-500/10 hover:text-red-400"
-                        aria-label={`Remove timezone ${formatTzDisplay(tz)}`}
+                        aria-label={`${t("removeTimezone")} ${formatTzDisplay(tz)}`}
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -362,7 +376,7 @@ export default function TimeZoneConverterTool() {
 
                   {!converted && dateInput && timeInput && (
                     <p className="mt-3 text-sm text-gray-500">
-                      Unable to convert time.
+                      {t("unableToConvert")}
                     </p>
                   )}
                 </div>
@@ -375,7 +389,7 @@ export default function TimeZoneConverterTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
           <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
             <Clock className="h-5 w-5 text-orange-400" />
-            Live Clocks
+            {t("liveClocks")}
           </h2>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {allZones.map((tz, index) => (

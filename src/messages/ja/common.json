@@ -19,5 +19,8 @@
     "description": "お探しのツールまたはページは存在しません。",
     "backHome": "ホームに戻る"
   },
-  "language": "言語"
+  "language": "言語",
+  "openSearch": "検索を開く",
+  "closeSearch": "検索を閉じる",
+  "toggleMenu": "メニュー切替"
 }

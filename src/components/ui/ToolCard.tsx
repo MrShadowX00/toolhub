@@ -43,7 +43,7 @@ export default function ToolCard({
             isNew && "bg-emerald-500/10 text-emerald-400",
             isPopular && !isNew && "bg-amber-500/10 text-amber-400"
           )}
-          aria-label={isNew ? "New tool" : "Popular tool"}
+          aria-label={isNew ? t("new") : t("popular")}
         >
           {isNew ? t("new") : t("popular")}
         </span>

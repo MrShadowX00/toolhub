@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 
-// ── helpers ──────────────────────────────────────────────────────────
+// -- helpers --
 
 type Octets = [number, number, number, number];
 
@@ -69,7 +70,7 @@ function usableHosts(cidr: number): number {
   return Math.pow(2, 32 - cidr) - 2;
 }
 
-// ── types ────────────────────────────────────────────────────────────
+// -- types --
 
 interface SubnetResult {
   networkAddress: Octets;
@@ -112,7 +113,7 @@ function calculateSubnet(ip: Octets, cidr: number): SubnetResult {
   };
 }
 
-// ── components ───────────────────────────────────────────────────────
+// -- components --
 
 function ResultCard({
   title,
@@ -140,9 +141,10 @@ function ResultRow({ label, value }: { label: string; value: string }) {
   );
 }
 
-// ── component ─────────────────────────────────────────────────────────
+// -- component --
 
 export default function SubnetCalculatorTool() {
+  const t = useTranslations("toolUi");
   const [octets, setOctets] = useState<Octets>([192, 168, 1, 0]);
   const [cidr, setCidr] = useState<number>(24);
   const [maskInput, setMaskInput] = useState<string>("255.255.255.0");
@@ -185,16 +187,16 @@ export default function SubnetCalculatorTool() {
         setCidr(c);
         setErrors([]);
       } else {
-        setErrors(["Invalid subnet mask (bits must be contiguous)"]);
+        setErrors([t("invalidSubnetMask")]);
       }
     },
-    [],
+    [t],
   );
 
   // validate
   const validationErrors: string[] = [...errors];
   if (octets.some((o) => !isValidOctet(o))) {
-    validationErrors.push("Each IP octet must be between 0 and 255");
+    validationErrors.push(t("octetError"));
   }
 
   const isValid = validationErrors.length === 0;
@@ -202,14 +204,14 @@ export default function SubnetCalculatorTool() {
 
   return (
       <div className="space-y-6">
-        {/* ── Input Section ────────────────────────────────── */}
+        {/* Input Section */}
         <div className="rounded-lg border border-gray-700 bg-gray-900 p-6">
-          <h2 className="mb-5 text-lg font-semibold text-white">Input</h2>
+          <h2 className="mb-5 text-lg font-semibold text-white">{t("input")}</h2>
 
           {/* IP Address */}
           <div className="mb-5">
             <label className="mb-2 block text-sm font-medium text-gray-300">
-              IP Address
+              {t("ipAddress")}
             </label>
             <div className="flex items-center gap-1">
               {octets.map((octet, i) => (
@@ -233,7 +235,7 @@ export default function SubnetCalculatorTool() {
           {/* CIDR */}
           <div className="mb-5">
             <label className="mb-2 block text-sm font-medium text-gray-300">
-              CIDR Prefix Length: /{cidr}
+              {t("cidrPrefixLength")} /{cidr}
             </label>
             <div className="flex items-center gap-4">
               <input
@@ -261,7 +263,7 @@ export default function SubnetCalculatorTool() {
           {/* Subnet Mask (alternative input) */}
           <div>
             <label className="mb-2 block text-sm font-medium text-gray-300">
-              Subnet Mask (alternative)
+              {t("subnetMaskAlternative")}
             </label>
             <input
               type="text"
@@ -284,49 +286,49 @@ export default function SubnetCalculatorTool() {
           )}
         </div>
 
-        {/* ── Results ──────────────────────────────────────── */}
+        {/* Results */}
         {result && (
           <div className="grid gap-6 md:grid-cols-2">
             {/* Network Info */}
-            <ResultCard title="Network Information">
+            <ResultCard title={t("networkInformation")}>
               <ResultRow
-                label="Network Address"
+                label={t("networkAddress")}
                 value={formatOctets(result.networkAddress)}
               />
               <ResultRow
-                label="Broadcast Address"
+                label={t("broadcastAddress")}
                 value={formatOctets(result.broadcastAddress)}
               />
               <ResultRow
-                label="First Usable Host"
+                label={t("firstUsableHost")}
                 value={formatOctets(result.firstUsable)}
               />
               <ResultRow
-                label="Last Usable Host"
+                label={t("lastUsableHost")}
                 value={formatOctets(result.lastUsable)}
               />
               <ResultRow
-                label="Usable Hosts"
+                label={t("usableHosts")}
                 value={result.usableHostCount.toLocaleString()}
               />
-              <ResultRow label="IP Class" value={result.ipClass} />
+              <ResultRow label={t("ipClass")} value={result.ipClass} />
             </ResultCard>
 
             {/* Masks */}
-            <ResultCard title="Subnet & Wildcard Masks">
+            <ResultCard title={t("subnetAndWildcardMasks")}>
               <ResultRow
-                label="Subnet Mask"
+                label={t("subnetMask")}
                 value={formatOctets(result.subnetMask)}
               />
               <ResultRow
-                label="Wildcard Mask"
+                label={t("wildcardMask")}
                 value={formatOctets(result.wildcardMask)}
               />
-              <ResultRow label="CIDR Notation" value={`/${cidr}`} />
+              <ResultRow label={t("cidrNotation")} value={`/${cidr}`} />
             </ResultCard>
 
             {/* Binary Representations */}
-            <ResultCard title="IP Address (Binary)">
+            <ResultCard title={t("ipAddressBinary")}>
               <div className="space-y-1">
                 {octets.map((o, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -341,13 +343,13 @@ export default function SubnetCalculatorTool() {
               </div>
               <div className="mt-2 border-t border-gray-700 pt-2">
                 <ResultRow
-                  label="Full Binary"
+                  label={t("fullBinary")}
                   value={octetsToBinaryString(octets)}
                 />
               </div>
             </ResultCard>
 
-            <ResultCard title="Subnet Mask (Binary)">
+            <ResultCard title={t("subnetMaskBinary")}>
               <div className="space-y-1">
                 {result.subnetMask.map((o, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -362,7 +364,7 @@ export default function SubnetCalculatorTool() {
               </div>
               <div className="mt-2 border-t border-gray-700 pt-2">
                 <ResultRow
-                  label="Full Binary"
+                  label={t("fullBinary")}
                   value={octetsToBinaryString(result.subnetMask)}
                 />
               </div>
@@ -370,7 +372,7 @@ export default function SubnetCalculatorTool() {
 
             {/* CIDR Range Summary */}
             <div className="md:col-span-2">
-              <ResultCard title="CIDR Range Summary">
+              <ResultCard title={t("cidrRangeSummary")}>
                 <div className="rounded-md border border-gray-700 bg-gray-900 px-4 py-3">
                   <p className="font-mono text-sm text-orange-400">
                     {formatOctets(octets)}/{cidr}
@@ -378,8 +380,8 @@ export default function SubnetCalculatorTool() {
                   <p className="mt-1 font-mono text-xs text-gray-400">
                     {formatOctets(result.networkAddress)} &ndash;{" "}
                     {formatOctets(result.broadcastAddress)} (
-                    {result.usableHostCount.toLocaleString()} usable host
-                    {result.usableHostCount !== 1 ? "s" : ""})
+                    {result.usableHostCount.toLocaleString()}{" "}
+                    {result.usableHostCount !== 1 ? t("usableHostPlural") : t("usableHost")})
                   </p>
                 </div>
               </ResultCard>

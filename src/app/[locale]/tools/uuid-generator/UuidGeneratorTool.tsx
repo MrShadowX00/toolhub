@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   Copy,
   Check,
@@ -55,6 +56,7 @@ function generateRandomString(
 }
 
 export default function UuidGeneratorTool() {
+  const t = useTranslations("toolUi");
   const [tab, setTab] = useState<Tab>("uuid");
   const [uuids, setUuids] = useState<string[]>([]);
   const [count, setCount] = useState(5);
@@ -105,25 +107,25 @@ export default function UuidGeneratorTool() {
   const tabs: { id: Tab; label: string; icon: React.ReactNode }[] = [
     { id: "uuid", label: "UUID v4", icon: <Fingerprint className="h-4 w-4" /> },
     { id: "ulid", label: "ULID", icon: <Hash className="h-4 w-4" /> },
-    { id: "random", label: "Random String", icon: <Shuffle className="h-4 w-4" /> },
+    { id: "random", label: t("generate"), icon: <Shuffle className="h-4 w-4" /> },
   ];
 
   return (
     <div className="space-y-6">
       {/* Tabs */}
       <div className="flex gap-1 rounded-xl border border-gray-800 bg-gray-900 p-1">
-        {tabs.map((t) => (
+        {tabs.map((tb) => (
           <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
+            key={tb.id}
+            onClick={() => setTab(tb.id)}
             className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
-              tab === t.id
+              tab === tb.id
                 ? "bg-purple-600 text-white"
                 : "text-gray-400 hover:bg-gray-800 hover:text-white"
             }`}
           >
-            {t.icon}
-            {t.label}
+            {tb.icon}
+            {tb.label}
           </button>
         ))}
       </div>
@@ -133,7 +135,7 @@ export default function UuidGeneratorTool() {
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6 space-y-4">
           <div className="flex flex-wrap items-end gap-4">
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Count (1-100)</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("count")} (1-100)</label>
               <input
                 type="number"
                 min={1}
@@ -148,7 +150,7 @@ export default function UuidGeneratorTool() {
               className="flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-500"
             >
               <RefreshCw className="h-4 w-4" />
-              Generate
+              {t("generate")}
             </button>
             {uuids.length > 0 && (
               <button
@@ -156,7 +158,7 @@ export default function UuidGeneratorTool() {
                 className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-gray-700"
               >
                 {copiedAll ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
-                {copiedAll ? "Copied All" : "Copy All"}
+                {copiedAll ? t("copied") : t("copyToClipboard")}
               </button>
             )}
           </div>
@@ -171,7 +173,7 @@ export default function UuidGeneratorTool() {
           </p>
           <div className="flex flex-wrap items-end gap-4">
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Count (1-100)</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("count")} (1-100)</label>
               <input
                 type="number"
                 min={1}
@@ -186,7 +188,7 @@ export default function UuidGeneratorTool() {
               className="flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-500"
             >
               <RefreshCw className="h-4 w-4" />
-              Generate
+              {t("generate")}
             </button>
             {ulids.length > 0 && (
               <button
@@ -194,7 +196,7 @@ export default function UuidGeneratorTool() {
                 className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-gray-700"
               >
                 {copiedAll ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
-                {copiedAll ? "Copied All" : "Copy All"}
+                {copiedAll ? t("copied") : t("copyToClipboard")}
               </button>
             )}
           </div>
@@ -206,7 +208,7 @@ export default function UuidGeneratorTool() {
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6 space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Length: {rsLength}</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("length")}: {rsLength}</label>
               <input
                 type="range"
                 min={4}
@@ -221,7 +223,7 @@ export default function UuidGeneratorTool() {
               </div>
             </div>
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Count (1-100)</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("count")} (1-100)</label>
               <input
                 type="number"
                 min={1}
@@ -235,10 +237,10 @@ export default function UuidGeneratorTool() {
 
           <div className="flex flex-wrap gap-3">
             {[
-              { label: "Uppercase", checked: rsUpper, set: setRsUpper },
-              { label: "Lowercase", checked: rsLower, set: setRsLower },
-              { label: "Numbers", checked: rsNumbers, set: setRsNumbers },
-              { label: "Special Chars", checked: rsSpecial, set: setRsSpecial },
+              { label: t("uppercase"), checked: rsUpper, set: setRsUpper },
+              { label: t("lowercase"), checked: rsLower, set: setRsLower },
+              { label: t("numbers"), checked: rsNumbers, set: setRsNumbers },
+              { label: t("special"), checked: rsSpecial, set: setRsSpecial },
             ].map((opt) => (
               <label
                 key={opt.label}
@@ -261,7 +263,7 @@ export default function UuidGeneratorTool() {
               className="flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-500"
             >
               <RefreshCw className="h-4 w-4" />
-              Generate
+              {t("generate")}
             </button>
             {randomStrings.length > 0 && (
               <button
@@ -269,7 +271,7 @@ export default function UuidGeneratorTool() {
                 className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-gray-700"
               >
                 {copiedAll ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
-                {copiedAll ? "Copied All" : "Copy All"}
+                {copiedAll ? t("copied") : t("copyToClipboard")}
               </button>
             )}
           </div>
@@ -280,7 +282,7 @@ export default function UuidGeneratorTool() {
       {currentItems.length > 0 && (
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
           <h3 className="mb-3 text-sm font-medium text-gray-400">
-            Generated ({currentItems.length})
+            {t("result")} ({currentItems.length})
           </h3>
           <div className="max-h-96 space-y-2 overflow-y-auto">
             {currentItems.map((item, i) => (
@@ -294,7 +296,7 @@ export default function UuidGeneratorTool() {
                 <button
                   onClick={() => copyOne(item, i)}
                   className="shrink-0 rounded p-1.5 text-gray-400 transition-colors hover:bg-gray-700 hover:text-white"
-                  title="Copy"
+                  title={t("copy")}
                 >
                   {copiedIdx === i ? (
                     <Check className="h-4 w-4 text-green-400" />
@@ -311,7 +313,7 @@ export default function UuidGeneratorTool() {
       {currentItems.length === 0 && (
         <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-gray-800 bg-gray-900/50 py-16">
           <Fingerprint className="mb-3 h-10 w-10 text-gray-600" />
-          <p className="text-sm text-gray-500">Click Generate to create values</p>
+          <p className="text-sm text-gray-500">{t("resultWillAppear")}</p>
         </div>
       )}
     </div>

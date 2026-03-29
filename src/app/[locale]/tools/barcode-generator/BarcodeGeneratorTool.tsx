@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Download, AlertCircle, BarChart3 } from "lucide-react";
 import JsBarcode from "jsbarcode";
 
@@ -16,6 +17,7 @@ const FORMATS = [
 type FormatType = (typeof FORMATS)[number]["value"];
 
 export default function BarcodeGeneratorTool() {
+  const t = useTranslations("toolUi");
   const [value, setValue] = useState("Hello World");
   const [format, setFormat] = useState<FormatType>("CODE128");
   const [lineWidth, setLineWidth] = useState(2);
@@ -47,10 +49,10 @@ export default function BarcodeGeneratorTool() {
       setError(null);
     } catch (err: unknown) {
       setError(
-        err instanceof Error ? err.message : "Invalid input for selected format"
+        err instanceof Error ? err.message : t("invalidInput")
       );
     }
-  }, [value, format, lineWidth, height, displayValue]);
+  }, [value, format, lineWidth, height, displayValue, t]);
   /* eslint-enable react-hooks/set-state-in-effect */
 
   const handleDownload = () => {
@@ -88,7 +90,7 @@ export default function BarcodeGeneratorTool() {
         {/* Value Input */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Barcode Value
+            {t("barcodeValue")}
           </label>
           <input
             type="text"
@@ -102,7 +104,7 @@ export default function BarcodeGeneratorTool() {
         {/* Format Selector */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Barcode Format
+            {t("barcodeType")}
           </label>
           <select
             value={format}
@@ -123,7 +125,7 @@ export default function BarcodeGeneratorTool() {
         {/* Line Width */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Bar Width: {lineWidth}
+            {t("width")}: {lineWidth}
           </label>
           <input
             type="range"
@@ -143,7 +145,7 @@ export default function BarcodeGeneratorTool() {
         {/* Height */}
         <div>
           <label className="mb-1.5 block text-sm font-medium text-gray-300">
-            Height: {height}px
+            {t("height")}: {height}px
           </label>
           <input
             type="range"
@@ -162,7 +164,7 @@ export default function BarcodeGeneratorTool() {
 
         {/* Display Value Toggle */}
         <div className="flex items-center justify-between rounded-lg border border-gray-700 bg-gray-800 px-4 py-3">
-          <span className="text-sm text-gray-300">Show text under barcode</span>
+          <span className="text-sm text-gray-300">{t("show")} {t("value")}</span>
           <button
             onClick={() => setDisplayValue(!displayValue)}
             className={`relative h-6 w-11 rounded-full transition-colors ${
@@ -192,7 +194,7 @@ export default function BarcodeGeneratorTool() {
           className="flex w-full items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-3 font-medium text-white transition-colors hover:bg-purple-700 disabled:opacity-50"
         >
           <Download className="h-4 w-4" />
-          Download PNG
+          {t("downloadAs", { format: "PNG" })}
         </button>
       </div>
 
@@ -208,7 +210,7 @@ export default function BarcodeGeneratorTool() {
               <div className="text-center text-gray-500">
                 <BarChart3 className="mx-auto mb-2 h-12 w-12" />
                 <p className="text-sm">
-                  {error ? "Fix errors to see preview" : "Enter a value to generate barcode"}
+                  {error ? t("error") : t("pleaseEnter")}
                 </p>
               </div>
             </div>

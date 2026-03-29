@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Upload, Download, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const SCALES = [
   { label: "1x", value: 1 },
@@ -10,6 +11,7 @@ const SCALES = [
 ];
 
 export default function SvgToPngTool() {
+  const t = useTranslations("toolUi");
   const [mode, setMode] = useState<"file" | "code">("file");
   const [svgCode, setSvgCode] = useState("");
   const [fileName, setFileName] = useState("");
@@ -43,7 +45,7 @@ export default function SvgToPngTool() {
       URL.revokeObjectURL(url);
     };
     img.onerror = () => {
-      setError("Invalid SVG. Please check the code.");
+      setError(t("invalidSvg"));
       setProcessing(false);
       URL.revokeObjectURL(url);
     };
@@ -52,7 +54,7 @@ export default function SvgToPngTool() {
 
   const handleFile = (f: File) => {
     if (!f.name.toLowerCase().endsWith(".svg")) {
-      setError("Please upload an SVG file.");
+      setError(t("uploadSvgError"));
       return;
     }
     setFileName(f.name);
@@ -89,7 +91,7 @@ export default function SvgToPngTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. All processing happens in your browser.</p>
+        <p className="text-xs text-gray-500">{t("privacyNotice")}</p>
       </div>
 
       {/* Mode toggle */}
@@ -98,13 +100,13 @@ export default function SvgToPngTool() {
           onClick={() => { setMode("file"); reset(); }}
           className={`flex-1 rounded-lg py-2 text-sm font-medium transition-colors ${mode === "file" ? "bg-pink-600 text-white" : "bg-gray-800 text-gray-400"}`}
         >
-          Upload SVG File
+          {t("uploadSvgFile")}
         </button>
         <button
           onClick={() => { setMode("code"); reset(); }}
           className={`flex-1 rounded-lg py-2 text-sm font-medium transition-colors ${mode === "code" ? "bg-pink-600 text-white" : "bg-gray-800 text-gray-400"}`}
         >
-          Paste SVG Code
+          {t("pasteSvgCode")}
         </button>
       </div>
 
@@ -116,7 +118,7 @@ export default function SvgToPngTool() {
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-16 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
         >
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
-          <p className="text-sm font-medium text-white">Drop an SVG file here or click to upload</p>
+          <p className="text-sm font-medium text-white">{t("dropSvgOrClick")}</p>
           <input ref={inputRef} type="file" accept=".svg" className="hidden" onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
         </div>
       ) : mode === "code" && !svgCode ? (
@@ -135,9 +137,9 @@ export default function SvgToPngTool() {
         <>
           {svgCode && (
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-400">{fileName || "SVG Code"}</p>
+              <p className="text-sm text-gray-400">{fileName || t("svgCode")}</p>
               <button onClick={reset} className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300">
-                <Trash2 className="h-3 w-3" /> Clear
+                <Trash2 className="h-3 w-3" /> {t("clear")}
               </button>
             </div>
           )}
@@ -154,7 +156,7 @@ export default function SvgToPngTool() {
 
           {/* Scale options */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <label className="mb-3 block text-sm font-medium text-white">Output Size</label>
+            <label className="mb-3 block text-sm font-medium text-white">{t("outputSize")}</label>
             <div className="flex gap-2 mb-4">
               {SCALES.map((s) => (
                 <button
@@ -173,14 +175,14 @@ export default function SvgToPngTool() {
                   useCustom ? "bg-pink-600 text-white" : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                 }`}
               >
-                Custom
+                {t("custom")}
               </button>
             </div>
             {useCustom && (
               <div className="flex gap-3">
-                <input type="number" placeholder="Width" value={customW || ""} onChange={(e) => setCustomW(Number(e.target.value))} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white outline-none focus:border-pink-500" />
+                <input type="number" placeholder={t("width")} value={customW || ""} onChange={(e) => setCustomW(Number(e.target.value))} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white outline-none focus:border-pink-500" />
                 <span className="self-center text-gray-500">×</span>
-                <input type="number" placeholder="Height" value={customH || ""} onChange={(e) => setCustomH(Number(e.target.value))} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white outline-none focus:border-pink-500" />
+                <input type="number" placeholder={t("height")} value={customH || ""} onChange={(e) => setCustomH(Number(e.target.value))} className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-white outline-none focus:border-pink-500" />
               </div>
             )}
           </div>
@@ -199,17 +201,17 @@ export default function SvgToPngTool() {
             {processing ? (
               <>
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                Converting...
+                {t("converting")}
               </>
             ) : (
-              "Convert to PNG"
+              t("convertToPng")
             )}
           </button>
 
           {pngUrl && (
             <>
               <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
-                <p className="mb-2 text-xs font-medium text-gray-400">Preview</p>
+                <p className="mb-2 text-xs font-medium text-gray-400">{t("preview")}</p>
                 <img src={pngUrl} alt="PNG" className="mx-auto max-h-64 rounded-lg object-contain" />
               </div>
               <a
@@ -217,7 +219,7 @@ export default function SvgToPngTool() {
                 download={`${(fileName || "image").replace(".svg", "")}.png`}
                 className="flex w-full items-center justify-center gap-2 rounded-xl border border-pink-600 bg-transparent px-6 py-3 font-medium text-pink-400 transition-colors hover:bg-pink-600/10"
               >
-                <Download className="h-4 w-4" /> Download PNG
+                <Download className="h-4 w-4" /> {t("downloadPng")}
               </a>
             </>
           )}

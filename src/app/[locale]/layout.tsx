@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { locales, rtlLocales, type Locale } from "@/i18n/config";
+import { getTranslations } from "next-intl/server";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { getOrganizationJsonLd, getWebsiteJsonLd } from "@/lib/structured-data";
@@ -54,6 +55,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+  const t = await getTranslations("pages");
   const isRtl = rtlLocales.includes(locale as Locale);
 
   return (
@@ -81,7 +83,7 @@ export default async function LocaleLayout({
             href="#main-content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white"
           >
-            Skip to main content
+            {t("skipToContent")}
           </a>
           <Header />
           <main id="main-content" className="flex-1">

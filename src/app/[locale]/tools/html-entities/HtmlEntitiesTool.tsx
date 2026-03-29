@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, Trash2 } from "lucide-react";
 
 type Tab = "encode" | "decode";
@@ -61,6 +62,7 @@ function decodeHtmlEntities(input: string): string {
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
+  const t = useTranslations("toolUi");
 
   const handleCopy = useCallback(async () => {
     if (!text) return;
@@ -78,19 +80,20 @@ function CopyButton({ text }: { text: string }) {
       onClick={handleCopy}
       disabled={!text}
       className="flex items-center gap-1.5 rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
-      title="Copy to clipboard"
+      title={t("copyToClipboard")}
     >
       {copied ? (
         <Check className="h-3.5 w-3.5 text-green-400" />
       ) : (
         <Copy className="h-3.5 w-3.5" />
       )}
-      {copied ? "Copied!" : "Copy"}
+      {copied ? t("copied") : t("copy")}
     </button>
   );
 }
 
 export default function HtmlEntitiesTool() {
+  const t = useTranslations("toolUi");
   const [activeTab, setActiveTab] = useState<Tab>("encode");
   const [input, setInput] = useState("");
 
@@ -106,8 +109,8 @@ export default function HtmlEntitiesTool() {
   };
 
   const tabs: { id: Tab; label: string }[] = [
-    { id: "encode", label: "Encode" },
-    { id: "decode", label: "Decode" },
+    { id: "encode", label: t("encode") },
+    { id: "decode", label: t("decode") },
   ];
 
   return (
@@ -138,26 +141,22 @@ export default function HtmlEntitiesTool() {
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <label className="text-sm font-medium text-gray-400">
-              {activeTab === "encode" ? "Plain Text Input" : "HTML Entities Input"}
+              {t("input")}
             </label>
             <button
               onClick={handleClear}
               disabled={!input}
               className="flex items-center gap-1.5 rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-gray-300 transition-colors hover:border-gray-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
-              title="Clear input"
+              title={t("clear")}
             >
               <Trash2 className="h-3.5 w-3.5" />
-              Clear
+              {t("clear")}
             </button>
           </div>
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={
-              activeTab === "encode"
-                ? 'Enter text, e.g. <script>alert("xss")</script>'
-                : "Enter HTML entities, e.g. &lt;b&gt;Hello&lt;/b&gt;"
-            }
+            placeholder={t("enterHtmlEntities")}
             className="h-52 w-full resize-none rounded-lg border border-gray-700 bg-gray-900 p-4 font-mono text-sm text-gray-100 placeholder-gray-600 focus:border-blue-500 focus:outline-none"
             spellCheck={false}
           />
@@ -167,18 +166,14 @@ export default function HtmlEntitiesTool() {
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <label className="text-sm font-medium text-gray-400">
-              {activeTab === "encode" ? "HTML Entities Output" : "Decoded Text Output"}
+              {t("output")}
             </label>
             <CopyButton text={output} />
           </div>
           <textarea
             value={output}
             readOnly
-            placeholder={
-              activeTab === "encode"
-                ? "Encoded HTML entities will appear here..."
-                : "Decoded plain text will appear here..."
-            }
+            placeholder={t("resultWillAppear")}
             className="h-52 w-full resize-none rounded-lg border border-gray-700 bg-gray-900 p-4 font-mono text-sm text-gray-100 placeholder-gray-600 focus:border-blue-500 focus:outline-none"
             spellCheck={false}
           />
@@ -189,11 +184,11 @@ export default function HtmlEntitiesTool() {
       {input && (
         <div className="flex flex-wrap gap-4 text-sm text-gray-500">
           <span>
-            Input: <span className="text-gray-300">{input.length} chars</span>
+            {t("input")}: <span className="text-gray-300">{input.length} {t("characters").toLowerCase()}</span>
           </span>
           {output && (
             <span>
-              Output: <span className="text-gray-300">{output.length} chars</span>
+              {t("output")}: <span className="text-gray-300">{output.length} {t("characters").toLowerCase()}</span>
             </span>
           )}
         </div>
@@ -201,15 +196,15 @@ export default function HtmlEntitiesTool() {
 
       {/* Reference Table */}
       <div>
-        <h2 className="mb-3 text-lg font-semibold text-white">Common HTML Entities Reference</h2>
+        <h2 className="mb-3 text-lg font-semibold text-white">{t("commonPresets")}</h2>
         <div className="overflow-x-auto rounded-xl border border-gray-700">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-700 bg-gray-800">
-                <th className="px-4 py-3 text-left font-medium text-gray-400">Character</th>
-                <th className="px-4 py-3 text-left font-medium text-gray-400">Entity Name</th>
-                <th className="px-4 py-3 text-left font-medium text-gray-400">Entity Number</th>
-                <th className="px-4 py-3 text-left font-medium text-gray-400">Description</th>
+                <th className="px-4 py-3 text-left font-medium text-gray-400">{t("value")}</th>
+                <th className="px-4 py-3 text-left font-medium text-gray-400">{t("name")}</th>
+                <th className="px-4 py-3 text-left font-medium text-gray-400">{t("type")}</th>
+                <th className="px-4 py-3 text-left font-medium text-gray-400">{t("info")}</th>
               </tr>
             </thead>
             <tbody>

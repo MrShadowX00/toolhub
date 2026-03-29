@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, Type } from "lucide-react";
 
 function toTitleCase(s: string): string {
@@ -52,31 +53,27 @@ function toDotCase(s: string): string {
     .toLowerCase();
 }
 
-interface Conversion {
-  label: string;
-  fn: (s: string) => string;
-}
-
-const conversions: Conversion[] = [
-  { label: "UPPER CASE", fn: (s) => s.toUpperCase() },
-  { label: "lower case", fn: (s) => s.toLowerCase() },
-  { label: "Title Case", fn: toTitleCase },
-  { label: "Sentence case", fn: toSentenceCase },
-  { label: "camelCase", fn: toCamelCase },
-  { label: "PascalCase", fn: toPascalCase },
-  { label: "snake_case", fn: toSnakeCase },
-  { label: "kebab-case", fn: toKebabCase },
-  { label: "SCREAMING_SNAKE", fn: toScreamingSnake },
-  { label: "dot.case", fn: toDotCase },
+const conversions: { key: string; fn: (s: string) => string }[] = [
+  { key: "uppercase2", fn: (s) => s.toUpperCase() },
+  { key: "lowercase2", fn: (s) => s.toLowerCase() },
+  { key: "titleCase", fn: toTitleCase },
+  { key: "sentenceCase", fn: toSentenceCase },
+  { key: "camelCase", fn: toCamelCase },
+  { key: "pascalCase", fn: toPascalCase },
+  { key: "snakeCase", fn: toSnakeCase },
+  { key: "kebabCase", fn: toKebabCase },
+  { key: "constantCase", fn: toScreamingSnake },
+  { key: "dotCase", fn: toDotCase },
 ];
 
 export default function TextCaseConverterTool() {
+  const t = useTranslations("toolUi");
   const [input, setInput] = useState("The Quick Brown Fox Jumps Over The Lazy Dog");
   const [copiedIdx, setCopiedIdx] = useState<number | null>(null);
 
   const results = useMemo(
-    () => conversions.map((c) => ({ label: c.label, value: c.fn(input) })),
-    [input]
+    () => conversions.map((c) => ({ label: t(c.key as Parameters<typeof t>[0]), value: c.fn(input) })),
+    [input, t]
   );
 
   const words = input.trim() ? input.trim().split(/\s+/).length : 0;
@@ -95,18 +92,18 @@ export default function TextCaseConverterTool() {
         <div className="mb-3 flex items-center justify-between">
           <h3 className="flex items-center gap-2 text-sm font-medium text-gray-400">
             <Type className="h-4 w-4" />
-            Input Text
+            {t("enterText")}
           </h3>
           <div className="flex gap-3 text-xs text-gray-500">
-            <span>{chars} characters</span>
-            <span>{words} words</span>
+            <span>{chars} {t("characters")}</span>
+            <span>{words} {t("words")}</span>
           </div>
         </div>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={4}
-          placeholder="Type or paste your text here..."
+          placeholder={t("pasteText")}
           className="w-full resize-y rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder-gray-600 focus:border-purple-500 focus:outline-none"
         />
       </div>
@@ -127,12 +124,12 @@ export default function TextCaseConverterTool() {
                 {copiedIdx === i ? (
                   <>
                     <Check className="h-3 w-3 text-green-400" />
-                    <span className="text-green-400">Copied</span>
+                    <span className="text-green-400">{t("copied")}</span>
                   </>
                 ) : (
                   <>
                     <Copy className="h-3 w-3" />
-                    Copy
+                    {t("copy")}
                   </>
                 )}
               </button>

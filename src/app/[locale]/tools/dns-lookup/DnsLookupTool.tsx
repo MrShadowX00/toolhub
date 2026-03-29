@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Globe, Search, Loader2, AlertCircle, X } from "lucide-react";
 
 const RECORD_TYPES = ["A", "AAAA", "MX", "NS", "TXT", "CNAME", "SOA"] as const;
@@ -44,6 +45,7 @@ function formatTTL(seconds: number): string {
 }
 
 export default function DnsLookupTool() {
+  const t = useTranslations("toolUi");
   const [domain, setDomain] = useState("");
   const [selectedTypes, setSelectedTypes] = useState<Set<RecordType>>(
     new Set(["A", "AAAA", "MX", "NS"])
@@ -71,7 +73,7 @@ export default function DnsLookupTool() {
   const handleLookup = useCallback(async () => {
     const cleaned = domain.trim().replace(/^https?:\/\//, "").replace(/\/.*$/, "");
     if (!cleaned) {
-      setError("Please enter a domain name.");
+      setError(t("pleaseEnterDomain"));
       return;
     }
     if (selectedTypes.size === 0) {
@@ -111,16 +113,16 @@ export default function DnsLookupTool() {
       }
 
       if (rows.length === 0) {
-        setError("No DNS records found for the selected types.");
+        setError(t("noData"));
       }
 
       setResults(rows);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "DNS lookup failed.");
+      setError(err instanceof Error ? err.message : t("error"));
     } finally {
       setLoading(false);
     }
-  }, [domain, selectedTypes]);
+  }, [domain, selectedTypes, t]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleLookup();
@@ -133,7 +135,7 @@ export default function DnsLookupTool() {
           {/* Domain input */}
           <div>
             <label className="block text-sm font-medium text-gray-300 mb-2">
-              Domain Name
+              {t("domainName")}
             </label>
             <div className="flex gap-3">
               <div className="relative flex-1">
@@ -143,7 +145,7 @@ export default function DnsLookupTool() {
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  placeholder="example.com"
+                  placeholder={t("enterDomain")}
                   className="w-full rounded-lg border border-gray-700 bg-gray-800 py-2.5 pl-10 pr-4 text-sm text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors"
                 />
               </div>
@@ -157,7 +159,7 @@ export default function DnsLookupTool() {
                 ) : (
                   <Search className="h-4 w-4" />
                 )}
-                Lookup
+                {t("lookup")}
               </button>
             </div>
           </div>
@@ -166,21 +168,21 @@ export default function DnsLookupTool() {
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="text-sm font-medium text-gray-300">
-                Record Types
+                {t("recordType")}
               </label>
               <div className="flex gap-2">
                 <button
                   onClick={selectAll}
                   className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
                 >
-                  Select All
+                  {t("all")}
                 </button>
                 <span className="text-gray-600">|</span>
                 <button
                   onClick={clearAll}
                   className="text-xs text-gray-400 hover:text-gray-300 transition-colors"
                 >
-                  Clear
+                  {t("clear")}
                 </button>
               </div>
             </div>
@@ -207,7 +209,7 @@ export default function DnsLookupTool() {
           <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
             <AlertCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
             <div className="flex-1">
-              <p className="text-sm font-medium text-red-300">Lookup Failed</p>
+              <p className="text-sm font-medium text-red-300">{t("error")}</p>
               <p className="mt-1 text-sm text-red-400">{error}</p>
             </div>
             <button onClick={() => setError(null)} className="text-red-400 hover:text-red-300">
@@ -222,7 +224,7 @@ export default function DnsLookupTool() {
             <div className="flex flex-col items-center gap-3">
               <Loader2 className="h-8 w-8 text-indigo-400 animate-spin" />
               <p className="text-sm text-gray-400">
-                Querying DNS records for <span className="text-white font-medium">{queriedDomain}</span>...
+                {t("loading")}
               </p>
             </div>
           </div>
@@ -233,10 +235,10 @@ export default function DnsLookupTool() {
           <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
             <div className="px-4 py-3 border-b border-gray-700 bg-gray-800 flex items-center justify-between">
               <span className="text-sm font-medium text-gray-300">
-                DNS Records for <span className="text-white">{queriedDomain}</span>
+                {t("result")} — <span className="text-white">{queriedDomain}</span>
               </span>
               <span className="text-xs text-gray-500">
-                {results.length} record{results.length !== 1 ? "s" : ""} found
+                {results.length} record{results.length !== 1 ? "s" : ""}
               </span>
             </div>
             <div className="overflow-x-auto">
@@ -244,16 +246,16 @@ export default function DnsLookupTool() {
                 <thead>
                   <tr className="border-b border-gray-800">
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
-                      Type
+                      {t("type")}
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
-                      Name
+                      {t("name")}
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
-                      Value
+                      {t("value")}
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-400">
-                      TTL
+                      {t("ttl")}
                     </th>
                   </tr>
                 </thead>

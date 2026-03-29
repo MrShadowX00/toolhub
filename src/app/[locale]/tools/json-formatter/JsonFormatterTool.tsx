@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   Copy,
   Check,
@@ -242,6 +243,7 @@ interface ErrorPanelProps {
 }
 
 function ErrorPanel({ message, line, rawInput }: ErrorPanelProps) {
+  const t = useTranslations("toolUi");
   const lines = rawInput.split("\n");
   // Show a window of 3 lines around the error line (1-indexed)
   const errorLine = line ?? null;
@@ -254,7 +256,7 @@ function ErrorPanel({ message, line, rawInput }: ErrorPanelProps) {
       <div className="flex items-start gap-2">
         <AlertCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
         <div>
-          <p className="text-sm font-semibold text-red-300">Invalid JSON</p>
+          <p className="text-sm font-semibold text-red-300">{t("invalidJson")}</p>
           <p className="mt-0.5 text-sm text-red-400 font-mono break-all">
             {message}
           </p>
@@ -306,6 +308,7 @@ function ErrorPanel({ message, line, rawInput }: ErrorPanelProps) {
 type ActiveView = "formatted" | "minified" | "tree";
 
 export default function JsonFormatterTool() {
+  const t = useTranslations("toolUi");
   const [input, setInput] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [activeView, setActiveView] = useState<ActiveView>("formatted");
@@ -353,7 +356,7 @@ export default function JsonFormatterTool() {
       <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
         <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
           <span className="text-sm font-medium text-gray-300">
-            Raw JSON Input
+            {t("rawInput")}
           </span>
           <span className="text-xs text-gray-500">
             {input.length.toLocaleString()} chars
@@ -366,7 +369,7 @@ export default function JsonFormatterTool() {
             // Clear stale result when input changes
             setResult(null);
           }}
-          placeholder='Paste your JSON here, e.g. {"name": "Alice", "age": 30}'
+          placeholder={t("pasteJson")}
           className="w-full bg-gray-900 text-gray-100 font-mono text-sm p-4 resize-none focus:outline-none placeholder-gray-600 min-h-[220px]"
           spellCheck={false}
         />
@@ -379,21 +382,21 @@ export default function JsonFormatterTool() {
           className="flex items-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 px-4 py-2 text-sm font-medium text-white transition-colors"
         >
           <Braces className="h-4 w-4" />
-          Format
+          {t("format")}
         </button>
         <button
           onClick={runMinify}
           className="flex items-center gap-2 rounded-lg bg-gray-700 hover:bg-gray-600 active:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-100 transition-colors"
         >
           <Minimize2 className="h-4 w-4" />
-          Minify
+          {t("minify")}
         </button>
         <button
           onClick={runValidate}
           className="flex items-center gap-2 rounded-lg bg-gray-700 hover:bg-gray-600 active:bg-gray-800 px-4 py-2 text-sm font-medium text-gray-100 transition-colors"
         >
           <CheckCircle2 className="h-4 w-4" />
-          Validate
+          {t("validate")}
         </button>
       </div>
 
@@ -402,7 +405,7 @@ export default function JsonFormatterTool() {
         <div className="flex items-center gap-2 rounded-lg border border-green-500/30 bg-green-500/10 px-4 py-2.5">
           <CheckCircle2 className="h-4 w-4 text-green-400 flex-shrink-0" />
           <span className="text-sm text-green-300 font-medium">
-            Valid JSON
+            {t("validJson")}
           </span>
           <span className="ml-auto text-xs text-gray-500">
             {result.charCount.toLocaleString()} chars &middot;{" "}
@@ -428,18 +431,23 @@ export default function JsonFormatterTool() {
           <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800 flex-wrap gap-2">
             {/* View tabs */}
             <div className="flex gap-1 rounded-lg bg-gray-900 p-0.5">
-              {(["formatted", "minified", "tree"] as ActiveView[]).map(
-                (view) => (
+              {(
+                [
+                  { view: "formatted" as ActiveView, labelKey: "formatted" },
+                  { view: "minified" as ActiveView, labelKey: "minified" },
+                  { view: "tree" as ActiveView, labelKey: "treeView" },
+                ]
+              ).map(({ view, labelKey }) => (
                   <button
                     key={view}
                     onClick={() => setActiveView(view)}
-                    className={`rounded-md px-3 py-1 text-xs font-medium capitalize transition-colors ${
+                    className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
                       activeView === view
                         ? "bg-indigo-600 text-white"
                         : "text-gray-400 hover:text-gray-200"
                     }`}
                   >
-                    {view}
+                    {t(labelKey)}
                   </button>
                 ),
               )}
@@ -467,12 +475,12 @@ export default function JsonFormatterTool() {
                   {copied ? (
                     <>
                       <Check className="h-3.5 w-3.5" />
-                      Copied
+                      {t("copied")}
                     </>
                   ) : (
                     <>
                       <Copy className="h-3.5 w-3.5" />
-                      Copy
+                      {t("copy")}
                     </>
                   )}
                 </button>

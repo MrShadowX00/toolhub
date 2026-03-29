@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   AlertCircle,
   Copy,
@@ -368,13 +369,14 @@ interface CheatSheetSectionProps {
 
 function CheatSheetSection({ onInsert }: CheatSheetSectionProps) {
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const t = useTranslations("toolUi");
 
   return (
     <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
       <div className="flex items-center gap-2 px-4 py-2.5 border-b border-gray-700 bg-gray-800">
         <BookOpen className="h-4 w-4 text-gray-400" />
         <span className="text-sm font-medium text-gray-300">
-          Quick Reference Cheat Sheet
+          {t("commonPresets")}
         </span>
       </div>
       <div className="divide-y divide-gray-700/60">
@@ -431,6 +433,7 @@ function CheatSheetSection({ onInsert }: CheatSheetSectionProps) {
 // ---------------------------------------------------------------------------
 
 export default function RegexTesterTool() {
+  const t = useTranslations("toolUi");
   const [pattern, setPattern] = useState("");
   const [flags, setFlags] = useState<RegexFlags>({
     g: true,
@@ -484,7 +487,7 @@ export default function RegexTesterTool() {
       <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
         <div className="flex items-center gap-3 px-4 py-2.5 border-b border-gray-700 bg-gray-800 flex-wrap">
           <span className="text-sm font-medium text-gray-300 flex-shrink-0">
-            Pattern
+            {t("pattern")}
           </span>
           {/* Flags */}
           <div className="flex items-center gap-1.5 flex-wrap">
@@ -511,10 +514,10 @@ export default function RegexTesterTool() {
             <span className="ml-auto flex items-center gap-1.5 text-xs text-gray-400">
               <ListFilter className="h-3.5 w-3.5" />
               {matchCount === 0 ? (
-                <span className="text-gray-500">No matches</span>
+                <span className="text-gray-500">{t("noMatches")}</span>
               ) : (
                 <span className="text-green-400 font-medium">
-                  {matchCount} match{matchCount !== 1 ? "es" : ""}
+                  {matchCount} {t("matches").toLowerCase()}
                 </span>
               )}
             </span>
@@ -528,7 +531,7 @@ export default function RegexTesterTool() {
             type="text"
             value={pattern}
             onChange={(e) => setPattern(e.target.value)}
-            placeholder="Enter regex pattern…"
+            placeholder={t("enterRegex")}
             className="flex-1 bg-gray-900 text-gray-100 font-mono text-sm py-3 pr-3 focus:outline-none placeholder-gray-600"
             spellCheck={false}
             autoComplete="off"
@@ -552,7 +555,7 @@ export default function RegexTesterTool() {
           <AlertCircle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-sm font-semibold text-red-300">
-              Invalid Regular Expression
+              {t("invalidInput")}
             </p>
             <p className="mt-0.5 text-sm text-red-400 font-mono break-all">
               {(result as RegexError).message}
@@ -567,10 +570,10 @@ export default function RegexTesterTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
           <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
             <span className="text-sm font-medium text-gray-300">
-              Test String
+              {t("testString")}
             </span>
             <span className="text-xs text-gray-500">
-              {testString.length.toLocaleString()} chars
+              {testString.length.toLocaleString()} {t("characters").toLowerCase()}
             </span>
           </div>
           {/* Highlight overlay */}
@@ -596,7 +599,7 @@ export default function RegexTesterTool() {
               onChange={(e) => setTestString(e.target.value)}
               className="w-full bg-gray-900 text-gray-100 font-mono text-sm p-4 resize-none focus:outline-none placeholder-gray-600 min-h-[200px] leading-relaxed"
               spellCheck={false}
-              placeholder="Enter test string here…"
+              placeholder={t("enterTestString")}
             />
           )}
         </div>
@@ -605,7 +608,7 @@ export default function RegexTesterTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden flex flex-col">
           <div className="flex items-center gap-2 px-4 py-2 border-b border-gray-700 bg-gray-800 flex-shrink-0">
             <span className="text-sm font-medium text-gray-300">
-              Matches
+              {t("matches")}
             </span>
             {isValid && matchCount > 0 && (
               <span className="rounded-full bg-green-500/20 px-2 py-0.5 text-xs font-medium text-green-400">
@@ -616,12 +619,12 @@ export default function RegexTesterTool() {
           <div className="flex-1 overflow-y-auto max-h-[320px] p-3 space-y-2">
             {!pattern && (
               <p className="text-center text-sm text-gray-600 py-8">
-                Enter a pattern to see matches
+                {t("enterRegex")}
               </p>
             )}
             {isValid && matchCount === 0 && pattern && (
               <p className="text-center text-sm text-gray-500 py-8">
-                No matches found
+                {t("noMatches")}
               </p>
             )}
             {isValid &&
@@ -659,7 +662,7 @@ export default function RegexTesterTool() {
             <div className="rounded-lg border border-gray-700 bg-gray-800/60 overflow-hidden">
               <div className="flex items-center justify-between px-3 py-2 border-b border-gray-700">
                 <span className="text-xs text-gray-400 font-medium">
-                  Result
+                  {t("result")}
                 </span>
                 <button
                   onClick={handleCopyReplace}
@@ -672,12 +675,12 @@ export default function RegexTesterTool() {
                   {copiedReplace ? (
                     <>
                       <Check className="h-3 w-3" />
-                      Copied
+                      {t("copied")}
                     </>
                   ) : (
                     <>
                       <Copy className="h-3 w-3" />
-                      Copy
+                      {t("copy")}
                     </>
                   )}
                 </button>

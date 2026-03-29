@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Camera,
   RefreshCw,
@@ -13,12 +14,13 @@ import {
 } from "lucide-react";
 
 const VIEWPORT_OPTIONS = [
-  { id: "desktop", label: "Desktop", width: 1280, icon: Monitor },
-  { id: "tablet", label: "Tablet", width: 768, icon: Tablet },
-  { id: "mobile", label: "Mobile", width: 375, icon: Smartphone },
+  { id: "desktop", labelKey: "desktop", width: 1280, icon: Monitor },
+  { id: "tablet", labelKey: "tablet", width: 768, icon: Tablet },
+  { id: "mobile", labelKey: "mobile", width: 375, icon: Smartphone },
 ] as const;
 
 export default function WebsiteScreenshotTool() {
+  const t = useTranslations("toolUi");
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -30,7 +32,7 @@ export default function WebsiteScreenshotTool() {
   const handleCapture = () => {
     const trimmed = url.trim();
     if (!trimmed) {
-      setError("Please enter a URL");
+      setError(t("pleaseEnterUrl"));
       return;
     }
 
@@ -63,7 +65,7 @@ export default function WebsiteScreenshotTool() {
       document.body.removeChild(a);
       URL.revokeObjectURL(downloadUrl);
     } catch {
-      setError("Failed to download screenshot");
+      setError(t("failedToDownloadScreenshot"));
     }
   };
 
@@ -72,7 +74,7 @@ export default function WebsiteScreenshotTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
           <label className="mb-2 block text-sm font-medium text-gray-300">
-            Website URL
+            {t("websiteUrl")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -92,13 +94,13 @@ export default function WebsiteScreenshotTool() {
               className="flex items-center gap-2 rounded-lg bg-green-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-green-700 disabled:opacity-50"
             >
               <Camera className="h-4 w-4" />
-              Capture
+              {t("capture")}
             </button>
           </div>
 
           {/* Viewport Options */}
           <div className="mt-4">
-            <p className="mb-2 text-sm text-gray-400">Viewport Size:</p>
+            <p className="mb-2 text-sm text-gray-400">{t("viewportSize")}</p>
             <div className="flex gap-2">
               {VIEWPORT_OPTIONS.map((opt) => {
                 const Icon = opt.icon;
@@ -113,7 +115,7 @@ export default function WebsiteScreenshotTool() {
                     }`}
                   >
                     <Icon className="h-4 w-4" />
-                    {opt.label}
+                    {t(opt.labelKey)}
                     <span className="text-xs text-gray-500">
                       {opt.width}px
                     </span>
@@ -136,14 +138,14 @@ export default function WebsiteScreenshotTool() {
         {(loading || screenshotUrl) && (
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-white">Screenshot</h3>
+              <h3 className="text-lg font-semibold text-white">{t("screenshot")}</h3>
               {screenshotUrl && !loading && (
                 <button
                   onClick={handleDownload}
                   className="flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700"
                 >
                   <Download className="h-4 w-4" />
-                  Download
+                  {t("download")}
                 </button>
               )}
             </div>
@@ -173,14 +175,12 @@ export default function WebsiteScreenshotTool() {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={screenshotUrl}
-                    alt="Website screenshot"
+                    alt={t("websiteScreenshot")}
                     className="w-full"
                     onLoad={() => setLoading(false)}
                     onError={() => {
                       setLoading(false);
-                      setError(
-                        "Failed to capture screenshot. The URL may be invalid or the service is temporarily unavailable."
-                      );
+                      setError(t("failedToCaptureScreenshot"));
                       setScreenshotUrl("");
                     }}
                   />

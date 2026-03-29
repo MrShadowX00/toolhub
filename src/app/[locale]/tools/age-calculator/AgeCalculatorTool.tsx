@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 interface AgeResult {
   years: number;
@@ -106,6 +107,7 @@ function StatCard({ label, value, subtext }: StatCardProps) {
 }
 
 export default function AgeCalculatorTool() {
+  const t = useTranslations("toolUi");
   const [dateString, setDateString] = useState("");
 
   const result = useMemo<AgeResult | null>(() => {
@@ -124,7 +126,7 @@ export default function AgeCalculatorTool() {
             htmlFor="dob"
             className="mb-2 block text-sm font-medium text-gray-300"
           >
-            Date of Birth
+            {t("dateOfBirth")}
           </label>
           <input
             id="dob"
@@ -141,15 +143,15 @@ export default function AgeCalculatorTool() {
             {/* Primary Age Display */}
             <div className="rounded-xl border border-orange-500/30 bg-gray-900 p-6 text-center">
               <p className="text-sm font-medium uppercase tracking-wider text-orange-400">
-                Your Age
+                {t("yourAge")}
               </p>
               <p className="mt-2 text-4xl font-bold text-white">
-                <span className="text-orange-400">{result.years}</span> years,{" "}
-                <span className="text-orange-400">{result.months}</span> months,{" "}
-                <span className="text-orange-400">{result.days}</span> days
+                <span className="text-orange-400">{result.years}</span> {t("years").toLowerCase()},{" "}
+                <span className="text-orange-400">{result.months}</span> {t("months").toLowerCase()},{" "}
+                <span className="text-orange-400">{result.days}</span> {t("days").toLowerCase()}
               </p>
               <p className="mt-3 text-sm text-gray-400">
-                You were born on a{" "}
+                {t("youWereBornOn")}{" "}
                 <span className="font-semibold text-amber-300">
                   {result.dayOfWeekBorn}
                 </span>
@@ -159,44 +161,44 @@ export default function AgeCalculatorTool() {
             {/* Next Birthday */}
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-6 text-center">
               <p className="text-sm font-medium text-gray-400">
-                Next Birthday In
+                {t("nextBirthdayIn")}
               </p>
               <p className="mt-1 text-3xl font-bold text-amber-400">
                 {result.daysUntilNextBirthday === 365 ||
                 result.daysUntilNextBirthday === 366
-                  ? "Today! Happy Birthday!"
-                  : `${result.daysUntilNextBirthday} days`}
+                  ? t("todayHappyBirthday")
+                  : `${result.daysUntilNextBirthday} ${t("days").toLowerCase()}`}
               </p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <StatCard
-                label="Total Days Lived"
+                label={t("totalDaysLived")}
                 value={result.totalDays.toLocaleString()}
-                subtext="Since your birthday"
+                subtext={t("sinceYourBirthday")}
               />
               <StatCard
-                label="Total Hours Lived"
+                label={t("totalHoursLived")}
                 value={result.totalHours.toLocaleString()}
-                subtext="Approximate"
+                subtext={t("approximate")}
               />
               <StatCard
-                label="Total Minutes Lived"
+                label={t("totalMinutesLived")}
                 value={result.totalMinutes.toLocaleString()}
-                subtext="Approximate"
+                subtext={t("approximate")}
               />
               <StatCard
-                label="Approximate Heartbeats"
+                label={t("approximateHeartbeats")}
                 value={result.approximateHeartbeats.toLocaleString()}
-                subtext="Based on ~70 beats/min"
+                subtext={t("basedOnHeartRate")}
               />
               <StatCard
-                label="Months Lived"
+                label={t("monthsLived")}
                 value={(result.years * 12 + result.months).toLocaleString()}
               />
               <StatCard
-                label="Weeks Lived"
+                label={t("weeksLived")}
                 value={Math.floor(result.totalDays / 7).toLocaleString()}
               />
             </div>
@@ -204,7 +206,7 @@ export default function AgeCalculatorTool() {
             {/* Wikipedia Link */}
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-6 text-center">
               <p className="text-sm text-gray-400">
-                Curious about what happened on your birthday?
+                {t("curiousAboutBirthday")}
               </p>
               <a
                 href={result.wikipediaLink}
@@ -212,7 +214,7 @@ export default function AgeCalculatorTool() {
                 rel="noopener noreferrer"
                 className="mt-2 inline-block rounded-lg bg-orange-500 px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
               >
-                View on Wikipedia
+                {t("viewOnWikipedia")}
               </a>
             </div>
           </>

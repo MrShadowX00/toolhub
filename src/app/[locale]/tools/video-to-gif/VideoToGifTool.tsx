@@ -2,8 +2,10 @@
 
 import { useState, useRef } from "react";
 import { Upload, Download, Trash2, Play } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function VideoToGifTool() {
+  const t = useTranslations("toolUi");
   const [file, setFile] = useState<File | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [gifUrl, setGifUrl] = useState<string | null>(null);
@@ -21,7 +23,7 @@ export default function VideoToGifTool() {
 
   const handleFile = (f: File) => {
     if (!f.type.startsWith("video/")) {
-      setError("Please upload a video file.");
+      setError(t("uploadVideoError"));
       return;
     }
     setFile(f);
@@ -49,7 +51,7 @@ export default function VideoToGifTool() {
     if (!file) return;
     setProcessing(true);
     setError(null);
-    setProgress("Loading FFmpeg...");
+    setProgress(t("loadingFfmpeg"));
 
     try {
       const { FFmpeg } = await import("@ffmpeg/ffmpeg");
@@ -63,11 +65,11 @@ export default function VideoToGifTool() {
         wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, "application/wasm"),
       });
 
-      setProgress("Processing video...");
+      setProgress(t("processingVideo"));
       const inputName = "input" + (file.name.includes(".") ? file.name.substring(file.name.lastIndexOf(".")) : ".mp4");
       await ffmpeg.writeFile(inputName, await fetchFile(file));
 
-      setProgress("Converting to GIF...");
+      setProgress(t("convertingToGif"));
       await ffmpeg.exec([
         "-i", inputName,
         "-ss", String(startTime),
@@ -84,7 +86,7 @@ export default function VideoToGifTool() {
       setProgress("");
     } catch (err) {
       console.error(err);
-      setError("GIF conversion failed. This feature requires a modern browser with SharedArrayBuffer support. Try Chrome or Edge with cross-origin isolation.");
+      setError(t("gifConvertError"));
     } finally {
       setProcessing(false);
     }
@@ -108,7 +110,7 @@ export default function VideoToGifTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. All processing happens in your browser using FFmpeg WebAssembly.</p>
+        <p className="text-xs text-gray-500">{t("privacyNoticeFfmpeg")}</p>
       </div>
 
       {!file ? (
@@ -119,8 +121,8 @@ export default function VideoToGifTool() {
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-16 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
         >
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
-          <p className="text-sm font-medium text-white">Drop a video file here or click to upload</p>
-          <p className="mt-1 text-xs text-gray-500">Supports MP4, WebM, MOV</p>
+          <p className="text-sm font-medium text-white">{t("dropVideoOrClick")}</p>
+          <p className="mt-1 text-xs text-gray-500">{t("supportsMp4WebmMov")}</p>
           <input ref={inputRef} type="file" accept="video/*" className="hidden" onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
         </div>
       ) : (
@@ -128,7 +130,7 @@ export default function VideoToGifTool() {
           <div className="flex items-center justify-between">
             <p className="text-sm text-gray-400 truncate">{file.name} ({formatSize(file.size)})</p>
             <button onClick={reset} className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300">
-              <Trash2 className="h-3 w-3" /> Remove
+              <Trash2 className="h-3 w-3" /> {t("remove")}
             </button>
           </div>
 
@@ -147,11 +149,11 @@ export default function VideoToGifTool() {
 
           {/* Settings */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6 space-y-4">
-            <h3 className="text-sm font-medium text-white">GIF Settings</h3>
+            <h3 className="text-sm font-medium text-white">{t("gifSettings")}</h3>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="mb-1 block text-xs text-gray-400">Start Time (s)</label>
+                <label className="mb-1 block text-xs text-gray-400">{t("startTimeLabel")}</label>
                 <input
                   type="number"
                   min={0}
@@ -163,7 +165,7 @@ export default function VideoToGifTool() {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-gray-400">End Time (s)</label>
+                <label className="mb-1 block text-xs text-gray-400">{t("endTimeLabel")}</label>
                 <input
                   type="number"
                   min={0}
@@ -178,11 +180,11 @@ export default function VideoToGifTool() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="mb-1 block text-xs text-gray-400">FPS: {fps}</label>
+                <label className="mb-1 block text-xs text-gray-400">{t("fpsValue", { value: fps })}</label>
                 <input type="range" min={1} max={15} value={fps} onChange={(e) => setFps(Number(e.target.value))} className="w-full accent-pink-500" />
               </div>
               <div>
-                <label className="mb-1 block text-xs text-gray-400">Width (px)</label>
+                <label className="mb-1 block text-xs text-gray-400">{t("widthPx")}</label>
                 <input
                   type="number"
                   min={100}
@@ -196,7 +198,7 @@ export default function VideoToGifTool() {
             </div>
 
             {duration > 0 && (
-              <p className="text-xs text-gray-600">Duration: {(endTime - startTime).toFixed(1)}s of {duration.toFixed(1)}s total</p>
+              <p className="text-xs text-gray-600">{t("durationInfo", { duration: (endTime - startTime).toFixed(1), total: duration.toFixed(1) })}</p>
             )}
           </div>
 
@@ -214,11 +216,11 @@ export default function VideoToGifTool() {
             {processing ? (
               <>
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                {progress || "Processing..."}
+                {progress || t("processing")}
               </>
             ) : (
               <>
-                <Play className="h-4 w-4" /> Convert to GIF
+                <Play className="h-4 w-4" /> {t("convertToGif")}
               </>
             )}
           </button>
@@ -227,7 +229,7 @@ export default function VideoToGifTool() {
             <>
               <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-xs font-medium text-gray-400">GIF Preview</p>
+                  <p className="text-xs font-medium text-gray-400">{t("gifPreview")}</p>
                   <p className="text-xs text-gray-500">{formatSize(gifSize)}</p>
                 </div>
                 <img src={gifUrl} alt="GIF" className="w-full rounded-lg" />
@@ -237,7 +239,7 @@ export default function VideoToGifTool() {
                 download={`${file.name.replace(/\.[^.]+$/, "")}.gif`}
                 className="flex w-full items-center justify-center gap-2 rounded-xl border border-pink-600 bg-transparent px-6 py-3 font-medium text-pink-400 transition-colors hover:bg-pink-600/10"
               >
-                <Download className="h-4 w-4" /> Download GIF
+                <Download className="h-4 w-4" /> {t("downloadGif")}
               </a>
             </>
           )}

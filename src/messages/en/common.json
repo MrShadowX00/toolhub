@@ -19,5 +19,8 @@
     "description": "The tool or page you're looking for doesn't exist.",
     "backHome": "Back to Home"
   },
-  "language": "Language"
+  "language": "Language",
+  "openSearch": "Open search",
+  "closeSearch": "Close search",
+  "toggleMenu": "Toggle menu"
 }

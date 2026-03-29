@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 type UnitSystem = "metric" | "imperial";
 
 interface BmiCategory {
-  label: string;
+  labelKey: string;
   min: number;
   max: number;
   color: string;
@@ -15,7 +16,7 @@ interface BmiCategory {
 
 const BMI_CATEGORIES: BmiCategory[] = [
   {
-    label: "Underweight",
+    labelKey: "underweight",
     min: 0,
     max: 18.5,
     color: "text-blue-400",
@@ -23,7 +24,7 @@ const BMI_CATEGORIES: BmiCategory[] = [
     borderColor: "border-blue-500",
   },
   {
-    label: "Normal",
+    labelKey: "normal",
     min: 18.5,
     max: 24.9,
     color: "text-green-400",
@@ -31,7 +32,7 @@ const BMI_CATEGORIES: BmiCategory[] = [
     borderColor: "border-green-500",
   },
   {
-    label: "Overweight",
+    labelKey: "overweight",
     min: 25,
     max: 29.9,
     color: "text-yellow-400",
@@ -39,7 +40,7 @@ const BMI_CATEGORIES: BmiCategory[] = [
     borderColor: "border-yellow-500",
   },
   {
-    label: "Obese",
+    labelKey: "obese",
     min: 30,
     max: 50,
     color: "text-red-400",
@@ -70,6 +71,7 @@ function getCategoryWidth(cat: BmiCategory): number {
 }
 
 export default function BmiCalculatorTool() {
+  const t = useTranslations("toolUi");
   const [unit, setUnit] = useState<UnitSystem>("metric");
   const [weightKg, setWeightKg] = useState<string>("70");
   const [weightLbs, setWeightLbs] = useState<string>("154");
@@ -130,7 +132,7 @@ export default function BmiCalculatorTool() {
                     : "text-gray-400 hover:text-white"
                 }`}
               >
-                Metric (kg/cm)
+                {t("metricUnit")}
               </button>
               <button
                 onClick={() => setUnit("imperial")}
@@ -140,7 +142,7 @@ export default function BmiCalculatorTool() {
                     : "text-gray-400 hover:text-white"
                 }`}
               >
-                Imperial (lbs/ft)
+                {t("imperialUnit")}
               </button>
             </div>
           </div>
@@ -150,7 +152,7 @@ export default function BmiCalculatorTool() {
             {/* Weight */}
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Weight {unit === "metric" ? "(kg)" : "(lbs)"}
+                {t("weight")} {unit === "metric" ? "(kg)" : "(lbs)"}
               </label>
               <input
                 type="number"
@@ -170,7 +172,7 @@ export default function BmiCalculatorTool() {
             {/* Height */}
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Height{" "}
+                {t("heightLabel")}{" "}
                 {unit === "metric" ? "(cm)" : "(ft / in)"}
               </label>
               {unit === "metric" ? (
@@ -196,7 +198,7 @@ export default function BmiCalculatorTool() {
                       placeholder="ft"
                     />
                     <span className="mt-1 block text-center text-xs text-gray-500">
-                      feet
+                      {t("feet")}
                     </span>
                   </div>
                   <div className="flex-1">
@@ -211,7 +213,7 @@ export default function BmiCalculatorTool() {
                       placeholder="in"
                     />
                     <span className="mt-1 block text-center text-xs text-gray-500">
-                      inches
+                      {t("inches")}
                     </span>
                   </div>
                 </div>
@@ -226,7 +228,7 @@ export default function BmiCalculatorTool() {
             {/* BMI Value */}
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-6 text-center">
               <p className="mb-1 text-sm font-medium uppercase tracking-wider text-gray-400">
-                Your BMI
+                {t("yourBmi")}
               </p>
               <p
                 className={`text-5xl font-bold transition-all duration-300 ${bmiResult.category.color}`}
@@ -236,14 +238,14 @@ export default function BmiCalculatorTool() {
               <p
                 className={`mt-2 text-lg font-semibold ${bmiResult.category.color}`}
               >
-                {bmiResult.category.label}
+                {t(bmiResult.category.labelKey)}
               </p>
             </div>
 
             {/* Visual Scale */}
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
               <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-gray-400">
-                BMI Scale
+                {t("bmiScale")}
               </h3>
 
               {/* Scale Bar */}
@@ -252,11 +254,11 @@ export default function BmiCalculatorTool() {
                 <div className="flex h-8 overflow-hidden rounded-lg">
                   {BMI_CATEGORIES.map((cat) => (
                     <div
-                      key={cat.label}
+                      key={cat.labelKey}
                       className={`${cat.bgColor} flex items-center justify-center text-xs font-semibold text-white transition-opacity duration-200`}
                       style={{ width: `${getCategoryWidth(cat)}%` }}
                     >
-                      <span className="hidden sm:inline">{cat.label}</span>
+                      <span className="hidden sm:inline">{t(cat.labelKey)}</span>
                     </div>
                   ))}
                 </div>
@@ -297,9 +299,9 @@ export default function BmiCalculatorTool() {
               {/* Category Legend (mobile) */}
               <div className="mt-4 grid grid-cols-2 gap-2 sm:hidden">
                 {BMI_CATEGORIES.map((cat) => (
-                  <div key={cat.label} className="flex items-center gap-2">
+                  <div key={cat.labelKey} className="flex items-center gap-2">
                     <div className={`h-3 w-3 rounded-full ${cat.bgColor}`} />
-                    <span className="text-xs text-gray-400">{cat.label}</span>
+                    <span className="text-xs text-gray-400">{t(cat.labelKey)}</span>
                   </div>
                 ))}
               </div>
@@ -308,28 +310,29 @@ export default function BmiCalculatorTool() {
             {/* Healthy Weight Range */}
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
               <h3 className="mb-3 text-sm font-medium uppercase tracking-wider text-gray-400">
-                Healthy Weight Range for Your Height
+                {t("healthyWeightRange")}
               </h3>
               <div className="flex items-center gap-4">
                 <div className="flex-1 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-center">
-                  <p className="text-xs text-gray-400">Min</p>
+                  <p className="text-xs text-gray-400">{t("min")}</p>
                   <p className="text-xl font-bold text-green-400">
                     {formatWeight(bmiResult.healthyMinKg)}
                   </p>
                 </div>
                 <div className="text-gray-600">-</div>
                 <div className="flex-1 rounded-lg border border-green-500/30 bg-green-500/10 p-4 text-center">
-                  <p className="text-xs text-gray-400">Max</p>
+                  <p className="text-xs text-gray-400">{t("max")}</p>
                   <p className="text-xl font-bold text-green-400">
                     {formatWeight(bmiResult.healthyMaxKg)}
                   </p>
                 </div>
               </div>
               <p className="mt-3 text-center text-sm text-gray-500">
-                Based on BMI range of 18.5 - 24.9 for a height of{" "}
-                {unit === "metric"
-                  ? `${(bmiResult.heightInM * 100).toFixed(0)} cm`
-                  : `${heightFt}'${heightIn}"`}
+                {t("basedOnBmiRange", {
+                  height: unit === "metric"
+                    ? `${(bmiResult.heightInM * 100).toFixed(0)} cm`
+                    : `${heightFt}'${heightIn}"`
+                })}
               </p>
             </div>
           </div>
@@ -338,28 +341,24 @@ export default function BmiCalculatorTool() {
         {/* BMI Limitations */}
         <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
           <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-yellow-400">
-            BMI Limitations
+            {t("bmiLimitations")}
           </h3>
           <ul className="space-y-2 text-sm text-gray-300">
             <li className="flex gap-2">
               <span className="mt-0.5 text-yellow-500">&#8226;</span>
-              BMI does not distinguish between muscle mass and fat mass. Athletes
-              with high muscle mass may have a high BMI despite low body fat.
+              {t("bmiLimitation1")}
             </li>
             <li className="flex gap-2">
               <span className="mt-0.5 text-yellow-500">&#8226;</span>
-              BMI does not account for age, sex, ethnicity, or body composition
-              differences that may affect health risk.
+              {t("bmiLimitation2")}
             </li>
             <li className="flex gap-2">
               <span className="mt-0.5 text-yellow-500">&#8226;</span>
-              BMI is a screening tool, not a diagnostic measure. Consult a
-              healthcare professional for a complete health assessment.
+              {t("bmiLimitation3")}
             </li>
             <li className="flex gap-2">
               <span className="mt-0.5 text-yellow-500">&#8226;</span>
-              For children and teens, BMI is interpreted differently using
-              age- and sex-specific percentiles.
+              {t("bmiLimitation4")}
             </li>
           </ul>
         </div>

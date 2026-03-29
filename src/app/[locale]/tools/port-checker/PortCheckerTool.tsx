@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Search,
   RefreshCw,
@@ -28,6 +29,7 @@ const COMMON_PORTS = [
 type CheckResult = "open" | "closed" | "timeout" | "browser-limited" | null;
 
 export default function PortCheckerTool() {
+  const t = useTranslations("toolUi");
   const [host, setHost] = useState("");
   const [port, setPort] = useState("");
   const [loading, setLoading] = useState(false);
@@ -44,11 +46,11 @@ export default function PortCheckerTool() {
     const portNum = parseInt(port, 10);
 
     if (!trimmedHost) {
-      setError("Please enter a hostname");
+      setError(t("pleaseEnterHost"));
       return;
     }
     if (!portNum || portNum < 1 || portNum > 65535) {
-      setError("Please enter a valid port (1-65535)");
+      setError(t("pleaseEnterValidPort"));
       return;
     }
 
@@ -98,28 +100,28 @@ export default function PortCheckerTool() {
       icon: CheckCircle2,
       color: "text-green-400",
       bg: "bg-green-900/20 border-green-800",
-      label: "Port is Open",
+      label: t("portOpen"),
       desc: "The port appears to be accepting connections.",
     },
     closed: {
       icon: XCircle,
       color: "text-red-400",
       bg: "bg-red-900/20 border-red-800",
-      label: "Port is Closed",
+      label: t("portClosed"),
       desc: "The port is not accepting connections or is blocked.",
     },
     timeout: {
       icon: Clock,
       color: "text-yellow-400",
       bg: "bg-yellow-900/20 border-yellow-800",
-      label: "Connection Timed Out",
+      label: t("connectionTimeout"),
       desc: "The port did not respond within 5 seconds. It may be filtered or the host is unreachable.",
     },
     "browser-limited": {
       icon: Info,
       color: "text-blue-400",
       bg: "bg-blue-900/20 border-blue-800",
-      label: "Browser Limitation",
+      label: t("browserLimitation"),
       desc: "This port uses a non-HTTP protocol. Browsers cannot perform raw TCP connections. Use a command-line tool like nmap, nc, or telnet for accurate results.",
     },
   };
@@ -131,7 +133,7 @@ export default function PortCheckerTool() {
           <div className="grid gap-4 sm:grid-cols-[1fr_160px_auto]">
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Host
+                {t("hostname")}
               </label>
               <div className="relative">
                 <Server className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
@@ -140,14 +142,14 @@ export default function PortCheckerTool() {
                   value={host}
                   onChange={(e) => setHost(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleCheck()}
-                  placeholder="e.g. example.com"
+                  placeholder={t("enterHost")}
                   className="w-full rounded-lg border border-gray-700 bg-gray-800 py-2.5 pl-10 pr-4 text-white placeholder-gray-500 transition-colors focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
                 />
               </div>
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Port
+                {t("port")}
               </label>
               <input
                 type="number"
@@ -171,14 +173,14 @@ export default function PortCheckerTool() {
                 ) : (
                   <Search className="h-4 w-4" />
                 )}
-                {loading ? "Checking..." : "Check"}
+                {loading ? t("checking") : t("check")}
               </button>
             </div>
           </div>
 
           {/* Common Ports */}
           <div className="mt-4">
-            <p className="mb-2 text-sm text-gray-400">Common Ports:</p>
+            <p className="mb-2 text-sm text-gray-400">{t("commonPorts")}:</p>
             <div className="flex flex-wrap gap-2">
               {COMMON_PORTS.map((p) => (
                 <button
@@ -238,7 +240,7 @@ export default function PortCheckerTool() {
         {/* Info section */}
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
           <h3 className="mb-3 text-sm font-semibold text-white">
-            About Port Checking
+            {t("aboutTool")}
           </h3>
           <p className="text-sm leading-relaxed text-gray-400">
             This tool attempts to connect to the specified host and port from

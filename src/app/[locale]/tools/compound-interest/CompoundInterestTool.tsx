@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 type CompoundFrequency = "daily" | "monthly" | "quarterly" | "annually";
 
@@ -36,6 +37,7 @@ function formatCurrency(value: number): string {
 }
 
 export default function CompoundInterestTool() {
+  const t = useTranslations("toolUi");
   const [principal, setPrincipal] = useState<string>("10000");
   const [annualRate, setAnnualRate] = useState<string>("7");
   const [frequency, setFrequency] = useState<CompoundFrequency>("monthly");
@@ -46,10 +48,10 @@ export default function CompoundInterestTool() {
     const P = parseFloat(principal) || 0;
     const r = (parseFloat(annualRate) || 0) / 100;
     const n = frequencyMap[frequency];
-    const t = parseInt(years) || 0;
+    const tVal = parseInt(years) || 0;
     const PMT = parseFloat(monthlyContribution) || 0;
 
-    if (t <= 0 || t > 100) {
+    if (tVal <= 0 || tVal > 100) {
       return null;
     }
 
@@ -68,7 +70,7 @@ export default function CompoundInterestTool() {
     let totalContributions = P;
     let totalInterest = 0;
 
-    for (let y = 1; y <= t; y++) {
+    for (let y = 1; y <= tVal; y++) {
       const balanceStart = runningBalance;
 
       // Calculate compound interest balance for this year
@@ -196,11 +198,11 @@ export default function CompoundInterestTool() {
       <div className="space-y-6">
         {/* Inputs */}
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
-          <h2 className="mb-4 text-lg font-semibold text-white">Input Parameters</h2>
+          <h2 className="mb-4 text-lg font-semibold text-white">{t("inputParameters")}</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-300">
-                Principal ($)
+                {t("principalDollar")}
               </label>
               <input
                 type="number"
@@ -214,7 +216,7 @@ export default function CompoundInterestTool() {
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-300">
-                Annual Rate (%)
+                {t("annualRatePercent")}
               </label>
               <input
                 type="number"
@@ -229,22 +231,22 @@ export default function CompoundInterestTool() {
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-300">
-                Compound Frequency
+                {t("compoundFrequency")}
               </label>
               <select
                 value={frequency}
                 onChange={(e) => setFrequency(e.target.value as CompoundFrequency)}
                 className="w-full rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-white focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
               >
-                <option value="daily">Daily</option>
-                <option value="monthly">Monthly</option>
-                <option value="quarterly">Quarterly</option>
-                <option value="annually">Annually</option>
+                <option value="daily">{t("daily")}</option>
+                <option value="monthly">{t("monthly")}</option>
+                <option value="quarterly">{t("quarterly")}</option>
+                <option value="annually">{t("annually")}</option>
               </select>
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-300">
-                Years
+                {t("years")}
               </label>
               <input
                 type="number"
@@ -259,7 +261,7 @@ export default function CompoundInterestTool() {
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-300">
-                Monthly Contribution ($)
+                {t("monthlyContribution")}
               </label>
               <input
                 type="number"
@@ -279,19 +281,19 @@ export default function CompoundInterestTool() {
             {/* Summary Results */}
             <div className="grid gap-4 sm:grid-cols-3">
               <div className="rounded-xl border border-gray-700 bg-gray-900 p-5">
-                <p className="text-sm font-medium text-gray-300">Final Amount</p>
+                <p className="text-sm font-medium text-gray-300">{t("finalAmount")}</p>
                 <p className="mt-1 text-2xl font-bold text-emerald-400">
                   {formatCurrency(results.finalAmount)}
                 </p>
               </div>
               <div className="rounded-xl border border-gray-700 bg-gray-900 p-5">
-                <p className="text-sm font-medium text-gray-300">Total Interest Earned</p>
+                <p className="text-sm font-medium text-gray-300">{t("totalInterestEarned")}</p>
                 <p className="mt-1 text-2xl font-bold text-emerald-400">
                   {formatCurrency(results.totalInterestEarned)}
                 </p>
               </div>
               <div className="rounded-xl border border-gray-700 bg-gray-900 p-5">
-                <p className="text-sm font-medium text-gray-300">Total Contributions</p>
+                <p className="text-sm font-medium text-gray-300">{t("totalContributions")}</p>
                 <p className="mt-1 text-2xl font-bold text-orange-400">
                   {formatCurrency(results.totalContributions)}
                 </p>
@@ -302,7 +304,7 @@ export default function CompoundInterestTool() {
             {chartSvg && (
               <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
                 <h2 className="mb-4 text-lg font-semibold text-white">
-                  Growth Over Time — Compound vs Simple Interest
+                  {t("growthOverTime")}
                 </h2>
                 <div className="overflow-x-auto">
                   <svg
@@ -405,19 +407,19 @@ export default function CompoundInterestTool() {
                 <div className="mt-4 flex flex-wrap gap-6 text-sm">
                   <div className="flex items-center gap-2">
                     <div className="h-3 w-6 rounded bg-emerald-500" />
-                    <span className="text-gray-300">Compound Interest</span>
+                    <span className="text-gray-300">{t("compoundInterest")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="h-3 w-6 rounded border border-dashed border-gray-400 bg-transparent" />
-                    <span className="text-gray-300">Simple Interest</span>
+                    <span className="text-gray-300">{t("simpleInterest")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="h-3 w-6 rounded bg-orange-500/30" />
-                    <span className="text-gray-300">Contributions</span>
+                    <span className="text-gray-300">{t("contributions")}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="h-3 w-6 rounded bg-emerald-900/40" />
-                    <span className="text-gray-300">Interest Earned</span>
+                    <span className="text-gray-300">{t("interestEarned")}</span>
                   </div>
                 </div>
               </div>
@@ -426,22 +428,22 @@ export default function CompoundInterestTool() {
             {/* Year-by-Year Table */}
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
               <h2 className="mb-4 text-lg font-semibold text-white">
-                Year-by-Year Growth
+                {t("yearByYearGrowth")}
               </h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-gray-700 text-left">
-                      <th className="px-3 py-2 font-medium text-gray-300">Year</th>
-                      <th className="px-3 py-2 font-medium text-gray-300">Balance</th>
+                      <th className="px-3 py-2 font-medium text-gray-300">{t("year")}</th>
+                      <th className="px-3 py-2 font-medium text-gray-300">{t("balance")}</th>
                       <th className="px-3 py-2 font-medium text-gray-300">
-                        Total Contributions
+                        {t("totalContributions")}
                       </th>
                       <th className="px-3 py-2 font-medium text-gray-300">
-                        Interest (Year)
+                        {t("interestYear")}
                       </th>
                       <th className="px-3 py-2 font-medium text-gray-300">
-                        Total Interest
+                        {t("totalInterest")}
                       </th>
                     </tr>
                   </thead>
@@ -476,7 +478,7 @@ export default function CompoundInterestTool() {
         {!results && (
           <div className="rounded-xl border border-dashed border-gray-700 bg-gray-900/50 py-16 text-center">
             <p className="text-gray-500">
-              Enter valid parameters above to see results.
+              {t("enterValidParameters")}
             </p>
           </div>
         )}

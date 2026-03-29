@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   Search,
   Loader2,
@@ -75,6 +76,7 @@ function InfoCard({ icon, label, value, mono = false }: InfoCardProps) {
 }
 
 export default function IpLookupTool() {
+  const t = useTranslations("toolUi");
   const [ip, setIp] = useState("");
   const [data, setData] = useState<IpData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -97,7 +99,7 @@ export default function IpLookupTool() {
 
         const json = (await res.json()) as IpData;
         if (json.error) {
-          throw new Error(json.reason || "Invalid IP address.");
+          throw new Error(json.reason || t("invalidInput"));
         }
 
         setData(json);
@@ -108,18 +110,18 @@ export default function IpLookupTool() {
           setIsAutoDetect(false);
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "IP lookup failed.");
+        setError(err instanceof Error ? err.message : t("error"));
       } finally {
         setLoading(false);
       }
     },
-    []
+    [t]
   );
 
   const handleLookup = () => {
     const cleaned = ip.trim();
     if (!cleaned) {
-      setError("Please enter an IP address or use auto-detect.");
+      setError(t("pleaseEnterIp"));
       return;
     }
     fetchIpData(cleaned);
@@ -140,7 +142,7 @@ export default function IpLookupTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            IP Address
+            {t("ipAddress")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -164,7 +166,7 @@ export default function IpLookupTool() {
               ) : (
                 <Search className="h-4 w-4" />
               )}
-              Lookup
+              {t("lookup")}
             </button>
             <button
               onClick={handleAutoDetect}
@@ -176,7 +178,7 @@ export default function IpLookupTool() {
               ) : (
                 <Crosshair className="h-4 w-4" />
               )}
-              <span className="hidden sm:inline">My IP</span>
+              <span className="hidden sm:inline">{t("autoDetect")}</span>
             </button>
           </div>
         </div>
@@ -186,7 +188,7 @@ export default function IpLookupTool() {
           <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
             <AlertCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
             <div className="flex-1">
-              <p className="text-sm font-medium text-red-300">Lookup Failed</p>
+              <p className="text-sm font-medium text-red-300">{t("error")}</p>
               <p className="mt-1 text-sm text-red-400">{error}</p>
             </div>
             <button onClick={() => setError(null)} className="text-red-400 hover:text-red-300">
@@ -201,7 +203,7 @@ export default function IpLookupTool() {
             <div className="flex flex-col items-center gap-3">
               <Loader2 className="h-8 w-8 text-indigo-400 animate-spin" />
               <p className="text-sm text-gray-400">
-                {isAutoDetect ? "Detecting your IP address..." : "Looking up IP..."}
+                {t("loading")}
               </p>
             </div>
           </div>
@@ -234,32 +236,32 @@ export default function IpLookupTool() {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <InfoCard
                 icon={<MapPin className="h-4 w-4 text-red-400" />}
-                label="Country"
+                label={t("country")}
                 value={`${flag} ${data.country_name || data.country}`}
               />
               <InfoCard
                 icon={<Navigation className="h-4 w-4 text-orange-400" />}
-                label="Region"
+                label={t("region")}
                 value={data.region}
               />
               <InfoCard
                 icon={<Building2 className="h-4 w-4 text-blue-400" />}
-                label="City"
+                label={t("city")}
                 value={data.city}
               />
               <InfoCard
                 icon={<Wifi className="h-4 w-4 text-green-400" />}
-                label="ISP / Organization"
+                label={t("isp")}
                 value={data.org}
               />
               <InfoCard
                 icon={<Clock className="h-4 w-4 text-purple-400" />}
-                label="Timezone"
+                label={t("timezone")}
                 value={`${data.timezone}${data.utc_offset ? ` (UTC${data.utc_offset})` : ""}`}
               />
               <InfoCard
                 icon={<Globe className="h-4 w-4 text-cyan-400" />}
-                label="Coordinates"
+                label={t("location")}
                 value={`${data.latitude}, ${data.longitude}`}
                 mono
               />
@@ -269,7 +271,7 @@ export default function IpLookupTool() {
             <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
               <div className="px-4 py-3 border-b border-gray-700 bg-gray-800">
                 <span className="text-sm font-medium text-gray-300">
-                  Additional Details
+                  {t("info")}
                 </span>
               </div>
               <div className="divide-y divide-gray-800">

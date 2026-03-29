@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Search,
   RefreshCw,
@@ -25,6 +26,7 @@ interface OgData {
 }
 
 export default function OpenGraphPreviewTool() {
+  const t = useTranslations("toolUi");
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -33,7 +35,7 @@ export default function OpenGraphPreviewTool() {
   const handleFetch = async () => {
     const trimmed = url.trim();
     if (!trimmed) {
-      setError("Please enter a URL");
+      setError(t("pleaseEnterUrl"));
       return;
     }
 
@@ -50,7 +52,7 @@ export default function OpenGraphPreviewTool() {
       setData(json);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to fetch Open Graph data"
+        err instanceof Error ? err.message : t("failedToFetchOgData")
       );
     } finally {
       setLoading(false);
@@ -85,7 +87,7 @@ export default function OpenGraphPreviewTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
           <label className="mb-2 block text-sm font-medium text-gray-300">
-            Website URL
+            {t("websiteUrl")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -109,7 +111,7 @@ export default function OpenGraphPreviewTool() {
               ) : (
                 <Search className="h-4 w-4" />
               )}
-              {loading ? "Fetching..." : "Preview"}
+              {loading ? t("fetching") : t("preview")}
             </button>
           </div>
         </div>
@@ -130,7 +132,7 @@ export default function OpenGraphPreviewTool() {
               <div className="mb-4 flex items-center gap-2">
                 <Globe className="h-5 w-5 text-blue-500" />
                 <h3 className="text-lg font-semibold text-white">
-                  Facebook Preview
+                  {t("facebookPreview")}
                 </h3>
               </div>
               <div className="overflow-hidden rounded-lg border border-gray-700 bg-gray-800">
@@ -139,7 +141,7 @@ export default function OpenGraphPreviewTool() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={data.image}
-                      alt="OG Preview"
+                      alt={t("ogPreview")}
                       className="h-full w-full object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
@@ -152,10 +154,10 @@ export default function OpenGraphPreviewTool() {
                     {data.siteName || getHostname(data.url)}
                   </div>
                   <div className="mt-1 font-semibold leading-snug text-white">
-                    {data.title || "No title found"}
+                    {data.title || t("noTitleFound")}
                   </div>
                   <div className="mt-1 line-clamp-2 text-sm text-gray-400">
-                    {data.description || "No description found"}
+                    {data.description || t("noDescriptionFound")}
                   </div>
                 </div>
               </div>
@@ -166,7 +168,7 @@ export default function OpenGraphPreviewTool() {
               <div className="mb-4 flex items-center gap-2">
                 <MessageCircle className="h-5 w-5 text-sky-400" />
                 <h3 className="text-lg font-semibold text-white">
-                  Twitter / X Preview
+                  {t("twitterPreview")}
                 </h3>
               </div>
               <div className="overflow-hidden rounded-2xl border border-gray-700 bg-gray-800">
@@ -175,7 +177,7 @@ export default function OpenGraphPreviewTool() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={data.twitterImage || data.image}
-                      alt="Twitter Preview"
+                      alt={t("twitterPreviewAlt")}
                       className="h-full w-full object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
@@ -185,12 +187,12 @@ export default function OpenGraphPreviewTool() {
                 )}
                 <div className="p-3">
                   <div className="font-semibold leading-snug text-white">
-                    {data.twitterTitle || data.title || "No title"}
+                    {data.twitterTitle || data.title || t("noTitle")}
                   </div>
                   <div className="mt-1 line-clamp-2 text-sm text-gray-400">
                     {data.twitterDescription ||
                       data.description ||
-                      "No description"}
+                      t("noDescription")}
                   </div>
                   <div className="mt-1 flex items-center gap-1 text-xs text-gray-500">
                     <ExternalLink className="h-3 w-3" />
@@ -205,7 +207,7 @@ export default function OpenGraphPreviewTool() {
               <div className="mb-4 flex items-center gap-2">
                 <Link2 className="h-5 w-5 text-blue-400" />
                 <h3 className="text-lg font-semibold text-white">
-                  LinkedIn Preview
+                  {t("linkedinPreview")}
                 </h3>
               </div>
               <div className="overflow-hidden rounded-lg border border-gray-700 bg-gray-800">
@@ -214,7 +216,7 @@ export default function OpenGraphPreviewTool() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={data.image}
-                      alt="LinkedIn Preview"
+                      alt={t("linkedinPreview")}
                       className="h-full w-full object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";
@@ -224,7 +226,7 @@ export default function OpenGraphPreviewTool() {
                 )}
                 <div className="p-3">
                   <div className="font-semibold leading-snug text-white">
-                    {data.title || "No title found"}
+                    {data.title || t("noTitleFound")}
                   </div>
                   <div className="mt-0.5 text-xs text-gray-500">
                     {getHostname(data.url)}
@@ -236,17 +238,17 @@ export default function OpenGraphPreviewTool() {
             {/* Raw Meta Tags */}
             <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
               <h3 className="mb-4 text-lg font-semibold text-white">
-                Raw Meta Tags
+                {t("rawMetaTags")}
               </h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-gray-700">
                       <th className="px-4 py-2 text-left font-medium text-gray-400">
-                        Property
+                        {t("property")}
                       </th>
                       <th className="px-4 py-2 text-left font-medium text-gray-400">
-                        Content
+                        {t("content")}
                       </th>
                     </tr>
                   </thead>
@@ -261,7 +263,7 @@ export default function OpenGraphPreviewTool() {
                         </td>
                         <td className="max-w-md truncate px-4 py-2 text-gray-300">
                           {tag.content || (
-                            <span className="text-gray-600">Not set</span>
+                            <span className="text-gray-600">{t("notSet")}</span>
                           )}
                         </td>
                       </tr>

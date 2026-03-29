@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 interface DateDifference {
   years: number;
@@ -146,6 +147,7 @@ function StatCard({
 }
 
 export default function DateDifferenceTool() {
+  const t = useTranslations("toolUi");
   const [startDate, setStartDate] = useState<string>(getToday);
   const [endDate, setEndDate] = useState<string>(getDefaultEnd);
   const [showBusinessDays, setShowBusinessDays] = useState<boolean>(false);
@@ -169,7 +171,7 @@ export default function DateDifferenceTool() {
         {/* Date Inputs */}
         <div className="rounded-lg border border-gray-700 bg-gray-800 p-6">
           <h2 className="mb-4 text-lg font-semibold text-white">
-            Select Dates
+            {t("selectDates")}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
@@ -177,7 +179,7 @@ export default function DateDifferenceTool() {
                 htmlFor="start-date"
                 className="mb-1 block text-sm font-medium text-gray-300"
               >
-                Start Date
+                {t("startDate")}
               </label>
               <input
                 id="start-date"
@@ -192,7 +194,7 @@ export default function DateDifferenceTool() {
                 htmlFor="end-date"
                 className="mb-1 block text-sm font-medium text-gray-300"
               >
-                End Date
+                {t("endDate")}
               </label>
               <input
                 id="end-date"
@@ -216,7 +218,7 @@ export default function DateDifferenceTool() {
               htmlFor="business-days"
               className="text-sm text-gray-300"
             >
-              Show business days (exclude weekends)
+              {t("showBusinessDays")}
             </label>
           </div>
         </div>
@@ -227,24 +229,23 @@ export default function DateDifferenceTool() {
             <p className="text-center text-xl font-semibold text-white">
               {diff.years > 0 && (
                 <span>
-                  {diff.years} {diff.years === 1 ? "year" : "years"}
+                  {diff.years} {diff.years === 1 ? t("years").slice(0, -1) : t("years").toLowerCase()}
                   {diff.months > 0 || diff.days > 0 ? ", " : ""}
                 </span>
               )}
               {diff.months > 0 && (
                 <span>
-                  {diff.months} {diff.months === 1 ? "month" : "months"}
+                  {diff.months} {diff.months === 1 ? t("months").slice(0, -1) : t("months").toLowerCase()}
                   {diff.days > 0 ? ", " : ""}
                 </span>
               )}
               <span>
-                {diff.days} {diff.days === 1 ? "day" : "days"}
+                {diff.days} {diff.days === 1 ? t("days").slice(0, -1) : t("days").toLowerCase()}
               </span>
             </p>
             {showBusinessDays && (
               <p className="mt-2 text-center text-sm text-orange-400">
-                {diff.businessDays.toLocaleString()} business days (excluding
-                weekends)
+                {t("businessDaysExcluding", { count: diff.businessDays })}
               </p>
             )}
           </div>
@@ -254,33 +255,33 @@ export default function DateDifferenceTool() {
         {diff && (
           <div>
             <h2 className="mb-4 text-lg font-semibold text-white">
-              Total in Each Unit
+              {t("totalInEachUnit")}
             </h2>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <StatCard
-                label="Years"
+                label={t("years")}
                 value={diff.years}
-                sub={`${diff.months} months, ${diff.days} days remaining`}
+                sub={t("monthsDaysRemaining", { months: diff.months, days: diff.days })}
               />
               <StatCard
-                label="Total Months"
+                label={t("totalMonths")}
                 value={diff.years * 12 + diff.months}
-                sub={`${diff.days} days remaining`}
+                sub={t("daysRemaining", { count: diff.days })}
               />
               <StatCard
-                label="Total Weeks"
+                label={t("totalWeeks")}
                 value={diff.totalWeeks}
-                sub={`${diff.totalDays % 7} days remaining`}
+                sub={t("daysRemaining", { count: diff.totalDays % 7 })}
               />
-              <StatCard label="Total Days" value={diff.totalDays} />
-              <StatCard label="Total Hours" value={diff.totalHours} />
-              <StatCard label="Total Minutes" value={diff.totalMinutes} />
-              <StatCard label="Total Seconds" value={diff.totalSeconds} />
+              <StatCard label={t("totalDays")} value={diff.totalDays} />
+              <StatCard label={t("totalHours")} value={diff.totalHours} />
+              <StatCard label={t("totalMinutes")} value={diff.totalMinutes} />
+              <StatCard label={t("totalSeconds")} value={diff.totalSeconds} />
               {showBusinessDays && (
                 <StatCard
-                  label="Business Days"
+                  label={t("businessDays")}
                   value={diff.businessDays}
-                  sub="Excludes Sat & Sun"
+                  sub={t("excludesSatSun")}
                 />
               )}
             </div>
@@ -290,7 +291,7 @@ export default function DateDifferenceTool() {
         {/* Add/Subtract Section */}
         <div className="rounded-lg border border-gray-700 bg-gray-800 p-6">
           <h2 className="mb-4 text-lg font-semibold text-white">
-            Add / Subtract Days from a Date
+            {t("addSubtractDays")}
           </h2>
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
@@ -298,7 +299,7 @@ export default function DateDifferenceTool() {
                 htmlFor="addsub-date"
                 className="mb-1 block text-sm font-medium text-gray-300"
               >
-                Date
+                {t("date")}
               </label>
               <input
                 id="addsub-date"
@@ -313,7 +314,7 @@ export default function DateDifferenceTool() {
                 htmlFor="addsub-days"
                 className="mb-1 block text-sm font-medium text-gray-300"
               >
-                Number of Days
+                {t("numberOfDays")}
               </label>
               <input
                 id="addsub-days"
@@ -328,7 +329,7 @@ export default function DateDifferenceTool() {
             </div>
             <div>
               <label className="mb-1 block text-sm font-medium text-gray-300">
-                Operation
+                {t("operation")}
               </label>
               <div className="flex overflow-hidden rounded-lg border border-gray-700">
                 <button
@@ -340,7 +341,7 @@ export default function DateDifferenceTool() {
                       : "bg-gray-900 text-gray-300 hover:bg-gray-700"
                   }`}
                 >
-                  Add
+                  {t("add")}
                 </button>
                 <button
                   type="button"
@@ -351,7 +352,7 @@ export default function DateDifferenceTool() {
                       : "bg-gray-900 text-gray-300 hover:bg-gray-700"
                   }`}
                 >
-                  Subtract
+                  {t("subtract")}
                 </button>
               </div>
             </div>
@@ -359,7 +360,7 @@ export default function DateDifferenceTool() {
 
           {addSubResult && (
             <div className="mt-4 rounded-lg border border-gray-700 bg-gray-900 p-4 text-center">
-              <p className="text-sm text-gray-400">Resulting Date</p>
+              <p className="text-sm text-gray-400">{t("resultingDate")}</p>
               <p className="mt-1 text-2xl font-bold text-orange-400">
                 {addSubResult.resultDate.toLocaleDateString("en-US", {
                   weekday: "long",

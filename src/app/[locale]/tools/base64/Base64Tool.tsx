@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, Trash2, Upload } from "lucide-react";
 
 type Mode = "encode" | "decode";
@@ -43,6 +44,7 @@ function formatBytes(n: number): string {
 }
 
 export default function Base64Tool() {
+  const t = useTranslations("toolUi");
   const [mode, setMode] = useState<Mode>("encode");
   const [input, setInput] = useState("");
   const [fileBase64, setFileBase64] = useState<string | null>(null);
@@ -128,13 +130,13 @@ export default function Base64Tool() {
           onClick={() => { setMode("encode"); handleClear(); }}
           className={`${tabBase} ${mode === "encode" ? tabActive : tabInactive}`}
         >
-          Encode
+          {t("encode")}
         </button>
         <button
           onClick={() => { setMode("decode"); handleClear(); }}
           className={`${tabBase} ${mode === "decode" ? tabActive : tabInactive}`}
         >
-          Decode
+          {t("decode")}
         </button>
       </div>
 
@@ -146,7 +148,7 @@ export default function Base64Tool() {
           <div className="flex flex-col p-4 gap-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                {mode === "encode" ? "Plain Text Input" : "Base64 Input"}
+{t("input")}
               </span>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-500">{formatBytes(inputBytes)}</span>
@@ -154,11 +156,11 @@ export default function Base64Tool() {
                   <>
                     <button
                       onClick={() => fileInputRef.current?.click()}
-                      title="Upload file"
+                      title={t("upload")}
                       className="flex items-center gap-1 rounded-md border border-gray-700 bg-gray-800 px-2 py-1 text-xs text-gray-300 hover:border-indigo-500 hover:text-white transition-colors"
                     >
                       <Upload className="h-3.5 w-3.5" />
-                      Upload
+                      {t("upload")}
                     </button>
                     <input
                       ref={fileInputRef}
@@ -171,14 +173,14 @@ export default function Base64Tool() {
                 <button
                   onClick={handleCopyInput}
                   disabled={!activeInput}
-                  title="Copy input"
+                  title={t("copyToClipboard")}
                   className="flex items-center gap-1 rounded-md border border-gray-700 bg-gray-800 px-2 py-1 text-xs text-gray-300 hover:border-indigo-500 hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {copiedInput ? <Check className="h-3.5 w-3.5 text-green-400" /> : <Copy className="h-3.5 w-3.5" />}
                 </button>
                 <button
                   onClick={handleClear}
-                  title="Clear"
+                  title={t("clear")}
                   className="flex items-center gap-1 rounded-md border border-gray-700 bg-gray-800 px-2 py-1 text-xs text-gray-300 hover:border-red-500 hover:text-red-400 transition-colors"
                 >
                   <Trash2 className="h-3.5 w-3.5" />
@@ -200,8 +202,8 @@ export default function Base64Tool() {
               readOnly={fileBase64 !== null}
               placeholder={
                 mode === "encode"
-                  ? "Type or paste text to encode, or upload a file..."
-                  : "Paste Base64 string to decode..."
+                  ? t("pasteText")
+                  : t("pasteBase64")
               }
               className="h-64 w-full resize-none rounded-lg border border-gray-700 bg-gray-800 p-3 font-mono text-sm text-gray-100 placeholder-gray-600 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors"
               spellCheck={false}
@@ -212,7 +214,7 @@ export default function Base64Tool() {
           <div className="flex flex-col p-4 gap-3 border-t border-gray-700 lg:border-t-0">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-widest text-gray-400">
-                {mode === "encode" ? "Base64 Output" : "Decoded Output"}
+                {t("output")}
               </span>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-500">{formatBytes(outputBytes)}</span>
@@ -222,8 +224,8 @@ export default function Base64Tool() {
                   className="flex items-center gap-1.5 rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-indigo-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {copiedOutput
-                    ? <><Check className="h-3.5 w-3.5" /> Copied</>
-                    : <><Copy className="h-3.5 w-3.5" /> Copy</>
+                    ? <><Check className="h-3.5 w-3.5" /> {t("copied")}</>
+                    : <><Copy className="h-3.5 w-3.5" /> {t("copy")}</>
                   }
                 </button>
               </div>
@@ -239,7 +241,7 @@ export default function Base64Tool() {
             <textarea
               readOnly
               value={outputText ?? ""}
-              placeholder={error ? "" : "Output will appear here..."}
+              placeholder={error ? "" : t("resultWillAppear")}
               className="h-64 w-full resize-none rounded-lg border border-gray-700 bg-gray-800 p-3 font-mono text-sm text-gray-100 placeholder-gray-600 focus:outline-none transition-colors"
               spellCheck={false}
             />
@@ -249,18 +251,18 @@ export default function Base64Tool() {
         {/* Stats footer */}
         <div className="border-t border-gray-700 bg-gray-800/50 px-4 py-2.5 flex flex-wrap gap-4 text-xs text-gray-500">
           <span>
-            Input: <span className="text-gray-300">{activeInput.length} chars</span>
+            {t("input")}: <span className="text-gray-300">{activeInput.length} chars</span>
           </span>
           <span>
-            Input size: <span className="text-gray-300">{formatBytes(inputBytes)}</span>
+            {t("input")} {t("size").toLowerCase()}: <span className="text-gray-300">{formatBytes(inputBytes)}</span>
           </span>
           {outputText && (
             <>
               <span>
-                Output: <span className="text-gray-300">{outputText.length} chars</span>
+                {t("output")}: <span className="text-gray-300">{outputText.length} chars</span>
               </span>
               <span>
-                Output size: <span className="text-gray-300">{formatBytes(outputBytes)}</span>
+                {t("output")} {t("size").toLowerCase()}: <span className="text-gray-300">{formatBytes(outputBytes)}</span>
               </span>
               {mode === "encode" && inputBytes > 0 && (
                 <span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, Upload, Hash } from "lucide-react";
 
 // --- Pure JS MD5 implementation ---
@@ -182,6 +183,7 @@ const HASH_LABELS: { key: keyof HashResults; label: string; bits: string }[] = [
 const CHUNK_SIZE = 2 * 1024 * 1024; // 2 MB chunks
 
 export default function HashGeneratorTool() {
+  const t = useTranslations("toolUi");
   const [inputText, setInputText] = useState("");
   const [results, setResults] = useState<HashResults | null>(null);
   const [isComputing, setIsComputing] = useState(false);
@@ -367,7 +369,7 @@ export default function HashGeneratorTool() {
           }`}
         >
           <Hash className="h-4 w-4" />
-          Text Input
+          {t("input")}
         </button>
         <button
           onClick={() => handleModeSwitch("file")}
@@ -378,7 +380,7 @@ export default function HashGeneratorTool() {
           }`}
         >
           <Upload className="h-4 w-4" />
-          File Upload
+          {t("upload")}
         </button>
       </div>
 
@@ -387,21 +389,21 @@ export default function HashGeneratorTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-800 p-4 space-y-3">
           <div className="flex items-center justify-between">
             <label className="text-sm font-medium text-gray-300">
-              Input Text
+              {t("input")}
             </label>
             {inputText && (
               <button
                 onClick={handleClear}
                 className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
               >
-                Clear
+                {t("clear")}
               </button>
             )}
           </div>
           <textarea
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
-            placeholder="Type or paste text to hash..."
+            placeholder={t("enterHash")}
             rows={5}
             className="w-full resize-none rounded-lg border border-gray-700 bg-gray-900 px-4 py-3 font-mono text-sm text-gray-100 placeholder-gray-600 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
           />
@@ -435,7 +437,7 @@ export default function HashGeneratorTool() {
             ) : (
               <>
                 <p className="font-medium text-gray-300">
-                  Drop a file here or click to browse
+                  {t("dragDrop")}
                 </p>
                 <p className="text-sm text-gray-600">
                   Any file type — hashed entirely in your browser
@@ -450,7 +452,7 @@ export default function HashGeneratorTool() {
       {mode === "file" && isComputing && (
         <div className="space-y-2">
           <div className="flex justify-between text-xs text-gray-500">
-            <span>Reading file...</span>
+            <span>{t("processing")}</span>
             <span>{fileProgress}%</span>
           </div>
           <div className="h-2 w-full overflow-hidden rounded-full bg-gray-700">
@@ -473,7 +475,7 @@ export default function HashGeneratorTool() {
       {isComputing && mode === "text" && (
         <div className="flex items-center gap-2 text-sm text-gray-500">
           <div className="h-4 w-4 animate-spin rounded-full border-2 border-gray-600 border-t-blue-500" />
-          Computing hashes...
+          {t("processing")}
         </div>
       )}
 
@@ -481,7 +483,7 @@ export default function HashGeneratorTool() {
       {results && (
         <div className="space-y-3">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-gray-500">
-            Hash Results
+            {t("result")}
           </h2>
           <div className="space-y-3">
             {HASH_LABELS.map(({ key, label, bits }) => (
@@ -507,12 +509,12 @@ export default function HashGeneratorTool() {
                     {copiedKey === key ? (
                       <>
                         <Check className="h-3.5 w-3.5 text-green-400" />
-                        <span className="text-green-400">Copied</span>
+                        <span className="text-green-400">{t("copied")}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="h-3.5 w-3.5" />
-                        Copy
+                        {t("copy")}
                       </>
                     )}
                   </button>
@@ -534,15 +536,15 @@ export default function HashGeneratorTool() {
           </div>
           <p className="text-sm text-gray-500">
             {mode === "text"
-              ? "Start typing to generate hashes instantly"
-              : "Upload a file to compute its hashes"}
+              ? t("enterHash")
+              : t("dragDrop")}
           </p>
         </div>
       )}
 
       {/* Info section */}
       <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-5 space-y-3">
-        <h3 className="text-sm font-semibold text-gray-300">About these algorithms</h3>
+        <h3 className="text-sm font-semibold text-gray-300">{t("aboutTool")}</h3>
         <dl className="space-y-2 text-sm">
           {[
             {

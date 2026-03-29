@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   Download,
   Upload,
@@ -21,6 +22,7 @@ interface FaviconPreview {
 }
 
 export default function FaviconGeneratorTool() {
+  const t = useTranslations("toolUi");
   const [mode, setMode] = useState<Mode>("text");
   const [letter, setLetter] = useState("T");
   const [bgColor, setBgColor] = useState("#6366f1");
@@ -159,7 +161,7 @@ export default function FaviconGeneratorTool() {
           }`}
         >
           <Type className="h-4 w-4" />
-          Letter / Emoji
+          {t("faviconText")}
         </button>
         <button
           onClick={() => setMode("upload")}
@@ -170,7 +172,7 @@ export default function FaviconGeneratorTool() {
           }`}
         >
           <Upload className="h-4 w-4" />
-          Upload Image
+          {t("upload")} {t("original")}
         </button>
       </div>
 
@@ -181,7 +183,7 @@ export default function FaviconGeneratorTool() {
             <>
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                  Letter or Emoji
+                  {t("faviconText")}
                 </label>
                 <input
                   type="text"
@@ -195,7 +197,7 @@ export default function FaviconGeneratorTool() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                    Background Color
+                    {t("backgroundColor")}
                   </label>
                   <div className="flex items-center gap-3 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2">
                     <input
@@ -214,7 +216,7 @@ export default function FaviconGeneratorTool() {
                 </div>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                    Text Color
+                    {t("textColor")}
                   </label>
                   <div className="flex items-center gap-3 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2">
                     <input
@@ -236,7 +238,7 @@ export default function FaviconGeneratorTool() {
           ) : (
             <div>
               <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                Upload Image
+                {t("upload")}
               </label>
               <div
                 onClick={() => fileInputRef.current?.click()}
@@ -253,8 +255,8 @@ export default function FaviconGeneratorTool() {
                 )}
                 <p className="text-sm text-gray-400">
                   {uploadedImage
-                    ? "Click to change image"
-                    : "Click to upload an image"}
+                    ? t("dragDrop")
+                    : t("dragDrop")}
                 </p>
                 <p className="mt-1 text-xs text-gray-500">
                   PNG, JPG, SVG recommended
@@ -279,7 +281,7 @@ export default function FaviconGeneratorTool() {
             }
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-purple-600 px-4 py-3 font-medium text-white transition-colors hover:bg-purple-700 disabled:opacity-50"
           >
-            Generate Favicons
+            {t("generate")}
           </button>
         </div>
 
@@ -288,7 +290,7 @@ export default function FaviconGeneratorTool() {
           {previews.length > 0 ? (
             <div className="space-y-4">
               <h3 className="text-sm font-medium text-gray-300">
-                Generated Sizes
+                {t("faviconSize")}
               </h3>
               <div className="grid grid-cols-3 gap-3">
                 {previews.map((p) => (
@@ -321,7 +323,7 @@ export default function FaviconGeneratorTool() {
                 className="flex w-full items-center justify-center gap-2 rounded-lg bg-green-600 px-4 py-3 font-medium text-white transition-colors hover:bg-green-700"
               >
                 <Download className="h-4 w-4" />
-                Download as ZIP
+                {t("downloadAs", { format: "ZIP" })}
               </button>
             </div>
           ) : (
@@ -329,7 +331,7 @@ export default function FaviconGeneratorTool() {
               <div className="text-center text-gray-500">
                 <ImageIcon className="mx-auto mb-2 h-12 w-12" />
                 <p className="text-sm">
-                  Configure and generate to see previews
+                  {t("resultWillAppear")}
                 </p>
               </div>
             </div>
@@ -342,7 +344,7 @@ export default function FaviconGeneratorTool() {
         <div className="rounded-xl border border-gray-700 bg-gray-800 p-4">
           <div className="mb-2 flex items-center justify-between">
             <h3 className="text-sm font-medium text-gray-300">
-              HTML Snippet
+              HTML
             </h3>
             <button
               onClick={copySnippet}
@@ -351,12 +353,12 @@ export default function FaviconGeneratorTool() {
               {copiedSnippet ? (
                 <>
                   <Check className="h-3.5 w-3.5 text-green-400" />
-                  Copied
+                  {t("copied")}
                 </>
               ) : (
                 <>
                   <Copy className="h-3.5 w-3.5" />
-                  Copy
+                  {t("copy")}
                 </>
               )}
             </button>

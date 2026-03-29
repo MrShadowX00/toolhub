@@ -19,5 +19,8 @@
     "description": "Siz qidirayotgan vosita yoki sahifa mavjud emas.",
     "backHome": "Bosh sahifaga"
   },
-  "language": "Til"
+  "language": "Til",
+  "openSearch": "Qidiruvni ochish",
+  "closeSearch": "Qidiruvni yopish",
+  "toggleMenu": "Menyuni almashtirish"
 }

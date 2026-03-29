@@ -2,8 +2,10 @@
 
 import { useState, useRef } from "react";
 import { Upload, Download, Trash2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function BackgroundRemoverTool() {
+  const t = useTranslations("toolUi");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [resultUrl, setResultUrl] = useState<string | null>(null);
@@ -15,18 +17,18 @@ export default function BackgroundRemoverTool() {
   const processImage = async (f: File) => {
     setProcessing(true);
     setError(null);
-    setProgress("Loading AI model...");
+    setProgress(t("loadingAiModel"));
 
     try {
       const { pipeline, env } = await import("@huggingface/transformers");
       env.allowLocalModels = false;
 
-      setProgress("Initializing segmentation model...");
+      setProgress(t("initializingModel"));
       const segmenter = await pipeline("image-segmentation", "Xenova/modnet", {
         device: "wasm",
       });
 
-      setProgress("Removing background...");
+      setProgress(t("removingBackground"));
       const imageUrl = URL.createObjectURL(f);
       const results = await segmenter(imageUrl);
       URL.revokeObjectURL(imageUrl);
@@ -76,7 +78,7 @@ export default function BackgroundRemoverTool() {
       }
 
       // Fallback: simple canvas-based approach
-      setProgress("Using fallback method...");
+      setProgress(t("usingFallback"));
       const img = new window.Image();
       const imgLoaded = new Promise<void>((res) => { img.onload = () => res(); });
       img.src = URL.createObjectURL(f);
@@ -93,7 +95,7 @@ export default function BackgroundRemoverTool() {
       }, "image/png");
     } catch (err) {
       console.error(err);
-      setError("Background removal failed. This feature requires a modern browser with WebAssembly support. Try a simpler image or a different browser.");
+      setError(t("bgRemovalError"));
       setProcessing(false);
     }
   };
@@ -123,7 +125,7 @@ export default function BackgroundRemoverTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. AI model runs entirely in your browser.</p>
+        <p className="text-xs text-gray-500">{t("privacyNoticeAi")}</p>
       </div>
 
       {!file ? (
@@ -134,8 +136,8 @@ export default function BackgroundRemoverTool() {
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-16 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
         >
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
-          <p className="text-sm font-medium text-white">Drop an image here or click to upload</p>
-          <p className="mt-1 text-xs text-gray-500">Best with photos of people or objects</p>
+          <p className="text-sm font-medium text-white">{t("dropImageOrClick")}</p>
+          <p className="mt-1 text-xs text-gray-500">{t("bestWithPhotos")}</p>
           <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
         </div>
       ) : (
@@ -143,7 +145,7 @@ export default function BackgroundRemoverTool() {
           <div className="flex items-center justify-between">
             <p className="text-sm text-gray-400 truncate">{file.name}</p>
             <button onClick={reset} className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300">
-              <Trash2 className="h-3 w-3" /> Remove
+              <Trash2 className="h-3 w-3" /> {t("remove")}
             </button>
           </div>
 
@@ -152,11 +154,11 @@ export default function BackgroundRemoverTool() {
               <div className="flex items-center gap-3">
                 <div className="h-5 w-5 animate-spin rounded-full border-2 border-pink-500 border-t-transparent" />
                 <div>
-                  <p className="text-sm text-white">Processing...</p>
+                  <p className="text-sm text-white">{t("processing")}</p>
                   <p className="text-xs text-gray-500">{progress}</p>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-gray-600">First run downloads the AI model (~30MB). Subsequent runs are faster.</p>
+              <p className="mt-3 text-xs text-gray-600">{t("aiModelNote")}</p>
             </div>
           )}
 
@@ -169,16 +171,16 @@ export default function BackgroundRemoverTool() {
           {/* Before/After */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
-              <p className="mb-2 text-xs font-medium text-gray-400">Original</p>
-              {preview && <img src={preview} alt="Original" className="w-full rounded-lg object-contain max-h-64" />}
+              <p className="mb-2 text-xs font-medium text-gray-400">{t("original")}</p>
+              {preview && <img src={preview} alt={t("original")} className="w-full rounded-lg object-contain max-h-64" />}
             </div>
             <div className="rounded-xl border border-gray-800 p-3" style={{ background: "repeating-conic-gradient(#374151 0% 25%, #1f2937 0% 50%) 50% / 20px 20px" }}>
-              <p className="mb-2 text-xs font-medium text-gray-400">Result</p>
+              <p className="mb-2 text-xs font-medium text-gray-400">{t("result")}</p>
               {resultUrl ? (
-                <img src={resultUrl} alt="Result" className="w-full rounded-lg object-contain max-h-64" />
+                <img src={resultUrl} alt={t("result")} className="w-full rounded-lg object-contain max-h-64" />
               ) : (
                 <div className="flex h-64 items-center justify-center">
-                  <span className="text-sm text-gray-500">{processing ? "Processing..." : "Result will appear here"}</span>
+                  <span className="text-sm text-gray-500">{processing ? t("processing") : t("resultWillAppear")}</span>
                 </div>
               )}
             </div>
@@ -190,7 +192,7 @@ export default function BackgroundRemoverTool() {
               download={`no-bg-${file.name.replace(/\.[^.]+$/, "")}.png`}
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-600 px-6 py-3 font-medium text-white transition-colors hover:bg-pink-700"
             >
-              <Download className="h-4 w-4" /> Download Transparent PNG
+              <Download className="h-4 w-4" /> {t("downloadTransparentPng")}
             </a>
           )}
         </>

@@ -58,7 +58,7 @@ export default function HomeClient() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full rounded-xl border border-gray-800 bg-gray-900 py-3.5 ps-12 pe-4 text-white placeholder-gray-500 outline-none transition-colors focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-              aria-label="Search tools"
+              aria-label={tc("searchPlaceholder")}
               role="searchbox"
             />
           </div>
@@ -74,8 +74,7 @@ export default function HomeClient() {
       {filteredTools ? (
         <section className="pb-16" aria-label="Search results">
           <h2 className="mb-6 text-lg font-semibold text-white">
-            {filteredTools.length} result
-            {filteredTools.length !== 1 && "s"} for &ldquo;{search}&rdquo;
+            {tc("resultsCount", { count: filteredTools.length, query: search })}
           </h2>
           {filteredTools.length > 0 ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

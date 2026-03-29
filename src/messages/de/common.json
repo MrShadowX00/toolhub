@@ -19,5 +19,8 @@
     "description": "Das Werkzeug oder die Seite existiert nicht.",
     "backHome": "Zurück zur Startseite"
   },
-  "language": "Sprache"
+  "language": "Sprache",
+  "openSearch": "Suche öffnen",
+  "closeSearch": "Suche schließen",
+  "toggleMenu": "Menü umschalten"
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   Search,
   RefreshCw,
@@ -19,6 +20,7 @@ interface SitemapData {
 }
 
 export default function SitemapGeneratorTool() {
+  const t = useTranslations("toolUi");
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -28,7 +30,7 @@ export default function SitemapGeneratorTool() {
   const handleGenerate = async () => {
     const trimmed = url.trim();
     if (!trimmed) {
-      setError("Please enter a URL");
+      setError(t("pleaseEnterUrl"));
       return;
     }
 
@@ -45,7 +47,7 @@ export default function SitemapGeneratorTool() {
       setData(json);
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to generate sitemap"
+        err instanceof Error ? err.message : t("failedToGenerateSitemap")
       );
     } finally {
       setLoading(false);
@@ -77,7 +79,7 @@ export default function SitemapGeneratorTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
           <label className="mb-2 block text-sm font-medium text-gray-300">
-            Website URL
+            {t("websiteUrl")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -101,7 +103,7 @@ export default function SitemapGeneratorTool() {
               ) : (
                 <Search className="h-4 w-4" />
               )}
-              {loading ? "Crawling..." : "Generate"}
+              {loading ? t("crawling") : t("generate")}
             </button>
           </div>
         </div>
@@ -111,10 +113,10 @@ export default function SitemapGeneratorTool() {
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-8 text-center">
             <RefreshCw className="mx-auto h-8 w-8 animate-spin text-green-400" />
             <p className="mt-3 text-gray-400">
-              Crawling website and discovering pages...
+              {t("crawlingWebsite")}
             </p>
             <p className="mt-1 text-sm text-gray-600">
-              This may take a few seconds
+              {t("mayTakeFewSeconds")}
             </p>
           </div>
         )}
@@ -140,7 +142,7 @@ export default function SitemapGeneratorTool() {
                   <div className="text-2xl font-bold text-white">
                     {data.urls.length}
                   </div>
-                  <div className="text-sm text-gray-400">URLs found</div>
+                  <div className="text-sm text-gray-400">{t("urlsFound")}</div>
                 </div>
               </div>
               <div className="flex gap-2">
@@ -153,14 +155,14 @@ export default function SitemapGeneratorTool() {
                   ) : (
                     <Copy className="h-4 w-4" />
                   )}
-                  {copied ? "Copied!" : "Copy XML"}
+                  {copied ? t("copiedBang") : t("copyXml")}
                 </button>
                 <button
                   onClick={handleDownload}
                   className="flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700"
                 >
                   <Download className="h-4 w-4" />
-                  Download sitemap.xml
+                  {t("downloadSitemapXml")}
                 </button>
               </div>
             </div>
@@ -169,7 +171,7 @@ export default function SitemapGeneratorTool() {
             <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
               <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                 <Link2 className="h-5 w-5 text-green-400" />
-                Discovered URLs
+                {t("discoveredUrls")}
               </h3>
               <div className="max-h-64 space-y-1 overflow-y-auto">
                 {data.urls.map((u, i) => (
@@ -197,7 +199,7 @@ export default function SitemapGeneratorTool() {
             <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
               <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                 <FileCode className="h-5 w-5 text-green-400" />
-                Generated XML
+                {t("generatedXml")}
               </h3>
               <div className="relative">
                 <pre className="max-h-96 overflow-auto rounded-lg bg-gray-950 p-4 text-sm text-gray-300">

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Upload, Download, Trash2, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const FORMATS = ["image/png", "image/jpeg", "image/webp"] as const;
 const FORMAT_LABELS: Record<string, string> = {
@@ -11,6 +12,7 @@ const FORMAT_LABELS: Record<string, string> = {
 };
 
 export default function ImageConverterTool() {
+  const t = useTranslations("toolUi");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [outputFormat, setOutputFormat] = useState<string>("image/png");
@@ -83,7 +85,7 @@ export default function ImageConverterTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. All processing happens in your browser.</p>
+        <p className="text-xs text-gray-500">{t("privacyNotice")}</p>
       </div>
 
       {!file ? (
@@ -94,8 +96,8 @@ export default function ImageConverterTool() {
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-16 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
         >
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
-          <p className="text-sm font-medium text-white">Drop an image here or click to upload</p>
-          <p className="mt-1 text-xs text-gray-500">Supports JPG, PNG, WebP, GIF, BMP</p>
+          <p className="text-sm font-medium text-white">{t("dropImageOrClick")}</p>
+          <p className="mt-1 text-xs text-gray-500">{t("supportsJpgPngWebpGifBmp")}</p>
           <input
             ref={inputRef}
             type="file"
@@ -113,13 +115,13 @@ export default function ImageConverterTool() {
               <span className="rounded bg-pink-600 px-2 py-1 font-mono text-white">{FORMAT_LABELS[outputFormat]}</span>
             </div>
             <button onClick={reset} className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300">
-              <Trash2 className="h-3 w-3" /> Remove
+              <Trash2 className="h-3 w-3" /> {t("remove")}
             </button>
           </div>
 
           {/* Output Format */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <label className="mb-3 block text-sm font-medium text-white">Output Format</label>
+            <label className="mb-3 block text-sm font-medium text-white">{t("outputFormat")}</label>
             <div className="flex gap-3">
               {FORMATS.map((fmt) => (
                 <button
@@ -138,7 +140,7 @@ export default function ImageConverterTool() {
 
             {outputFormat !== "image/png" && (
               <div className="mt-4">
-                <label className="mb-2 block text-sm text-gray-400">Quality: {quality}%</label>
+                <label className="mb-2 block text-sm text-gray-400">{t("qualityPercent", { value: quality })}</label>
                 <input
                   type="range"
                   min={1}
@@ -154,11 +156,11 @@ export default function ImageConverterTool() {
           {/* Size Comparison */}
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-              <p className="text-xs text-gray-500 mb-1">Original ({file.type.split("/")[1].toUpperCase()})</p>
+              <p className="text-xs text-gray-500 mb-1">{t("originalFormat", { format: file.type.split("/")[1].toUpperCase() })}</p>
               <p className="text-lg font-bold text-white">{formatSize(file.size)}</p>
             </div>
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-4 text-center">
-              <p className="text-xs text-gray-500 mb-1">Converted ({FORMAT_LABELS[outputFormat]})</p>
+              <p className="text-xs text-gray-500 mb-1">{t("convertedFormat", { format: FORMAT_LABELS[outputFormat] })}</p>
               <p className="text-lg font-bold text-green-400">{formatSize(convertedSize)}</p>
             </div>
           </div>
@@ -166,8 +168,8 @@ export default function ImageConverterTool() {
           {/* Preview */}
           {preview && (
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
-              <p className="mb-2 text-xs font-medium text-gray-400">Preview</p>
-              <img src={preview} alt="Preview" className="mx-auto max-h-64 rounded-lg object-contain" />
+              <p className="mb-2 text-xs font-medium text-gray-400">{t("preview")}</p>
+              <img src={preview} alt={t("preview")} className="mx-auto max-h-64 rounded-lg object-contain" />
             </div>
           )}
 
@@ -178,14 +180,14 @@ export default function ImageConverterTool() {
               download={`converted.${ext}`}
               className="flex w-full items-center justify-center gap-2 rounded-xl bg-pink-600 px-6 py-3 font-medium text-white transition-colors hover:bg-pink-700"
             >
-              <Download className="h-4 w-4" /> Download {FORMAT_LABELS[outputFormat]}
+              <Download className="h-4 w-4" /> {t("downloadFormat", { format: FORMAT_LABELS[outputFormat] })}
             </a>
           )}
 
           {processing && (
             <div className="flex items-center justify-center gap-2 rounded-xl border border-gray-800 bg-gray-900/50 py-4">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-pink-500 border-t-transparent" />
-              <span className="text-sm text-gray-400">Converting...</span>
+              <span className="text-sm text-gray-400">{t("converting")}</span>
             </div>
           )}
         </>

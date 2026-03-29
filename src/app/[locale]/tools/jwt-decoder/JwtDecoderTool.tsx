@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, AlertTriangle, CheckCircle } from "lucide-react";
 
 // ---------------------------------------------------------------------------
@@ -117,8 +118,9 @@ interface CopyButtonProps {
   label?: string;
 }
 
-function CopyButton({ text, label = "Copy" }: CopyButtonProps) {
+function CopyButton({ text, label }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
+  const t = useTranslations("toolUi");
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(text).then(() => {
@@ -139,12 +141,12 @@ function CopyButton({ text, label = "Copy" }: CopyButtonProps) {
       {copied ? (
         <>
           <Check className="h-3.5 w-3.5" />
-          Copied
+          {t("copied")}
         </>
       ) : (
         <>
           <Copy className="h-3.5 w-3.5" />
-          {label}
+          {label ?? t("copy")}
         </>
       )}
     </button>
@@ -188,10 +190,10 @@ function SectionPanel({
 const TIMESTAMP_CLAIMS = ["iat", "exp", "nbf"] as const;
 type TimestampClaim = (typeof TIMESTAMP_CLAIMS)[number];
 
-const CLAIM_LABELS: Record<TimestampClaim, string> = {
-  iat: "Issued At",
-  exp: "Expires",
-  nbf: "Not Before",
+const CLAIM_LABELS: Record<TimestampClaim, { key: string; fallback: string }> = {
+  iat: { key: "issuedAt", fallback: "Issued At" },
+  exp: { key: "expiresAt", fallback: "Expires" },
+  nbf: { key: "validFrom", fallback: "Not Before" },
 };
 
 interface TimestampRowsProps {
@@ -200,6 +202,7 @@ interface TimestampRowsProps {
 }
 
 function TimestampRows({ payload, expiryStatus }: TimestampRowsProps) {
+  const t = useTranslations("toolUi");
   const rows = TIMESTAMP_CLAIMS.flatMap((claim) => {
     const human = formatTimestamp(payload[claim]);
     if (!human) return [];
@@ -223,12 +226,12 @@ function TimestampRows({ payload, expiryStatus }: TimestampRowsProps) {
             {expiryStatus === "expired" ? (
               <>
                 <AlertTriangle className="h-3.5 w-3.5" />
-                Expired
+                {t("expired")}
               </>
             ) : (
               <>
                 <CheckCircle className="h-3.5 w-3.5" />
-                Valid
+                {t("valid")}
               </>
             )}
           </span>
@@ -239,7 +242,7 @@ function TimestampRows({ payload, expiryStatus }: TimestampRowsProps) {
           <div key={claim} className="flex items-center justify-between px-4 py-3">
             <div>
               <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
-                {CLAIM_LABELS[claim]}
+                {t(CLAIM_LABELS[claim].key)}
               </span>
               <span className="ml-2 text-xs text-gray-500 font-mono">
                 ({claim})
@@ -268,6 +271,7 @@ function TimestampRows({ payload, expiryStatus }: TimestampRowsProps) {
 // ---------------------------------------------------------------------------
 
 export default function JwtDecoderTool() {
+  const t = useTranslations("toolUi");
   const [input, setInput] = useState("");
   const [result, setResult] = useState<DecodeResult | null>(null);
 
@@ -291,15 +295,15 @@ export default function JwtDecoderTool() {
       {/* Input */}
       <div className="rounded-xl border border-gray-700 bg-gray-900 overflow-hidden">
         <div className="flex items-center justify-between px-4 py-2 border-b border-gray-700 bg-gray-800">
-          <span className="text-sm font-medium text-gray-300">JWT Token</span>
+          <span className="text-sm font-medium text-gray-300">{t("input")}</span>
           <span className="text-xs text-gray-500">
-            {input.length.toLocaleString()} chars
+            {input.length.toLocaleString()} {t("characters").toLowerCase()}
           </span>
         </div>
         <textarea
           value={input}
           onChange={handleInputChange}
-          placeholder="Paste your JWT token here, e.g. eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.signature"
+          placeholder={t("pasteJwt")}
           className="w-full bg-gray-900 text-gray-100 font-mono text-sm p-4 resize-none focus:outline-none placeholder-gray-600 min-h-[120px]"
           spellCheck={false}
         />
@@ -312,7 +316,7 @@ export default function JwtDecoderTool() {
           disabled={!input.trim()}
           className="flex items-center gap-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed px-5 py-2.5 text-sm font-medium text-white transition-colors"
         >
-          Decode
+          {t("decode")}
         </button>
       </div>
 
@@ -321,7 +325,7 @@ export default function JwtDecoderTool() {
         <div className="flex items-start gap-3 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3">
           <AlertTriangle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
           <div>
-            <p className="text-sm font-semibold text-red-300">Invalid JWT</p>
+            <p className="text-sm font-semibold text-red-300">{t("invalid")}</p>
             <p className="mt-0.5 text-sm text-red-400 font-mono break-all">
               {result.message}
             </p>
@@ -340,13 +344,13 @@ export default function JwtDecoderTool() {
 
           {/* Header */}
           <SectionPanel
-            title="Header"
+            title={t("header")}
             content={JSON.stringify(result.parts.header, null, 2)}
           />
 
           {/* Payload */}
           <SectionPanel
-            title="Payload"
+            title={t("payload")}
             badge={
               expiryStatus !== "none" ? (
                 <span
@@ -359,12 +363,12 @@ export default function JwtDecoderTool() {
                   {expiryStatus === "expired" ? (
                     <>
                       <AlertTriangle className="h-3 w-3" />
-                      Expired
+                      {t("expired")}
                     </>
                   ) : (
                     <>
                       <CheckCircle className="h-3 w-3" />
-                      Valid
+                      {t("valid")}
                     </>
                   )}
                 </span>
@@ -382,7 +386,7 @@ export default function JwtDecoderTool() {
 
           {/* Signature */}
           <SectionPanel
-            title="Signature (hex)"
+            title={`${t("signature")} (hex)`}
             content={result.parts.signatureHex}
           />
         </div>

@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Upload, Download, Trash2, Lock, Unlock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const PRESETS = [
   { label: "HD", w: 1280, h: 720 },
@@ -14,6 +15,7 @@ const PRESETS = [
 ];
 
 export default function ImageResizerTool() {
+  const t = useTranslations("toolUi");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [origW, setOrigW] = useState(0);
@@ -96,7 +98,7 @@ export default function ImageResizerTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. All processing happens in your browser.</p>
+        <p className="text-xs text-gray-500">{t("privacyNotice")}</p>
       </div>
 
       {!file ? (
@@ -107,24 +109,24 @@ export default function ImageResizerTool() {
           className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-16 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
         >
           <Upload className="mb-3 h-10 w-10 text-gray-500" />
-          <p className="text-sm font-medium text-white">Drop an image here or click to upload</p>
-          <p className="mt-1 text-xs text-gray-500">Supports JPG, PNG, WebP</p>
+          <p className="text-sm font-medium text-white">{t("dropImageOrClick")}</p>
+          <p className="mt-1 text-xs text-gray-500">{t("supportsJpgPngWebp")}</p>
           <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
         </div>
       ) : (
         <>
           <div className="flex justify-end">
             <button onClick={reset} className="flex items-center gap-1 text-xs text-red-400 hover:text-red-300">
-              <Trash2 className="h-3 w-3" /> Remove
+              <Trash2 className="h-3 w-3" /> {t("remove")}
             </button>
           </div>
 
           {/* Dimensions */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <p className="mb-1 text-xs text-gray-500">Original: {origW} × {origH}</p>
+            <p className="mb-1 text-xs text-gray-500">{t("originalDimensions", { width: origW, height: origH })}</p>
             <div className="flex items-center gap-3">
               <div className="flex-1">
-                <label className="mb-1 block text-xs text-gray-400">Width</label>
+                <label className="mb-1 block text-xs text-gray-400">{t("width")}</label>
                 <input
                   type="number"
                   value={width}
@@ -136,7 +138,7 @@ export default function ImageResizerTool() {
                 {lockAspect ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
               </button>
               <div className="flex-1">
-                <label className="mb-1 block text-xs text-gray-400">Height</label>
+                <label className="mb-1 block text-xs text-gray-400">{t("height")}</label>
                 <input
                   type="number"
                   value={height}
@@ -149,7 +151,7 @@ export default function ImageResizerTool() {
 
           {/* Presets */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <label className="mb-3 block text-sm font-medium text-white">Preset Sizes</label>
+            <label className="mb-3 block text-sm font-medium text-white">{t("presetSizes")}</label>
             <div className="flex flex-wrap gap-2">
               {PRESETS.map((p) => (
                 <button
@@ -166,8 +168,8 @@ export default function ImageResizerTool() {
           {/* Preview */}
           {preview && (
             <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-3">
-              <p className="mb-2 text-xs font-medium text-gray-400">Preview</p>
-              <img src={preview} alt="Preview" className="mx-auto max-h-64 rounded-lg object-contain" />
+              <p className="mb-2 text-xs font-medium text-gray-400">{t("preview")}</p>
+              <img src={preview} alt={t("preview")} className="mx-auto max-h-64 rounded-lg object-contain" />
             </div>
           )}
 
@@ -180,10 +182,10 @@ export default function ImageResizerTool() {
             {processing ? (
               <>
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                Resizing...
+                {t("resizing")}
               </>
             ) : (
-              <>Resize to {width} × {height}</>
+              <>{t("resizeTo", { width, height })}</>
             )}
           </button>
 
@@ -194,7 +196,7 @@ export default function ImageResizerTool() {
               download={`resized-${width}x${height}-${file.name}`}
               className="flex w-full items-center justify-center gap-2 rounded-xl border border-pink-600 bg-transparent px-6 py-3 font-medium text-pink-400 transition-colors hover:bg-pink-600/10"
             >
-              <Download className="h-4 w-4" /> Download Resized Image
+              <Download className="h-4 w-4" /> {t("downloadResizedImage")}
             </a>
           )}
         </>

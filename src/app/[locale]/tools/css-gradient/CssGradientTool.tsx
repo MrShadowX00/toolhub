@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import { Copy, Check, Plus, Trash2 } from "lucide-react";
 
 type GradientType = "linear" | "radial" | "conic";
@@ -46,6 +47,7 @@ function makeStops(stops: { color: string; position: number }[]): ColorStop[] {
 }
 
 export default function CssGradientTool() {
+  const t = useTranslations("toolUi");
   const [gradientType, setGradientType] = useState<GradientType>("linear");
   const [angle, setAngle] = useState(135);
   const [stops, setStops] = useState<ColorStop[]>(() =>
@@ -116,20 +118,20 @@ export default function CssGradientTool() {
           {/* Gradient Type */}
           <div>
             <label className="mb-1.5 block text-sm font-medium text-gray-300">
-              Gradient Type
+              {t("gradientType")}
             </label>
             <div className="flex gap-2">
-              {(["linear", "radial", "conic"] as GradientType[]).map((t) => (
+              {(["linear", "radial", "conic"] as GradientType[]).map((gt) => (
                 <button
-                  key={t}
-                  onClick={() => setGradientType(t)}
+                  key={gt}
+                  onClick={() => setGradientType(gt)}
                   className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium capitalize transition-colors ${
-                    gradientType === t
+                    gradientType === gt
                       ? "bg-purple-600 text-white"
                       : "border border-gray-700 bg-gray-800 text-gray-400 hover:text-white"
                   }`}
                 >
-                  {t}
+                  {gt === "linear" ? t("linear") : gt === "radial" ? t("radial") : gt}
                 </button>
               ))}
             </div>
@@ -139,7 +141,7 @@ export default function CssGradientTool() {
           {(gradientType === "linear" || gradientType === "conic") && (
             <div>
               <label className="mb-1.5 block text-sm font-medium text-gray-300">
-                Angle: {angle}&deg;
+                {t("angle")}: {angle}&deg;
               </label>
               <input
                 type="range"
@@ -160,14 +162,14 @@ export default function CssGradientTool() {
           <div>
             <div className="mb-2 flex items-center justify-between">
               <label className="text-sm font-medium text-gray-300">
-                Color Stops
+                {t("colorStops")}
               </label>
               <button
                 onClick={addStop}
                 className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-purple-400 transition-colors hover:bg-gray-800"
               >
                 <Plus className="h-3.5 w-3.5" />
-                Add Stop
+                {t("addColor")}
               </button>
             </div>
             <div className="space-y-2">
@@ -223,7 +225,7 @@ export default function CssGradientTool() {
           <div>
             <div className="mb-1.5 flex items-center justify-between">
               <label className="text-sm font-medium text-gray-300">
-                CSS Output
+                {t("output")} CSS
               </label>
               <button
                 onClick={copyCSS}
@@ -232,12 +234,12 @@ export default function CssGradientTool() {
                 {copied ? (
                   <>
                     <Check className="h-3.5 w-3.5 text-green-400" />
-                    Copied
+                    {t("copied")}
                   </>
                 ) : (
                   <>
                     <Copy className="h-3.5 w-3.5" />
-                    Copy CSS
+                    {t("copyCss")}
                   </>
                 )}
               </button>
@@ -251,7 +253,7 @@ export default function CssGradientTool() {
         {/* Presets Gallery */}
         <div>
           <h3 className="mb-3 text-sm font-medium text-gray-300">
-            Preset Gradients
+            {t("commonPresets")}
           </h3>
           <div className="grid grid-cols-3 gap-2">
             {PRESETS.map((preset, i) => {

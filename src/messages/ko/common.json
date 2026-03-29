@@ -19,5 +19,8 @@
     "description": "찾고 있는 도구 또는 페이지가 존재하지 않습니다.",
     "backHome": "홈으로 돌아가기"
   },
-  "language": "언어"
+  "language": "언어",
+  "openSearch": "검색 열기",
+  "closeSearch": "검색 닫기",
+  "toggleMenu": "메뉴 전환"
 }

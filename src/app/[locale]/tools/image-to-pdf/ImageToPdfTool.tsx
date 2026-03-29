@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { Upload, Download, Trash2, GripVertical } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface ImageItem {
   id: string;
@@ -10,6 +11,7 @@ interface ImageItem {
 }
 
 export default function ImageToPdfTool() {
+  const t = useTranslations("toolUi");
   const [images, setImages] = useState<ImageItem[]>([]);
   const [pageSize, setPageSize] = useState<"a4" | "letter" | "fit">("a4");
   const [processing, setProcessing] = useState(false);
@@ -132,7 +134,7 @@ export default function ImageToPdfTool() {
   return (
     <div className="space-y-6">
       <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4">
-        <p className="text-xs text-gray-500">🔒 Your files never leave your device. All processing happens in your browser.</p>
+        <p className="text-xs text-gray-500">{t("privacyNotice")}</p>
       </div>
 
       {/* Upload Zone */}
@@ -143,8 +145,8 @@ export default function ImageToPdfTool() {
         className="flex cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-700 bg-gray-900/50 py-10 transition-colors hover:border-pink-500/50 hover:bg-gray-900"
       >
         <Upload className="mb-3 h-8 w-8 text-gray-500" />
-        <p className="text-sm font-medium text-white">Drop images here or click to upload</p>
-        <p className="mt-1 text-xs text-gray-500">JPG, PNG, WebP — multiple files supported</p>
+        <p className="text-sm font-medium text-white">{t("dropImagesOrClick")}</p>
+        <p className="mt-1 text-xs text-gray-500">{t("multipleFilesSupported")}</p>
         <input ref={inputRef} type="file" accept="image/*" multiple className="hidden" onChange={(e) => e.target.files && addFiles(e.target.files)} />
       </div>
 
@@ -152,7 +154,7 @@ export default function ImageToPdfTool() {
         <>
           {/* Image List */}
           <div className="space-y-2">
-            <p className="text-sm font-medium text-white">{images.length} image{images.length > 1 ? "s" : ""} — drag to reorder</p>
+            <p className="text-sm font-medium text-white">{t("dragToReorder", { count: images.length })}</p>
             {images.map((img, idx) => (
               <div
                 key={img.id}
@@ -174,7 +176,7 @@ export default function ImageToPdfTool() {
 
           {/* Page Size */}
           <div className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
-            <label className="mb-3 block text-sm font-medium text-white">Page Size</label>
+            <label className="mb-3 block text-sm font-medium text-white">{t("pageSize")}</label>
             <div className="flex gap-3">
               {(["a4", "letter", "fit"] as const).map((s) => (
                 <button
@@ -184,7 +186,7 @@ export default function ImageToPdfTool() {
                     pageSize === s ? "bg-pink-600 text-white" : "bg-gray-800 text-gray-400 hover:bg-gray-700"
                   }`}
                 >
-                  {s === "a4" ? "A4" : s === "letter" ? "Letter" : "Fit to Image"}
+                  {s === "a4" ? "A4" : s === "letter" ? "Letter" : t("fitToImage")}
                 </button>
               ))}
             </div>
@@ -199,10 +201,10 @@ export default function ImageToPdfTool() {
             {processing ? (
               <>
                 <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                Generating PDF...
+                {t("generatingPdf")}
               </>
             ) : (
-              "Generate PDF"
+              t("generatePdf")
             )}
           </button>
 
@@ -212,7 +214,7 @@ export default function ImageToPdfTool() {
               download="images.pdf"
               className="flex w-full items-center justify-center gap-2 rounded-xl border border-pink-600 bg-transparent px-6 py-3 font-medium text-pink-400 transition-colors hover:bg-pink-600/10"
             >
-              <Download className="h-4 w-4" /> Download PDF
+              <Download className="h-4 w-4" /> {t("downloadPdf")}
             </a>
           )}
         </>

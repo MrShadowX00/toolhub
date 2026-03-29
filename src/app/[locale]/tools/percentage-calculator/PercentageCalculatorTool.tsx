@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 function formatResult(value: number): string {
-  if (!isFinite(value)) return "—";
+  if (!isFinite(value)) return "\u2014";
   const rounded = Math.round(value * 1e6) / 1e6;
   if (Number.isInteger(rounded)) return rounded.toString();
   return parseFloat(rounded.toFixed(4)).toString();
@@ -62,6 +63,7 @@ function Result({ label, value }: { label: string; value: string }) {
 
 // 1. X is what % of Y?
 function WhatPercent() {
+  const t = useTranslations("toolUi");
   const [x, setX] = useState("");
   const [y, setY] = useState("");
   const xn = parseFloat(x);
@@ -69,41 +71,43 @@ function WhatPercent() {
   const result =
     x !== "" && y !== "" && yn !== 0
       ? formatResult((xn / yn) * 100) + "%"
-      : "—";
+      : "\u2014";
 
   return (
-    <Card title="X is what % of Y?">
+    <Card title={t("xIsWhatPercentOfY")}>
       <div className="grid grid-cols-2 gap-4">
         <InputField label="X" value={x} onChange={setX} placeholder="e.g. 25" />
         <InputField label="Y" value={y} onChange={setY} placeholder="e.g. 200" />
       </div>
-      <Result label="Result:" value={result} />
+      <Result label={`${t("result")}:`} value={result} />
     </Card>
   );
 }
 
 // 2. X% of Y = ?
 function PercentOf() {
+  const t = useTranslations("toolUi");
   const [x, setX] = useState("");
   const [y, setY] = useState("");
   const xn = parseFloat(x);
   const yn = parseFloat(y);
   const result =
-    x !== "" && y !== "" ? formatResult((xn / 100) * yn) : "—";
+    x !== "" && y !== "" ? formatResult((xn / 100) * yn) : "\u2014";
 
   return (
-    <Card title="X% of Y = ?">
+    <Card title={t("xPercentOfY")}>
       <div className="grid grid-cols-2 gap-4">
         <InputField label="X (%)" value={x} onChange={setX} placeholder="e.g. 15" />
         <InputField label="Y" value={y} onChange={setY} placeholder="e.g. 200" />
       </div>
-      <Result label="Result:" value={result} />
+      <Result label={`${t("result")}:`} value={result} />
     </Card>
   );
 }
 
 // 3. X is Y% of what?
 function PercentOfWhat() {
+  const t = useTranslations("toolUi");
   const [x, setX] = useState("");
   const [y, setY] = useState("");
   const xn = parseFloat(x);
@@ -111,26 +115,27 @@ function PercentOfWhat() {
   const result =
     x !== "" && y !== "" && yn !== 0
       ? formatResult((xn / yn) * 100)
-      : "—";
+      : "\u2014";
 
   return (
-    <Card title="X is Y% of what?">
+    <Card title={t("xIsYPercentOfWhat")}>
       <div className="grid grid-cols-2 gap-4">
         <InputField label="X" value={x} onChange={setX} placeholder="e.g. 30" />
         <InputField label="Y (%)" value={y} onChange={setY} placeholder="e.g. 25" />
       </div>
-      <Result label="Base number:" value={result} />
+      <Result label={t("baseNumber")} value={result} />
     </Card>
   );
 }
 
 // 4. Percentage change from X to Y
 function PercentChange() {
+  const t = useTranslations("toolUi");
   const [x, setX] = useState("");
   const [y, setY] = useState("");
   const xn = parseFloat(x);
   const yn = parseFloat(y);
-  let result = "—";
+  let result = "\u2014";
   let direction = "";
   if (x !== "" && y !== "" && xn !== 0) {
     const change = ((yn - xn) / Math.abs(xn)) * 100;
@@ -141,14 +146,14 @@ function PercentChange() {
   }
 
   return (
-    <Card title="Percentage Change from X to Y">
+    <Card title={t("percentageChangeFromXToY")}>
       <div className="grid grid-cols-2 gap-4">
-        <InputField label="From (X)" value={x} onChange={setX} placeholder="e.g. 100" />
-        <InputField label="To (Y)" value={y} onChange={setY} placeholder="e.g. 150" />
+        <InputField label={t("fromX")} value={x} onChange={setX} placeholder="e.g. 100" />
+        <InputField label={t("toY")} value={y} onChange={setY} placeholder="e.g. 150" />
       </div>
       <div className="mt-4 rounded-lg bg-gray-900 p-3 flex items-center gap-3">
         <div>
-          <span className="text-sm text-gray-400">Change: </span>
+          <span className="text-sm text-gray-400">{t("change")} </span>
           <span className="text-lg font-bold text-orange-400">{result}</span>
         </div>
         {direction && (
@@ -162,10 +167,10 @@ function PercentChange() {
             }`}
           >
             {direction === "increase"
-              ? "\u2191 Increase"
+              ? `\u2191 ${t("increase")}`
               : direction === "decrease"
-                ? "\u2193 Decrease"
-                : "No change"}
+                ? `\u2193 ${t("decrease")}`
+                : t("noChangeLabel")}
           </span>
         )}
       </div>
@@ -175,6 +180,7 @@ function PercentChange() {
 
 // 5. Add/Remove X% from Y
 function AddRemovePercent() {
+  const t = useTranslations("toolUi");
   const [x, setX] = useState("");
   const [y, setY] = useState("");
   const [mode, setMode] = useState<"add" | "subtract">("add");
@@ -185,10 +191,10 @@ function AddRemovePercent() {
       ? formatResult(
           mode === "add" ? yn + (xn / 100) * yn : yn - (xn / 100) * yn
         )
-      : "—";
+      : "\u2014";
 
   return (
-    <Card title="Add / Remove X% from Y">
+    <Card title={t("addRemovePercentFromY")}>
       <div className="mb-4 flex gap-2">
         <button
           onClick={() => setMode("add")}
@@ -198,7 +204,7 @@ function AddRemovePercent() {
               : "bg-gray-700 text-gray-300 hover:bg-gray-600"
           }`}
         >
-          Add
+          {t("add")}
         </button>
         <button
           onClick={() => setMode("subtract")}
@@ -208,7 +214,7 @@ function AddRemovePercent() {
               : "bg-gray-700 text-gray-300 hover:bg-gray-600"
           }`}
         >
-          Subtract
+          {t("subtract")}
         </button>
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -216,7 +222,7 @@ function AddRemovePercent() {
         <InputField label="Y" value={y} onChange={setY} placeholder="e.g. 200" />
       </div>
       <Result
-        label={mode === "add" ? "After adding:" : "After subtracting:"}
+        label={mode === "add" ? t("afterAdding") : t("afterSubtracting")}
         value={result}
       />
     </Card>

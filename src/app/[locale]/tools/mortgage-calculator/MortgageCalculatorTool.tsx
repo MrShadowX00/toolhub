@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useTranslations } from "next-intl";
 
 interface AmortizationRow {
   year: number;
@@ -33,14 +34,16 @@ const fmtFull = new Intl.NumberFormat("en-US", {
 
 function PieChart({
   breakdown,
+  labels,
 }: {
   breakdown: PaymentBreakdown;
+  labels: { principalAndInterest: string; propertyTax: string; insurance: string; hoa: string; perMonth: string };
 }) {
   const segments: { label: string; value: number; color: string }[] = [
-    { label: "Principal & Interest", value: breakdown.principalAndInterest, color: "#f97316" },
-    { label: "Property Tax", value: breakdown.tax, color: "#3b82f6" },
-    { label: "Insurance", value: breakdown.insurance, color: "#10b981" },
-    { label: "HOA", value: breakdown.hoa, color: "#8b5cf6" },
+    { label: labels.principalAndInterest, value: breakdown.principalAndInterest, color: "#f97316" },
+    { label: labels.propertyTax, value: breakdown.tax, color: "#3b82f6" },
+    { label: labels.insurance, value: breakdown.insurance, color: "#10b981" },
+    { label: labels.hoa, value: breakdown.hoa, color: "#8b5cf6" },
   ].filter((s) => s.value > 0);
 
   const total = segments.reduce((sum, s) => sum + s.value, 0);
@@ -94,7 +97,7 @@ function PieChart({
           {fmt.format(total)}
         </text>
         <text x={cx} y={cy + 10} textAnchor="middle" fill="#9ca3af" fontSize="8">
-          /month
+          {labels.perMonth}
         </text>
       </svg>
       <div className="grid grid-cols-2 gap-x-6 gap-y-2">
@@ -113,6 +116,7 @@ function PieChart({
 }
 
 export default function MortgageCalculatorTool() {
+  const t = useTranslations("toolUi");
   const [homePrice, setHomePrice] = useState<number>(400000);
   const [downPaymentValue, setDownPaymentValue] = useState<number>(20);
   const [downPaymentMode, setDownPaymentMode] = useState<"percent" | "dollar">("percent");
@@ -205,10 +209,10 @@ export default function MortgageCalculatorTool() {
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Inputs */}
         <div className="space-y-6 rounded-xl border border-gray-700 bg-gray-900 p-6">
-          <h2 className="text-lg font-semibold text-white">Loan Details</h2>
+          <h2 className="text-lg font-semibold text-white">{t("loanDetails")}</h2>
 
           <div>
-            <label className={labelClass}>Home Price</label>
+            <label className={labelClass}>{t("homePrice")}</label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
               <input
@@ -222,7 +226,7 @@ export default function MortgageCalculatorTool() {
           </div>
 
           <div>
-            <label className={labelClass}>Down Payment</label>
+            <label className={labelClass}>{t("downPayment")}</label>
             <div className="flex gap-2">
               <div className="relative flex-1">
                 {downPaymentMode === "dollar" && (
@@ -267,13 +271,13 @@ export default function MortgageCalculatorTool() {
               </div>
             </div>
             <p className="mt-1 text-xs text-gray-500">
-              Down payment: {fmt.format(downPaymentDollars)} (
+              {t("downPaymentLabel")} {fmt.format(downPaymentDollars)} (
               {homePrice > 0 ? ((downPaymentDollars / homePrice) * 100).toFixed(1) : "0"}%)
             </p>
           </div>
 
           <div>
-            <label className={labelClass}>Loan Term</label>
+            <label className={labelClass}>{t("loanTerm")}</label>
             <div className="flex gap-2">
               {[15, 20, 30].map((term) => (
                 <button
@@ -285,14 +289,14 @@ export default function MortgageCalculatorTool() {
                   }`}
                   onClick={() => setLoanTerm(term)}
                 >
-                  {term} years
+                  {t("yearsUnit", { count: term })}
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <label className={labelClass}>Interest Rate (%)</label>
+            <label className={labelClass}>{t("interestRatePercent")}</label>
             <div className="relative">
               <input
                 type="number"
@@ -309,7 +313,7 @@ export default function MortgageCalculatorTool() {
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
-              <label className={labelClass}>Property Tax / yr</label>
+              <label className={labelClass}>{t("propertyTaxYear")}</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
                 <input
@@ -322,7 +326,7 @@ export default function MortgageCalculatorTool() {
               </div>
             </div>
             <div>
-              <label className={labelClass}>HOA / mo</label>
+              <label className={labelClass}>{t("hoaMonth")}</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
                 <input
@@ -335,7 +339,7 @@ export default function MortgageCalculatorTool() {
               </div>
             </div>
             <div>
-              <label className={labelClass}>Insurance / yr</label>
+              <label className={labelClass}>{t("insuranceYear")}</label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">$</span>
                 <input
@@ -354,19 +358,19 @@ export default function MortgageCalculatorTool() {
         <div className="space-y-6">
           {/* Monthly Payment Summary */}
           <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
-            <h2 className="mb-4 text-lg font-semibold text-white">Monthly Payment</h2>
+            <h2 className="mb-4 text-lg font-semibold text-white">{t("monthlyPayment")}</h2>
             <div className="mb-6 text-center">
               <span className="text-4xl font-bold text-orange-400">
                 {fmtFull.format(monthlyPayment.total)}
               </span>
-              <span className="text-gray-400"> / month</span>
+              <span className="text-gray-400"> {t("perMonth")}</span>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-3 w-3 rounded-full bg-orange-500" />
-                  <span className="text-sm text-gray-300">Principal &amp; Interest</span>
+                  <span className="text-sm text-gray-300">{t("principalAndInterest")}</span>
                 </div>
                 <span className="text-sm font-medium text-white">
                   {fmtFull.format(monthlyPayment.principalAndInterest)}
@@ -375,7 +379,7 @@ export default function MortgageCalculatorTool() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-3 w-3 rounded-full bg-blue-500" />
-                  <span className="text-sm text-gray-300">Property Tax</span>
+                  <span className="text-sm text-gray-300">{t("propertyTax")}</span>
                 </div>
                 <span className="text-sm font-medium text-white">
                   {fmtFull.format(monthlyPayment.tax)}
@@ -384,7 +388,7 @@ export default function MortgageCalculatorTool() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-3 w-3 rounded-full bg-emerald-500" />
-                  <span className="text-sm text-gray-300">Insurance</span>
+                  <span className="text-sm text-gray-300">{t("insurance")}</span>
                 </div>
                 <span className="text-sm font-medium text-white">
                   {fmtFull.format(monthlyPayment.insurance)}
@@ -394,7 +398,7 @@ export default function MortgageCalculatorTool() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="inline-block h-3 w-3 rounded-full bg-violet-500" />
-                    <span className="text-sm text-gray-300">HOA</span>
+                    <span className="text-sm text-gray-300">{t("hoa")}</span>
                   </div>
                   <span className="text-sm font-medium text-white">
                     {fmtFull.format(monthlyPayment.hoa)}
@@ -406,30 +410,39 @@ export default function MortgageCalculatorTool() {
 
           {/* Pie Chart */}
           <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
-            <h2 className="mb-4 text-lg font-semibold text-white">Payment Breakdown</h2>
-            <PieChart breakdown={monthlyPayment} />
+            <h2 className="mb-4 text-lg font-semibold text-white">{t("paymentBreakdown")}</h2>
+            <PieChart
+              breakdown={monthlyPayment}
+              labels={{
+                principalAndInterest: t("principalAndInterest"),
+                propertyTax: t("propertyTax"),
+                insurance: t("insurance"),
+                hoa: t("hoa"),
+                perMonth: t("perMonth"),
+              }}
+            />
           </div>
 
           {/* Summary Stats */}
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-4">
-              <p className="text-sm text-gray-400">Loan Amount</p>
+              <p className="text-sm text-gray-400">{t("loanAmount")}</p>
               <p className="mt-1 text-xl font-bold text-white">{fmt.format(loanAmount)}</p>
             </div>
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-4">
-              <p className="text-sm text-gray-400">Total Interest</p>
+              <p className="text-sm text-gray-400">{t("totalInterest")}</p>
               <p className="mt-1 text-xl font-bold text-orange-400">
                 {fmt.format(totalInterest)}
               </p>
             </div>
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-4">
-              <p className="text-sm text-gray-400">Total Cost</p>
+              <p className="text-sm text-gray-400">{t("totalCost")}</p>
               <p className="mt-1 text-xl font-bold text-white">
                 {fmt.format(loanAmount + totalInterest)}
               </p>
             </div>
             <div className="rounded-xl border border-gray-700 bg-gray-900 p-4">
-              <p className="text-sm text-gray-400">Payoff Date</p>
+              <p className="text-sm text-gray-400">{t("payoffDate")}</p>
               <p className="mt-1 text-xl font-bold text-white">
                 {new Date(
                   new Date().getFullYear() + loanTerm,
@@ -443,20 +456,20 @@ export default function MortgageCalculatorTool() {
 
       {/* Amortization Schedule */}
       <div className="mt-8 rounded-xl border border-gray-700 bg-gray-900 p-6">
-        <h2 className="mb-4 text-lg font-semibold text-white">Amortization Schedule</h2>
+        <h2 className="mb-4 text-lg font-semibold text-white">{t("amortizationSchedule")}</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-gray-700 text-left">
-                <th className="px-4 py-3 font-medium text-gray-400">Year</th>
+                <th className="px-4 py-3 font-medium text-gray-400">{t("year")}</th>
                 <th className="px-4 py-3 text-right font-medium text-gray-400">
-                  Principal Paid
+                  {t("principalPaid")}
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-gray-400">
-                  Interest Paid
+                  {t("interestPaid")}
                 </th>
                 <th className="px-4 py-3 text-right font-medium text-gray-400">
-                  Remaining Balance
+                  {t("remainingBalance")}
                 </th>
               </tr>
             </thead>

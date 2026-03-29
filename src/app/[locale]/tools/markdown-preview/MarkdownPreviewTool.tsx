@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -79,6 +80,7 @@ const highlightCSS = `
 `;
 
 export default function MarkdownPreviewTool() {
+  const t = useTranslations("toolUi");
   const [markdown, setMarkdown] = useState(DEFAULT_MARKDOWN);
   const [copied, setCopied] = useState(false);
   const previewRef = useRef<HTMLDivElement>(null);
@@ -104,16 +106,16 @@ export default function MarkdownPreviewTool() {
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <span className="flex items-center gap-1.5">
               <FileText className="h-4 w-4" />
-              {wordCount} words
+              {wordCount} {t("words")}
             </span>
-            <span>{markdown.length} chars</span>
+            <span>{markdown.length} {t("characters")}</span>
           </div>
           <button
             onClick={handleCopyHTML}
             className="flex items-center gap-2 rounded-lg border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-gray-300 transition-colors hover:bg-gray-700"
           >
             {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
-            {copied ? "Copied HTML" : "Copy HTML"}
+            {copied ? t("copied") : t("copy") + " HTML"}
           </button>
         </div>
 
@@ -122,21 +124,21 @@ export default function MarkdownPreviewTool() {
           {/* Editor */}
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-4">
             <h3 className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">
-              Editor
+              {t("input")}
             </h3>
             <textarea
               value={markdown}
               onChange={(e) => setMarkdown(e.target.value)}
               spellCheck={false}
               className="h-[600px] w-full resize-none rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 font-mono text-sm leading-relaxed text-gray-300 placeholder-gray-600 focus:border-purple-500 focus:outline-none"
-              placeholder="Type your Markdown here..."
+              placeholder={t("enterMarkdown")}
             />
           </div>
 
           {/* Preview */}
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-4">
             <h3 className="mb-2 text-xs font-medium uppercase tracking-wider text-gray-500">
-              Preview
+              {t("preview")}
             </h3>
             <div
               ref={previewRef}

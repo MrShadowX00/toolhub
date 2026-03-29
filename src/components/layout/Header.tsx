@@ -30,7 +30,7 @@ export default function Header() {
         <Link
           href="/"
           className="flex items-center gap-2"
-          aria-label="Toollo - Home"
+          aria-label={`Toollo - ${t("home")}`}
           onClick={closeAll}
         >
           <Zap className="h-6 w-6 text-indigo-500" aria-hidden="true" />
@@ -94,7 +94,7 @@ export default function Header() {
                 placeholder={t("searchPlaceholder")}
                 autoFocus
                 className="w-48 rounded-lg border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-white placeholder-gray-500 outline-none focus:border-indigo-500"
-                aria-label="Search tools"
+                aria-label={t("searchPlaceholder")}
               />
               <button
                 onClick={() => setShowSearch(false)}

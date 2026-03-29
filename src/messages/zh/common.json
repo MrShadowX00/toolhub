@@ -19,5 +19,8 @@
     "description": "您查找的工具或页面不存在。",
     "backHome": "返回首页"
   },
-  "language": "语言"
+  "language": "语言",
+  "openSearch": "打开搜索",
+  "closeSearch": "关闭搜索",
+  "toggleMenu": "切换菜单"
 }

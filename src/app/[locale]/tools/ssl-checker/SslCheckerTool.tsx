@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
+import { useTranslations } from "next-intl";
 import {
   ShieldCheck,
   Loader2,
@@ -69,37 +70,8 @@ function getGradeBg(grade: string): string {
   return "bg-red-500/10 ring-red-500/20";
 }
 
-function getStatusColor(days: number): {
-  text: string;
-  bg: string;
-  icon: React.ReactNode;
-  label: string;
-} {
-  if (days <= 0) {
-    return {
-      text: "text-red-400",
-      bg: "bg-red-500/10 border-red-500/30",
-      icon: <XCircle className="h-5 w-5 text-red-400" />,
-      label: "Expired",
-    };
-  }
-  if (days <= 30) {
-    return {
-      text: "text-yellow-400",
-      bg: "bg-yellow-500/10 border-yellow-500/30",
-      icon: <AlertTriangle className="h-5 w-5 text-yellow-400" />,
-      label: "Expiring Soon",
-    };
-  }
-  return {
-    text: "text-green-400",
-    bg: "bg-green-500/10 border-green-500/30",
-    icon: <CheckCircle2 className="h-5 w-5 text-green-400" />,
-    label: "Valid",
-  };
-}
-
 export default function SslCheckerTool() {
+  const t = useTranslations("toolUi");
   const [domain, setDomain] = useState("");
   const [certInfo, setCertInfo] = useState<CertInfo | null>(null);
   const [loading, setLoading] = useState(false);
@@ -107,6 +79,36 @@ export default function SslCheckerTool() {
   const [statusMsg, setStatusMsg] = useState("");
   const [queriedDomain, setQueriedDomain] = useState("");
   const pollRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function getStatusColor(days: number): {
+    text: string;
+    bg: string;
+    icon: React.ReactNode;
+    label: string;
+  } {
+    if (days <= 0) {
+      return {
+        text: "text-red-400",
+        bg: "bg-red-500/10 border-red-500/30",
+        icon: <XCircle className="h-5 w-5 text-red-400" />,
+        label: t("expired"),
+      };
+    }
+    if (days <= 30) {
+      return {
+        text: "text-yellow-400",
+        bg: "bg-yellow-500/10 border-yellow-500/30",
+        icon: <AlertTriangle className="h-5 w-5 text-yellow-400" />,
+        label: t("warning"),
+      };
+    }
+    return {
+      text: "text-green-400",
+      bg: "bg-green-500/10 border-green-500/30",
+      icon: <CheckCircle2 className="h-5 w-5 text-green-400" />,
+      label: t("valid"),
+    };
+  }
 
   const cleanup = () => {
     if (pollRef.current) {
@@ -123,7 +125,7 @@ export default function SslCheckerTool() {
       .replace(/:\d+$/, "");
 
     if (!cleaned) {
-      setError("Please enter a domain name.");
+      setError(t("pleaseEnterDomain"));
       return;
     }
 
@@ -132,7 +134,7 @@ export default function SslCheckerTool() {
     setError(null);
     setCertInfo(null);
     setQueriedDomain(cleaned);
-    setStatusMsg("Starting SSL analysis...");
+    setStatusMsg(t("checking"));
 
     const poll = async (startNew: boolean) => {
       try {
@@ -152,7 +154,7 @@ export default function SslCheckerTool() {
         const data = (await res.json()) as SslLabsResponse;
 
         if (data.status === "ERROR") {
-          throw new Error(data.statusMessage || "SSL Labs analysis failed.");
+          throw new Error(data.statusMessage || t("error"));
         }
 
         if (data.status === "READY" && data.endpoints && data.endpoints.length > 0) {
@@ -182,24 +184,18 @@ export default function SslCheckerTool() {
         }
 
         // Still in progress
-        const progressMsgs: Record<string, string> = {
-          DNS: "Resolving DNS...",
-          IN_PROGRESS: "Analyzing SSL configuration...",
-        };
-        setStatusMsg(
-          progressMsgs[data.status] || `Status: ${data.status}...`
-        );
+        setStatusMsg(t("processing"));
 
         pollRef.current = setTimeout(() => poll(false), 5000);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "SSL check failed.");
+        setError(err instanceof Error ? err.message : t("error"));
         setLoading(false);
         setStatusMsg("");
       }
     };
 
     poll(true);
-  }, [domain]);
+  }, [domain, t]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleCheck();
@@ -212,7 +208,7 @@ export default function SslCheckerTool() {
         {/* Input */}
         <div className="rounded-xl border border-gray-700 bg-gray-900 p-6">
           <label className="block text-sm font-medium text-gray-300 mb-2">
-            Domain or URL
+            {t("domainName")}
           </label>
           <div className="flex gap-3">
             <div className="relative flex-1">
@@ -222,7 +218,7 @@ export default function SslCheckerTool() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="example.com"
+                placeholder={t("enterDomain")}
                 className="w-full rounded-lg border border-gray-700 bg-gray-800 py-2.5 pl-10 pr-4 text-sm text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 transition-colors"
               />
             </div>
@@ -236,12 +232,9 @@ export default function SslCheckerTool() {
               ) : (
                 <Search className="h-4 w-4" />
               )}
-              Check SSL
+              {t("check")}
             </button>
           </div>
-          <p className="mt-2 text-xs text-gray-500">
-            SSL Labs analysis may take 1-2 minutes for a full scan.
-          </p>
         </div>
 
         {/* Error */}
@@ -249,7 +242,7 @@ export default function SslCheckerTool() {
           <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 p-4">
             <AlertCircle className="h-5 w-5 text-red-400 mt-0.5 flex-shrink-0" />
             <div className="flex-1">
-              <p className="text-sm font-medium text-red-300">Check Failed</p>
+              <p className="text-sm font-medium text-red-300">{t("error")}</p>
               <p className="mt-1 text-sm text-red-400">{error}</p>
             </div>
             <button
@@ -276,7 +269,7 @@ export default function SslCheckerTool() {
               </div>
               <div className="text-center">
                 <p className="text-sm font-medium text-white">
-                  Analyzing {queriedDomain}
+                  {t("checking")} {queriedDomain}
                 </p>
                 <p className="mt-1 text-sm text-gray-400">{statusMsg}</p>
               </div>
@@ -311,8 +304,8 @@ export default function SslCheckerTool() {
                 </p>
                 <p className="text-xs text-gray-400 mt-0.5">
                   {certInfo.daysRemaining > 0
-                    ? `Certificate expires in ${certInfo.daysRemaining} days`
-                    : "Certificate has expired"}
+                    ? `${t("expiryDate")}: ${certInfo.daysRemaining} ${t("days")}`
+                    : t("expired")}
                 </p>
               </div>
               {/* Grade badge */}
@@ -333,7 +326,7 @@ export default function SslCheckerTool() {
                 <div className="flex items-center gap-2 mb-2">
                   <Award className="h-4 w-4 text-indigo-400" />
                   <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                    Common Name
+                    {t("name")}
                   </span>
                 </div>
                 <p className="text-sm font-medium text-white break-all">
@@ -345,7 +338,7 @@ export default function SslCheckerTool() {
                 <div className="flex items-center gap-2 mb-2">
                   <Building2 className="h-4 w-4 text-purple-400" />
                   <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                    Issuer
+                    {t("issuer")}
                   </span>
                 </div>
                 <p className="text-sm font-medium text-white break-all">
@@ -357,7 +350,7 @@ export default function SslCheckerTool() {
                 <div className="flex items-center gap-2 mb-2">
                   <CalendarDays className="h-4 w-4 text-green-400" />
                   <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                    Valid From
+                    {t("validFrom")}
                   </span>
                 </div>
                 <p className="text-sm font-medium text-green-300">
@@ -373,7 +366,7 @@ export default function SslCheckerTool() {
                 <div className="flex items-center gap-2 mb-2">
                   <Clock className="h-4 w-4 text-yellow-400" />
                   <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                    Expires
+                    {t("validUntil")}
                   </span>
                 </div>
                 <p className={`text-sm font-medium ${status.text}`}>
@@ -389,7 +382,7 @@ export default function SslCheckerTool() {
                 <div className="flex items-center gap-2 mb-2">
                   <Clock className="h-4 w-4 text-cyan-400" />
                   <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                    Days Remaining
+                    {t("days")}
                   </span>
                 </div>
                 <p className={`text-2xl font-bold ${status.text}`}>
@@ -401,7 +394,7 @@ export default function SslCheckerTool() {
                 <div className="flex items-center gap-2 mb-2">
                   <Globe className="h-4 w-4 text-blue-400" />
                   <span className="text-xs font-medium uppercase tracking-wider text-gray-400">
-                    IP Address
+                    {t("ipAddress")}
                   </span>
                 </div>
                 <p className="text-sm font-medium font-mono text-white">
@@ -427,7 +420,7 @@ export default function SslCheckerTool() {
                   ))}
                   {certInfo.altNames.length > 20 && (
                     <span className="inline-flex rounded-md bg-gray-800 px-2.5 py-1 text-xs text-gray-500 ring-1 ring-inset ring-gray-700">
-                      +{certInfo.altNames.length - 20} more
+                      +{certInfo.altNames.length - 20} {t("more")}
                     </span>
                   )}
                 </div>

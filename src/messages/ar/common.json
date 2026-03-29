@@ -19,5 +19,8 @@
     "description": "الأداة أو الصفحة التي تبحث عنها غير موجودة.",
     "backHome": "العودة للرئيسية"
   },
-  "language": "اللغة"
+  "language": "اللغة",
+  "openSearch": "فتح البحث",
+  "closeSearch": "إغلاق البحث",
+  "toggleMenu": "تبديل القائمة"
 }

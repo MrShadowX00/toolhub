@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Clock, Copy, Check } from "lucide-react";
 
 // ---------------------------------------------------------------------------
@@ -471,6 +472,7 @@ const FIELD_ORDER = [
 ] as const;
 
 export default function CronParserTool() {
+  const t = useTranslations("toolUi");
   const [expression, setExpression] = useState("* * * * *");
   const [copied, setCopied] = useState(false);
 
@@ -492,12 +494,12 @@ export default function CronParserTool() {
       {/* ── Expression input ── */}
       <div className="rounded-xl border border-gray-700 bg-gray-800 p-5">
         <label className="mb-3 block text-sm font-medium text-gray-300">
-          Cron Expression
+          {t("enterCron")}
         </label>
 
         {/* Positional labels */}
         <div className="mb-1 grid grid-cols-5 gap-2 px-1">
-          {["Minute", "Hour", "Day", "Month", "Weekday"].map((lbl) => (
+          {[t("minutes"), t("hours"), t("days"), t("months"), "Weekday"].map((lbl) => (
             <div
               key={lbl}
               className="text-center text-xs font-medium text-gray-500"
@@ -519,7 +521,7 @@ export default function CronParserTool() {
           />
           <button
             onClick={handleCopy}
-            title="Copy expression"
+            title={t("copyToClipboard")}
             className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-gray-600 bg-gray-700 text-gray-300 transition-colors hover:bg-gray-600 hover:text-white"
           >
             {copied ? (
@@ -534,7 +536,7 @@ export default function CronParserTool() {
       {/* ── Presets ── */}
       <div className="rounded-xl border border-gray-700 bg-gray-800 p-5">
         <p className="mb-3 text-sm font-medium text-gray-300">
-          Common Presets
+          {t("commonPresets")}
         </p>
         <div className="flex flex-wrap gap-2">
           {PRESETS.map((p) => (
@@ -558,7 +560,7 @@ export default function CronParserTool() {
       {!result.ok && (
         <div className="rounded-xl border border-red-700 bg-red-900/20 p-5">
           <p className="text-sm font-semibold text-red-400">
-            Invalid expression
+            {t("invalidInput")}
           </p>
           <p className="mt-1 text-sm text-red-300">{result.message}</p>
         </div>
@@ -572,7 +574,7 @@ export default function CronParserTool() {
             <Clock className="mt-0.5 h-5 w-5 shrink-0 text-blue-400" />
             <div>
               <p className="text-xs font-medium uppercase tracking-wide text-blue-400">
-                Human-readable description
+                {t("cronDescription")}
               </p>
               <p className="mt-1 text-lg font-semibold text-white">
                 {result.description}
@@ -583,7 +585,7 @@ export default function CronParserTool() {
           {/* Field breakdown */}
           <div className="rounded-xl border border-gray-700 bg-gray-800 p-5">
             <p className="mb-4 text-sm font-medium text-gray-300">
-              Field Breakdown
+              {t("settings")}
             </p>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
               {FIELD_ORDER.map((key) => {
@@ -613,25 +615,25 @@ export default function CronParserTool() {
           {/* Next 10 executions */}
           <div className="rounded-xl border border-gray-700 bg-gray-800 p-5">
             <p className="mb-4 text-sm font-medium text-gray-300">
-              Next 10 Execution Times
+              {t("nthExecution", { count: 10 })}
             </p>
             {result.nextTimes.length === 0 ? (
               <p className="text-sm text-gray-500">
-                No execution times found within the next 4 years.
+                {t("noData")}
               </p>
             ) : (
               <ol className="space-y-2">
-                {result.nextTimes.map((t, i) => (
+                {result.nextTimes.map((time, i) => (
                   <li
                     key={i}
                     className="flex flex-col items-start justify-between gap-1 rounded-lg border border-gray-700 bg-gray-900 px-4 py-2.5 sm:flex-row sm:items-center"
                   >
                     <span className="font-mono text-sm text-white">
                       <span className="mr-2 text-gray-500">#{i + 1}</span>
-                      {formatDate(t)}
+                      {formatDate(time)}
                     </span>
                     <span className="shrink-0 text-xs text-gray-500">
-                      {relativeTime(t)}
+                      {relativeTime(time)}
                     </span>
                   </li>
                 ))}

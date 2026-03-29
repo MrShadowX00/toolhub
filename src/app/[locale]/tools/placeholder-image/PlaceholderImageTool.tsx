@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import {
   Download,
   Copy,
@@ -17,6 +18,7 @@ const presets = [
 ];
 
 export default function PlaceholderImageTool() {
+  const t = useTranslations("toolUi");
   const [width, setWidth] = useState(800);
   const [height, setHeight] = useState(400);
   const [bgColor, setBgColor] = useState("#374151");
@@ -72,7 +74,7 @@ export default function PlaceholderImageTool() {
     <div className="space-y-6">
       {/* Presets */}
       <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-        <h3 className="mb-3 text-sm font-medium text-gray-400">Presets</h3>
+        <h3 className="mb-3 text-sm font-medium text-gray-400">{t("commonPresets")}</h3>
         <div className="flex flex-wrap gap-2">
           {presets.map((p) => (
             <button
@@ -93,10 +95,10 @@ export default function PlaceholderImageTool() {
       {/* Controls */}
       <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6 space-y-4">
-          <h3 className="text-sm font-medium text-gray-400">Dimensions</h3>
+          <h3 className="text-sm font-medium text-gray-400">{t("size")}</h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Width</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("width")}</label>
               <input
                 type="number"
                 value={width}
@@ -105,7 +107,7 @@ export default function PlaceholderImageTool() {
               />
             </div>
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Height</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("height")}</label>
               <input
                 type="number"
                 value={height}
@@ -116,7 +118,7 @@ export default function PlaceholderImageTool() {
           </div>
 
           <div>
-            <label className="mb-1 block text-xs text-gray-500">Text (optional)</label>
+            <label className="mb-1 block text-xs text-gray-500">{t("enterText")}</label>
             <input
               type="text"
               value={text}
@@ -127,7 +129,7 @@ export default function PlaceholderImageTool() {
           </div>
 
           <div>
-            <label className="mb-1 block text-xs text-gray-500">Font Size: {fontSize}px</label>
+            <label className="mb-1 block text-xs text-gray-500">{t("fontSize")}: {fontSize}px</label>
             <input
               type="range"
               min={10}
@@ -140,10 +142,10 @@ export default function PlaceholderImageTool() {
         </div>
 
         <div className="rounded-xl border border-gray-800 bg-gray-900 p-6 space-y-4">
-          <h3 className="text-sm font-medium text-gray-400">Colors</h3>
+          <h3 className="text-sm font-medium text-gray-400">{t("backgroundColor")} / {t("textColor")}</h3>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Background</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("backgroundColor")}</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
@@ -160,7 +162,7 @@ export default function PlaceholderImageTool() {
               </div>
             </div>
             <div>
-              <label className="mb-1 block text-xs text-gray-500">Text Color</label>
+              <label className="mb-1 block text-xs text-gray-500">{t("textColor")}</label>
               <div className="flex items-center gap-2">
                 <input
                   type="color"
@@ -185,14 +187,14 @@ export default function PlaceholderImageTool() {
         <div className="mb-4 flex items-center justify-between">
           <h3 className="flex items-center gap-2 text-sm font-medium text-gray-400">
             <ImageIcon className="h-4 w-4" />
-            Live Preview
+            {t("preview")}
           </h3>
           <button
             onClick={handleDownload}
             className="flex items-center gap-2 rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-500"
           >
             <Download className="h-4 w-4" />
-            Download PNG
+            {t("downloadAs", { format: "PNG" })}
           </button>
         </div>
         <div className="flex justify-center overflow-auto rounded-lg border border-gray-800 bg-gray-950 p-4">
@@ -206,7 +208,7 @@ export default function PlaceholderImageTool() {
 
       {/* URL */}
       <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
-        <h3 className="mb-3 text-sm font-medium text-gray-400">Placeholder URL</h3>
+        <h3 className="mb-3 text-sm font-medium text-gray-400">{t("url")}</h3>
         <div className="flex items-center gap-2">
           <code className="flex-1 overflow-x-auto rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-green-400">
             {placeholderUrl}
@@ -216,7 +218,7 @@ export default function PlaceholderImageTool() {
             className="flex shrink-0 items-center gap-1.5 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm text-gray-300 transition-colors hover:bg-gray-700"
           >
             {copied ? <Check className="h-4 w-4 text-green-400" /> : <Copy className="h-4 w-4" />}
-            {copied ? "Copied" : "Copy"}
+            {copied ? t("copied") : t("copy")}
           </button>
         </div>
       </div>
