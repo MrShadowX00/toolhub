@@ -165,6 +165,9 @@ export function generateHomeMetadata(
         "max-snippet": -1,
       },
     },
+    verification: {
+      google: "0LCEmavQtPu9bTfUcVgs4k4ZDKutv9tbz6Iav18HHMU",
+    },
     other: {
       "msapplication-TileColor": "#030712",
     },
