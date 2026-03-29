@@ -70,7 +70,7 @@ export default function AdBanner({
         ref={adRef}
         className="adsbygoogle"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-XXXXXXXXXX"
+        data-ad-client="ca-pub-7668896830420502"
         data-ad-slot={slot}
         data-ad-format={responsive ? "auto" : layoutMap[format]}
         data-full-width-responsive={responsive ? "true" : "false"}

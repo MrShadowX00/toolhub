@@ -69,7 +69,7 @@ export default async function LocaleLayout({
         <meta name="theme-color" content="#030712" />
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7668896830420502"
           crossOrigin="anonymous"
         />
       </head>
