@@ -1,0 +1,23 @@
+{
+  "home": "首页",
+  "categories": "分类",
+  "searchPlaceholder": "搜索工具...",
+  "searchPlaceholderLong": "搜索工具...（如 JSON、图片、QR）",
+  "new": "新",
+  "popular": "热门",
+  "privacy": "隐私",
+  "terms": "条款",
+  "about": "关于",
+  "privacyBadge": "所有工具在客户端运行。您的文件永远不会离开您的设备。",
+  "copyright": "保留所有权利。",
+  "brandName": "Toollo",
+  "noResults": "未找到工具。请尝试其他搜索词。",
+  "resultsCount": "\"{query}\"的 {count} 个结果",
+  "notFound": {
+    "title": "页面未找到",
+    "code": "404",
+    "description": "您查找的工具或页面不存在。",
+    "backHome": "返回首页"
+  },
+  "language": "语言"
+}

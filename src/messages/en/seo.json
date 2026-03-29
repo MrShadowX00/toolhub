@@ -1,0 +1,208 @@
+{
+  "home": {
+    "title": "Toollo — Free Online Tools",
+    "description": "50+ free online tools. No signup. No tracking. Image compressor, JSON formatter, QR generator, and more — everything runs in your browser."
+  },
+  "tools": {
+    "image-compressor": {
+      "title": "Image Compressor — Compress Images Online Free",
+      "description": "Compress images without losing quality. Free online image compressor — no upload, runs in your browser."
+    },
+    "image-converter": {
+      "title": "Image Converter — Convert PNG, JPG, WebP, AVIF",
+      "description": "Convert between PNG, JPG, WebP, AVIF formats. Free online image converter — fast and private."
+    },
+    "image-resizer": {
+      "title": "Image Resizer — Resize Images Online",
+      "description": "Resize images to exact dimensions. Free online image resizer — runs entirely in your browser."
+    },
+    "heic-to-jpg": {
+      "title": "HEIC to JPG Converter — Convert iPhone Photos",
+      "description": "Convert iPhone HEIC photos to JPG format. Free online HEIC converter — no upload needed."
+    },
+    "background-remover": {
+      "title": "Background Remover — Remove Image Backgrounds",
+      "description": "Remove image backgrounds instantly with AI. Free online background remover — runs in your browser."
+    },
+    "image-to-base64": {
+      "title": "Image to Base64 Converter",
+      "description": "Convert images to Base64 string. Free online encoder — fast and private."
+    },
+    "svg-to-png": {
+      "title": "SVG to PNG Converter",
+      "description": "Convert SVG vectors to PNG images. Free online converter — runs in your browser."
+    },
+    "pdf-to-image": {
+      "title": "PDF to Image Converter",
+      "description": "Convert PDF pages to images. Free online PDF converter — no upload needed."
+    },
+    "image-to-pdf": {
+      "title": "Image to PDF Converter",
+      "description": "Create PDF from images. Free online converter — fast and private."
+    },
+    "video-to-gif": {
+      "title": "Video to GIF Converter",
+      "description": "Convert video clips to GIF. Free online converter — runs entirely in your browser."
+    },
+    "json-formatter": {
+      "title": "JSON Formatter & Validator",
+      "description": "Format and validate JSON online. Free JSON formatter with tree view — fast and private."
+    },
+    "base64": {
+      "title": "Base64 Encoder/Decoder",
+      "description": "Encode and decode Base64 strings online. Free Base64 tool — runs in your browser."
+    },
+    "url-encoder": {
+      "title": "URL Encoder/Decoder",
+      "description": "URL encode and decode strings online. Free URL encoder tool — fast and private."
+    },
+    "hash-generator": {
+      "title": "Hash Generator — MD5, SHA1, SHA256",
+      "description": "Generate MD5, SHA1, SHA256 hashes online. Free hash generator — runs in your browser."
+    },
+    "regex-tester": {
+      "title": "Regex Tester — Test Regular Expressions",
+      "description": "Test regular expressions with live matching. Free regex tester — fast and private."
+    },
+    "jwt-decoder": {
+      "title": "JWT Decoder — Decode JWT Tokens",
+      "description": "Decode and inspect JWT tokens online. Free JWT decoder — runs in your browser."
+    },
+    "code-diff": {
+      "title": "Code Diff — Compare Code Online",
+      "description": "Compare two code blocks side by side. Free code diff tool — fast and private."
+    },
+    "cron-parser": {
+      "title": "Cron Parser — Explain Cron Expressions",
+      "description": "Parse and explain cron expressions. Free cron parser — runs in your browser."
+    },
+    "unix-timestamp": {
+      "title": "Unix Timestamp Converter",
+      "description": "Convert Unix timestamps to dates and vice versa. Free timestamp converter — fast and private."
+    },
+    "html-entities": {
+      "title": "HTML Entities Encoder/Decoder",
+      "description": "Encode and decode HTML entities. Free online tool — runs in your browser."
+    },
+    "dns-lookup": {
+      "title": "DNS Lookup — Check DNS Records",
+      "description": "Look up DNS records for any domain. Free DNS lookup tool — fast and reliable."
+    },
+    "whois-lookup": {
+      "title": "WHOIS Lookup — Domain Information",
+      "description": "Get domain registration information. Free WHOIS lookup tool — fast and reliable."
+    },
+    "ssl-checker": {
+      "title": "SSL Checker — Check SSL Certificate",
+      "description": "Check SSL certificate details for any domain. Free SSL checker — fast and reliable."
+    },
+    "http-headers": {
+      "title": "HTTP Headers Checker",
+      "description": "Inspect HTTP response headers for any URL. Free HTTP headers tool — fast and reliable."
+    },
+    "ip-lookup": {
+      "title": "IP Lookup — IP Geolocation",
+      "description": "Get geolocation for any IP address. Free IP lookup tool — fast and reliable."
+    },
+    "domain-age": {
+      "title": "Domain Age Checker",
+      "description": "Check when a domain was registered. Free domain age checker — fast and reliable."
+    },
+    "open-graph-preview": {
+      "title": "Open Graph Preview — OG Meta Tags",
+      "description": "Preview Open Graph meta tags for any URL. Free OG preview tool — fast and reliable."
+    },
+    "website-screenshot": {
+      "title": "Website Screenshot — Capture Websites",
+      "description": "Capture screenshots of any website. Free screenshot tool — fast and reliable."
+    },
+    "port-checker": {
+      "title": "Port Checker — Check Open Ports",
+      "description": "Check if a port is open on any server. Free port checker — fast and reliable."
+    },
+    "sitemap-generator": {
+      "title": "Sitemap Generator — Create XML Sitemap",
+      "description": "Generate XML sitemap for any website. Free sitemap generator — fast and reliable."
+    },
+    "mortgage-calculator": {
+      "title": "Mortgage Calculator — Monthly Payments",
+      "description": "Calculate monthly mortgage payments. Free mortgage calculator — fast and accurate."
+    },
+    "bmi-calculator": {
+      "title": "BMI Calculator — Body Mass Index",
+      "description": "Calculate your Body Mass Index. Free BMI calculator — fast and accurate."
+    },
+    "compound-interest": {
+      "title": "Compound Interest Calculator",
+      "description": "Calculate compound interest growth. Free compound interest calculator — fast and accurate."
+    },
+    "percentage-calculator": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentages instantly. Free percentage calculator — fast and accurate."
+    },
+    "age-calculator": {
+      "title": "Age Calculator — Calculate Exact Age",
+      "description": "Calculate exact age from birthdate. Free age calculator — fast and accurate."
+    },
+    "loan-emi": {
+      "title": "Loan EMI Calculator",
+      "description": "Calculate loan EMI and amortization schedule. Free EMI calculator — fast and accurate."
+    },
+    "time-zone-converter": {
+      "title": "Time Zone Converter",
+      "description": "Convert times across time zones. Free time zone converter — fast and accurate."
+    },
+    "date-difference": {
+      "title": "Date Difference Calculator",
+      "description": "Calculate days between two dates. Free date difference calculator — fast and accurate."
+    },
+    "subnet-calculator": {
+      "title": "Subnet Calculator — IP Subnetting",
+      "description": "Calculate IP subnet ranges and masks. Free subnet calculator — fast and accurate."
+    },
+    "password-strength": {
+      "title": "Password Strength Checker",
+      "description": "Check password strength and entropy. Free password strength checker — fast and private."
+    },
+    "qr-generator": {
+      "title": "QR Code Generator — Create QR Codes",
+      "description": "Generate QR codes for any text or URL. Free QR code generator — fast and private."
+    },
+    "barcode-generator": {
+      "title": "Barcode Generator — Create Barcodes",
+      "description": "Generate barcodes in multiple formats. Free barcode generator — fast and private."
+    },
+    "favicon-generator": {
+      "title": "Favicon Generator — Create Favicons",
+      "description": "Create favicons from images or text. Free favicon generator — fast and private."
+    },
+    "css-gradient": {
+      "title": "CSS Gradient Generator",
+      "description": "Create beautiful CSS gradients visually. Free gradient generator — fast and private."
+    },
+    "color-palette": {
+      "title": "Color Palette Extractor",
+      "description": "Extract color palettes from images. Free color palette tool — fast and private."
+    },
+    "placeholder-image": {
+      "title": "Placeholder Image Generator",
+      "description": "Generate placeholder images for mockups. Free placeholder generator — fast and private."
+    },
+    "uuid-generator": {
+      "title": "UUID Generator — Generate UUIDs",
+      "description": "Generate UUIDs and random strings. Free UUID generator — fast and private."
+    },
+    "text-case-converter": {
+      "title": "Text Case Converter",
+      "description": "Convert text between different cases. Free text case converter — fast and private."
+    },
+    "word-counter": {
+      "title": "Word Counter — Count Words Online",
+      "description": "Count words, characters, and reading time. Free word counter — fast and private."
+    },
+    "markdown-preview": {
+      "title": "Markdown Preview — Live Rendering",
+      "description": "Preview Markdown with live rendering. Free Markdown previewer — fast and private."
+    }
+  }
+}

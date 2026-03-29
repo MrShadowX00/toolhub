@@ -1,0 +1,23 @@
+{
+  "home": "Bosh sahifa",
+  "categories": "Kategoriyalar",
+  "searchPlaceholder": "Vositalarni qidirish...",
+  "searchPlaceholderLong": "Vositalarni qidirish... (masalan JSON, rasm, QR)",
+  "new": "Yangi",
+  "popular": "Ommabop",
+  "privacy": "Maxfiylik",
+  "terms": "Shartlar",
+  "about": "Haqida",
+  "privacyBadge": "Barcha vositalar brauzeringizda ishlaydi. Fayllaringiz qurilmangizdan chiqmaydi.",
+  "copyright": "Barcha huquqlar himoyalangan.",
+  "brandName": "Toollo",
+  "noResults": "Vositalar topilmadi. Boshqa so'z bilan qidiring.",
+  "resultsCount": "\"{query}\" uchun {count} ta natija",
+  "notFound": {
+    "title": "Sahifa topilmadi",
+    "code": "404",
+    "description": "Siz qidirayotgan vosita yoki sahifa mavjud emas.",
+    "backHome": "Bosh sahifaga"
+  },
+  "language": "Til"
+}

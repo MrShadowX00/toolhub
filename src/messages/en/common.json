@@ -1,0 +1,23 @@
+{
+  "home": "Home",
+  "categories": "Categories",
+  "searchPlaceholder": "Search tools...",
+  "searchPlaceholderLong": "Search tools... (e.g. JSON, image, QR)",
+  "new": "New",
+  "popular": "Popular",
+  "privacy": "Privacy",
+  "terms": "Terms",
+  "about": "About",
+  "privacyBadge": "All tools run client-side. Your files never leave your device.",
+  "copyright": "All rights reserved.",
+  "brandName": "Toollo",
+  "noResults": "No tools found. Try a different search term.",
+  "resultsCount": "{count} result{count, plural, one {} other {s}} for \"{query}\"",
+  "notFound": {
+    "title": "Page Not Found",
+    "code": "404",
+    "description": "The tool or page you're looking for doesn't exist.",
+    "backHome": "Back to Home"
+  },
+  "language": "Language"
+}

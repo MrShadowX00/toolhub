@@ -1,0 +1,209 @@
+{
+  "categories": {
+    "Image Tools": "Image Tools",
+    "Developer Tools": "Developer Tools",
+    "Network Tools": "Network Tools",
+    "Calculators": "Calculators",
+    "Generators": "Generators"
+  },
+  "image-compressor": {
+    "name": "Image Compressor",
+    "description": "Compress images without losing quality"
+  },
+  "image-converter": {
+    "name": "Image Converter",
+    "description": "Convert between PNG, JPG, WebP, AVIF"
+  },
+  "image-resizer": {
+    "name": "Image Resizer",
+    "description": "Resize images to exact dimensions"
+  },
+  "heic-to-jpg": {
+    "name": "HEIC to JPG",
+    "description": "Convert iPhone HEIC photos to JPG"
+  },
+  "background-remover": {
+    "name": "Background Remover",
+    "description": "Remove image backgrounds instantly"
+  },
+  "image-to-base64": {
+    "name": "Image to Base64",
+    "description": "Convert images to Base64 string"
+  },
+  "svg-to-png": {
+    "name": "SVG to PNG",
+    "description": "Convert SVG vectors to PNG"
+  },
+  "pdf-to-image": {
+    "name": "PDF to Image",
+    "description": "Convert PDF pages to images"
+  },
+  "image-to-pdf": {
+    "name": "Image to PDF",
+    "description": "Create PDF from images"
+  },
+  "video-to-gif": {
+    "name": "Video to GIF",
+    "description": "Convert video clips to GIF"
+  },
+  "json-formatter": {
+    "name": "JSON Formatter",
+    "description": "Format and validate JSON"
+  },
+  "base64": {
+    "name": "Base64 Encoder/Decoder",
+    "description": "Encode and decode Base64"
+  },
+  "url-encoder": {
+    "name": "URL Encoder/Decoder",
+    "description": "URL encode and decode strings"
+  },
+  "hash-generator": {
+    "name": "Hash Generator",
+    "description": "Generate MD5, SHA1, SHA256 hashes"
+  },
+  "regex-tester": {
+    "name": "Regex Tester",
+    "description": "Test regular expressions with live matching"
+  },
+  "jwt-decoder": {
+    "name": "JWT Decoder",
+    "description": "Decode and inspect JWT tokens"
+  },
+  "code-diff": {
+    "name": "Code Diff",
+    "description": "Compare two code blocks side by side"
+  },
+  "cron-parser": {
+    "name": "Cron Parser",
+    "description": "Parse and explain cron expressions"
+  },
+  "unix-timestamp": {
+    "name": "Unix Timestamp",
+    "description": "Convert Unix timestamps to dates"
+  },
+  "html-entities": {
+    "name": "HTML Entities",
+    "description": "Encode and decode HTML entities"
+  },
+  "dns-lookup": {
+    "name": "DNS Lookup",
+    "description": "Look up DNS records for any domain"
+  },
+  "whois-lookup": {
+    "name": "WHOIS Lookup",
+    "description": "Get domain registration information"
+  },
+  "ssl-checker": {
+    "name": "SSL Checker",
+    "description": "Check SSL certificate details"
+  },
+  "http-headers": {
+    "name": "HTTP Headers",
+    "description": "Inspect HTTP response headers"
+  },
+  "ip-lookup": {
+    "name": "IP Lookup",
+    "description": "Get geolocation for any IP address"
+  },
+  "domain-age": {
+    "name": "Domain Age",
+    "description": "Check when a domain was registered"
+  },
+  "open-graph-preview": {
+    "name": "Open Graph Preview",
+    "description": "Preview Open Graph meta tags"
+  },
+  "website-screenshot": {
+    "name": "Website Screenshot",
+    "description": "Capture screenshots of websites"
+  },
+  "port-checker": {
+    "name": "Port Checker",
+    "description": "Check if a port is open"
+  },
+  "sitemap-generator": {
+    "name": "Sitemap Generator",
+    "description": "Generate XML sitemap for websites"
+  },
+  "mortgage-calculator": {
+    "name": "Mortgage Calculator",
+    "description": "Calculate monthly mortgage payments"
+  },
+  "bmi-calculator": {
+    "name": "BMI Calculator",
+    "description": "Calculate Body Mass Index"
+  },
+  "compound-interest": {
+    "name": "Compound Interest",
+    "description": "Calculate compound interest growth"
+  },
+  "percentage-calculator": {
+    "name": "Percentage Calculator",
+    "description": "Calculate percentages instantly"
+  },
+  "age-calculator": {
+    "name": "Age Calculator",
+    "description": "Calculate exact age from birthdate"
+  },
+  "loan-emi": {
+    "name": "Loan EMI Calculator",
+    "description": "Calculate loan EMI and amortization"
+  },
+  "time-zone-converter": {
+    "name": "Time Zone Converter",
+    "description": "Convert times across time zones"
+  },
+  "date-difference": {
+    "name": "Date Difference",
+    "description": "Calculate days between two dates"
+  },
+  "subnet-calculator": {
+    "name": "Subnet Calculator",
+    "description": "Calculate IP subnet ranges"
+  },
+  "password-strength": {
+    "name": "Password Strength",
+    "description": "Check password strength and entropy"
+  },
+  "qr-generator": {
+    "name": "QR Code Generator",
+    "description": "Generate QR codes for any text or URL"
+  },
+  "barcode-generator": {
+    "name": "Barcode Generator",
+    "description": "Generate barcodes in multiple formats"
+  },
+  "favicon-generator": {
+    "name": "Favicon Generator",
+    "description": "Create favicons from images or text"
+  },
+  "css-gradient": {
+    "name": "CSS Gradient Generator",
+    "description": "Create beautiful CSS gradients visually"
+  },
+  "color-palette": {
+    "name": "Color Palette",
+    "description": "Extract color palettes from images"
+  },
+  "placeholder-image": {
+    "name": "Placeholder Image",
+    "description": "Generate placeholder images for mockups"
+  },
+  "uuid-generator": {
+    "name": "UUID Generator",
+    "description": "Generate UUIDs and random strings"
+  },
+  "text-case-converter": {
+    "name": "Text Case Converter",
+    "description": "Convert text between cases"
+  },
+  "word-counter": {
+    "name": "Word Counter",
+    "description": "Count words, characters, and reading time"
+  },
+  "markdown-preview": {
+    "name": "Markdown Preview",
+    "description": "Preview Markdown with live rendering"
+  }
+}

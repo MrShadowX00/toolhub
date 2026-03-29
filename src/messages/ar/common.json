@@ -1,0 +1,23 @@
+{
+  "home": "الرئيسية",
+  "categories": "الفئات",
+  "searchPlaceholder": "البحث عن أدوات...",
+  "searchPlaceholderLong": "البحث عن أدوات... (مثل JSON، صورة، QR)",
+  "new": "جديد",
+  "popular": "شائع",
+  "privacy": "الخصوصية",
+  "terms": "الشروط",
+  "about": "حول",
+  "privacyBadge": "جميع الأدوات تعمل في المتصفح. ملفاتك لا تغادر جهازك أبداً.",
+  "copyright": "جميع الحقوق محفوظة.",
+  "brandName": "Toollo",
+  "noResults": "لم يتم العثور على أدوات. جرب مصطلحاً آخر.",
+  "resultsCount": "{count} نتيجة لـ \"{query}\"",
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "code": "404",
+    "description": "الأداة أو الصفحة التي تبحث عنها غير موجودة.",
+    "backHome": "العودة للرئيسية"
+  },
+  "language": "اللغة"
+}

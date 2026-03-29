@@ -1,0 +1,23 @@
+{
+  "home": "Inicio",
+  "categories": "Categorias",
+  "searchPlaceholder": "Buscar ferramentas...",
+  "searchPlaceholderLong": "Buscar ferramentas... (ex. JSON, imagem, QR)",
+  "new": "Novo",
+  "popular": "Popular",
+  "privacy": "Privacidade",
+  "terms": "Termos",
+  "about": "Sobre",
+  "privacyBadge": "Todas as ferramentas rodam no cliente. Seus arquivos nunca saem do seu dispositivo.",
+  "copyright": "Todos os direitos reservados.",
+  "brandName": "Toollo",
+  "noResults": "Nenhuma ferramenta encontrada. Tente outro termo.",
+  "resultsCount": "{count} resultado(s) para \"{query}\"",
+  "notFound": {
+    "title": "Pagina nao encontrada",
+    "code": "404",
+    "description": "A ferramenta ou pagina que voce procura nao existe.",
+    "backHome": "Voltar ao inicio"
+  },
+  "language": "Idioma"
+}

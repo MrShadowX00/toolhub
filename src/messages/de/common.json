@@ -1,0 +1,23 @@
+{
+  "home": "Startseite",
+  "categories": "Kategorien",
+  "searchPlaceholder": "Werkzeuge suchen...",
+  "searchPlaceholderLong": "Werkzeuge suchen... (z.B. JSON, Bild, QR)",
+  "new": "Neu",
+  "popular": "Beliebt",
+  "privacy": "Datenschutz",
+  "terms": "Nutzungsbedingungen",
+  "about": "Über uns",
+  "privacyBadge": "Alle Werkzeuge laufen clientseitig. Ihre Dateien verlassen nie Ihr Gerät.",
+  "copyright": "Alle Rechte vorbehalten.",
+  "brandName": "Toollo",
+  "noResults": "Keine Werkzeuge gefunden. Versuchen Sie einen anderen Begriff.",
+  "resultsCount": "{count} Ergebnis(se) für \"{query}\"",
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "code": "404",
+    "description": "Das Werkzeug oder die Seite existiert nicht.",
+    "backHome": "Zurück zur Startseite"
+  },
+  "language": "Sprache"
+}

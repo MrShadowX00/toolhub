@@ -1,0 +1,23 @@
+{
+  "home": "Ana Sayfa",
+  "categories": "Kategoriler",
+  "searchPlaceholder": "Araç ara...",
+  "searchPlaceholderLong": "Araç ara... (ör. JSON, resim, QR)",
+  "new": "Yeni",
+  "popular": "Popüler",
+  "privacy": "Gizlilik",
+  "terms": "Şartlar",
+  "about": "Hakkında",
+  "privacyBadge": "Tüm araçlar tarayıcınızda çalışır. Dosyalarınız cihazınızdan ayrılmaz.",
+  "copyright": "Tüm hakları saklıdır.",
+  "brandName": "Toollo",
+  "noResults": "Araç bulunamadı. Farklı bir terim deneyin.",
+  "resultsCount": "\"{query}\" için {count} sonuç",
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "code": "404",
+    "description": "Aradığınız araç veya sayfa mevcut değil.",
+    "backHome": "Ana Sayfaya Dön"
+  },
+  "language": "Dil"
+}

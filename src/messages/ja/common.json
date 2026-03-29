@@ -1,0 +1,23 @@
+{
+  "home": "ホーム",
+  "categories": "カテゴリー",
+  "searchPlaceholder": "ツールを検索...",
+  "searchPlaceholderLong": "ツールを検索...（例: JSON、画像、QR）",
+  "new": "新着",
+  "popular": "人気",
+  "privacy": "プライバシー",
+  "terms": "利用規約",
+  "about": "概要",
+  "privacyBadge": "すべてのツールはクライアント側で動作します。ファイルはデバイスから送信されません。",
+  "copyright": "All rights reserved.",
+  "brandName": "Toollo",
+  "noResults": "ツールが見つかりません。別の検索語をお試しください。",
+  "resultsCount": "「{query}」の検索結果 {count} 件",
+  "notFound": {
+    "title": "ページが見つかりません",
+    "code": "404",
+    "description": "お探しのツールまたはページは存在しません。",
+    "backHome": "ホームに戻る"
+  },
+  "language": "言語"
+}
