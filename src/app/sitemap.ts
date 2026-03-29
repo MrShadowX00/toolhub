@@ -62,5 +62,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Static pages
+  for (const page of ["/about", "/privacy", "/terms"]) {
+    entries.push({
+      url: `${baseUrl}${page}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.5,
+      alternates: {
+        languages: getAlternates(page),
+      },
+    });
+  }
+
   return entries;
 }

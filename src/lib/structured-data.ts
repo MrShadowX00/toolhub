@@ -65,13 +65,7 @@ export function getWebApplicationJsonLd(
       name: "Toollo",
       url: baseUrl,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      ratingCount: "150",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    screenshot: `${baseUrl}/og-image.png`,
   };
 }
 
