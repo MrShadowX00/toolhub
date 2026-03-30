@@ -28,6 +28,7 @@ export async function generateToolMetadata(
   for (const loc of locales) {
     alternates[loc] = getLocalePath(loc as Locale, toolPath);
   }
+  alternates["x-default"] = getLocalePath("en" as Locale, toolPath);
 
   return {
     title,
@@ -72,6 +73,18 @@ export async function generateToolMetadata(
   };
 }
 
+export function generatePageAlternates(locale: string, path: string) {
+  const alternates: Record<string, string> = {};
+  for (const loc of locales) {
+    alternates[loc] = getLocalePath(loc as Locale, path);
+  }
+  alternates["x-default"] = getLocalePath("en" as Locale, path);
+  return {
+    canonical: getLocalePath(locale as Locale, path),
+    languages: alternates,
+  };
+}
+
 export function generateHomeMetadata(
   title: string,
   description: string,
@@ -81,6 +94,7 @@ export function generateHomeMetadata(
   for (const loc of locales) {
     alternates[loc] = loc === "en" ? baseUrl : `${baseUrl}/${loc}`;
   }
+  alternates["x-default"] = baseUrl;
 
   return {
     metadataBase: new URL(baseUrl),

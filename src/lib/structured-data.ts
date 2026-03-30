@@ -85,24 +85,24 @@ export function getBreadcrumbJsonLd(
 }
 
 export function getFaqJsonLd(
-  faqs: { question: string; answer: string }[]
+  faqs: { q: string; a: string }[]
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.question,
+      name: faq.q,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: faq.a,
       },
     })),
   };
 }
 
 export function getCollectionPageJsonLd(
-  toolNames: string[]
+  toolItems: { id: string; name: string }[]
 ) {
   return {
     "@context": "https://schema.org",
@@ -113,12 +113,12 @@ export function getCollectionPageJsonLd(
     url: baseUrl,
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: toolNames.length,
-      itemListElement: toolNames.map((name, index) => ({
+      numberOfItems: toolItems.length,
+      itemListElement: toolItems.map((tool, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        name,
-        url: `${baseUrl}/tools/${name.toLowerCase().replace(/\s+/g, "-")}`,
+        name: tool.name,
+        url: `${baseUrl}/tools/${tool.id}`,
       })),
     },
   };

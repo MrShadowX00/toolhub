@@ -6,203 +6,903 @@
   "tools": {
     "image-compressor": {
       "title": "Image Compressor — Compress Images Online Free",
-      "description": "Compress images without losing quality. Free online image compressor — no upload, runs in your browser."
+      "description": "Compress images without losing quality. Free online image compressor — no upload, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is Toollo's image compressor free to use?",
+          "a": "Yes, Toollo's image compressor is 100% free with no signup required. It runs entirely in your browser, so your images are never uploaded to any server."
+        },
+        {
+          "q": "How much can I compress my images without losing quality?",
+          "a": "Toollo's smart compression can reduce file sizes by up to 80% while maintaining visually lossless quality. You can also adjust the quality slider to find the perfect balance between size and clarity."
+        },
+        {
+          "q": "What image formats does the compressor support?",
+          "a": "The compressor supports JPEG, PNG, and WebP formats. Since all processing happens locally in your browser, your images stay completely private and are never sent to a server."
+        }
+      ]
     },
     "image-converter": {
       "title": "Image Converter — Convert PNG, JPG, WebP, AVIF",
-      "description": "Convert between PNG, JPG, WebP, AVIF formats. Free online image converter — fast and private."
+      "description": "Convert between PNG, JPG, WebP, AVIF formats. Free online image converter — fast and private.",
+      "faq": [
+        {
+          "q": "How does Toollo's image converter work?",
+          "a": "Toollo's image converter processes files directly in your browser using the Canvas API. Simply drop your image, choose the output format, and download the result — no server upload required."
+        },
+        {
+          "q": "Can I convert images to WebP or AVIF format?",
+          "a": "Yes, you can convert images to and from PNG, JPG, WebP, and AVIF formats. WebP and AVIF offer significantly smaller file sizes than traditional formats, making them ideal for web use."
+        },
+        {
+          "q": "Is there a file size limit for image conversion?",
+          "a": "There is no strict file size limit since all conversion happens in your browser. Performance depends on your device's memory, but most images up to 50 MB convert without issues."
+        }
+      ]
     },
     "image-resizer": {
       "title": "Image Resizer — Resize Images Online",
-      "description": "Resize images to exact dimensions. Free online image resizer — runs entirely in your browser."
+      "description": "Resize images to exact dimensions. Free online image resizer — runs entirely in your browser.",
+      "faq": [
+        {
+          "q": "Is the online image resizer free?",
+          "a": "Yes, Toollo's image resizer is completely free with no limits on the number of images you can resize. No signup or account is needed."
+        },
+        {
+          "q": "Can I resize images while keeping the aspect ratio?",
+          "a": "Yes, you can lock the aspect ratio so your image scales proportionally. You can also enter custom width and height values for exact dimensions."
+        },
+        {
+          "q": "Are my images uploaded to a server when I resize them?",
+          "a": "No, all resizing happens locally in your browser. Your images never leave your device, ensuring complete privacy and faster processing."
+        }
+      ]
     },
     "heic-to-jpg": {
       "title": "HEIC to JPG Converter — Convert iPhone Photos",
-      "description": "Convert iPhone HEIC photos to JPG format. Free online HEIC converter — no upload needed."
+      "description": "Convert iPhone HEIC photos to JPG format. Free online HEIC converter — no upload needed.",
+      "faq": [
+        {
+          "q": "How do I convert HEIC files to JPG for free?",
+          "a": "Simply drag and drop your HEIC files into Toollo's converter and they will be instantly converted to JPG format. It's free, requires no signup, and works entirely in your browser."
+        },
+        {
+          "q": "Can I convert multiple HEIC photos at once?",
+          "a": "Yes, Toollo supports batch conversion so you can drop multiple HEIC files and convert them all to JPG in one go, saving you time when processing iPhone photos."
+        },
+        {
+          "q": "Are my iPhone photos safe when converting HEIC to JPG?",
+          "a": "Absolutely. Toollo's HEIC converter runs 100% in your browser, meaning your photos are never uploaded to any server. Your private photos remain completely on your device."
+        }
+      ]
     },
     "background-remover": {
       "title": "Background Remover — Remove Image Backgrounds",
-      "description": "Remove image backgrounds instantly with AI. Free online background remover — runs in your browser."
+      "description": "Remove image backgrounds instantly with AI. Free online background remover — runs in your browser.",
+      "faq": [
+        {
+          "q": "Is Toollo's background remover really free?",
+          "a": "Yes, it is 100% free with no watermarks, no signup, and no usage limits. The AI model runs directly in your browser, so there are no server costs to pass on."
+        },
+        {
+          "q": "How does the AI background removal work?",
+          "a": "Toollo uses an on-device AI model that loads in your browser to detect subjects and remove backgrounds automatically. It works well on portraits, products, and objects with clear outlines."
+        },
+        {
+          "q": "Are my images sent to a server for processing?",
+          "a": "No. The AI model is downloaded once and runs entirely in your browser. Your images are never uploaded anywhere, making it one of the most private background removal tools available."
+        }
+      ]
     },
     "image-to-base64": {
       "title": "Image to Base64 Converter",
-      "description": "Convert images to Base64 string. Free online encoder — fast and private."
+      "description": "Convert images to Base64 string. Free online encoder — fast and private.",
+      "faq": [
+        {
+          "q": "How do I convert an image to Base64?",
+          "a": "Drop or select an image in Toollo's converter and it will instantly generate the Base64-encoded string. You can copy the raw string or the complete data URI ready for use in HTML or CSS."
+        },
+        {
+          "q": "Why would I want to convert an image to Base64?",
+          "a": "Base64-encoded images can be embedded directly in HTML, CSS, or JSON without separate file requests. This is useful for small icons, email templates, and reducing HTTP requests on web pages."
+        },
+        {
+          "q": "Is there a size limit for image-to-Base64 conversion?",
+          "a": "There is no hard limit, but Base64 encoding increases file size by about 33%. For best results, use it with small images like icons or thumbnails. All processing runs locally in your browser."
+        }
+      ]
     },
     "svg-to-png": {
       "title": "SVG to PNG Converter",
-      "description": "Convert SVG vectors to PNG images. Free online converter — runs in your browser."
+      "description": "Convert SVG vectors to PNG images. Free online converter — runs in your browser.",
+      "faq": [
+        {
+          "q": "How do I convert SVG to PNG online?",
+          "a": "Upload your SVG file to Toollo's converter, choose your desired output size, and download the PNG instantly. The conversion happens in your browser with no server upload needed."
+        },
+        {
+          "q": "Can I choose the resolution when converting SVG to PNG?",
+          "a": "Yes, you can set custom width and height for the output PNG. Since SVGs are vector-based, you can scale them to any resolution without losing quality before converting."
+        },
+        {
+          "q": "Does converting SVG to PNG preserve transparency?",
+          "a": "Yes, Toollo's converter preserves the transparent background from your SVG file in the resulting PNG. All processing runs privately in your browser."
+        }
+      ]
     },
     "pdf-to-image": {
       "title": "PDF to Image Converter",
-      "description": "Convert PDF pages to images. Free online PDF converter — no upload needed."
+      "description": "Convert PDF pages to images. Free online PDF converter — no upload needed.",
+      "faq": [
+        {
+          "q": "Can I convert PDF to image for free without uploading?",
+          "a": "Yes, Toollo's PDF to image converter processes your PDF entirely in the browser. Your documents are never sent to any server, making it ideal for confidential files."
+        },
+        {
+          "q": "What image format does the PDF converter output?",
+          "a": "The converter outputs high-quality PNG images for each page of your PDF. You can convert individual pages or all pages at once and download them in a batch."
+        },
+        {
+          "q": "Is there a page limit for PDF to image conversion?",
+          "a": "There is no strict page limit since processing happens on your device. Large PDFs with many pages may take longer depending on your device's performance, but there are no artificial restrictions."
+        }
+      ]
     },
     "image-to-pdf": {
       "title": "Image to PDF Converter",
-      "description": "Create PDF from images. Free online converter — fast and private."
+      "description": "Create PDF from images. Free online converter — fast and private.",
+      "faq": [
+        {
+          "q": "How do I combine multiple images into one PDF?",
+          "a": "Drag and drop your images into Toollo's converter, arrange them in the desired order, and click to generate a single PDF. It's free and works without any server uploads."
+        },
+        {
+          "q": "What image formats can I convert to PDF?",
+          "a": "You can convert JPG, PNG, WebP, and other common image formats into a PDF document. Toollo lets you reorder pages and adjust settings before generating the final file."
+        },
+        {
+          "q": "Are my images kept private during conversion?",
+          "a": "Yes, the entire conversion process runs in your browser. Your images are never uploaded to a server, making Toollo a safe choice for sensitive or personal photos."
+        }
+      ]
     },
     "video-to-gif": {
       "title": "Video to GIF Converter",
-      "description": "Convert video clips to GIF. Free online converter — runs entirely in your browser."
+      "description": "Convert video clips to GIF. Free online converter — runs entirely in your browser.",
+      "faq": [
+        {
+          "q": "How do I convert a video to GIF for free?",
+          "a": "Drop your video file into Toollo's converter, trim the clip to the desired segment, adjust the frame rate and size, then download your GIF. No signup or server upload required."
+        },
+        {
+          "q": "What video formats can I convert to GIF?",
+          "a": "Toollo supports MP4, WebM, and other browser-compatible video formats. You can trim the clip, set the frame rate, and control the output quality before converting."
+        },
+        {
+          "q": "Is there a video length or file size limit?",
+          "a": "There is no enforced limit, but shorter clips (under 30 seconds) produce the best results since GIFs can become very large. All processing runs locally in your browser for full privacy."
+        }
+      ]
     },
     "json-formatter": {
       "title": "JSON Formatter & Validator",
-      "description": "Format and validate JSON online. Free JSON formatter with tree view — fast and private."
+      "description": "Format and validate JSON online. Free JSON formatter with tree view — fast and private.",
+      "faq": [
+        {
+          "q": "Is Toollo's JSON formatter free to use?",
+          "a": "Yes, Toollo's JSON formatter and validator is completely free, requires no signup, and runs entirely in your browser. Your JSON data is never sent to any server."
+        },
+        {
+          "q": "Can I validate and format JSON at the same time?",
+          "a": "Yes, Toollo automatically validates your JSON as you paste it, highlights syntax errors with line numbers, and formats it with proper indentation. It also offers a collapsible tree view for easy navigation."
+        },
+        {
+          "q": "Is my JSON data private when using the formatter?",
+          "a": "Absolutely. All formatting and validation happens locally in your browser. No data is transmitted to any server, making it safe to paste API keys, config files, or any sensitive JSON."
+        }
+      ]
     },
     "base64": {
       "title": "Base64 Encoder/Decoder",
-      "description": "Encode and decode Base64 strings online. Free Base64 tool — runs in your browser."
+      "description": "Encode and decode Base64 strings online. Free Base64 tool — runs in your browser.",
+      "faq": [
+        {
+          "q": "How do I encode or decode Base64 online?",
+          "a": "Paste your text into Toollo's Base64 tool and instantly get the encoded or decoded result. Switch between encode and decode modes with one click. It's free and requires no signup."
+        },
+        {
+          "q": "What is Base64 encoding used for?",
+          "a": "Base64 encoding converts binary data into ASCII text, commonly used in email attachments, data URIs, API authentication tokens, and embedding data in JSON or XML."
+        },
+        {
+          "q": "Is it safe to decode Base64 strings on Toollo?",
+          "a": "Yes, all encoding and decoding runs in your browser with no server communication. Your data stays completely private, making it safe to handle tokens, credentials, or any sensitive content."
+        }
+      ]
     },
     "url-encoder": {
       "title": "URL Encoder/Decoder",
-      "description": "URL encode and decode strings online. Free URL encoder tool — fast and private."
+      "description": "URL encode and decode strings online. Free URL encoder tool — fast and private.",
+      "faq": [
+        {
+          "q": "How does URL encoding work?",
+          "a": "URL encoding replaces special characters with percent-encoded equivalents (e.g., spaces become %20). Toollo's tool lets you encode or decode URL strings instantly in your browser for free."
+        },
+        {
+          "q": "When do I need to URL encode a string?",
+          "a": "URL encoding is necessary when passing special characters in query parameters, form data, or API requests. Characters like &, =, spaces, and non-ASCII characters must be encoded to work correctly in URLs."
+        },
+        {
+          "q": "Does Toollo's URL encoder handle all special characters?",
+          "a": "Yes, it handles all reserved and unsafe characters as defined by the RFC 3986 standard. Processing happens entirely in your browser with no data sent to any server."
+        }
+      ]
     },
     "hash-generator": {
       "title": "Hash Generator — MD5, SHA1, SHA256",
-      "description": "Generate MD5, SHA1, SHA256 hashes online. Free hash generator — runs in your browser."
+      "description": "Generate MD5, SHA1, SHA256 hashes online. Free hash generator — runs in your browser.",
+      "faq": [
+        {
+          "q": "Is Toollo's hash generator free?",
+          "a": "Yes, it is 100% free with no signup or limits. Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly in your browser."
+        },
+        {
+          "q": "Which hash algorithm should I use?",
+          "a": "SHA-256 is recommended for most use cases due to its strong collision resistance. MD5 and SHA-1 are faster but considered cryptographically weak. Use SHA-512 for maximum security."
+        },
+        {
+          "q": "Is it safe to hash sensitive data on Toollo?",
+          "a": "Yes, all hashing is performed locally in your browser using the Web Crypto API. Your input text is never transmitted to any server, so passwords and sensitive data remain private."
+        }
+      ]
     },
     "regex-tester": {
       "title": "Regex Tester — Test Regular Expressions",
-      "description": "Test regular expressions with live matching. Free regex tester — fast and private."
+      "description": "Test regular expressions with live matching. Free regex tester — fast and private.",
+      "faq": [
+        {
+          "q": "How do I test a regex pattern online?",
+          "a": "Enter your regular expression and test string in Toollo's regex tester to see live matches highlighted as you type. It supports JavaScript regex syntax with all flags (g, i, m, s, u)."
+        },
+        {
+          "q": "Does the regex tester show capture groups?",
+          "a": "Yes, Toollo's regex tester displays all matches along with their capture groups, match indices, and group names. This makes it easy to debug and refine complex patterns."
+        },
+        {
+          "q": "Is my test data private?",
+          "a": "Completely. All regex matching runs in your browser with zero server communication. Your patterns and test strings never leave your device."
+        }
+      ]
     },
     "jwt-decoder": {
       "title": "JWT Decoder — Decode JWT Tokens",
-      "description": "Decode and inspect JWT tokens online. Free JWT decoder — runs in your browser."
+      "description": "Decode and inspect JWT tokens online. Free JWT decoder — runs in your browser.",
+      "faq": [
+        {
+          "q": "How do I decode a JWT token?",
+          "a": "Paste your JWT token into Toollo's decoder and it will instantly parse and display the header, payload, and signature. It decodes the Base64 content and formats it as readable JSON."
+        },
+        {
+          "q": "Can I verify a JWT signature with this tool?",
+          "a": "Toollo's decoder displays the algorithm and signature data from the token. It highlights expiration status so you can quickly see if a token is expired, but full cryptographic verification requires the signing key."
+        },
+        {
+          "q": "Is it safe to paste JWT tokens into an online decoder?",
+          "a": "Yes, on Toollo it is completely safe. The decoder runs 100% in your browser and your tokens are never sent to any server. No data is logged or stored."
+        }
+      ]
     },
     "code-diff": {
       "title": "Code Diff — Compare Code Online",
-      "description": "Compare two code blocks side by side. Free code diff tool — fast and private."
+      "description": "Compare two code blocks side by side. Free code diff tool — fast and private.",
+      "faq": [
+        {
+          "q": "How do I compare two code files online?",
+          "a": "Paste your original code on the left and the modified code on the right in Toollo's code diff tool. Differences are highlighted instantly with additions in green and deletions in red."
+        },
+        {
+          "q": "Does the code diff tool support syntax highlighting?",
+          "a": "Yes, Toollo's diff viewer provides syntax-highlighted side-by-side comparison. It supports unified and split-view modes, making it easy to review changes in any programming language."
+        },
+        {
+          "q": "Is my code private when using the diff tool?",
+          "a": "Yes, all comparison happens locally in your browser. Your code is never uploaded to any server, so it's safe to compare proprietary or sensitive source code."
+        }
+      ]
     },
     "cron-parser": {
       "title": "Cron Parser — Explain Cron Expressions",
-      "description": "Parse and explain cron expressions. Free cron parser — runs in your browser."
+      "description": "Parse and explain cron expressions. Free cron parser — runs in your browser.",
+      "faq": [
+        {
+          "q": "How do I read a cron expression?",
+          "a": "Paste your cron expression into Toollo's parser and it will display a plain-English explanation of the schedule, along with the next several execution times so you can verify it works as expected."
+        },
+        {
+          "q": "Does the cron parser support 5-field and 6-field expressions?",
+          "a": "Yes, Toollo supports standard 5-field cron expressions (minute through day-of-week) as well as extended formats with seconds or year fields. It also handles special characters like /, -, *, and L."
+        },
+        {
+          "q": "Can I use this to build cron expressions from scratch?",
+          "a": "Yes, the tool works both ways — you can enter a cron expression to understand it, or use the interactive builder to construct one. All processing runs in your browser with no data sent externally."
+        }
+      ]
     },
     "unix-timestamp": {
       "title": "Unix Timestamp Converter",
-      "description": "Convert Unix timestamps to dates and vice versa. Free timestamp converter — fast and private."
+      "description": "Convert Unix timestamps to dates and vice versa. Free timestamp converter — fast and private.",
+      "faq": [
+        {
+          "q": "How do I convert a Unix timestamp to a human-readable date?",
+          "a": "Enter the Unix timestamp in Toollo's converter and it will instantly display the corresponding date and time in multiple formats, including your local time zone and UTC."
+        },
+        {
+          "q": "Can I convert a date to a Unix timestamp?",
+          "a": "Yes, Toollo's converter works both ways. Enter a date and time to get the Unix timestamp in seconds or milliseconds, or enter a timestamp to get the readable date."
+        },
+        {
+          "q": "Does the converter handle millisecond timestamps?",
+          "a": "Yes, Toollo automatically detects whether your input is in seconds or milliseconds and converts accordingly. All processing happens in your browser with no data transmitted."
+        }
+      ]
     },
     "html-entities": {
       "title": "HTML Entities Encoder/Decoder",
-      "description": "Encode and decode HTML entities. Free online tool — runs in your browser."
+      "description": "Encode and decode HTML entities. Free online tool — runs in your browser.",
+      "faq": [
+        {
+          "q": "What are HTML entities and when should I encode them?",
+          "a": "HTML entities are special codes that represent characters like <, >, &, and quotes that have meaning in HTML. Encoding them prevents XSS attacks and ensures your content displays correctly in web pages."
+        },
+        {
+          "q": "Can I decode HTML entities back to regular text?",
+          "a": "Yes, Toollo's tool encodes and decodes in both directions. Paste encoded HTML entities to get the original text, or paste raw text to get the entity-encoded version."
+        },
+        {
+          "q": "Does the tool handle all named and numeric HTML entities?",
+          "a": "Yes, it supports all named entities (like &amp;), decimal entities (like &#38;), and hexadecimal entities (like &#x26;). All processing runs locally in your browser for complete privacy."
+        }
+      ]
     },
     "dns-lookup": {
       "title": "DNS Lookup — Check DNS Records",
-      "description": "Look up DNS records for any domain. Free DNS lookup tool — fast and reliable."
+      "description": "Look up DNS records for any domain. Free DNS lookup tool — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I look up DNS records for a domain?",
+          "a": "Enter any domain name in Toollo's DNS lookup tool and it will retrieve the A, AAAA, MX, CNAME, TXT, NS, and other DNS records. Results appear within seconds."
+        },
+        {
+          "q": "What DNS record types can I look up?",
+          "a": "Toollo supports all common record types including A, AAAA, MX, CNAME, TXT, NS, SOA, and SRV records. You can query specific types or view all records at once."
+        },
+        {
+          "q": "Is the DNS lookup tool free to use?",
+          "a": "Yes, Toollo's DNS lookup is completely free with no signup required. You can perform unlimited lookups for any domain."
+        }
+      ]
     },
     "whois-lookup": {
       "title": "WHOIS Lookup — Domain Information",
-      "description": "Get domain registration information. Free WHOIS lookup tool — fast and reliable."
+      "description": "Get domain registration information. Free WHOIS lookup tool — fast and reliable.",
+      "faq": [
+        {
+          "q": "What information does a WHOIS lookup show?",
+          "a": "A WHOIS lookup reveals domain registration details including the registrar, creation date, expiration date, name servers, and registrant contact information (when not privacy-protected)."
+        },
+        {
+          "q": "Can I find out who owns a domain?",
+          "a": "If the domain does not have WHOIS privacy protection, Toollo's lookup will show the registrant's name and contact details. Many domains use privacy services, in which case the proxy contact is displayed."
+        },
+        {
+          "q": "Is Toollo's WHOIS lookup free and unlimited?",
+          "a": "Yes, Toollo's WHOIS lookup is free with no account needed. You can look up any domain's registration information without limits."
+        }
+      ]
     },
     "ssl-checker": {
       "title": "SSL Checker — Check SSL Certificate",
-      "description": "Check SSL certificate details for any domain. Free SSL checker — fast and reliable."
+      "description": "Check SSL certificate details for any domain. Free SSL checker — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I check if a website's SSL certificate is valid?",
+          "a": "Enter the domain name in Toollo's SSL checker and it will display the certificate status, issuer, expiration date, and any potential issues. It's free and requires no signup."
+        },
+        {
+          "q": "What SSL certificate details does the checker show?",
+          "a": "Toollo displays the certificate issuer, validity dates, subject name, SANs (Subject Alternative Names), protocol version, and cipher suite. It also flags if the certificate is expired or misconfigured."
+        },
+        {
+          "q": "Can I check SSL certificates for any domain?",
+          "a": "Yes, you can check the SSL certificate for any publicly accessible domain. Toollo retrieves the certificate information in real time and presents it in an easy-to-read format."
+        }
+      ]
     },
     "http-headers": {
       "title": "HTTP Headers Checker",
-      "description": "Inspect HTTP response headers for any URL. Free HTTP headers tool — fast and reliable."
+      "description": "Inspect HTTP response headers for any URL. Free HTTP headers tool — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I check HTTP response headers for a website?",
+          "a": "Enter any URL in Toollo's HTTP headers checker and it will display all response headers returned by the server, including status code, content type, cache control, and security headers."
+        },
+        {
+          "q": "Why should I check HTTP headers?",
+          "a": "HTTP headers reveal important details about server configuration, caching policies, security settings (like CSP and HSTS), redirects, and content encoding. They are essential for debugging and security audits."
+        },
+        {
+          "q": "Is the HTTP headers tool free?",
+          "a": "Yes, Toollo's HTTP headers checker is completely free with no signup required. You can inspect headers for any publicly accessible URL without limits."
+        }
+      ]
     },
     "ip-lookup": {
       "title": "IP Lookup — IP Geolocation",
-      "description": "Get geolocation for any IP address. Free IP lookup tool — fast and reliable."
+      "description": "Get geolocation for any IP address. Free IP lookup tool — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I find the location of an IP address?",
+          "a": "Enter any IPv4 or IPv6 address in Toollo's IP lookup tool and it will display the approximate geolocation, including country, region, city, ISP, and organization information."
+        },
+        {
+          "q": "How accurate is IP geolocation?",
+          "a": "IP geolocation is generally accurate to the city level for most addresses. Country-level accuracy is above 99%, while city-level accuracy varies between 50-80% depending on the IP range and provider."
+        },
+        {
+          "q": "Can I look up my own IP address?",
+          "a": "Yes, Toollo automatically detects and displays your current public IP address when you open the tool. You can then look up any other IP address for free without limits."
+        }
+      ]
     },
     "domain-age": {
       "title": "Domain Age Checker",
-      "description": "Check when a domain was registered. Free domain age checker — fast and reliable."
+      "description": "Check when a domain was registered. Free domain age checker — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I check how old a domain is?",
+          "a": "Enter any domain name in Toollo's domain age checker and it will show when the domain was first registered, how old it is in years, months, and days, plus its expiration date."
+        },
+        {
+          "q": "Why does domain age matter?",
+          "a": "Domain age is a factor in SEO and trust evaluation. Older domains tend to rank better in search results, and checking domain age can help you assess the credibility of a website."
+        },
+        {
+          "q": "Is the domain age checker free to use?",
+          "a": "Yes, Toollo's domain age checker is completely free with no registration required. You can check the age of any domain without limits."
+        }
+      ]
     },
     "open-graph-preview": {
       "title": "Open Graph Preview — OG Meta Tags",
-      "description": "Preview Open Graph meta tags for any URL. Free OG preview tool — fast and reliable."
+      "description": "Preview Open Graph meta tags for any URL. Free OG preview tool — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I preview how my link looks when shared on social media?",
+          "a": "Enter your URL in Toollo's Open Graph preview tool and it will fetch the OG meta tags and show you exactly how your link will appear when shared on Facebook, Twitter, LinkedIn, and other platforms."
+        },
+        {
+          "q": "What Open Graph tags does the tool check?",
+          "a": "Toollo checks og:title, og:description, og:image, og:url, og:type, and Twitter Card tags. It flags missing or incorrectly configured tags so you can fix them before sharing."
+        },
+        {
+          "q": "Is the Open Graph preview tool free?",
+          "a": "Yes, it is completely free with no signup required. You can preview OG tags for any publicly accessible URL and get instant feedback on how your links will appear in social feeds."
+        }
+      ]
     },
     "website-screenshot": {
       "title": "Website Screenshot — Capture Websites",
-      "description": "Capture screenshots of any website. Free screenshot tool — fast and reliable."
+      "description": "Capture screenshots of any website. Free screenshot tool — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I take a screenshot of a website?",
+          "a": "Enter the website URL in Toollo's screenshot tool and it will capture a full-page screenshot. You can then download the image in PNG format for presentations, documentation, or archiving."
+        },
+        {
+          "q": "Can I capture full-page screenshots?",
+          "a": "Yes, Toollo can capture full-page screenshots that include the entire scrollable content of a website, not just the visible viewport. You can also set a specific viewport width."
+        },
+        {
+          "q": "Is the website screenshot tool free?",
+          "a": "Yes, Toollo's website screenshot tool is free with no signup or watermarks. You can capture screenshots of any publicly accessible website."
+        }
+      ]
     },
     "port-checker": {
       "title": "Port Checker — Check Open Ports",
-      "description": "Check if a port is open on any server. Free port checker — fast and reliable."
+      "description": "Check if a port is open on any server. Free port checker — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I check if a port is open on a server?",
+          "a": "Enter the hostname or IP address and port number in Toollo's port checker. It will probe the port and report whether it's open, closed, or filtered within seconds."
+        },
+        {
+          "q": "What ports can I check?",
+          "a": "You can check any TCP port from 1 to 65535. Common ports to check include 80 (HTTP), 443 (HTTPS), 22 (SSH), 3306 (MySQL), and 5432 (PostgreSQL)."
+        },
+        {
+          "q": "Is the port checker tool free?",
+          "a": "Yes, Toollo's port checker is completely free with no limits. You can check any number of ports on any publicly accessible server without signing up."
+        }
+      ]
     },
     "sitemap-generator": {
       "title": "Sitemap Generator — Create XML Sitemap",
-      "description": "Generate XML sitemap for any website. Free sitemap generator — fast and reliable."
+      "description": "Generate XML sitemap for any website. Free sitemap generator — fast and reliable.",
+      "faq": [
+        {
+          "q": "How do I create an XML sitemap for my website?",
+          "a": "Enter your website URL in Toollo's sitemap generator and it will crawl your site and generate a properly formatted XML sitemap that you can download and submit to search engines."
+        },
+        {
+          "q": "Why do I need a sitemap for SEO?",
+          "a": "An XML sitemap helps search engines like Google discover and index all pages on your site. It's especially important for new sites, large sites, or sites with pages that aren't well-linked internally."
+        },
+        {
+          "q": "Is the sitemap generator free to use?",
+          "a": "Yes, Toollo's sitemap generator is completely free with no signup needed. You can generate sitemaps for any website and download them instantly in standard XML format."
+        }
+      ]
     },
     "mortgage-calculator": {
       "title": "Mortgage Calculator — Monthly Payments",
-      "description": "Calculate monthly mortgage payments. Free mortgage calculator — fast and accurate."
+      "description": "Calculate monthly mortgage payments. Free mortgage calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate my monthly mortgage payment?",
+          "a": "Enter the loan amount, interest rate, and loan term in Toollo's mortgage calculator. It will instantly show your monthly payment, total interest, and a full amortization schedule."
+        },
+        {
+          "q": "Does the mortgage calculator show an amortization schedule?",
+          "a": "Yes, Toollo provides a detailed month-by-month amortization schedule showing how much of each payment goes toward principal vs. interest, plus your remaining balance over time."
+        },
+        {
+          "q": "Is the mortgage calculator accurate?",
+          "a": "Yes, it uses the standard amortization formula used by banks and lenders. All calculations run instantly in your browser, and the tool is completely free with no signup required."
+        }
+      ]
     },
     "bmi-calculator": {
       "title": "BMI Calculator — Body Mass Index",
-      "description": "Calculate your Body Mass Index. Free BMI calculator — fast and accurate."
+      "description": "Calculate your Body Mass Index. Free BMI calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate my BMI?",
+          "a": "Enter your height and weight in Toollo's BMI calculator and it will instantly compute your Body Mass Index along with your BMI category (underweight, normal, overweight, or obese)."
+        },
+        {
+          "q": "Does the BMI calculator support both metric and imperial units?",
+          "a": "Yes, you can enter your height and weight in either metric (cm/kg) or imperial (feet-inches/lbs) units. Toollo handles the conversion automatically."
+        },
+        {
+          "q": "Is BMI a reliable indicator of health?",
+          "a": "BMI is a useful screening tool but does not measure body fat directly. It may not be accurate for athletes, elderly, or pregnant individuals. Always consult a healthcare professional for a complete assessment."
+        }
+      ]
     },
     "compound-interest": {
       "title": "Compound Interest Calculator",
-      "description": "Calculate compound interest growth. Free compound interest calculator — fast and accurate."
+      "description": "Calculate compound interest growth. Free compound interest calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate compound interest?",
+          "a": "Enter your principal amount, interest rate, compounding frequency, and time period in Toollo's calculator. It will show your total amount, total interest earned, and a year-by-year growth chart."
+        },
+        {
+          "q": "Can I include monthly contributions in the calculation?",
+          "a": "Yes, Toollo's compound interest calculator lets you add regular monthly or yearly contributions to see how consistent investing accelerates your wealth growth over time."
+        },
+        {
+          "q": "Is the compound interest calculator free?",
+          "a": "Yes, it is completely free with no signup needed. All calculations run instantly in your browser, and you can adjust inputs to compare different investment scenarios."
+        }
+      ]
     },
     "percentage-calculator": {
       "title": "Percentage Calculator",
-      "description": "Calculate percentages instantly. Free percentage calculator — fast and accurate."
+      "description": "Calculate percentages instantly. Free percentage calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate a percentage of a number?",
+          "a": "Enter the number and percentage in Toollo's calculator and get the result instantly. It supports multiple modes: percentage of a number, percentage change, and what percent one number is of another."
+        },
+        {
+          "q": "Can I calculate percentage increase or decrease?",
+          "a": "Yes, Toollo's percentage calculator includes a dedicated mode for calculating percentage change between two values, showing both the absolute difference and the percentage increase or decrease."
+        },
+        {
+          "q": "Is the percentage calculator free?",
+          "a": "Yes, Toollo's percentage calculator is 100% free with no ads, no signup, and unlimited use. All calculations happen instantly in your browser."
+        }
+      ]
     },
     "age-calculator": {
       "title": "Age Calculator — Calculate Exact Age",
-      "description": "Calculate exact age from birthdate. Free age calculator — fast and accurate."
+      "description": "Calculate exact age from birthdate. Free age calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate my exact age?",
+          "a": "Enter your date of birth in Toollo's age calculator and it will display your exact age in years, months, and days, along with fun facts like your age in total days, hours, and minutes."
+        },
+        {
+          "q": "Can I calculate the age difference between two dates?",
+          "a": "Yes, Toollo lets you enter any two dates to calculate the exact time span between them in years, months, and days. This is useful for calculating durations, not just ages."
+        },
+        {
+          "q": "Does the age calculator account for leap years?",
+          "a": "Yes, Toollo's age calculator correctly handles leap years and varying month lengths to give you a precise result. All calculations run in your browser for free."
+        }
+      ]
     },
     "loan-emi": {
       "title": "Loan EMI Calculator",
-      "description": "Calculate loan EMI and amortization schedule. Free EMI calculator — fast and accurate."
+      "description": "Calculate loan EMI and amortization schedule. Free EMI calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate my loan EMI?",
+          "a": "Enter your loan amount, interest rate, and tenure in Toollo's EMI calculator. It will instantly calculate your Equated Monthly Installment along with total interest and total amount payable."
+        },
+        {
+          "q": "Does the EMI calculator show a payment breakdown?",
+          "a": "Yes, Toollo provides a detailed amortization table showing the principal and interest components of each monthly payment, plus a visual chart of how your balance decreases over time."
+        },
+        {
+          "q": "Can I use this for car loans, personal loans, and home loans?",
+          "a": "Yes, the EMI formula works for any fixed-rate loan type. Simply enter the loan amount, annual interest rate, and repayment period. It's free with no signup required."
+        }
+      ]
     },
     "time-zone-converter": {
       "title": "Time Zone Converter",
-      "description": "Convert times across time zones. Free time zone converter — fast and accurate."
+      "description": "Convert times across time zones. Free time zone converter — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I convert time between time zones?",
+          "a": "Select the source time zone, enter the time, and choose the target time zone in Toollo's converter. It instantly shows the converted time, accounting for UTC offsets and daylight saving rules."
+        },
+        {
+          "q": "Does the converter handle daylight saving time?",
+          "a": "Yes, Toollo's time zone converter automatically accounts for daylight saving time transitions. It uses the IANA time zone database for accurate conversions year-round."
+        },
+        {
+          "q": "How many time zones are supported?",
+          "a": "Toollo supports all major time zones worldwide, covering every IANA time zone. The tool is free, runs in your browser, and requires no signup."
+        }
+      ]
     },
     "date-difference": {
       "title": "Date Difference Calculator",
-      "description": "Calculate days between two dates. Free date difference calculator — fast and accurate."
+      "description": "Calculate days between two dates. Free date difference calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate the number of days between two dates?",
+          "a": "Enter the start and end dates in Toollo's date difference calculator and it will instantly display the difference in days, weeks, months, and years."
+        },
+        {
+          "q": "Can I include or exclude weekends in the calculation?",
+          "a": "Yes, Toollo shows both the total calendar days and the number of business days (excluding weekends). This is useful for project planning and deadline calculations."
+        },
+        {
+          "q": "Is the date difference calculator free?",
+          "a": "Yes, it is completely free with no signup required. All calculations run in your browser and you can calculate the difference between any two dates."
+        }
+      ]
     },
     "subnet-calculator": {
       "title": "Subnet Calculator — IP Subnetting",
-      "description": "Calculate IP subnet ranges and masks. Free subnet calculator — fast and accurate."
+      "description": "Calculate IP subnet ranges and masks. Free subnet calculator — fast and accurate.",
+      "faq": [
+        {
+          "q": "How do I calculate subnets for an IP address?",
+          "a": "Enter an IP address and CIDR notation or subnet mask in Toollo's subnet calculator. It will display the network address, broadcast address, usable host range, and total number of hosts."
+        },
+        {
+          "q": "Does the calculator support both IPv4 and CIDR notation?",
+          "a": "Yes, you can input subnets using either dotted decimal notation (e.g., 255.255.255.0) or CIDR prefix length (e.g., /24). Toollo converts between formats automatically."
+        },
+        {
+          "q": "Is the subnet calculator free?",
+          "a": "Yes, Toollo's subnet calculator is completely free and runs in your browser. It's a quick reference tool for network engineers and IT professionals — no signup required."
+        }
+      ]
     },
     "password-strength": {
       "title": "Password Strength Checker",
-      "description": "Check password strength and entropy. Free password strength checker — fast and private."
+      "description": "Check password strength and entropy. Free password strength checker — fast and private.",
+      "faq": [
+        {
+          "q": "How does the password strength checker work?",
+          "a": "Toollo analyzes your password's length, character diversity, common patterns, and dictionary words to calculate an entropy score and strength rating from weak to very strong."
+        },
+        {
+          "q": "What makes a password strong?",
+          "a": "A strong password is at least 12 characters long, uses a mix of uppercase, lowercase, numbers, and symbols, and avoids dictionary words, common patterns, or personal information."
+        },
+        {
+          "q": "Is it safe to type my password into an online checker?",
+          "a": "Yes, on Toollo it is completely safe. The password strength check runs 100% in your browser and your password is never sent to any server, stored, or logged anywhere."
+        }
+      ]
     },
     "qr-generator": {
       "title": "QR Code Generator — Create QR Codes",
-      "description": "Generate QR codes for any text or URL. Free QR code generator — fast and private."
+      "description": "Generate QR codes for any text or URL. Free QR code generator — fast and private.",
+      "faq": [
+        {
+          "q": "How do I create a QR code for free?",
+          "a": "Enter any text, URL, or data into Toollo's QR code generator and a scannable QR code is generated instantly. You can download it as a high-resolution PNG image for free."
+        },
+        {
+          "q": "Can I customize the QR code's size and color?",
+          "a": "Yes, Toollo lets you adjust the size, foreground color, background color, and error correction level of your QR code. Higher error correction makes the code scannable even when partially damaged."
+        },
+        {
+          "q": "Is the QR code generator private?",
+          "a": "Yes, the QR code is generated entirely in your browser. Your data is never sent to any server, making it safe to encode sensitive information like Wi-Fi passwords or contact details."
+        }
+      ]
     },
     "barcode-generator": {
       "title": "Barcode Generator — Create Barcodes",
-      "description": "Generate barcodes in multiple formats. Free barcode generator — fast and private."
+      "description": "Generate barcodes in multiple formats. Free barcode generator — fast and private.",
+      "faq": [
+        {
+          "q": "How do I generate a barcode online for free?",
+          "a": "Enter your data in Toollo's barcode generator, select the barcode format (Code 128, EAN-13, UPC-A, etc.), and download the generated barcode image. It's free with no signup required."
+        },
+        {
+          "q": "What barcode formats are supported?",
+          "a": "Toollo supports all major barcode formats including Code 128, Code 39, EAN-13, EAN-8, UPC-A, ITF-14, and more. Each format is suitable for different industries and use cases."
+        },
+        {
+          "q": "Can I download the barcode in high resolution?",
+          "a": "Yes, you can download generated barcodes as high-resolution PNG images suitable for printing. All generation happens in your browser with no server upload required."
+        }
+      ]
     },
     "favicon-generator": {
       "title": "Favicon Generator — Create Favicons",
-      "description": "Create favicons from images or text. Free favicon generator — fast and private."
+      "description": "Create favicons from images or text. Free favicon generator — fast and private.",
+      "faq": [
+        {
+          "q": "How do I create a favicon for my website?",
+          "a": "Upload an image or enter text in Toollo's favicon generator and it will create properly sized favicon files (16x16, 32x32, and 180x180) ready to use on your website."
+        },
+        {
+          "q": "What formats does the favicon generator output?",
+          "a": "Toollo generates favicons in ICO and PNG formats in all standard sizes. It also provides the HTML code snippets you need to add to your website's head section."
+        },
+        {
+          "q": "Is my uploaded image kept private?",
+          "a": "Yes, all favicon generation happens in your browser. Your images are never uploaded to any server, and the generated favicons are created locally on your device."
+        }
+      ]
     },
     "css-gradient": {
       "title": "CSS Gradient Generator",
-      "description": "Create beautiful CSS gradients visually. Free gradient generator — fast and private."
+      "description": "Create beautiful CSS gradients visually. Free gradient generator — fast and private.",
+      "faq": [
+        {
+          "q": "How do I create a CSS gradient?",
+          "a": "Use Toollo's visual gradient editor to pick colors, adjust stops, and set the direction. The tool generates the CSS code in real time, which you can copy directly into your stylesheet."
+        },
+        {
+          "q": "Does the generator support radial and conic gradients?",
+          "a": "Yes, Toollo supports linear, radial, and conic gradient types. You can add multiple color stops, adjust angles, and preview the gradient live before copying the CSS code."
+        },
+        {
+          "q": "Can I copy the CSS gradient code with one click?",
+          "a": "Yes, click the copy button to instantly copy the generated CSS gradient code, including cross-browser prefixes. The tool runs entirely in your browser with no signup needed."
+        }
+      ]
     },
     "color-palette": {
       "title": "Color Palette Extractor",
-      "description": "Extract color palettes from images. Free color palette tool — fast and private."
+      "description": "Extract color palettes from images. Free color palette tool — fast and private.",
+      "faq": [
+        {
+          "q": "How do I extract colors from an image?",
+          "a": "Drop an image into Toollo's color palette extractor and it will automatically identify the dominant colors and generate a palette with HEX, RGB, and HSL values you can copy."
+        },
+        {
+          "q": "How many colors does the extractor find?",
+          "a": "Toollo extracts between 5 and 10 dominant colors from your image by default. You can adjust the number of colors to extract based on your design needs."
+        },
+        {
+          "q": "Is my image uploaded to a server?",
+          "a": "No, all color extraction happens in your browser using canvas analysis. Your image never leaves your device, making it safe to use with any photo or design file."
+        }
+      ]
     },
     "placeholder-image": {
       "title": "Placeholder Image Generator",
-      "description": "Generate placeholder images for mockups. Free placeholder generator — fast and private."
+      "description": "Generate placeholder images for mockups. Free placeholder generator — fast and private.",
+      "faq": [
+        {
+          "q": "How do I create placeholder images for my mockups?",
+          "a": "Enter the desired width, height, background color, and optional text in Toollo's generator. It instantly creates a placeholder image you can download or copy the URL for use in your designs."
+        },
+        {
+          "q": "Can I customize the placeholder image appearance?",
+          "a": "Yes, you can set custom dimensions, background color, text color, and display text. Toollo generates clean placeholder images perfect for wireframes, mockups, and development."
+        },
+        {
+          "q": "Is the placeholder image generator free?",
+          "a": "Yes, it is completely free with no limits. Generate as many placeholder images as you need. All images are created in your browser with no server required."
+        }
+      ]
     },
     "uuid-generator": {
       "title": "UUID Generator — Generate UUIDs",
-      "description": "Generate UUIDs and random strings. Free UUID generator — fast and private."
+      "description": "Generate UUIDs and random strings. Free UUID generator — fast and private.",
+      "faq": [
+        {
+          "q": "How do I generate a UUID online?",
+          "a": "Click the generate button in Toollo's UUID generator to create a new UUID v4 instantly. You can generate one or multiple UUIDs at once and copy them to your clipboard."
+        },
+        {
+          "q": "What UUID versions are supported?",
+          "a": "Toollo generates standard UUID v4 (random) identifiers, which are the most commonly used version. Each UUID is cryptographically random and virtually guaranteed to be unique."
+        },
+        {
+          "q": "Are the generated UUIDs truly random and unique?",
+          "a": "Yes, Toollo uses the browser's crypto API to generate cryptographically secure random UUIDs. The probability of generating a duplicate is astronomically low. All generation happens locally in your browser."
+        }
+      ]
     },
     "text-case-converter": {
       "title": "Text Case Converter",
-      "description": "Convert text between different cases. Free text case converter — fast and private."
+      "description": "Convert text between different cases. Free text case converter — fast and private.",
+      "faq": [
+        {
+          "q": "How do I convert text to uppercase, lowercase, or title case?",
+          "a": "Paste your text into Toollo's text case converter and click the desired case format. It supports uppercase, lowercase, title case, sentence case, camelCase, snake_case, and more."
+        },
+        {
+          "q": "What text case formats are available?",
+          "a": "Toollo supports uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case, kebab-case, and CONSTANT_CASE. This makes it useful for both writing and programming."
+        },
+        {
+          "q": "Is the text case converter private?",
+          "a": "Yes, all text transformation runs in your browser. Your text is never sent to any server, making it safe for converting any content including confidential or proprietary text."
+        }
+      ]
     },
     "word-counter": {
       "title": "Word Counter — Count Words Online",
-      "description": "Count words, characters, and reading time. Free word counter — fast and private."
+      "description": "Count words, characters, and reading time. Free word counter — fast and private.",
+      "faq": [
+        {
+          "q": "How do I count words in my text?",
+          "a": "Paste or type your text into Toollo's word counter and it will instantly display the word count, character count (with and without spaces), sentence count, paragraph count, and estimated reading time."
+        },
+        {
+          "q": "Does the word counter show reading time?",
+          "a": "Yes, Toollo calculates an estimated reading time based on an average reading speed of 200-250 words per minute. It also shows speaking time for presentations."
+        },
+        {
+          "q": "Is my text kept private?",
+          "a": "Yes, all counting happens in your browser. Your text is never uploaded or stored on any server, making it safe for essays, articles, or any confidential content."
+        }
+      ]
     },
     "markdown-preview": {
       "title": "Markdown Preview — Live Rendering",
-      "description": "Preview Markdown with live rendering. Free Markdown previewer — fast and private."
+      "description": "Preview Markdown with live rendering. Free Markdown previewer — fast and private.",
+      "faq": [
+        {
+          "q": "How do I preview Markdown online?",
+          "a": "Type or paste your Markdown into Toollo's editor and see it rendered in real time on the right panel. It supports full GitHub Flavored Markdown including tables, code blocks, and task lists."
+        },
+        {
+          "q": "Does the Markdown preview support GitHub Flavored Markdown?",
+          "a": "Yes, Toollo supports GFM syntax including tables, strikethrough, task lists, fenced code blocks with syntax highlighting, and auto-linked URLs."
+        },
+        {
+          "q": "Is my Markdown content private?",
+          "a": "Yes, all rendering happens in your browser. Your Markdown text is never sent to any server, so you can safely preview README files, documentation, or any private content."
+        }
+      ]
     }
   }
 }

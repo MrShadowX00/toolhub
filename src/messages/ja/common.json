@@ -22,5 +22,6 @@
   "language": "言語",
   "openSearch": "検索を開く",
   "closeSearch": "検索を閉じる",
-  "toggleMenu": "メニュー切替"
+  "toggleMenu": "メニュー切替",
+  "relatedTools": "関連ツール"
 }

@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import DomainAgeTool from "./DomainAgeTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["domain-age"];
   const name = toolSeo?.title || "Domain Age";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("domain-age", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Network Tools", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/domain-age" : `https://toollo.org/${locale}/tools/domain-age` },
       ])} />
-      <ToolLayout toolId="domain-age" category="Network Tools">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="domain-age" category="Network Tools" faq={faq}>
         <DomainAgeTool />
       </ToolLayout>
     </>

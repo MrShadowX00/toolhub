@@ -22,5 +22,6 @@
   "language": "언어",
   "openSearch": "검색 열기",
   "closeSearch": "검색 닫기",
-  "toggleMenu": "메뉴 전환"
+  "toggleMenu": "메뉴 전환",
+  "relatedTools": "관련 도구"
 }

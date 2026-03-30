@@ -4,55 +4,905 @@
     "description": "50+ ferramentas online gratuitas. Sem cadastro. Sem rastreamento. Compressor de imagens, formatador JSON, gerador QR e mais — tudo no navegador."
   },
   "tools": {
-    "image-compressor": { "title": "Compressor de imagens — online gratis", "description": "Comprima sem perder qualidade. Gratis." },
-    "image-converter": { "title": "Conversor de imagens — PNG, JPG, WebP, AVIF", "description": "Converta entre formatos. Gratis." },
-    "image-resizer": { "title": "Redimensionador de imagens online", "description": "Redimensione com precisao. Gratis." },
-    "heic-to-jpg": { "title": "Conversor HEIC para JPG", "description": "Converta fotos iPhone. Gratis." },
-    "background-remover": { "title": "Removedor de fundo online", "description": "Remova fundos com IA. Gratis." },
-    "image-to-base64": { "title": "Conversor imagem para Base64", "description": "Converta para Base64. Gratis." },
-    "svg-to-png": { "title": "Conversor SVG para PNG", "description": "SVG para PNG. Gratis." },
-    "pdf-to-image": { "title": "Conversor PDF para imagem", "description": "PDF para imagens. Gratis." },
-    "image-to-pdf": { "title": "Conversor imagem para PDF", "description": "Imagens para PDF. Gratis." },
-    "video-to-gif": { "title": "Conversor video para GIF", "description": "Video para GIF. Gratis." },
-    "json-formatter": { "title": "Formatador e validador JSON", "description": "Formate JSON online. Gratis." },
-    "base64": { "title": "Codificador/Decodificador Base64", "description": "Base64 online. Gratis." },
-    "url-encoder": { "title": "Codificador/Decodificador URL", "description": "URL online. Gratis." },
-    "hash-generator": { "title": "Gerador de hash — MD5, SHA1, SHA256", "description": "Gere hashes. Gratis." },
-    "regex-tester": { "title": "Testador de expressoes regulares", "description": "Teste regex. Gratis." },
-    "jwt-decoder": { "title": "Decodificador JWT", "description": "Decodifique JWT. Gratis." },
-    "code-diff": { "title": "Comparador de codigo online", "description": "Compare codigo. Gratis." },
-    "cron-parser": { "title": "Analisador de expressoes Cron", "description": "Analise Cron. Gratis." },
-    "unix-timestamp": { "title": "Conversor de timestamp Unix", "description": "Converta timestamps. Gratis." },
-    "html-entities": { "title": "Codificador de entidades HTML", "description": "Codifique HTML. Gratis." },
-    "dns-lookup": { "title": "Consulta DNS", "description": "Consulte DNS. Gratis." },
-    "whois-lookup": { "title": "Consulta WHOIS", "description": "Informacoes do dominio. Gratis." },
-    "ssl-checker": { "title": "Verificador de certificado SSL", "description": "Verifique SSL. Gratis." },
-    "http-headers": { "title": "Verificador de cabecalhos HTTP", "description": "Inspecione HTTP. Gratis." },
-    "ip-lookup": { "title": "Consulta IP — Geolocalizacao", "description": "Geolocalize IP. Gratis." },
-    "domain-age": { "title": "Verificador de idade do dominio", "description": "Verifique registro. Gratis." },
-    "open-graph-preview": { "title": "Previa Open Graph", "description": "Visualize OG tags. Gratis." },
-    "website-screenshot": { "title": "Captura de tela de site", "description": "Capture sites. Gratis." },
-    "port-checker": { "title": "Verificador de porta", "description": "Verifique portas. Gratis." },
-    "sitemap-generator": { "title": "Gerador de Sitemap XML", "description": "Gere sitemap. Gratis." },
-    "mortgage-calculator": { "title": "Calculadora de hipoteca", "description": "Calcule pagamentos. Gratis." },
-    "bmi-calculator": { "title": "Calculadora de IMC", "description": "Calcule IMC. Gratis." },
-    "compound-interest": { "title": "Calculadora de juros compostos", "description": "Calcule juros. Gratis." },
-    "percentage-calculator": { "title": "Calculadora de porcentagem", "description": "Calcule porcentagens. Gratis." },
-    "age-calculator": { "title": "Calculadora de idade", "description": "Calcule idade. Gratis." },
-    "loan-emi": { "title": "Calculadora de EMI", "description": "Calcule EMI. Gratis." },
-    "time-zone-converter": { "title": "Conversor de fuso horario", "description": "Converta fusos. Gratis." },
-    "date-difference": { "title": "Calculadora de diferenca de datas", "description": "Calcule diferenca. Gratis." },
-    "subnet-calculator": { "title": "Calculadora de sub-rede", "description": "Calcule sub-redes. Gratis." },
-    "password-strength": { "title": "Verificador de senha", "description": "Verifique senha. Gratis." },
-    "qr-generator": { "title": "Gerador de QR Code", "description": "Gere QR codes. Gratis." },
-    "barcode-generator": { "title": "Gerador de codigo de barras", "description": "Gere codigos. Gratis." },
-    "favicon-generator": { "title": "Gerador de favicon", "description": "Crie favicons. Gratis." },
-    "css-gradient": { "title": "Gerador de gradiente CSS", "description": "Crie gradientes. Gratis." },
-    "color-palette": { "title": "Extrator de paleta de cores", "description": "Extraia cores. Gratis." },
-    "placeholder-image": { "title": "Gerador de imagem placeholder", "description": "Gere placeholders. Gratis." },
-    "uuid-generator": { "title": "Gerador UUID", "description": "Gere UUIDs. Gratis." },
-    "text-case-converter": { "title": "Conversor de caixa de texto", "description": "Converta caixa. Gratis." },
-    "word-counter": { "title": "Contador de palavras online", "description": "Conte palavras. Gratis." },
-    "markdown-preview": { "title": "Previa Markdown", "description": "Visualize Markdown. Gratis." }
+    "image-compressor": {
+      "title": "Compressor de imagens — online gratis",
+      "description": "Comprima sem perder qualidade. Gratis.",
+      "faq": [
+        {
+          "q": "O compressor de imagens do Toollo é gratuito?",
+          "a": "Sim, o compressor de imagens do Toollo é 100% gratuito e não exige cadastro. Ele funciona inteiramente no seu navegador, então suas imagens nunca são enviadas para nenhum servidor."
+        },
+        {
+          "q": "Quanto posso comprimir minhas imagens sem perder qualidade?",
+          "a": "A compressão inteligente do Toollo pode reduzir o tamanho dos arquivos em até 80%, mantendo a qualidade visualmente intacta. Você também pode ajustar o controle de qualidade para encontrar o equilíbrio perfeito entre tamanho e clareza."
+        },
+        {
+          "q": "Quais formatos de imagem o compressor suporta?",
+          "a": "O compressor suporta os formatos JPEG, PNG e WebP. Como todo o processamento acontece localmente no seu navegador, suas imagens permanecem completamente privadas e nunca são enviadas a um servidor."
+        }
+      ]
+    },
+    "image-converter": {
+      "title": "Conversor de imagens — PNG, JPG, WebP, AVIF",
+      "description": "Converta entre formatos. Gratis.",
+      "faq": [
+        {
+          "q": "Como funciona o conversor de imagens do Toollo?",
+          "a": "O conversor de imagens do Toollo processa os arquivos diretamente no seu navegador usando a API Canvas. Basta soltar sua imagem, escolher o formato de saída e baixar o resultado — sem necessidade de envio para o servidor."
+        },
+        {
+          "q": "Posso converter imagens para o formato WebP ou AVIF?",
+          "a": "Sim, você pode converter imagens de e para os formatos PNG, JPG, WebP e AVIF. WebP e AVIF oferecem tamanhos de arquivo significativamente menores do que os formatos tradicionais, sendo ideais para uso na web."
+        },
+        {
+          "q": "Existe limite de tamanho de arquivo para a conversão de imagens?",
+          "a": "Não há limite rígido de tamanho, pois toda a conversão acontece no seu navegador. O desempenho depende da memória do seu dispositivo, mas a maioria das imagens de até 50 MB são convertidas sem problemas."
+        }
+      ]
+    },
+    "image-resizer": {
+      "title": "Redimensionador de imagens online",
+      "description": "Redimensione com precisao. Gratis.",
+      "faq": [
+        {
+          "q": "O redimensionador de imagens online é gratuito?",
+          "a": "Sim, o redimensionador de imagens do Toollo é completamente gratuito e sem limites de quantidade de imagens que você pode redimensionar. Não é necessário cadastro ou conta."
+        },
+        {
+          "q": "Posso redimensionar imagens mantendo a proporção?",
+          "a": "Sim, você pode bloquear a proporção para que sua imagem seja redimensionada proporcionalmente. Você também pode inserir valores personalizados de largura e altura para dimensões exatas."
+        },
+        {
+          "q": "Minhas imagens são enviadas para um servidor quando as redimensiono?",
+          "a": "Não, todo o redimensionamento acontece localmente no seu navegador. Suas imagens nunca saem do seu dispositivo, garantindo total privacidade e processamento mais rápido."
+        }
+      ]
+    },
+    "heic-to-jpg": {
+      "title": "Conversor HEIC para JPG",
+      "description": "Converta fotos iPhone. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter arquivos HEIC para JPG gratuitamente?",
+          "a": "Basta arrastar e soltar seus arquivos HEIC no conversor do Toollo e eles serão convertidos instantaneamente para o formato JPG. É gratuito, não exige cadastro e funciona inteiramente no seu navegador."
+        },
+        {
+          "q": "Posso converter várias fotos HEIC de uma vez?",
+          "a": "Sim, o Toollo suporta conversão em lote, então você pode soltar vários arquivos HEIC e convertê-los todos para JPG de uma só vez, economizando tempo ao processar fotos do iPhone."
+        },
+        {
+          "q": "Minhas fotos do iPhone ficam seguras ao converter HEIC para JPG?",
+          "a": "Com certeza. O conversor HEIC do Toollo funciona 100% no seu navegador, o que significa que suas fotos nunca são enviadas para nenhum servidor. Suas fotos pessoais permanecem completamente no seu dispositivo."
+        }
+      ]
+    },
+    "background-remover": {
+      "title": "Removedor de fundo online",
+      "description": "Remova fundos com IA. Gratis.",
+      "faq": [
+        {
+          "q": "O removedor de fundo do Toollo é realmente gratuito?",
+          "a": "Sim, é 100% gratuito, sem marcas d'água, sem cadastro e sem limites de uso. O modelo de IA funciona diretamente no seu navegador, então não há custos de servidor repassados."
+        },
+        {
+          "q": "Como funciona a remoção de fundo com IA?",
+          "a": "O Toollo usa um modelo de IA no dispositivo que é carregado no seu navegador para detectar objetos e remover fundos automaticamente. Funciona bem com retratos, produtos e objetos com contornos definidos."
+        },
+        {
+          "q": "Minhas imagens são enviadas para um servidor para processamento?",
+          "a": "Não. O modelo de IA é baixado uma vez e funciona inteiramente no seu navegador. Suas imagens nunca são enviadas a lugar nenhum, tornando-o uma das ferramentas de remoção de fundo mais privadas disponíveis."
+        }
+      ]
+    },
+    "image-to-base64": {
+      "title": "Conversor imagem para Base64",
+      "description": "Converta para Base64. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter uma imagem para Base64?",
+          "a": "Solte ou selecione uma imagem no conversor do Toollo e ele gerará instantaneamente a string codificada em Base64. Você pode copiar a string bruta ou o data URI completo pronto para uso em HTML ou CSS."
+        },
+        {
+          "q": "Por que eu iria querer converter uma imagem para Base64?",
+          "a": "Imagens codificadas em Base64 podem ser incorporadas diretamente em HTML, CSS ou JSON sem requisições de arquivos separadas. Isso é útil para ícones pequenos, templates de e-mail e reduzir requisições HTTP em páginas web."
+        },
+        {
+          "q": "Existe limite de tamanho para a conversão de imagem para Base64?",
+          "a": "Não há um limite rígido, mas a codificação Base64 aumenta o tamanho do arquivo em cerca de 33%. Para melhores resultados, use com imagens pequenas como ícones ou miniaturas. Todo o processamento acontece localmente no seu navegador."
+        }
+      ]
+    },
+    "svg-to-png": {
+      "title": "Conversor SVG para PNG",
+      "description": "SVG para PNG. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter SVG para PNG online?",
+          "a": "Envie seu arquivo SVG para o conversor do Toollo, escolha o tamanho de saída desejado e baixe o PNG instantaneamente. A conversão acontece no seu navegador, sem necessidade de envio para o servidor."
+        },
+        {
+          "q": "Posso escolher a resolução ao converter SVG para PNG?",
+          "a": "Sim, você pode definir largura e altura personalizadas para o PNG de saída. Como SVGs são baseados em vetores, você pode redimensioná-los para qualquer resolução sem perder qualidade antes da conversão."
+        },
+        {
+          "q": "Converter SVG para PNG preserva a transparência?",
+          "a": "Sim, o conversor do Toollo preserva o fundo transparente do seu arquivo SVG no PNG resultante. Todo o processamento acontece de forma privada no seu navegador."
+        }
+      ]
+    },
+    "pdf-to-image": {
+      "title": "Conversor PDF para imagem",
+      "description": "PDF para imagens. Gratis.",
+      "faq": [
+        {
+          "q": "Posso converter PDF para imagem gratuitamente sem enviar o arquivo?",
+          "a": "Sim, o conversor de PDF para imagem do Toollo processa seu PDF inteiramente no navegador. Seus documentos nunca são enviados a nenhum servidor, sendo ideal para arquivos confidenciais."
+        },
+        {
+          "q": "Em qual formato de imagem o conversor de PDF exporta?",
+          "a": "O conversor exporta imagens PNG de alta qualidade para cada página do seu PDF. Você pode converter páginas individuais ou todas as páginas de uma vez e baixá-las em lote."
+        },
+        {
+          "q": "Existe limite de páginas para a conversão de PDF para imagem?",
+          "a": "Não há limite rígido de páginas, pois o processamento acontece no seu dispositivo. PDFs grandes com muitas páginas podem demorar mais dependendo do desempenho do seu dispositivo, mas não há restrições artificiais."
+        }
+      ]
+    },
+    "image-to-pdf": {
+      "title": "Conversor imagem para PDF",
+      "description": "Imagens para PDF. Gratis.",
+      "faq": [
+        {
+          "q": "Como combinar várias imagens em um único PDF?",
+          "a": "Arraste e solte suas imagens no conversor do Toollo, organize-as na ordem desejada e clique para gerar um único PDF. É gratuito e funciona sem nenhum envio para o servidor."
+        },
+        {
+          "q": "Quais formatos de imagem posso converter para PDF?",
+          "a": "Você pode converter JPG, PNG, WebP e outros formatos comuns de imagem para um documento PDF. O Toollo permite reordenar as páginas e ajustar configurações antes de gerar o arquivo final."
+        },
+        {
+          "q": "Minhas imagens ficam privadas durante a conversão?",
+          "a": "Sim, todo o processo de conversão acontece no seu navegador. Suas imagens nunca são enviadas para um servidor, fazendo do Toollo uma escolha segura para fotos sensíveis ou pessoais."
+        }
+      ]
+    },
+    "video-to-gif": {
+      "title": "Conversor video para GIF",
+      "description": "Video para GIF. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter um vídeo para GIF gratuitamente?",
+          "a": "Solte seu arquivo de vídeo no conversor do Toollo, corte o clipe no trecho desejado, ajuste a taxa de quadros e o tamanho, e baixe seu GIF. Sem cadastro ou envio para o servidor."
+        },
+        {
+          "q": "Quais formatos de vídeo posso converter para GIF?",
+          "a": "O Toollo suporta MP4, WebM e outros formatos de vídeo compatíveis com navegador. Você pode cortar o clipe, definir a taxa de quadros e controlar a qualidade de saída antes de converter."
+        },
+        {
+          "q": "Existe limite de duração ou tamanho de arquivo do vídeo?",
+          "a": "Não há limite imposto, mas clipes mais curtos (abaixo de 30 segundos) produzem os melhores resultados, pois GIFs podem ficar muito grandes. Todo o processamento acontece localmente no seu navegador para total privacidade."
+        }
+      ]
+    },
+    "json-formatter": {
+      "title": "Formatador e validador JSON",
+      "description": "Formate JSON online. Gratis.",
+      "faq": [
+        {
+          "q": "O formatador JSON do Toollo é gratuito?",
+          "a": "Sim, o formatador e validador JSON do Toollo é completamente gratuito, não exige cadastro e funciona inteiramente no seu navegador. Seus dados JSON nunca são enviados para nenhum servidor."
+        },
+        {
+          "q": "Posso validar e formatar JSON ao mesmo tempo?",
+          "a": "Sim, o Toollo valida automaticamente seu JSON ao colar, destaca erros de sintaxe com números de linha e formata com indentação correta. Ele também oferece uma visualização em árvore expansível para navegação fácil."
+        },
+        {
+          "q": "Meus dados JSON ficam privados ao usar o formatador?",
+          "a": "Com certeza. Toda a formatação e validação acontece localmente no seu navegador. Nenhum dado é transmitido para qualquer servidor, tornando-o seguro para colar chaves de API, arquivos de configuração ou qualquer JSON sensível."
+        }
+      ]
+    },
+    "base64": {
+      "title": "Codificador/Decodificador Base64",
+      "description": "Base64 online. Gratis.",
+      "faq": [
+        {
+          "q": "Como codificar ou decodificar Base64 online?",
+          "a": "Cole seu texto na ferramenta Base64 do Toollo e obtenha instantaneamente o resultado codificado ou decodificado. Alterne entre os modos de codificação e decodificação com um clique. É gratuito e não exige cadastro."
+        },
+        {
+          "q": "Para que serve a codificação Base64?",
+          "a": "A codificação Base64 converte dados binários em texto ASCII, sendo comumente usada em anexos de e-mail, data URIs, tokens de autenticação de API e incorporação de dados em JSON ou XML."
+        },
+        {
+          "q": "É seguro decodificar strings Base64 no Toollo?",
+          "a": "Sim, toda a codificação e decodificação acontece no seu navegador sem comunicação com o servidor. Seus dados permanecem completamente privados, tornando-o seguro para lidar com tokens, credenciais ou qualquer conteúdo sensível."
+        }
+      ]
+    },
+    "url-encoder": {
+      "title": "Codificador/Decodificador URL",
+      "description": "URL online. Gratis.",
+      "faq": [
+        {
+          "q": "Como funciona a codificação de URL?",
+          "a": "A codificação de URL substitui caracteres especiais por equivalentes codificados em porcentagem (por exemplo, espaços se tornam %20). A ferramenta do Toollo permite codificar ou decodificar strings de URL instantaneamente no seu navegador, de graça."
+        },
+        {
+          "q": "Quando preciso codificar uma string de URL?",
+          "a": "A codificação de URL é necessária ao passar caracteres especiais em parâmetros de consulta, dados de formulário ou requisições de API. Caracteres como &, =, espaços e caracteres não-ASCII precisam ser codificados para funcionar corretamente em URLs."
+        },
+        {
+          "q": "O codificador de URL do Toollo lida com todos os caracteres especiais?",
+          "a": "Sim, ele lida com todos os caracteres reservados e inseguros conforme definido pelo padrão RFC 3986. O processamento acontece inteiramente no seu navegador sem dados enviados a qualquer servidor."
+        }
+      ]
+    },
+    "hash-generator": {
+      "title": "Gerador de hash — MD5, SHA1, SHA256",
+      "description": "Gere hashes. Gratis.",
+      "faq": [
+        {
+          "q": "O gerador de hash do Toollo é gratuito?",
+          "a": "Sim, é 100% gratuito sem cadastro ou limites. Gere hashes MD5, SHA-1, SHA-256 e SHA-512 instantaneamente no seu navegador."
+        },
+        {
+          "q": "Qual algoritmo de hash devo usar?",
+          "a": "SHA-256 é recomendado para a maioria dos casos de uso devido à sua forte resistência a colisões. MD5 e SHA-1 são mais rápidos, mas considerados criptograficamente fracos. Use SHA-512 para máxima segurança."
+        },
+        {
+          "q": "É seguro gerar hash de dados sensíveis no Toollo?",
+          "a": "Sim, toda a geração de hash é realizada localmente no seu navegador usando a Web Crypto API. Seu texto de entrada nunca é transmitido para nenhum servidor, então senhas e dados sensíveis permanecem privados."
+        }
+      ]
+    },
+    "regex-tester": {
+      "title": "Testador de expressoes regulares",
+      "description": "Teste regex. Gratis.",
+      "faq": [
+        {
+          "q": "Como testar um padrão regex online?",
+          "a": "Insira sua expressão regular e a string de teste no testador de regex do Toollo para ver correspondências destacadas em tempo real conforme você digita. Ele suporta a sintaxe regex do JavaScript com todas as flags (g, i, m, s, u)."
+        },
+        {
+          "q": "O testador de regex mostra grupos de captura?",
+          "a": "Sim, o testador de regex do Toollo exibe todas as correspondências junto com seus grupos de captura, índices de correspondência e nomes de grupo. Isso facilita a depuração e o refinamento de padrões complexos."
+        },
+        {
+          "q": "Meus dados de teste ficam privados?",
+          "a": "Completamente. Toda a correspondência regex acontece no seu navegador com zero comunicação com o servidor. Seus padrões e strings de teste nunca saem do seu dispositivo."
+        }
+      ]
+    },
+    "jwt-decoder": {
+      "title": "Decodificador JWT",
+      "description": "Decodifique JWT. Gratis.",
+      "faq": [
+        {
+          "q": "Como decodificar um token JWT?",
+          "a": "Cole seu token JWT no decodificador do Toollo e ele analisará e exibirá instantaneamente o cabeçalho, o payload e a assinatura. Ele decodifica o conteúdo Base64 e o formata como JSON legível."
+        },
+        {
+          "q": "Posso verificar a assinatura de um JWT com esta ferramenta?",
+          "a": "O decodificador do Toollo exibe o algoritmo e os dados de assinatura do token. Ele destaca o status de expiração para que você possa ver rapidamente se um token está expirado, mas a verificação criptográfica completa requer a chave de assinatura."
+        },
+        {
+          "q": "É seguro colar tokens JWT em um decodificador online?",
+          "a": "Sim, no Toollo é completamente seguro. O decodificador funciona 100% no seu navegador e seus tokens nunca são enviados para nenhum servidor. Nenhum dado é registrado ou armazenado."
+        }
+      ]
+    },
+    "code-diff": {
+      "title": "Comparador de codigo online",
+      "description": "Compare codigo. Gratis.",
+      "faq": [
+        {
+          "q": "Como comparar dois arquivos de código online?",
+          "a": "Cole seu código original à esquerda e o código modificado à direita na ferramenta de diff de código do Toollo. As diferenças são destacadas instantaneamente com adições em verde e exclusões em vermelho."
+        },
+        {
+          "q": "A ferramenta de diff de código suporta realce de sintaxe?",
+          "a": "Sim, o visualizador de diff do Toollo oferece comparação lado a lado com realce de sintaxe. Ele suporta modos unificado e dividido, facilitando a revisão de alterações em qualquer linguagem de programação."
+        },
+        {
+          "q": "Meu código fica privado ao usar a ferramenta de diff?",
+          "a": "Sim, toda a comparação acontece localmente no seu navegador. Seu código nunca é enviado a nenhum servidor, então é seguro comparar código-fonte proprietário ou sensível."
+        }
+      ]
+    },
+    "cron-parser": {
+      "title": "Analisador de expressoes Cron",
+      "description": "Analise Cron. Gratis.",
+      "faq": [
+        {
+          "q": "Como ler uma expressão cron?",
+          "a": "Cole sua expressão cron no analisador do Toollo e ele exibirá uma explicação em linguagem simples do agendamento, junto com os próximos horários de execução para que você possa verificar se funciona como esperado."
+        },
+        {
+          "q": "O analisador de cron suporta expressões de 5 e 6 campos?",
+          "a": "Sim, o Toollo suporta expressões cron padrão de 5 campos (minuto até dia-da-semana) e formatos estendidos com campos de segundos ou ano. Ele também lida com caracteres especiais como /, -, * e L."
+        },
+        {
+          "q": "Posso usar isso para criar expressões cron do zero?",
+          "a": "Sim, a ferramenta funciona nos dois sentidos — você pode inserir uma expressão cron para entendê-la ou usar o construtor interativo para montar uma. Todo o processamento acontece no seu navegador sem envio de dados para fora."
+        }
+      ]
+    },
+    "unix-timestamp": {
+      "title": "Conversor de timestamp Unix",
+      "description": "Converta timestamps. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter um timestamp Unix para uma data legível?",
+          "a": "Insira o timestamp Unix no conversor do Toollo e ele exibirá instantaneamente a data e hora correspondentes em vários formatos, incluindo seu fuso horário local e UTC."
+        },
+        {
+          "q": "Posso converter uma data para um timestamp Unix?",
+          "a": "Sim, o conversor do Toollo funciona nos dois sentidos. Insira uma data e hora para obter o timestamp Unix em segundos ou milissegundos, ou insira um timestamp para obter a data legível."
+        },
+        {
+          "q": "O conversor lida com timestamps em milissegundos?",
+          "a": "Sim, o Toollo detecta automaticamente se sua entrada está em segundos ou milissegundos e converte de acordo. Todo o processamento acontece no seu navegador sem transmissão de dados."
+        }
+      ]
+    },
+    "html-entities": {
+      "title": "Codificador de entidades HTML",
+      "description": "Codifique HTML. Gratis.",
+      "faq": [
+        {
+          "q": "O que são entidades HTML e quando devo codificá-las?",
+          "a": "Entidades HTML são códigos especiais que representam caracteres como <, >, & e aspas que têm significado em HTML. Codificá-las previne ataques XSS e garante que seu conteúdo seja exibido corretamente em páginas web."
+        },
+        {
+          "q": "Posso decodificar entidades HTML de volta para texto normal?",
+          "a": "Sim, a ferramenta do Toollo codifica e decodifica em ambas as direções. Cole entidades HTML codificadas para obter o texto original, ou cole texto bruto para obter a versão codificada em entidades."
+        },
+        {
+          "q": "A ferramenta lida com todas as entidades HTML nomeadas e numéricas?",
+          "a": "Sim, ela suporta todas as entidades nomeadas (como &amp;), entidades decimais (como &#38;) e entidades hexadecimais (como &#x26;). Todo o processamento acontece localmente no seu navegador para total privacidade."
+        }
+      ]
+    },
+    "dns-lookup": {
+      "title": "Consulta DNS",
+      "description": "Consulte DNS. Gratis.",
+      "faq": [
+        {
+          "q": "Como consultar registros DNS de um domínio?",
+          "a": "Insira qualquer nome de domínio na ferramenta de consulta DNS do Toollo e ela recuperará os registros A, AAAA, MX, CNAME, TXT, NS e outros registros DNS. Os resultados aparecem em segundos."
+        },
+        {
+          "q": "Quais tipos de registros DNS posso consultar?",
+          "a": "O Toollo suporta todos os tipos comuns de registros, incluindo A, AAAA, MX, CNAME, TXT, NS, SOA e SRV. Você pode consultar tipos específicos ou visualizar todos os registros de uma vez."
+        },
+        {
+          "q": "A ferramenta de consulta DNS é gratuita?",
+          "a": "Sim, a consulta DNS do Toollo é completamente gratuita e não exige cadastro. Você pode realizar consultas ilimitadas para qualquer domínio."
+        }
+      ]
+    },
+    "whois-lookup": {
+      "title": "Consulta WHOIS",
+      "description": "Informacoes do dominio. Gratis.",
+      "faq": [
+        {
+          "q": "Quais informações uma consulta WHOIS mostra?",
+          "a": "Uma consulta WHOIS revela detalhes de registro do domínio, incluindo o registrador, data de criação, data de expiração, servidores de nome e informações de contato do registrante (quando não protegido por privacidade)."
+        },
+        {
+          "q": "Posso descobrir quem é o dono de um domínio?",
+          "a": "Se o domínio não tiver proteção de privacidade WHOIS, a consulta do Toollo mostrará o nome e os detalhes de contato do registrante. Muitos domínios usam serviços de privacidade, e nesse caso o contato do proxy é exibido."
+        },
+        {
+          "q": "A consulta WHOIS do Toollo é gratuita e ilimitada?",
+          "a": "Sim, a consulta WHOIS do Toollo é gratuita e não requer conta. Você pode consultar as informações de registro de qualquer domínio sem limites."
+        }
+      ]
+    },
+    "ssl-checker": {
+      "title": "Verificador de certificado SSL",
+      "description": "Verifique SSL. Gratis.",
+      "faq": [
+        {
+          "q": "Como verificar se o certificado SSL de um site é válido?",
+          "a": "Insira o nome do domínio no verificador SSL do Toollo e ele exibirá o status do certificado, emissor, data de expiração e quaisquer problemas potenciais. É gratuito e não exige cadastro."
+        },
+        {
+          "q": "Quais detalhes do certificado SSL o verificador mostra?",
+          "a": "O Toollo exibe o emissor do certificado, datas de validade, nome do sujeito, SANs (Subject Alternative Names), versão do protocolo e suite de cifras. Ele também sinaliza se o certificado está expirado ou mal configurado."
+        },
+        {
+          "q": "Posso verificar certificados SSL de qualquer domínio?",
+          "a": "Sim, você pode verificar o certificado SSL de qualquer domínio publicamente acessível. O Toollo recupera as informações do certificado em tempo real e as apresenta em um formato fácil de ler."
+        }
+      ]
+    },
+    "http-headers": {
+      "title": "Verificador de cabecalhos HTTP",
+      "description": "Inspecione HTTP. Gratis.",
+      "faq": [
+        {
+          "q": "Como verificar os cabeçalhos de resposta HTTP de um site?",
+          "a": "Insira qualquer URL no verificador de cabeçalhos HTTP do Toollo e ele exibirá todos os cabeçalhos de resposta retornados pelo servidor, incluindo código de status, tipo de conteúdo, controle de cache e cabeçalhos de segurança."
+        },
+        {
+          "q": "Por que devo verificar cabeçalhos HTTP?",
+          "a": "Os cabeçalhos HTTP revelam detalhes importantes sobre configuração do servidor, políticas de cache, configurações de segurança (como CSP e HSTS), redirecionamentos e codificação de conteúdo. São essenciais para depuração e auditorias de segurança."
+        },
+        {
+          "q": "A ferramenta de cabeçalhos HTTP é gratuita?",
+          "a": "Sim, o verificador de cabeçalhos HTTP do Toollo é completamente gratuito e não exige cadastro. Você pode inspecionar cabeçalhos de qualquer URL publicamente acessível sem limites."
+        }
+      ]
+    },
+    "ip-lookup": {
+      "title": "Consulta IP — Geolocalizacao",
+      "description": "Geolocalize IP. Gratis.",
+      "faq": [
+        {
+          "q": "Como descobrir a localização de um endereço IP?",
+          "a": "Insira qualquer endereço IPv4 ou IPv6 na ferramenta de consulta IP do Toollo e ela exibirá a geolocalização aproximada, incluindo país, região, cidade, ISP e informações da organização."
+        },
+        {
+          "q": "Quão precisa é a geolocalização por IP?",
+          "a": "A geolocalização por IP geralmente é precisa em nível de cidade para a maioria dos endereços. A precisão em nível de país é superior a 99%, enquanto a precisão em nível de cidade varia entre 50-80% dependendo da faixa de IP e do provedor."
+        },
+        {
+          "q": "Posso consultar meu próprio endereço IP?",
+          "a": "Sim, o Toollo detecta e exibe automaticamente seu endereço IP público atual quando você abre a ferramenta. Depois, você pode consultar qualquer outro endereço IP gratuitamente e sem limites."
+        }
+      ]
+    },
+    "domain-age": {
+      "title": "Verificador de idade do dominio",
+      "description": "Verifique registro. Gratis.",
+      "faq": [
+        {
+          "q": "Como verificar a idade de um domínio?",
+          "a": "Insira qualquer nome de domínio no verificador de idade de domínio do Toollo e ele mostrará quando o domínio foi registrado pela primeira vez, sua idade em anos, meses e dias, além da data de expiração."
+        },
+        {
+          "q": "Por que a idade do domínio é importante?",
+          "a": "A idade do domínio é um fator em SEO e avaliação de confiança. Domínios mais antigos tendem a ter melhor posicionamento nos resultados de busca, e verificar a idade do domínio pode ajudar a avaliar a credibilidade de um site."
+        },
+        {
+          "q": "O verificador de idade do domínio é gratuito?",
+          "a": "Sim, o verificador de idade do domínio do Toollo é completamente gratuito e não requer registro. Você pode verificar a idade de qualquer domínio sem limites."
+        }
+      ]
+    },
+    "open-graph-preview": {
+      "title": "Previa Open Graph",
+      "description": "Visualize OG tags. Gratis.",
+      "faq": [
+        {
+          "q": "Como visualizar como meu link aparece quando compartilhado nas redes sociais?",
+          "a": "Insira sua URL na ferramenta de prévia Open Graph do Toollo e ela buscará as meta tags OG e mostrará exatamente como seu link aparecerá quando compartilhado no Facebook, Twitter, LinkedIn e outras plataformas."
+        },
+        {
+          "q": "Quais tags Open Graph a ferramenta verifica?",
+          "a": "O Toollo verifica og:title, og:description, og:image, og:url, og:type e tags do Twitter Card. Ele sinaliza tags ausentes ou configuradas incorretamente para que você possa corrigí-las antes de compartilhar."
+        },
+        {
+          "q": "A ferramenta de prévia Open Graph é gratuita?",
+          "a": "Sim, é completamente gratuita e não exige cadastro. Você pode visualizar as tags OG de qualquer URL publicamente acessível e obter feedback instantâneo sobre como seus links aparecerão nos feeds sociais."
+        }
+      ]
+    },
+    "website-screenshot": {
+      "title": "Captura de tela de site",
+      "description": "Capture sites. Gratis.",
+      "faq": [
+        {
+          "q": "Como tirar uma captura de tela de um site?",
+          "a": "Insira a URL do site na ferramenta de captura de tela do Toollo e ela capturará uma screenshot da página inteira. Depois, você pode baixar a imagem em formato PNG para apresentações, documentação ou arquivamento."
+        },
+        {
+          "q": "Posso capturar a tela da página inteira?",
+          "a": "Sim, o Toollo pode capturar screenshots da página inteira que incluem todo o conteúdo rolável de um site, não apenas a parte visível. Você também pode definir uma largura de viewport específica."
+        },
+        {
+          "q": "A ferramenta de captura de tela de sites é gratuita?",
+          "a": "Sim, a ferramenta de captura de tela do Toollo é gratuita, sem cadastro e sem marcas d'água. Você pode capturar screenshots de qualquer site publicamente acessível."
+        }
+      ]
+    },
+    "port-checker": {
+      "title": "Verificador de porta",
+      "description": "Verifique portas. Gratis.",
+      "faq": [
+        {
+          "q": "Como verificar se uma porta está aberta em um servidor?",
+          "a": "Insira o hostname ou endereço IP e o número da porta no verificador de portas do Toollo. Ele fará a verificação e informará se a porta está aberta, fechada ou filtrada em segundos."
+        },
+        {
+          "q": "Quais portas posso verificar?",
+          "a": "Você pode verificar qualquer porta TCP de 1 a 65535. Portas comuns incluem 80 (HTTP), 443 (HTTPS), 22 (SSH), 3306 (MySQL) e 5432 (PostgreSQL)."
+        },
+        {
+          "q": "O verificador de portas é gratuito?",
+          "a": "Sim, o verificador de portas do Toollo é completamente gratuito e sem limites. Você pode verificar qualquer número de portas em qualquer servidor publicamente acessível sem se cadastrar."
+        }
+      ]
+    },
+    "sitemap-generator": {
+      "title": "Gerador de Sitemap XML",
+      "description": "Gere sitemap. Gratis.",
+      "faq": [
+        {
+          "q": "Como criar um sitemap XML para meu site?",
+          "a": "Insira a URL do seu site no gerador de sitemap do Toollo e ele rastreará seu site e gerará um sitemap XML formatado corretamente que você pode baixar e enviar para os mecanismos de busca."
+        },
+        {
+          "q": "Por que preciso de um sitemap para SEO?",
+          "a": "Um sitemap XML ajuda mecanismos de busca como o Google a descobrir e indexar todas as páginas do seu site. É especialmente importante para sites novos, sites grandes ou sites com páginas que não têm boa vinculação interna."
+        },
+        {
+          "q": "O gerador de sitemap é gratuito?",
+          "a": "Sim, o gerador de sitemap do Toollo é completamente gratuito e não precisa de cadastro. Você pode gerar sitemaps para qualquer site e baixá-los instantaneamente no formato XML padrão."
+        }
+      ]
+    },
+    "mortgage-calculator": {
+      "title": "Calculadora de hipoteca",
+      "description": "Calcule pagamentos. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular minha parcela mensal de hipoteca?",
+          "a": "Insira o valor do empréstimo, a taxa de juros e o prazo na calculadora de hipoteca do Toollo. Ela mostrará instantaneamente sua parcela mensal, juros totais e uma tabela completa de amortização."
+        },
+        {
+          "q": "A calculadora de hipoteca mostra uma tabela de amortização?",
+          "a": "Sim, o Toollo fornece uma tabela de amortização detalhada mês a mês mostrando quanto de cada pagamento vai para o principal versus juros, além do seu saldo remanescente ao longo do tempo."
+        },
+        {
+          "q": "A calculadora de hipoteca é precisa?",
+          "a": "Sim, ela usa a fórmula padrão de amortização utilizada por bancos e instituições financeiras. Todos os cálculos acontecem instantaneamente no seu navegador, e a ferramenta é completamente gratuita sem necessidade de cadastro."
+        }
+      ]
+    },
+    "bmi-calculator": {
+      "title": "Calculadora de IMC",
+      "description": "Calcule IMC. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular meu IMC?",
+          "a": "Insira sua altura e peso na calculadora de IMC do Toollo e ela calculará instantaneamente seu Índice de Massa Corporal junto com sua categoria de IMC (abaixo do peso, normal, sobrepeso ou obeso)."
+        },
+        {
+          "q": "A calculadora de IMC suporta sistema métrico e imperial?",
+          "a": "Sim, você pode inserir sua altura e peso em unidades métricas (cm/kg) ou imperiais (pés-polegadas/lbs). O Toollo faz a conversão automaticamente."
+        },
+        {
+          "q": "O IMC é um indicador confiável de saúde?",
+          "a": "O IMC é uma ferramenta de triagem útil, mas não mede a gordura corporal diretamente. Pode não ser preciso para atletas, idosos ou gestantes. Sempre consulte um profissional de saúde para uma avaliação completa."
+        }
+      ]
+    },
+    "compound-interest": {
+      "title": "Calculadora de juros compostos",
+      "description": "Calcule juros. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular juros compostos?",
+          "a": "Insira o valor principal, a taxa de juros, a frequência de capitalização e o período na calculadora do Toollo. Ela mostrará o valor total, os juros totais ganhos e um gráfico de crescimento ano a ano."
+        },
+        {
+          "q": "Posso incluir aportes mensais no cálculo?",
+          "a": "Sim, a calculadora de juros compostos do Toollo permite adicionar contribuições regulares mensais ou anuais para ver como investimentos consistentes aceleram o crescimento do seu patrimônio ao longo do tempo."
+        },
+        {
+          "q": "A calculadora de juros compostos é gratuita?",
+          "a": "Sim, é completamente gratuita e não precisa de cadastro. Todos os cálculos acontecem instantaneamente no seu navegador, e você pode ajustar os valores para comparar diferentes cenários de investimento."
+        }
+      ]
+    },
+    "percentage-calculator": {
+      "title": "Calculadora de porcentagem",
+      "description": "Calcule porcentagens. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular a porcentagem de um número?",
+          "a": "Insira o número e a porcentagem na calculadora do Toollo e obtenha o resultado instantaneamente. Ela suporta vários modos: porcentagem de um número, variação percentual e qual porcentagem um número representa de outro."
+        },
+        {
+          "q": "Posso calcular aumento ou diminuição percentual?",
+          "a": "Sim, a calculadora de porcentagem do Toollo inclui um modo dedicado para calcular a variação percentual entre dois valores, mostrando tanto a diferença absoluta quanto o aumento ou diminuição percentual."
+        },
+        {
+          "q": "A calculadora de porcentagem é gratuita?",
+          "a": "Sim, a calculadora de porcentagem do Toollo é 100% gratuita, sem anúncios, sem cadastro e com uso ilimitado. Todos os cálculos acontecem instantaneamente no seu navegador."
+        }
+      ]
+    },
+    "age-calculator": {
+      "title": "Calculadora de idade",
+      "description": "Calcule idade. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular minha idade exata?",
+          "a": "Insira sua data de nascimento na calculadora de idade do Toollo e ela exibirá sua idade exata em anos, meses e dias, junto com curiosidades como sua idade em dias totais, horas e minutos."
+        },
+        {
+          "q": "Posso calcular a diferença de idade entre duas datas?",
+          "a": "Sim, o Toollo permite inserir quaisquer duas datas para calcular o intervalo exato entre elas em anos, meses e dias. Isso é útil para calcular durações, não apenas idades."
+        },
+        {
+          "q": "A calculadora de idade considera anos bissextos?",
+          "a": "Sim, a calculadora de idade do Toollo trata corretamente anos bissextos e diferentes durações de meses para fornecer um resultado preciso. Todos os cálculos acontecem no seu navegador gratuitamente."
+        }
+      ]
+    },
+    "loan-emi": {
+      "title": "Calculadora de EMI",
+      "description": "Calcule EMI. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular meu EMI de empréstimo?",
+          "a": "Insira o valor do empréstimo, a taxa de juros e o prazo na calculadora de EMI do Toollo. Ela calculará instantaneamente sua Parcela Mensal Equivalente junto com os juros totais e o valor total a pagar."
+        },
+        {
+          "q": "A calculadora de EMI mostra um detalhamento dos pagamentos?",
+          "a": "Sim, o Toollo fornece uma tabela de amortização detalhada mostrando os componentes de principal e juros de cada pagamento mensal, além de um gráfico visual de como seu saldo diminui ao longo do tempo."
+        },
+        {
+          "q": "Posso usar isso para empréstimos de carro, pessoais e imobiliários?",
+          "a": "Sim, a fórmula de EMI funciona para qualquer tipo de empréstimo com taxa fixa. Basta inserir o valor do empréstimo, a taxa de juros anual e o período de pagamento. É gratuito e não precisa de cadastro."
+        }
+      ]
+    },
+    "time-zone-converter": {
+      "title": "Conversor de fuso horario",
+      "description": "Converta fusos. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter horários entre fusos horários?",
+          "a": "Selecione o fuso horário de origem, insira o horário e escolha o fuso horário de destino no conversor do Toollo. Ele mostra instantaneamente o horário convertido, considerando offsets UTC e regras de horário de verão."
+        },
+        {
+          "q": "O conversor considera o horário de verão?",
+          "a": "Sim, o conversor de fuso horário do Toollo considera automaticamente as transições de horário de verão. Ele usa o banco de dados de fusos horários IANA para conversões precisas durante todo o ano."
+        },
+        {
+          "q": "Quantos fusos horários são suportados?",
+          "a": "O Toollo suporta todos os principais fusos horários do mundo, cobrindo todos os fusos horários IANA. A ferramenta é gratuita, funciona no seu navegador e não exige cadastro."
+        }
+      ]
+    },
+    "date-difference": {
+      "title": "Calculadora de diferenca de datas",
+      "description": "Calcule diferenca. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular o número de dias entre duas datas?",
+          "a": "Insira as datas inicial e final na calculadora de diferença de datas do Toollo e ela exibirá instantaneamente a diferença em dias, semanas, meses e anos."
+        },
+        {
+          "q": "Posso incluir ou excluir fins de semana no cálculo?",
+          "a": "Sim, o Toollo mostra tanto o total de dias corridos quanto o número de dias úteis (excluindo fins de semana). Isso é útil para planejamento de projetos e cálculo de prazos."
+        },
+        {
+          "q": "A calculadora de diferença de datas é gratuita?",
+          "a": "Sim, é completamente gratuita e não precisa de cadastro. Todos os cálculos acontecem no seu navegador e você pode calcular a diferença entre quaisquer duas datas."
+        }
+      ]
+    },
+    "subnet-calculator": {
+      "title": "Calculadora de sub-rede",
+      "description": "Calcule sub-redes. Gratis.",
+      "faq": [
+        {
+          "q": "Como calcular sub-redes para um endereço IP?",
+          "a": "Insira um endereço IP e notação CIDR ou máscara de sub-rede na calculadora de sub-rede do Toollo. Ela exibirá o endereço de rede, endereço de broadcast, faixa de hosts utilizáveis e número total de hosts."
+        },
+        {
+          "q": "A calculadora suporta IPv4 e notação CIDR?",
+          "a": "Sim, você pode inserir sub-redes usando notação decimal com pontos (por exemplo, 255.255.255.0) ou comprimento de prefixo CIDR (por exemplo, /24). O Toollo converte entre formatos automaticamente."
+        },
+        {
+          "q": "A calculadora de sub-rede é gratuita?",
+          "a": "Sim, a calculadora de sub-rede do Toollo é completamente gratuita e funciona no seu navegador. É uma ferramenta de referência rápida para engenheiros de rede e profissionais de TI — sem cadastro necessário."
+        }
+      ]
+    },
+    "password-strength": {
+      "title": "Verificador de senha",
+      "description": "Verifique senha. Gratis.",
+      "faq": [
+        {
+          "q": "Como funciona o verificador de força de senha?",
+          "a": "O Toollo analisa o comprimento da sua senha, diversidade de caracteres, padrões comuns e palavras de dicionário para calcular uma pontuação de entropia e classificação de força de fraca a muito forte."
+        },
+        {
+          "q": "O que torna uma senha forte?",
+          "a": "Uma senha forte tem pelo menos 12 caracteres, usa uma combinação de maiúsculas, minúsculas, números e símbolos, e evita palavras de dicionário, padrões comuns ou informações pessoais."
+        },
+        {
+          "q": "É seguro digitar minha senha em um verificador online?",
+          "a": "Sim, no Toollo é completamente seguro. A verificação de força da senha funciona 100% no seu navegador e sua senha nunca é enviada para nenhum servidor, armazenada ou registrada em lugar nenhum."
+        }
+      ]
+    },
+    "qr-generator": {
+      "title": "Gerador de QR Code",
+      "description": "Gere QR codes. Gratis.",
+      "faq": [
+        {
+          "q": "Como criar um QR code gratuitamente?",
+          "a": "Insira qualquer texto, URL ou dado no gerador de QR code do Toollo e um QR code escaneável é gerado instantaneamente. Você pode baixá-lo como uma imagem PNG de alta resolução gratuitamente."
+        },
+        {
+          "q": "Posso personalizar o tamanho e a cor do QR code?",
+          "a": "Sim, o Toollo permite ajustar o tamanho, cor de primeiro plano, cor de fundo e nível de correção de erros do seu QR code. Uma maior correção de erros torna o código escaneável mesmo quando parcialmente danificado."
+        },
+        {
+          "q": "O gerador de QR code é privado?",
+          "a": "Sim, o QR code é gerado inteiramente no seu navegador. Seus dados nunca são enviados para nenhum servidor, tornando-o seguro para codificar informações sensíveis como senhas de Wi-Fi ou detalhes de contato."
+        }
+      ]
+    },
+    "barcode-generator": {
+      "title": "Gerador de codigo de barras",
+      "description": "Gere codigos. Gratis.",
+      "faq": [
+        {
+          "q": "Como gerar um código de barras online gratuitamente?",
+          "a": "Insira seus dados no gerador de código de barras do Toollo, selecione o formato (Code 128, EAN-13, UPC-A, etc.) e baixe a imagem do código de barras gerado. É gratuito e não precisa de cadastro."
+        },
+        {
+          "q": "Quais formatos de código de barras são suportados?",
+          "a": "O Toollo suporta todos os principais formatos de código de barras, incluindo Code 128, Code 39, EAN-13, EAN-8, UPC-A, ITF-14 e mais. Cada formato é adequado para diferentes indústrias e casos de uso."
+        },
+        {
+          "q": "Posso baixar o código de barras em alta resolução?",
+          "a": "Sim, você pode baixar os códigos de barras gerados como imagens PNG de alta resolução adequadas para impressão. Toda a geração acontece no seu navegador sem necessidade de envio ao servidor."
+        }
+      ]
+    },
+    "favicon-generator": {
+      "title": "Gerador de favicon",
+      "description": "Crie favicons. Gratis.",
+      "faq": [
+        {
+          "q": "Como criar um favicon para meu site?",
+          "a": "Envie uma imagem ou insira texto no gerador de favicon do Toollo e ele criará arquivos de favicon nos tamanhos corretos (16x16, 32x32 e 180x180) prontos para usar no seu site."
+        },
+        {
+          "q": "Em quais formatos o gerador de favicon exporta?",
+          "a": "O Toollo gera favicons nos formatos ICO e PNG em todos os tamanhos padrão. Ele também fornece os trechos de código HTML que você precisa adicionar à seção head do seu site."
+        },
+        {
+          "q": "Minha imagem enviada permanece privada?",
+          "a": "Sim, toda a geração de favicon acontece no seu navegador. Suas imagens nunca são enviadas para nenhum servidor, e os favicons gerados são criados localmente no seu dispositivo."
+        }
+      ]
+    },
+    "css-gradient": {
+      "title": "Gerador de gradiente CSS",
+      "description": "Crie gradientes. Gratis.",
+      "faq": [
+        {
+          "q": "Como criar um gradiente CSS?",
+          "a": "Use o editor visual de gradientes do Toollo para escolher cores, ajustar paradas e definir a direção. A ferramenta gera o código CSS em tempo real, que você pode copiar diretamente para sua folha de estilos."
+        },
+        {
+          "q": "O gerador suporta gradientes radiais e cônicos?",
+          "a": "Sim, o Toollo suporta tipos de gradiente linear, radial e cônico. Você pode adicionar múltiplas paradas de cor, ajustar ângulos e visualizar o gradiente ao vivo antes de copiar o código CSS."
+        },
+        {
+          "q": "Posso copiar o código do gradiente CSS com um clique?",
+          "a": "Sim, clique no botão de copiar para copiar instantaneamente o código CSS do gradiente gerado, incluindo prefixos de compatibilidade entre navegadores. A ferramenta funciona inteiramente no seu navegador sem necessidade de cadastro."
+        }
+      ]
+    },
+    "color-palette": {
+      "title": "Extrator de paleta de cores",
+      "description": "Extraia cores. Gratis.",
+      "faq": [
+        {
+          "q": "Como extrair cores de uma imagem?",
+          "a": "Solte uma imagem no extrator de paleta de cores do Toollo e ele identificará automaticamente as cores dominantes e gerará uma paleta com valores HEX, RGB e HSL que você pode copiar."
+        },
+        {
+          "q": "Quantas cores o extrator encontra?",
+          "a": "O Toollo extrai entre 5 e 10 cores dominantes da sua imagem por padrão. Você pode ajustar o número de cores a extrair de acordo com suas necessidades de design."
+        },
+        {
+          "q": "Minha imagem é enviada para um servidor?",
+          "a": "Não, toda a extração de cores acontece no seu navegador usando análise canvas. Sua imagem nunca sai do seu dispositivo, tornando-o seguro para usar com qualquer foto ou arquivo de design."
+        }
+      ]
+    },
+    "placeholder-image": {
+      "title": "Gerador de imagem placeholder",
+      "description": "Gere placeholders. Gratis.",
+      "faq": [
+        {
+          "q": "Como criar imagens placeholder para meus mockups?",
+          "a": "Insira a largura, altura, cor de fundo e texto opcional no gerador do Toollo. Ele cria instantaneamente uma imagem placeholder que você pode baixar ou copiar a URL para usar nos seus designs."
+        },
+        {
+          "q": "Posso personalizar a aparência da imagem placeholder?",
+          "a": "Sim, você pode definir dimensões personalizadas, cor de fundo, cor do texto e texto de exibição. O Toollo gera imagens placeholder limpas, perfeitas para wireframes, mockups e desenvolvimento."
+        },
+        {
+          "q": "O gerador de imagens placeholder é gratuito?",
+          "a": "Sim, é completamente gratuito e sem limites. Gere quantas imagens placeholder precisar. Todas as imagens são criadas no seu navegador sem necessidade de servidor."
+        }
+      ]
+    },
+    "uuid-generator": {
+      "title": "Gerador UUID",
+      "description": "Gere UUIDs. Gratis.",
+      "faq": [
+        {
+          "q": "Como gerar um UUID online?",
+          "a": "Clique no botão de gerar no gerador UUID do Toollo para criar um novo UUID v4 instantaneamente. Você pode gerar um ou vários UUIDs de uma vez e copiá-los para a área de transferência."
+        },
+        {
+          "q": "Quais versões de UUID são suportadas?",
+          "a": "O Toollo gera identificadores UUID v4 (aleatórios) padrão, que são a versão mais comumente usada. Cada UUID é criptograficamente aleatório e virtualmente garantido como único."
+        },
+        {
+          "q": "Os UUIDs gerados são realmente aleatórios e únicos?",
+          "a": "Sim, o Toollo usa a API crypto do navegador para gerar UUIDs aleatórios criptograficamente seguros. A probabilidade de gerar um duplicado é astronomicamente baixa. Toda a geração acontece localmente no seu navegador."
+        }
+      ]
+    },
+    "text-case-converter": {
+      "title": "Conversor de caixa de texto",
+      "description": "Converta caixa. Gratis.",
+      "faq": [
+        {
+          "q": "Como converter texto para maiúsculas, minúsculas ou caixa de título?",
+          "a": "Cole seu texto no conversor de caixa de texto do Toollo e clique no formato desejado. Ele suporta maiúsculas, minúsculas, caixa de título, caixa de frase, camelCase, snake_case e mais."
+        },
+        {
+          "q": "Quais formatos de caixa de texto estão disponíveis?",
+          "a": "O Toollo suporta maiúsculas, minúsculas, caixa de título, caixa de frase, camelCase, PascalCase, snake_case, kebab-case e CONSTANT_CASE. Isso o torna útil tanto para escrita quanto para programação."
+        },
+        {
+          "q": "O conversor de caixa de texto é privado?",
+          "a": "Sim, toda a transformação de texto acontece no seu navegador. Seu texto nunca é enviado a nenhum servidor, tornando-o seguro para converter qualquer conteúdo, incluindo texto confidencial ou proprietário."
+        }
+      ]
+    },
+    "word-counter": {
+      "title": "Contador de palavras online",
+      "description": "Conte palavras. Gratis.",
+      "faq": [
+        {
+          "q": "Como contar palavras no meu texto?",
+          "a": "Cole ou digite seu texto no contador de palavras do Toollo e ele exibirá instantaneamente a contagem de palavras, contagem de caracteres (com e sem espaços), contagem de frases, contagem de parágrafos e tempo estimado de leitura."
+        },
+        {
+          "q": "O contador de palavras mostra o tempo de leitura?",
+          "a": "Sim, o Toollo calcula um tempo estimado de leitura baseado em uma velocidade média de leitura de 200-250 palavras por minuto. Ele também mostra o tempo de fala para apresentações."
+        },
+        {
+          "q": "Meu texto fica privado?",
+          "a": "Sim, toda a contagem acontece no seu navegador. Seu texto nunca é enviado ou armazenado em nenhum servidor, tornando-o seguro para ensaios, artigos ou qualquer conteúdo confidencial."
+        }
+      ]
+    },
+    "markdown-preview": {
+      "title": "Previa Markdown",
+      "description": "Visualize Markdown. Gratis.",
+      "faq": [
+        {
+          "q": "Como visualizar Markdown online?",
+          "a": "Digite ou cole seu Markdown no editor do Toollo e veja-o renderizado em tempo real no painel direito. Ele suporta GitHub Flavored Markdown completo, incluindo tabelas, blocos de código e listas de tarefas."
+        },
+        {
+          "q": "A prévia de Markdown suporta GitHub Flavored Markdown?",
+          "a": "Sim, o Toollo suporta a sintaxe GFM incluindo tabelas, tachado, listas de tarefas, blocos de código delimitados com realce de sintaxe e URLs com link automático."
+        },
+        {
+          "q": "Meu conteúdo Markdown fica privado?",
+          "a": "Sim, toda a renderização acontece no seu navegador. Seu texto Markdown nunca é enviado a nenhum servidor, então você pode visualizar com segurança arquivos README, documentação ou qualquer conteúdo privado."
+        }
+      ]
+    }
   }
 }

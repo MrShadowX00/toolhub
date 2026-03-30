@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import BmiCalculatorTool from "./BmiCalculatorTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["bmi-calculator"];
   const name = toolSeo?.title || "Bmi Calculator";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("bmi-calculator", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Calculators", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/bmi-calculator" : `https://toollo.org/${locale}/tools/bmi-calculator` },
       ])} />
-      <ToolLayout toolId="bmi-calculator" category="Calculators">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="bmi-calculator" category="Calculators" faq={faq}>
         <BmiCalculatorTool />
       </ToolLayout>
     </>

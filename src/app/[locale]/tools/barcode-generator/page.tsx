@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import BarcodeGeneratorTool from "./BarcodeGeneratorTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["barcode-generator"];
   const name = toolSeo?.title || "Barcode Generator";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("barcode-generator", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Generators", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/barcode-generator" : `https://toollo.org/${locale}/tools/barcode-generator` },
       ])} />
-      <ToolLayout toolId="barcode-generator" category="Generators">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="barcode-generator" category="Generators" faq={faq}>
         <BarcodeGeneratorTool />
       </ToolLayout>
     </>

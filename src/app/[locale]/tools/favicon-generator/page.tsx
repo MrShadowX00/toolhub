@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import FaviconGeneratorTool from "./FaviconGeneratorTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["favicon-generator"];
   const name = toolSeo?.title || "Favicon Generator";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("favicon-generator", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Generators", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/favicon-generator" : `https://toollo.org/${locale}/tools/favicon-generator` },
       ])} />
-      <ToolLayout toolId="favicon-generator" category="Generators">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="favicon-generator" category="Generators" faq={faq}>
         <FaviconGeneratorTool />
       </ToolLayout>
     </>

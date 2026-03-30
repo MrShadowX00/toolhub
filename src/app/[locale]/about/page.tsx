@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Zap, Shield, Globe, Heart } from "lucide-react";
+import { generatePageAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -10,16 +11,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "pages.about" });
-  const baseUrl = "https://toollo.org";
   return {
     title: t("metaTitle"),
     description: t("metaDesc"),
-    alternates: {
-      canonical:
-        locale === "en"
-          ? `${baseUrl}/about`
-          : `${baseUrl}/${locale}/about`,
-    },
+    alternates: generatePageAlternates(locale, "/about"),
   };
 }
 

@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import HttpHeadersTool from "./HttpHeadersTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["http-headers"];
   const name = toolSeo?.title || "Http Headers";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("http-headers", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Network Tools", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/http-headers" : `https://toollo.org/${locale}/tools/http-headers` },
       ])} />
-      <ToolLayout toolId="http-headers" category="Network Tools">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="http-headers" category="Network Tools" faq={faq}>
         <HttpHeadersTool />
       </ToolLayout>
     </>

@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import PdfToImageTool from "./PdfToImageTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["pdf-to-image"];
   const name = toolSeo?.title || "Pdf To Image";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("pdf-to-image", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Image Tools", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/pdf-to-image" : `https://toollo.org/${locale}/tools/pdf-to-image` },
       ])} />
-      <ToolLayout toolId="pdf-to-image" category="Image Tools">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="pdf-to-image" category="Image Tools" faq={faq}>
         <PdfToImageTool />
       </ToolLayout>
     </>

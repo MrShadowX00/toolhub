@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import MarkdownPreviewTool from "./MarkdownPreviewTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["markdown-preview"];
   const name = toolSeo?.title || "Markdown Preview";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("markdown-preview", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Generators", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/markdown-preview" : `https://toollo.org/${locale}/tools/markdown-preview` },
       ])} />
-      <ToolLayout toolId="markdown-preview" category="Generators">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="markdown-preview" category="Generators" faq={faq}>
         <MarkdownPreviewTool />
       </ToolLayout>
     </>

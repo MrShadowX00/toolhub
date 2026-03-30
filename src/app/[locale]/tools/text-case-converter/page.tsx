@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import TextCaseConverterTool from "./TextCaseConverterTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["text-case-converter"];
   const name = toolSeo?.title || "Text Case Converter";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("text-case-converter", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Generators", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/text-case-converter" : `https://toollo.org/${locale}/tools/text-case-converter` },
       ])} />
-      <ToolLayout toolId="text-case-converter" category="Generators">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="text-case-converter" category="Generators" faq={faq}>
         <TextCaseConverterTool />
       </ToolLayout>
     </>

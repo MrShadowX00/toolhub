@@ -2,7 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateToolMetadata } from "@/lib/seo";
 import ToolLayout from "@/components/ui/ToolLayout";
 import JsonLd from "@/components/seo/JsonLd";
-import { getWebApplicationJsonLd, getBreadcrumbJsonLd } from "@/lib/structured-data";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
 import DnsLookupTool from "./DnsLookupTool";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -16,6 +16,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const toolSeo = seoMessages.tools?.["dns-lookup"];
   const name = toolSeo?.title || "Dns Lookup";
   const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
   return (
     <>
       <JsonLd data={getWebApplicationJsonLd("dns-lookup", name, description, locale)} />
@@ -24,7 +25,8 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         { name: "Network Tools", url: "https://toollo.org" },
         { name, url: locale === "en" ? "https://toollo.org/tools/dns-lookup" : `https://toollo.org/${locale}/tools/dns-lookup` },
       ])} />
-      <ToolLayout toolId="dns-lookup" category="Network Tools">
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="dns-lookup" category="Network Tools" faq={faq}>
         <DnsLookupTool />
       </ToolLayout>
     </>

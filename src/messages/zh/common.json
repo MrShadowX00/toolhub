@@ -22,5 +22,6 @@
   "language": "语言",
   "openSearch": "打开搜索",
   "closeSearch": "关闭搜索",
-  "toggleMenu": "切换菜单"
+  "toggleMenu": "切换菜单",
+  "relatedTools": "相关工具"
 }

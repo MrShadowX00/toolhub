@@ -4,55 +4,905 @@
     "description": "50+ ücretsiz çevrimiçi araç. Kayıt yok. Takip yok. Görsel sıkıştırıcı, JSON biçimlendirici, QR üreteci ve daha fazlası — hepsi tarayıcınızda."
   },
   "tools": {
-    "image-compressor": { "title": "Görsel Sıkıştırıcı — Çevrimiçi Ücretsiz", "description": "Kalite kaybı olmadan sıkıştırın. Ücretsiz — tarayıcınızda çalışır." },
-    "image-converter": { "title": "Görsel Dönüştürücü — PNG, JPG, WebP, AVIF", "description": "Formatlar arasında dönüştürün. Ücretsiz ve hızlı." },
-    "image-resizer": { "title": "Görsel Boyutlandırıcı Çevrimiçi", "description": "Tam boyutlara yeniden boyutlandırın. Ücretsiz." },
-    "heic-to-jpg": { "title": "HEIC'den JPG'ye Dönüştürücü", "description": "iPhone HEIC fotoğraflarını dönüştürün. Ücretsiz." },
-    "background-remover": { "title": "Arka Plan Kaldırıcı Çevrimiçi", "description": "Yapay zeka ile arka planları kaldırın. Ücretsiz." },
-    "image-to-base64": { "title": "Görsel → Base64 Dönüştürücü", "description": "Görselleri Base64'e dönüştürün. Ücretsiz." },
-    "svg-to-png": { "title": "SVG → PNG Dönüştürücü", "description": "SVG'yi PNG'ye dönüştürün. Ücretsiz." },
-    "pdf-to-image": { "title": "PDF → Görsel Dönüştürücü", "description": "PDF'yi görsellere dönüştürün. Ücretsiz." },
-    "image-to-pdf": { "title": "Görsel → PDF Dönüştürücü", "description": "Görsellerden PDF oluşturun. Ücretsiz." },
-    "video-to-gif": { "title": "Video → GIF Dönüştürücü", "description": "Videoyu GIF'e dönüştürün. Ücretsiz." },
-    "json-formatter": { "title": "JSON Biçimlendirici ve Doğrulayıcı", "description": "JSON'u çevrimiçi biçimlendirin. Ücretsiz." },
-    "base64": { "title": "Base64 Kodlayıcı/Çözücü", "description": "Base64 çevrimiçi kodlayın. Ücretsiz." },
-    "url-encoder": { "title": "URL Kodlayıcı/Çözücü", "description": "URL çevrimiçi kodlayın. Ücretsiz." },
-    "hash-generator": { "title": "Hash Üreteci — MD5, SHA1, SHA256", "description": "Hashleri çevrimiçi üretin. Ücretsiz." },
-    "regex-tester": { "title": "Regex Test Aracı", "description": "Regex canlı test edin. Ücretsiz." },
-    "jwt-decoder": { "title": "JWT Çözücü", "description": "JWT tokenlarını çözün. Ücretsiz." },
-    "code-diff": { "title": "Kod Karşılaştırma Çevrimiçi", "description": "Kod karşılaştırın. Ücretsiz." },
-    "cron-parser": { "title": "Cron İfade Ayrıştırıcı", "description": "Cron ifadelerini ayrıştırın. Ücretsiz." },
-    "unix-timestamp": { "title": "Unix Zaman Damgası Dönüştürücü", "description": "Zaman damgalarını dönüştürün. Ücretsiz." },
-    "html-entities": { "title": "HTML Varlıkları Kodlayıcı", "description": "HTML varlıklarını kodlayın. Ücretsiz." },
-    "dns-lookup": { "title": "DNS Sorgusu", "description": "DNS kayıtlarını sorgulayın. Ücretsiz." },
-    "whois-lookup": { "title": "WHOIS Sorgusu", "description": "Alan adı bilgilerini alın. Ücretsiz." },
-    "ssl-checker": { "title": "SSL Sertifika Denetleyici", "description": "SSL detaylarını kontrol edin. Ücretsiz." },
-    "http-headers": { "title": "HTTP Başlık Denetleyici", "description": "HTTP başlıklarını inceleyin. Ücretsiz." },
-    "ip-lookup": { "title": "IP Sorgusu — Coğrafi Konum", "description": "IP coğrafi konum alın. Ücretsiz." },
-    "domain-age": { "title": "Alan Adı Yaş Denetleyici", "description": "Kayıt tarihini kontrol edin. Ücretsiz." },
-    "open-graph-preview": { "title": "Open Graph Önizleme", "description": "OG etiketlerini önizleyin. Ücretsiz." },
-    "website-screenshot": { "title": "Web Sitesi Ekran Görüntüsü", "description": "Siteleri yakalayın. Ücretsiz." },
-    "port-checker": { "title": "Port Denetleyici", "description": "Açık portları kontrol edin. Ücretsiz." },
-    "sitemap-generator": { "title": "XML Sitemap Üreteci", "description": "XML sitemap üretin. Ücretsiz." },
-    "mortgage-calculator": { "title": "Mortgage Hesaplayıcı", "description": "Aylık ödemeleri hesaplayın. Ücretsiz." },
-    "bmi-calculator": { "title": "VKİ Hesaplayıcı", "description": "Vücut kitle indeksini hesaplayın. Ücretsiz." },
-    "compound-interest": { "title": "Bileşik Faiz Hesaplayıcı", "description": "Bileşik faizi hesaplayın. Ücretsiz." },
-    "percentage-calculator": { "title": "Yüzde Hesaplayıcı", "description": "Yüzdeleri hesaplayın. Ücretsiz." },
-    "age-calculator": { "title": "Yaş Hesaplayıcı", "description": "Yaşı hesaplayın. Ücretsiz." },
-    "loan-emi": { "title": "Kredi EMI Hesaplayıcı", "description": "EMI ve amortisman hesaplayın. Ücretsiz." },
-    "time-zone-converter": { "title": "Saat Dilimi Dönüştürücü", "description": "Saatleri dönüştürün. Ücretsiz." },
-    "date-difference": { "title": "Tarih Farkı Hesaplayıcı", "description": "Tarihler arası günleri hesaplayın. Ücretsiz." },
-    "subnet-calculator": { "title": "Alt Ağ Hesaplayıcı", "description": "Alt ağ aralıklarını hesaplayın. Ücretsiz." },
-    "password-strength": { "title": "Şifre Gücü Denetleyici", "description": "Şifre gücünü kontrol edin. Ücretsiz." },
-    "qr-generator": { "title": "QR Kod Üreteci", "description": "QR kodlar üretin. Ücretsiz." },
-    "barcode-generator": { "title": "Barkod Üreteci", "description": "Barkodlar üretin. Ücretsiz." },
-    "favicon-generator": { "title": "Favicon Üreteci", "description": "Favicon oluşturun. Ücretsiz." },
-    "css-gradient": { "title": "CSS Gradyan Üreteci", "description": "CSS gradyanlar oluşturun. Ücretsiz." },
-    "color-palette": { "title": "Renk Paleti Çıkarıcı", "description": "Renk paletleri çıkarın. Ücretsiz." },
-    "placeholder-image": { "title": "Yer Tutucu Görsel Üreteci", "description": "Yer tutucu görseller üretin. Ücretsiz." },
-    "uuid-generator": { "title": "UUID Üreteci", "description": "UUID üretin. Ücretsiz." },
-    "text-case-converter": { "title": "Metin Durumu Dönüştürücü", "description": "Metin durumunu dönüştürün. Ücretsiz." },
-    "word-counter": { "title": "Kelime Sayacı Çevrimiçi", "description": "Kelime ve karakter sayın. Ücretsiz." },
-    "markdown-preview": { "title": "Markdown Önizleme", "description": "Markdown önizleyin. Ücretsiz." }
+    "image-compressor": {
+      "title": "Görsel Sıkıştırıcı — Çevrimiçi Ücretsiz",
+      "description": "Kalite kaybı olmadan sıkıştırın. Ücretsiz — tarayıcınızda çalışır.",
+      "faq": [
+        {
+          "q": "Toollo'nun görsel sıkıştırıcısı ücretsiz mi?",
+          "a": "Evet, Toollo'nun görsel sıkıştırıcısı %100 ücretsizdir ve kayıt gerektirmez. Tamamen tarayıcınızda çalışır, bu nedenle görselleriniz hiçbir sunucuya yüklenmez."
+        },
+        {
+          "q": "Kalite kaybetmeden görsellerimi ne kadar sıkıştırabilirim?",
+          "a": "Toollo'nun akıllı sıkıştırması, görsel olarak kayıpsız kaliteyi korurken dosya boyutunu %80'e kadar azaltabilir. Boyut ve netlik arasında mükemmel dengeyi bulmak için kalite kaydırıcısını da ayarlayabilirsiniz."
+        },
+        {
+          "q": "Sıkıştırıcı hangi görsel formatlarını destekliyor?",
+          "a": "Sıkıştırıcı JPEG, PNG ve WebP formatlarını destekler. Tüm işlemler tarayıcınızda yerel olarak gerçekleştiği için görselleriniz tamamen gizli kalır ve hiçbir sunucuya gönderilmez."
+        }
+      ]
+    },
+    "image-converter": {
+      "title": "Görsel Dönüştürücü — PNG, JPG, WebP, AVIF",
+      "description": "Formatlar arasında dönüştürün. Ücretsiz ve hızlı.",
+      "faq": [
+        {
+          "q": "Toollo'nun görsel dönüştürücüsü nasıl çalışır?",
+          "a": "Toollo'nun görsel dönüştürücüsü, Canvas API kullanarak dosyaları doğrudan tarayıcınızda işler. Görselinizi sürükleyip bırakın, çıktı formatını seçin ve sonucu indirin — sunucu yüklemesi gerekmez."
+        },
+        {
+          "q": "Görselleri WebP veya AVIF formatına dönüştürebilir miyim?",
+          "a": "Evet, görselleri PNG, JPG, WebP ve AVIF formatları arasında dönüştürebilirsiniz. WebP ve AVIF, geleneksel formatlara göre önemli ölçüde daha küçük dosya boyutları sunar ve bu da onları web kullanımı için ideal kılar."
+        },
+        {
+          "q": "Görsel dönüştürme için dosya boyutu sınırı var mı?",
+          "a": "Tüm dönüştürme tarayıcınızda gerçekleştiği için katı bir dosya boyutu sınırı yoktur. Performans cihazınızın belleğine bağlıdır, ancak 50 MB'a kadar olan çoğu görsel sorunsuz dönüştürülür."
+        }
+      ]
+    },
+    "image-resizer": {
+      "title": "Görsel Boyutlandırıcı Çevrimiçi",
+      "description": "Tam boyutlara yeniden boyutlandırın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Çevrimiçi görsel boyutlandırıcı ücretsiz mi?",
+          "a": "Evet, Toollo'nun görsel boyutlandırıcısı tamamen ücretsizdir ve yeniden boyutlandırabileceğiniz görsel sayısında sınır yoktur. Kayıt veya hesap oluşturma gerekmez."
+        },
+        {
+          "q": "En boy oranını koruyarak görselleri yeniden boyutlandırabilir miyim?",
+          "a": "Evet, görselinizin orantılı olarak ölçeklenmesi için en boy oranını kilitleyebilirsiniz. Ayrıca kesin boyutlar için özel genişlik ve yükseklik değerleri girebilirsiniz."
+        },
+        {
+          "q": "Görsellerimi yeniden boyutlandırdığımda bir sunucuya yükleniyor mu?",
+          "a": "Hayır, tüm yeniden boyutlandırma tarayıcınızda yerel olarak gerçekleşir. Görselleriniz cihazınızdan asla ayrılmaz, bu da tam gizlilik ve daha hızlı işleme sağlar."
+        }
+      ]
+    },
+    "heic-to-jpg": {
+      "title": "HEIC'den JPG'ye Dönüştürücü",
+      "description": "iPhone HEIC fotoğraflarını dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "HEIC dosyalarını ücretsiz JPG'ye nasıl dönüştürebilirim?",
+          "a": "HEIC dosyalarınızı Toollo'nun dönüştürücüsüne sürükleyip bırakın ve anında JPG formatına dönüştürülecektir. Ücretsizdir, kayıt gerektirmez ve tamamen tarayıcınızda çalışır."
+        },
+        {
+          "q": "Birden fazla HEIC fotoğrafını aynı anda dönüştürebilir miyim?",
+          "a": "Evet, Toollo toplu dönüştürmeyi destekler, böylece birden fazla HEIC dosyasını bırakabilir ve hepsini tek seferde JPG'ye dönüştürebilirsiniz. Bu, iPhone fotoğraflarını işlerken zamandan tasarruf sağlar."
+        },
+        {
+          "q": "HEIC'den JPG'ye dönüştürürken iPhone fotoğraflarım güvende mi?",
+          "a": "Kesinlikle. Toollo'nun HEIC dönüştürücüsü %100 tarayıcınızda çalışır, yani fotoğraflarınız hiçbir sunucuya yüklenmez. Özel fotoğraflarınız tamamen cihazınızda kalır."
+        }
+      ]
+    },
+    "background-remover": {
+      "title": "Arka Plan Kaldırıcı Çevrimiçi",
+      "description": "Yapay zeka ile arka planları kaldırın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Toollo'nun arka plan kaldırıcısı gerçekten ücretsiz mi?",
+          "a": "Evet, filigran olmadan, kayıt olmadan ve kullanım sınırı olmadan %100 ücretsizdir. Yapay zeka modeli doğrudan tarayıcınızda çalışır, bu nedenle yansıtılacak sunucu maliyeti yoktur."
+        },
+        {
+          "q": "Yapay zeka arka plan kaldırma nasıl çalışır?",
+          "a": "Toollo, nesneleri tespit etmek ve arka planları otomatik olarak kaldırmak için tarayıcınıza yüklenen bir cihaz üzeri yapay zeka modeli kullanır. Portreler, ürünler ve net dış hatları olan nesnelerde iyi çalışır."
+        },
+        {
+          "q": "Görsellerim işlenmek üzere bir sunucuya gönderiliyor mu?",
+          "a": "Hayır. Yapay zeka modeli bir kez indirilir ve tamamen tarayıcınızda çalışır. Görselleriniz hiçbir yere yüklenmez, bu da onu mevcut en gizli arka plan kaldırma araçlarından biri yapar."
+        }
+      ]
+    },
+    "image-to-base64": {
+      "title": "Görsel → Base64 Dönüştürücü",
+      "description": "Görselleri Base64'e dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir görseli Base64'e nasıl dönüştürebilirim?",
+          "a": "Toollo'nun dönüştürücüsüne bir görsel bırakın veya seçin, anında Base64 ile kodlanmış dize oluşturulur. Ham dizeyi veya HTML ya da CSS'de kullanıma hazır tam data URI'sini kopyalayabilirsiniz."
+        },
+        {
+          "q": "Neden bir görseli Base64'e dönüştürmek isteyeyim?",
+          "a": "Base64 ile kodlanmış görseller, ayrı dosya istekleri olmadan doğrudan HTML, CSS veya JSON'a gömülebilir. Bu, küçük simgeler, e-posta şablonları ve web sayfalarındaki HTTP isteklerini azaltmak için kullanışlıdır."
+        },
+        {
+          "q": "Görsel-Base64 dönüştürme için boyut sınırı var mı?",
+          "a": "Kesin bir sınır yoktur, ancak Base64 kodlama dosya boyutunu yaklaşık %33 artırır. En iyi sonuçlar için simgeler veya küçük resimler gibi küçük görsellerle kullanın. Tüm işlemler tarayıcınızda yerel olarak çalışır."
+        }
+      ]
+    },
+    "svg-to-png": {
+      "title": "SVG → PNG Dönüştürücü",
+      "description": "SVG'yi PNG'ye dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "SVG'yi çevrimiçi PNG'ye nasıl dönüştürebilirim?",
+          "a": "SVG dosyanızı Toollo'nun dönüştürücüsüne yükleyin, istediğiniz çıktı boyutunu seçin ve PNG'yi anında indirin. Dönüştürme, sunucu yüklemesi gerektirmeden tarayıcınızda gerçekleşir."
+        },
+        {
+          "q": "SVG'yi PNG'ye dönüştürürken çözünürlüğü seçebilir miyim?",
+          "a": "Evet, çıktı PNG'si için özel genişlik ve yükseklik ayarlayabilirsiniz. SVG'ler vektör tabanlı olduğu için, dönüştürmeden önce kalite kaybı olmadan herhangi bir çözünürlüğe ölçekleyebilirsiniz."
+        },
+        {
+          "q": "SVG'yi PNG'ye dönüştürme şeffaflığı koruyor mu?",
+          "a": "Evet, Toollo'nun dönüştürücüsü SVG dosyanızdaki şeffaf arka planı oluşan PNG'de korur. Tüm işlemler tarayıcınızda gizli olarak gerçekleşir."
+        }
+      ]
+    },
+    "pdf-to-image": {
+      "title": "PDF → Görsel Dönüştürücü",
+      "description": "PDF'yi görsellere dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "PDF'yi yüklemeden ücretsiz görsele dönüştürebilir miyim?",
+          "a": "Evet, Toollo'nun PDF'den görsele dönüştürücüsü PDF'nizi tamamen tarayıcıda işler. Belgeleriniz hiçbir sunucuya gönderilmez, bu da onu gizli dosyalar için ideal kılar."
+        },
+        {
+          "q": "PDF dönüştürücü hangi görsel formatında çıktı veriyor?",
+          "a": "Dönüştürücü, PDF'nizin her sayfası için yüksek kaliteli PNG görselleri çıktı olarak verir. Tek tek sayfaları veya tüm sayfaları bir seferde dönüştürebilir ve toplu olarak indirebilirsiniz."
+        },
+        {
+          "q": "PDF'den görsele dönüştürme için sayfa sınırı var mı?",
+          "a": "İşleme cihazınızda gerçekleştiği için katı bir sayfa sınırı yoktur. Çok sayfalı büyük PDF'ler cihazınızın performansına bağlı olarak daha uzun sürebilir, ancak yapay bir kısıtlama yoktur."
+        }
+      ]
+    },
+    "image-to-pdf": {
+      "title": "Görsel → PDF Dönüştürücü",
+      "description": "Görsellerden PDF oluşturun. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Birden fazla görseli tek bir PDF'de nasıl birleştirebilirim?",
+          "a": "Görsellerinizi Toollo'nun dönüştürücüsüne sürükleyip bırakın, istediğiniz sıraya göre düzenleyin ve tek bir PDF oluşturmak için tıklayın. Ücretsizdir ve sunucu yüklemesi gerektirmez."
+        },
+        {
+          "q": "Hangi görsel formatlarını PDF'ye dönüştürebilirim?",
+          "a": "JPG, PNG, WebP ve diğer yaygın görsel formatlarını bir PDF belgesine dönüştürebilirsiniz. Toollo, son dosyayı oluşturmadan önce sayfaları yeniden sıralamanıza ve ayarları düzenlemenize olanak tanır."
+        },
+        {
+          "q": "Dönüştürme sırasında görsellerim gizli tutuluyor mu?",
+          "a": "Evet, dönüştürme işleminin tamamı tarayıcınızda gerçekleşir. Görselleriniz hiçbir sunucuya yüklenmez, bu da Toollo'yu hassas veya kişisel fotoğraflar için güvenli bir seçenek yapar."
+        }
+      ]
+    },
+    "video-to-gif": {
+      "title": "Video → GIF Dönüştürücü",
+      "description": "Videoyu GIF'e dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir videoyu ücretsiz GIF'e nasıl dönüştürebilirim?",
+          "a": "Video dosyanızı Toollo'nun dönüştürücüsüne bırakın, klibi istediğiniz bölüme kırpın, kare hızını ve boyutu ayarlayın, ardından GIF'inizi indirin. Kayıt veya sunucu yüklemesi gerekmez."
+        },
+        {
+          "q": "Hangi video formatlarını GIF'e dönüştürebilirim?",
+          "a": "Toollo; MP4, WebM ve diğer tarayıcı uyumlu video formatlarını destekler. Klibi kırpabilir, kare hızını ayarlayabilir ve dönüştürmeden önce çıktı kalitesini kontrol edebilirsiniz."
+        },
+        {
+          "q": "Video uzunluğu veya dosya boyutu sınırı var mı?",
+          "a": "Zorunlu bir sınır yoktur, ancak GIF'ler çok büyük olabileceğinden kısa klipler (30 saniyenin altında) en iyi sonuçları verir. Tüm işlemler tam gizlilik için tarayıcınızda yerel olarak çalışır."
+        }
+      ]
+    },
+    "json-formatter": {
+      "title": "JSON Biçimlendirici ve Doğrulayıcı",
+      "description": "JSON'u çevrimiçi biçimlendirin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Toollo'nun JSON biçimlendiricisi ücretsiz mi?",
+          "a": "Evet, Toollo'nun JSON biçimlendiricisi ve doğrulayıcısı tamamen ücretsizdir, kayıt gerektirmez ve tamamen tarayıcınızda çalışır. JSON verileriniz hiçbir sunucuya gönderilmez."
+        },
+        {
+          "q": "JSON'u aynı anda doğrulayıp biçimlendirebilir miyim?",
+          "a": "Evet, Toollo yapıştırdığınız JSON'u otomatik olarak doğrular, sözdizimi hatalarını satır numaralarıyla vurgular ve uygun girintilemeyle biçimlendirir. Ayrıca kolay gezinme için daraltılabilir bir ağaç görünümü sunar."
+        },
+        {
+          "q": "Biçimlendiriciyi kullanırken JSON verilerim gizli mi?",
+          "a": "Kesinlikle. Tüm biçimlendirme ve doğrulama tarayıcınızda yerel olarak gerçekleşir. Hiçbir veri herhangi bir sunucuya iletilmez, bu da API anahtarlarını, yapılandırma dosyalarını veya hassas JSON verilerini güvenle yapıştırmanızı sağlar."
+        }
+      ]
+    },
+    "base64": {
+      "title": "Base64 Kodlayıcı/Çözücü",
+      "description": "Base64 çevrimiçi kodlayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Base64'ü çevrimiçi nasıl kodlayabilir veya çözebilirim?",
+          "a": "Metninizi Toollo'nun Base64 aracına yapıştırın ve anında kodlanmış veya çözülmüş sonucu alın. Tek tıklamayla kodlama ve çözme modları arasında geçiş yapın. Ücretsizdir ve kayıt gerektirmez."
+        },
+        {
+          "q": "Base64 kodlama ne için kullanılır?",
+          "a": "Base64 kodlama, ikili verileri ASCII metnine dönüştürür ve genellikle e-posta ekleri, data URI'leri, API kimlik doğrulama tokenları ve JSON veya XML'e veri gömme için kullanılır."
+        },
+        {
+          "q": "Toollo'da Base64 dizelerini çözmek güvenli mi?",
+          "a": "Evet, tüm kodlama ve çözme işlemleri sunucu iletişimi olmadan tarayıcınızda gerçekleşir. Verileriniz tamamen gizli kalır, bu da tokenları, kimlik bilgilerini veya hassas içerikleri güvenle işlemenizi sağlar."
+        }
+      ]
+    },
+    "url-encoder": {
+      "title": "URL Kodlayıcı/Çözücü",
+      "description": "URL çevrimiçi kodlayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "URL kodlama nasıl çalışır?",
+          "a": "URL kodlama, özel karakterleri yüzde kodlu karşılıklarıyla değiştirir (ör. boşluklar %20 olur). Toollo'nun aracı, URL dizelerini tarayıcınızda anında ve ücretsiz olarak kodlamanıza veya çözmenize olanak tanır."
+        },
+        {
+          "q": "Bir dizeyi ne zaman URL kodlamam gerekir?",
+          "a": "Sorgu parametrelerinde, form verilerinde veya API isteklerinde özel karakterler geçirilirken URL kodlama gereklidir. &, =, boşluklar ve ASCII dışı karakterlerin URL'lerde doğru çalışması için kodlanması gerekir."
+        },
+        {
+          "q": "Toollo'nun URL kodlayıcısı tüm özel karakterleri işliyor mu?",
+          "a": "Evet, RFC 3986 standardında tanımlanan tüm ayrılmış ve güvenli olmayan karakterleri işler. İşlemler tamamen tarayıcınızda gerçekleşir ve hiçbir veri herhangi bir sunucuya gönderilmez."
+        }
+      ]
+    },
+    "hash-generator": {
+      "title": "Hash Üreteci — MD5, SHA1, SHA256",
+      "description": "Hashleri çevrimiçi üretin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Toollo'nun hash üreteci ücretsiz mi?",
+          "a": "Evet, kayıt veya sınırlama olmadan %100 ücretsizdir. Tarayıcınızda anında MD5, SHA-1, SHA-256 ve SHA-512 hashleri oluşturun."
+        },
+        {
+          "q": "Hangi hash algoritmasını kullanmalıyım?",
+          "a": "SHA-256, güçlü çakışma direnci nedeniyle çoğu kullanım durumu için önerilir. MD5 ve SHA-1 daha hızlıdır ancak kriptografik olarak zayıf kabul edilir. Maksimum güvenlik için SHA-512 kullanın."
+        },
+        {
+          "q": "Toollo'da hassas verileri hashlemek güvenli mi?",
+          "a": "Evet, tüm hashleme Web Crypto API kullanılarak tarayıcınızda yerel olarak gerçekleştirilir. Girdi metniniz hiçbir sunucuya iletilmez, böylece şifreler ve hassas veriler gizli kalır."
+        }
+      ]
+    },
+    "regex-tester": {
+      "title": "Regex Test Aracı",
+      "description": "Regex canlı test edin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir regex desenini çevrimiçi nasıl test edebilirim?",
+          "a": "Düzenli ifadenizi ve test dizesini Toollo'nun regex test aracına girin ve siz yazarken eşleşmelerin canlı olarak vurgulandığını görün. Tüm bayraklarla (g, i, m, s, u) JavaScript regex sözdizimini destekler."
+        },
+        {
+          "q": "Regex test aracı yakalama gruplarını gösteriyor mu?",
+          "a": "Evet, Toollo'nun regex test aracı tüm eşleşmeleri yakalama grupları, eşleşme indeksleri ve grup adlarıyla birlikte görüntüler. Bu, karmaşık desenleri hata ayıklamayı ve iyileştirmeyi kolaylaştırır."
+        },
+        {
+          "q": "Test verilerim gizli mi?",
+          "a": "Tamamen. Tüm regex eşleştirme sıfır sunucu iletişimi ile tarayıcınızda çalışır. Desenleriniz ve test dizeleriniz cihazınızdan asla ayrılmaz."
+        }
+      ]
+    },
+    "jwt-decoder": {
+      "title": "JWT Çözücü",
+      "description": "JWT tokenlarını çözün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "JWT tokenını nasıl çözebilirim?",
+          "a": "JWT tokenınızı Toollo'nun çözücüsüne yapıştırın, anında başlık, yük ve imzayı ayrıştırıp görüntüler. Base64 içeriğini çözer ve okunabilir JSON olarak biçimlendirir."
+        },
+        {
+          "q": "Bu araçla JWT imzasını doğrulayabilir miyim?",
+          "a": "Toollo'nun çözücüsü tokendan algoritma ve imza verilerini görüntüler. Bir tokenın süresi dolmuş mu hızlıca görebilmeniz için süre sonu durumunu vurgular, ancak tam kriptografik doğrulama imzalama anahtarını gerektirir."
+        },
+        {
+          "q": "JWT tokenlarını çevrimiçi bir çözücüye yapıştırmak güvenli mi?",
+          "a": "Evet, Toollo'da tamamen güvenlidir. Çözücü %100 tarayıcınızda çalışır ve tokenlarınız hiçbir sunucuya gönderilmez. Hiçbir veri kaydedilmez veya depolanmaz."
+        }
+      ]
+    },
+    "code-diff": {
+      "title": "Kod Karşılaştırma Çevrimiçi",
+      "description": "Kod karşılaştırın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "İki kod dosyasını çevrimiçi nasıl karşılaştırabilirim?",
+          "a": "Orijinal kodunuzu sola, değiştirilmiş kodunuzu sağa yapıştırın. Farklar anında vurgulanır; eklemeler yeşil, silmeler kırmızı olarak gösterilir."
+        },
+        {
+          "q": "Kod fark aracı sözdizimi vurgulamayı destekliyor mu?",
+          "a": "Evet, Toollo'nun fark görüntüleyicisi sözdizimi vurgulama ile yan yana karşılaştırma sunar. Birleşik ve bölünmüş görünüm modlarını destekler, bu da herhangi bir programlama dilindeki değişiklikleri incelemeyi kolaylaştırır."
+        },
+        {
+          "q": "Fark aracını kullanırken kodum gizli mi?",
+          "a": "Evet, tüm karşılaştırma tarayıcınızda yerel olarak gerçekleşir. Kodunuz hiçbir sunucuya yüklenmez, bu nedenle tescilli veya hassas kaynak kodunu güvenle karşılaştırabilirsiniz."
+        }
+      ]
+    },
+    "cron-parser": {
+      "title": "Cron İfade Ayrıştırıcı",
+      "description": "Cron ifadelerini ayrıştırın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir cron ifadesini nasıl okuyabilirim?",
+          "a": "Cron ifadenizi Toollo'nun ayrıştırıcısına yapıştırın, zamanlamanın düz Türkçe açıklamasını ve beklendiği gibi çalıştığını doğrulayabileceğiniz sonraki birkaç yürütme zamanını görüntüler."
+        },
+        {
+          "q": "Cron ayrıştırıcı 5 alanlı ve 6 alanlı ifadeleri destekliyor mu?",
+          "a": "Evet, Toollo standart 5 alanlı cron ifadelerini (dakikadan haftanın gününe) ve saniye veya yıl alanlarına sahip genişletilmiş formatları destekler. Ayrıca /, -, * ve L gibi özel karakterleri de işler."
+        },
+        {
+          "q": "Sıfırdan cron ifadeleri oluşturmak için bunu kullanabilir miyim?",
+          "a": "Evet, araç her iki yönde de çalışır — bir cron ifadesi girerek anlayabilir veya etkileşimli oluşturucuyu kullanarak bir tane oluşturabilirsiniz. Tüm işlemler tarayıcınızda çalışır ve dışarıya veri gönderilmez."
+        }
+      ]
+    },
+    "unix-timestamp": {
+      "title": "Unix Zaman Damgası Dönüştürücü",
+      "description": "Zaman damgalarını dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Unix zaman damgasını okunabilir bir tarihe nasıl dönüştürebilirim?",
+          "a": "Unix zaman damgasını Toollo'nun dönüştürücüsüne girin, yerel saat diliminiz ve UTC dahil olmak üzere birden fazla formatta karşılık gelen tarih ve saati anında görüntüler."
+        },
+        {
+          "q": "Bir tarihi Unix zaman damgasına dönüştürebilir miyim?",
+          "a": "Evet, Toollo'nun dönüştürücüsü her iki yönde çalışır. Saniye veya milisaniye cinsinden Unix zaman damgası almak için tarih ve saat girin veya okunabilir tarihi almak için bir zaman damgası girin."
+        },
+        {
+          "q": "Dönüştürücü milisaniye zaman damgalarını işliyor mu?",
+          "a": "Evet, Toollo girdinizin saniye mi yoksa milisaniye mi olduğunu otomatik olarak algılar ve buna göre dönüştürür. Tüm işlemler tarayıcınızda gerçekleşir, hiçbir veri iletilmez."
+        }
+      ]
+    },
+    "html-entities": {
+      "title": "HTML Varlıkları Kodlayıcı",
+      "description": "HTML varlıklarını kodlayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "HTML varlıkları nedir ve ne zaman kodlamalıyım?",
+          "a": "HTML varlıkları, HTML'de anlam taşıyan <, >, & ve tırnak işaretleri gibi karakterleri temsil eden özel kodlardır. Bunları kodlamak XSS saldırılarını önler ve içeriğinizin web sayfalarında doğru görüntülenmesini sağlar."
+        },
+        {
+          "q": "HTML varlıklarını normal metne geri çözebilir miyim?",
+          "a": "Evet, Toollo'nun aracı her iki yönde kodlar ve çözer. Orijinal metni almak için kodlanmış HTML varlıklarını yapıştırın veya varlık kodlu sürümü almak için ham metin yapıştırın."
+        },
+        {
+          "q": "Araç tüm adlandırılmış ve sayısal HTML varlıklarını işliyor mu?",
+          "a": "Evet, tüm adlandırılmış varlıkları (&amp; gibi), ondalık varlıkları (&#38; gibi) ve onaltılık varlıkları (&#x26; gibi) destekler. Tüm işlemler tam gizlilik için tarayıcınızda yerel olarak çalışır."
+        }
+      ]
+    },
+    "dns-lookup": {
+      "title": "DNS Sorgusu",
+      "description": "DNS kayıtlarını sorgulayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir alan adı için DNS kayıtlarını nasıl sorgulayabilirim?",
+          "a": "Toollo'nun DNS sorgu aracına herhangi bir alan adı girin, A, AAAA, MX, CNAME, TXT, NS ve diğer DNS kayıtlarını getirir. Sonuçlar saniyeler içinde görünür."
+        },
+        {
+          "q": "Hangi DNS kayıt türlerini sorgulayabilirim?",
+          "a": "Toollo; A, AAAA, MX, CNAME, TXT, NS, SOA ve SRV kayıtları dahil tüm yaygın kayıt türlerini destekler. Belirli türleri sorgulayabilir veya tüm kayıtları bir seferde görüntüleyebilirsiniz."
+        },
+        {
+          "q": "DNS sorgu aracı ücretsiz mi?",
+          "a": "Evet, Toollo'nun DNS sorgusu tamamen ücretsizdir ve kayıt gerektirmez. Herhangi bir alan adı için sınırsız sorgu yapabilirsiniz."
+        }
+      ]
+    },
+    "whois-lookup": {
+      "title": "WHOIS Sorgusu",
+      "description": "Alan adı bilgilerini alın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir WHOIS sorgusu hangi bilgileri gösterir?",
+          "a": "WHOIS sorgusu; kayıt şirketi, oluşturma tarihi, son kullanma tarihi, ad sunucuları ve kayıt sahibi iletişim bilgileri (gizlilik koruması yoksa) dahil alan adı kayıt detaylarını gösterir."
+        },
+        {
+          "q": "Bir alan adının kime ait olduğunu öğrenebilir miyim?",
+          "a": "Alan adında WHOIS gizlilik koruması yoksa, Toollo'nun sorgusu kayıt sahibinin adını ve iletişim bilgilerini gösterir. Birçok alan adı gizlilik hizmetleri kullandığından, bu durumda vekil iletişim bilgileri görüntülenir."
+        },
+        {
+          "q": "Toollo'nun WHOIS sorgusu ücretsiz ve sınırsız mı?",
+          "a": "Evet, Toollo'nun WHOIS sorgusu ücretsizdir ve hesap gerektirmez. Herhangi bir alan adının kayıt bilgilerini sınırsız olarak sorgulayabilirsiniz."
+        }
+      ]
+    },
+    "ssl-checker": {
+      "title": "SSL Sertifika Denetleyici",
+      "description": "SSL detaylarını kontrol edin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir web sitesinin SSL sertifikasının geçerli olup olmadığını nasıl kontrol edebilirim?",
+          "a": "Alan adını Toollo'nun SSL denetleyicisine girin, sertifika durumunu, yayıncıyı, son kullanma tarihini ve olası sorunları görüntüler. Ücretsizdir ve kayıt gerektirmez."
+        },
+        {
+          "q": "Denetleyici hangi SSL sertifika detaylarını gösteriyor?",
+          "a": "Toollo; sertifika yayıncısı, geçerlilik tarihleri, konu adı, SAN'lar (Konu Alternatif Adları), protokol sürümü ve şifre paketini görüntüler. Sertifikanın süresi dolmuşsa veya yanlış yapılandırılmışsa uyarı verir."
+        },
+        {
+          "q": "Herhangi bir alan adı için SSL sertifikasını kontrol edebilir miyim?",
+          "a": "Evet, herkese açık herhangi bir alan adının SSL sertifikasını kontrol edebilirsiniz. Toollo, sertifika bilgilerini gerçek zamanlı olarak alır ve okunması kolay bir biçimde sunar."
+        }
+      ]
+    },
+    "http-headers": {
+      "title": "HTTP Başlık Denetleyici",
+      "description": "HTTP başlıklarını inceleyin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir web sitesinin HTTP yanıt başlıklarını nasıl kontrol edebilirim?",
+          "a": "Toollo'nun HTTP başlık denetleyicisine herhangi bir URL girin, durum kodu, içerik türü, önbellek kontrolü ve güvenlik başlıkları dahil sunucu tarafından döndürülen tüm yanıt başlıklarını görüntüler."
+        },
+        {
+          "q": "Neden HTTP başlıklarını kontrol etmeliyim?",
+          "a": "HTTP başlıkları; sunucu yapılandırması, önbellekleme politikaları, güvenlik ayarları (CSP ve HSTS gibi), yönlendirmeler ve içerik kodlama hakkında önemli ayrıntıları ortaya koyar. Hata ayıklama ve güvenlik denetimleri için vazgeçilmezdir."
+        },
+        {
+          "q": "HTTP başlık aracı ücretsiz mi?",
+          "a": "Evet, Toollo'nun HTTP başlık denetleyicisi tamamen ücretsizdir ve kayıt gerektirmez. Herkese açık herhangi bir URL'nin başlıklarını sınırsız olarak inceleyebilirsiniz."
+        }
+      ]
+    },
+    "ip-lookup": {
+      "title": "IP Sorgusu — Coğrafi Konum",
+      "description": "IP coğrafi konum alın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir IP adresinin konumunu nasıl bulabilirim?",
+          "a": "Toollo'nun IP sorgu aracına herhangi bir IPv4 veya IPv6 adresi girin, ülke, bölge, şehir, ISS ve kuruluş bilgileri dahil yaklaşık coğrafi konumu görüntüler."
+        },
+        {
+          "q": "IP coğrafi konumu ne kadar doğrudur?",
+          "a": "IP coğrafi konumu genellikle çoğu adres için şehir düzeyinde doğrudur. Ülke düzeyinde doğruluk %99'un üzerindeyken, şehir düzeyinde doğruluk IP aralığına ve sağlayıcıya bağlı olarak %50-80 arasında değişir."
+        },
+        {
+          "q": "Kendi IP adresimi sorgulayabilir miyim?",
+          "a": "Evet, aracı açtığınızda Toollo mevcut genel IP adresinizi otomatik olarak algılar ve görüntüler. Ardından başka herhangi bir IP adresini ücretsiz ve sınırsız olarak sorgulayabilirsiniz."
+        }
+      ]
+    },
+    "domain-age": {
+      "title": "Alan Adı Yaş Denetleyici",
+      "description": "Kayıt tarihini kontrol edin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir alan adının ne kadar eski olduğunu nasıl kontrol edebilirim?",
+          "a": "Toollo'nun alan adı yaş denetleyicisine herhangi bir alan adı girin, alan adının ilk ne zaman kaydedildiğini, yıl, ay ve gün olarak yaşını ve son kullanma tarihini gösterir."
+        },
+        {
+          "q": "Alan adı yaşı neden önemlidir?",
+          "a": "Alan adı yaşı SEO ve güvenilirlik değerlendirmesinde bir faktördür. Eski alan adları arama sonuçlarında daha iyi sıralanma eğilimindedir ve alan adı yaşını kontrol etmek bir web sitesinin güvenilirliğini değerlendirmenize yardımcı olabilir."
+        },
+        {
+          "q": "Alan adı yaş denetleyicisi ücretsiz mi?",
+          "a": "Evet, Toollo'nun alan adı yaş denetleyicisi tamamen ücretsizdir ve kayıt gerektirmez. Herhangi bir alan adının yaşını sınırsız olarak kontrol edebilirsiniz."
+        }
+      ]
+    },
+    "open-graph-preview": {
+      "title": "Open Graph Önizleme",
+      "description": "OG etiketlerini önizleyin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bağlantımın sosyal medyada nasıl görüneceğini nasıl önizleyebilirim?",
+          "a": "URL'nizi Toollo'nun Open Graph önizleme aracına girin, OG meta etiketlerini getirir ve bağlantınızın Facebook, Twitter, LinkedIn ve diğer platformlarda paylaşıldığında tam olarak nasıl görüneceğini gösterir."
+        },
+        {
+          "q": "Araç hangi Open Graph etiketlerini kontrol ediyor?",
+          "a": "Toollo; og:title, og:description, og:image, og:url, og:type ve Twitter Card etiketlerini kontrol eder. Paylaşmadan önce düzeltebilmeniz için eksik veya yanlış yapılandırılmış etiketleri işaretler."
+        },
+        {
+          "q": "Open Graph önizleme aracı ücretsiz mi?",
+          "a": "Evet, tamamen ücretsizdir ve kayıt gerektirmez. Herkese açık herhangi bir URL için OG etiketlerini önizleyebilir ve bağlantılarınızın sosyal akışlarda nasıl görüneceği hakkında anında geri bildirim alabilirsiniz."
+        }
+      ]
+    },
+    "website-screenshot": {
+      "title": "Web Sitesi Ekran Görüntüsü",
+      "description": "Siteleri yakalayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir web sitesinin ekran görüntüsünü nasıl alabilirim?",
+          "a": "Web sitesi URL'sini Toollo'nun ekran görüntüsü aracına girin, tam sayfa ekran görüntüsü yakalar. Ardından görseli sunumlar, belgeler veya arşivleme için PNG formatında indirebilirsiniz."
+        },
+        {
+          "q": "Tam sayfa ekran görüntüleri alabilir miyim?",
+          "a": "Evet, Toollo yalnızca görünür alan değil, bir web sitesinin tüm kaydırılabilir içeriğini kapsayan tam sayfa ekran görüntüleri yakalayabilir. Ayrıca belirli bir görüntü alanı genişliği de ayarlayabilirsiniz."
+        },
+        {
+          "q": "Web sitesi ekran görüntüsü aracı ücretsiz mi?",
+          "a": "Evet, Toollo'nun web sitesi ekran görüntüsü aracı kayıt veya filigran olmadan ücretsizdir. Herkese açık herhangi bir web sitesinin ekran görüntüsünü alabilirsiniz."
+        }
+      ]
+    },
+    "port-checker": {
+      "title": "Port Denetleyici",
+      "description": "Açık portları kontrol edin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir sunucudaki portun açık olup olmadığını nasıl kontrol edebilirim?",
+          "a": "Ana bilgisayar adını veya IP adresini ve port numarasını Toollo'nun port denetleyicisine girin. Portu tarar ve saniyeler içinde açık, kapalı veya filtrelenmiş olduğunu bildirir."
+        },
+        {
+          "q": "Hangi portları kontrol edebilirim?",
+          "a": "1'den 65535'e kadar herhangi bir TCP portunu kontrol edebilirsiniz. Yaygın kontrol edilen portlar: 80 (HTTP), 443 (HTTPS), 22 (SSH), 3306 (MySQL) ve 5432 (PostgreSQL)."
+        },
+        {
+          "q": "Port denetleyici aracı ücretsiz mi?",
+          "a": "Evet, Toollo'nun port denetleyicisi tamamen ücretsiz ve sınırsızdır. Kayıt olmadan herkese açık herhangi bir sunucuda istediğiniz sayıda portu kontrol edebilirsiniz."
+        }
+      ]
+    },
+    "sitemap-generator": {
+      "title": "XML Sitemap Üreteci",
+      "description": "XML sitemap üretin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Web sitem için XML sitemap'i nasıl oluştururum?",
+          "a": "Web sitenizin URL'sini Toollo'nun sitemap üretecine girin, sitenizi tarar ve arama motorlarına gönderebileceğiniz düzgün biçimlendirilmiş bir XML sitemap oluşturur."
+        },
+        {
+          "q": "SEO için neden sitemap'e ihtiyacım var?",
+          "a": "XML sitemap, Google gibi arama motorlarının sitenizdeki tüm sayfaları keşfetmesine ve dizine eklemesine yardımcı olur. Özellikle yeni siteler, büyük siteler veya dahili bağlantısı zayıf sayfaları olan siteler için önemlidir."
+        },
+        {
+          "q": "Sitemap üreteci ücretsiz mi?",
+          "a": "Evet, Toollo'nun sitemap üreteci tamamen ücretsizdir ve kayıt gerektirmez. Herhangi bir web sitesi için sitemap oluşturabilir ve standart XML formatında anında indirebilirsiniz."
+        }
+      ]
+    },
+    "mortgage-calculator": {
+      "title": "Mortgage Hesaplayıcı",
+      "description": "Aylık ödemeleri hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Aylık mortgage ödememi nasıl hesaplayabilirim?",
+          "a": "Kredi tutarını, faiz oranını ve kredi süresini Toollo'nun mortgage hesaplayıcısına girin. Aylık ödemenizi, toplam faizi ve tam bir amortisman tablosunu anında gösterir."
+        },
+        {
+          "q": "Mortgage hesaplayıcı amortisman tablosu gösteriyor mu?",
+          "a": "Evet, Toollo her ödemenin ne kadarının anaparaya ve ne kadarının faize gittiğini gösteren ayrıntılı aylık amortisman tablosu ve zaman içindeki kalan bakiyenizi sunar."
+        },
+        {
+          "q": "Mortgage hesaplayıcı doğru mu?",
+          "a": "Evet, bankalar ve kredi kuruluşları tarafından kullanılan standart amortisman formülünü kullanır. Tüm hesaplamalar tarayıcınızda anında gerçekleşir ve araç tamamen ücretsizdir, kayıt gerektirmez."
+        }
+      ]
+    },
+    "bmi-calculator": {
+      "title": "VKİ Hesaplayıcı",
+      "description": "Vücut kitle indeksini hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "VKİ'mi nasıl hesaplayabilirim?",
+          "a": "Boyunuzu ve kilonuzu Toollo'nun VKİ hesaplayıcısına girin, VKİ kategorinizle (zayıf, normal, fazla kilolu veya obez) birlikte Vücut Kitle İndeksinizi anında hesaplar."
+        },
+        {
+          "q": "VKİ hesaplayıcı hem metrik hem de İngiliz birimlerini destekliyor mu?",
+          "a": "Evet, boyunuzu ve kilonuzu metrik (cm/kg) veya İngiliz (feet-inç/pound) birimlerinde girebilirsiniz. Toollo dönüşümü otomatik olarak yapar."
+        },
+        {
+          "q": "VKİ güvenilir bir sağlık göstergesi midir?",
+          "a": "VKİ yararlı bir tarama aracıdır ancak vücut yağını doğrudan ölçmez. Sporcular, yaşlılar veya hamile bireyler için doğru olmayabilir. Kapsamlı bir değerlendirme için her zaman bir sağlık uzmanına danışın."
+        }
+      ]
+    },
+    "compound-interest": {
+      "title": "Bileşik Faiz Hesaplayıcı",
+      "description": "Bileşik faizi hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bileşik faizi nasıl hesaplayabilirim?",
+          "a": "Anapara tutarınızı, faiz oranını, bileşik faiz sıklığını ve süreyi Toollo'nun hesaplayıcısına girin. Toplam tutarınızı, toplam kazanılan faizi ve yıllık büyüme grafiğini gösterir."
+        },
+        {
+          "q": "Hesaplamaya aylık katkıları dahil edebilir miyim?",
+          "a": "Evet, Toollo'nun bileşik faiz hesaplayıcısı, düzenli yatırımın servet büyümenizi zaman içinde nasıl hızlandırdığını görmek için düzenli aylık veya yıllık katkılar eklemenize olanak tanır."
+        },
+        {
+          "q": "Bileşik faiz hesaplayıcı ücretsiz mi?",
+          "a": "Evet, tamamen ücretsizdir ve kayıt gerektirmez. Tüm hesaplamalar tarayıcınızda anında çalışır ve farklı yatırım senaryolarını karşılaştırmak için girdileri ayarlayabilirsiniz."
+        }
+      ]
+    },
+    "percentage-calculator": {
+      "title": "Yüzde Hesaplayıcı",
+      "description": "Yüzdeleri hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir sayının yüzdesini nasıl hesaplayabilirim?",
+          "a": "Sayıyı ve yüzdeyi Toollo'nun hesaplayıcısına girin ve anında sonucu alın. Birden fazla modu destekler: bir sayının yüzdesi, yüzde değişimi ve bir sayının diğerinin yüzde kaçı olduğu."
+        },
+        {
+          "q": "Yüzde artışını veya azalışını hesaplayabilir miyim?",
+          "a": "Evet, Toollo'nun yüzde hesaplayıcısı iki değer arasındaki yüzde değişimini hesaplamak için özel bir mod içerir, hem mutlak farkı hem de yüzde artışını veya azalışını gösterir."
+        },
+        {
+          "q": "Yüzde hesaplayıcı ücretsiz mi?",
+          "a": "Evet, Toollo'nun yüzde hesaplayıcısı reklamsız, kayıtsız ve sınırsız kullanımla %100 ücretsizdir. Tüm hesaplamalar tarayıcınızda anında gerçekleşir."
+        }
+      ]
+    },
+    "age-calculator": {
+      "title": "Yaş Hesaplayıcı",
+      "description": "Yaşı hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Tam yaşımı nasıl hesaplayabilirim?",
+          "a": "Doğum tarihinizi Toollo'nun yaş hesaplayıcısına girin, toplam gün, saat ve dakika cinsinden yaşınız gibi eğlenceli bilgilerle birlikte yıl, ay ve gün olarak tam yaşınızı görüntüler."
+        },
+        {
+          "q": "İki tarih arasındaki yaş farkını hesaplayabilir miyim?",
+          "a": "Evet, Toollo herhangi iki tarih girerek aralarındaki tam süreyi yıl, ay ve gün olarak hesaplamanıza olanak tanır. Bu yalnızca yaş değil, süreler hesaplamak için de kullanışlıdır."
+        },
+        {
+          "q": "Yaş hesaplayıcı artık yılları hesaba katıyor mu?",
+          "a": "Evet, Toollo'nun yaş hesaplayıcısı artık yılları ve değişen ay uzunluklarını doğru bir şekilde işleyerek size kesin bir sonuç verir. Tüm hesaplamalar tarayıcınızda ücretsiz olarak çalışır."
+        }
+      ]
+    },
+    "loan-emi": {
+      "title": "Kredi EMI Hesaplayıcı",
+      "description": "EMI ve amortisman hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Kredi EMI'mi nasıl hesaplayabilirim?",
+          "a": "Kredi tutarınızı, faiz oranını ve vadeyi Toollo'nun EMI hesaplayıcısına girin. Eşit Aylık Taksitinizi (EMI) toplam faiz ve toplam ödenecek tutarla birlikte anında hesaplar."
+        },
+        {
+          "q": "EMI hesaplayıcı ödeme dağılımı gösteriyor mu?",
+          "a": "Evet, Toollo her aylık ödemenin anapara ve faiz bileşenlerini gösteren ayrıntılı bir amortisman tablosu ve bakiyenizin zaman içinde nasıl azaldığını gösteren görsel bir grafik sunar."
+        },
+        {
+          "q": "Bunu araç kredisi, bireysel kredi ve konut kredisi için kullanabilir miyim?",
+          "a": "Evet, EMI formülü sabit faizli her türlü kredi için geçerlidir. Kredi tutarını, yıllık faiz oranını ve geri ödeme süresini girmeniz yeterlidir. Ücretsizdir ve kayıt gerektirmez."
+        }
+      ]
+    },
+    "time-zone-converter": {
+      "title": "Saat Dilimi Dönüştürücü",
+      "description": "Saatleri dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Saat dilimleri arasında saati nasıl dönüştürebilirim?",
+          "a": "Kaynak saat dilimini seçin, saati girin ve Toollo'nun dönüştürücüsünde hedef saat dilimini seçin. UTC farklarını ve yaz saati kurallarını hesaba katarak dönüştürülen saati anında gösterir."
+        },
+        {
+          "q": "Dönüştürücü yaz saati uygulamasını hesaba katıyor mu?",
+          "a": "Evet, Toollo'nun saat dilimi dönüştürücüsü yaz saati geçişlerini otomatik olarak hesaba katar. Yıl boyunca doğru dönüşümler için IANA saat dilimi veritabanını kullanır."
+        },
+        {
+          "q": "Kaç saat dilimi destekleniyor?",
+          "a": "Toollo, her IANA saat dilimini kapsayarak dünya çapındaki tüm önemli saat dilimlerini destekler. Araç ücretsizdir, tarayıcınızda çalışır ve kayıt gerektirmez."
+        }
+      ]
+    },
+    "date-difference": {
+      "title": "Tarih Farkı Hesaplayıcı",
+      "description": "Tarihler arası günleri hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "İki tarih arasındaki gün sayısını nasıl hesaplayabilirim?",
+          "a": "Başlangıç ve bitiş tarihlerini Toollo'nun tarih farkı hesaplayıcısına girin, farkı gün, hafta, ay ve yıl olarak anında görüntüler."
+        },
+        {
+          "q": "Hesaplamada hafta sonlarını dahil edebilir veya hariç tutabilir miyim?",
+          "a": "Evet, Toollo hem toplam takvim günlerini hem de iş günlerini (hafta sonları hariç) gösterir. Bu, proje planlaması ve son tarih hesaplamaları için kullanışlıdır."
+        },
+        {
+          "q": "Tarih farkı hesaplayıcı ücretsiz mi?",
+          "a": "Evet, tamamen ücretsizdir ve kayıt gerektirmez. Tüm hesaplamalar tarayıcınızda çalışır ve herhangi iki tarih arasındaki farkı hesaplayabilirsiniz."
+        }
+      ]
+    },
+    "subnet-calculator": {
+      "title": "Alt Ağ Hesaplayıcı",
+      "description": "Alt ağ aralıklarını hesaplayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir IP adresi için alt ağları nasıl hesaplayabilirim?",
+          "a": "Toollo'nun alt ağ hesaplayıcısına bir IP adresi ve CIDR gösterimi veya alt ağ maskesi girin. Ağ adresini, yayın adresini, kullanılabilir ana bilgisayar aralığını ve toplam ana bilgisayar sayısını görüntüler."
+        },
+        {
+          "q": "Hesaplayıcı hem IPv4 hem de CIDR gösterimini destekliyor mu?",
+          "a": "Evet, alt ağları noktalı ondalık gösterim (ör. 255.255.255.0) veya CIDR önek uzunluğu (ör. /24) kullanarak girebilirsiniz. Toollo formatlar arasında otomatik dönüşüm yapar."
+        },
+        {
+          "q": "Alt ağ hesaplayıcı ücretsiz mi?",
+          "a": "Evet, Toollo'nun alt ağ hesaplayıcısı tamamen ücretsizdir ve tarayıcınızda çalışır. Ağ mühendisleri ve BT uzmanları için hızlı bir referans aracıdır — kayıt gerektirmez."
+        }
+      ]
+    },
+    "password-strength": {
+      "title": "Şifre Gücü Denetleyici",
+      "description": "Şifre gücünü kontrol edin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Şifre gücü denetleyici nasıl çalışır?",
+          "a": "Toollo, şifrenizin uzunluğunu, karakter çeşitliliğini, yaygın kalıpları ve sözlük kelimelerini analiz ederek zayıftan çok güçlüye kadar bir entropi puanı ve güç derecelendirmesi hesaplar."
+        },
+        {
+          "q": "Bir şifreyi güçlü yapan nedir?",
+          "a": "Güçlü bir şifre en az 12 karakter uzunluğundadır, büyük harf, küçük harf, rakam ve sembollerin karışımını kullanır ve sözlük kelimelerinden, yaygın kalıplardan veya kişisel bilgilerden kaçınır."
+        },
+        {
+          "q": "Şifremi çevrimiçi bir denetleyiciye yazmak güvenli mi?",
+          "a": "Evet, Toollo'da tamamen güvenlidir. Şifre gücü kontrolü %100 tarayıcınızda çalışır ve şifreniz hiçbir sunucuya gönderilmez, depolanmaz veya kaydedilmez."
+        }
+      ]
+    },
+    "qr-generator": {
+      "title": "QR Kod Üreteci",
+      "description": "QR kodlar üretin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Ücretsiz QR kodu nasıl oluşturabilirim?",
+          "a": "Toollo'nun QR kod üretecine herhangi bir metin, URL veya veri girin, taranabilir bir QR kodu anında oluşturulur. Yüksek çözünürlüklü PNG görsel olarak ücretsiz indirebilirsiniz."
+        },
+        {
+          "q": "QR kodunun boyutunu ve rengini özelleştirebilir miyim?",
+          "a": "Evet, Toollo QR kodunuzun boyutunu, ön plan rengini, arka plan rengini ve hata düzeltme seviyesini ayarlamanıza olanak tanır. Daha yüksek hata düzeltme, kısmen hasarlı olsa bile kodun taranabilir olmasını sağlar."
+        },
+        {
+          "q": "QR kod üreteci gizli mi?",
+          "a": "Evet, QR kodu tamamen tarayıcınızda oluşturulur. Verileriniz hiçbir sunucuya gönderilmez, bu da Wi-Fi şifreleri veya kişi bilgileri gibi hassas bilgileri kodlamayı güvenli kılar."
+        }
+      ]
+    },
+    "barcode-generator": {
+      "title": "Barkod Üreteci",
+      "description": "Barkodlar üretin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Çevrimiçi ücretsiz barkod nasıl oluşturabilirim?",
+          "a": "Verilerinizi Toollo'nun barkod üretecine girin, barkod formatını (Code 128, EAN-13, UPC-A vb.) seçin ve oluşturulan barkod görselini indirin. Ücretsizdir ve kayıt gerektirmez."
+        },
+        {
+          "q": "Hangi barkod formatları destekleniyor?",
+          "a": "Toollo; Code 128, Code 39, EAN-13, EAN-8, UPC-A, ITF-14 ve daha fazlası dahil tüm büyük barkod formatlarını destekler. Her format farklı endüstriler ve kullanım durumları için uygundur."
+        },
+        {
+          "q": "Barkodu yüksek çözünürlükte indirebilir miyim?",
+          "a": "Evet, oluşturulan barkodları yazdırmaya uygun yüksek çözünürlüklü PNG görseller olarak indirebilirsiniz. Tüm üretim, sunucu yüklemesi gerektirmeden tarayıcınızda gerçekleşir."
+        }
+      ]
+    },
+    "favicon-generator": {
+      "title": "Favicon Üreteci",
+      "description": "Favicon oluşturun. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Web sitem için favicon'u nasıl oluşturabilirim?",
+          "a": "Toollo'nun favicon üretecine bir görsel yükleyin veya metin girin, web sitenizde kullanıma hazır doğru boyutlarda favicon dosyaları (16x16, 32x32 ve 180x180) oluşturur."
+        },
+        {
+          "q": "Favicon üreteci hangi formatlarda çıktı veriyor?",
+          "a": "Toollo, tüm standart boyutlarda ICO ve PNG formatlarında favicon'lar oluşturur. Ayrıca web sitenizin head bölümüne eklemeniz gereken HTML kod parçacıklarını da sağlar."
+        },
+        {
+          "q": "Yüklediğim görsel gizli tutuluyor mu?",
+          "a": "Evet, tüm favicon oluşturma işlemi tarayıcınızda gerçekleşir. Görselleriniz hiçbir sunucuya yüklenmez ve oluşturulan favicon'lar cihazınızda yerel olarak oluşturulur."
+        }
+      ]
+    },
+    "css-gradient": {
+      "title": "CSS Gradyan Üreteci",
+      "description": "CSS gradyanlar oluşturun. Ücretsiz.",
+      "faq": [
+        {
+          "q": "CSS gradyanı nasıl oluşturabilirim?",
+          "a": "Toollo'nun görsel gradyan düzenleyicisini kullanarak renkleri seçin, durakları ayarlayın ve yönü belirleyin. Araç, doğrudan stil dosyanıza kopyalayabileceğiniz CSS kodunu gerçek zamanlı olarak oluşturur."
+        },
+        {
+          "q": "Üreteci radyal ve konik gradyanları destekliyor mu?",
+          "a": "Evet, Toollo doğrusal, radyal ve konik gradyan türlerini destekler. Birden fazla renk durağı ekleyebilir, açıları ayarlayabilir ve CSS kodunu kopyalamadan önce gradyanı canlı olarak önizleyebilirsiniz."
+        },
+        {
+          "q": "CSS gradyan kodunu tek tıklamayla kopyalayabilir miyim?",
+          "a": "Evet, tarayıcılar arası önekler dahil oluşturulan CSS gradyan kodunu anında kopyalamak için kopyala düğmesine tıklayın. Araç tamamen tarayıcınızda çalışır ve kayıt gerektirmez."
+        }
+      ]
+    },
+    "color-palette": {
+      "title": "Renk Paleti Çıkarıcı",
+      "description": "Renk paletleri çıkarın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Bir görselden renkleri nasıl çıkarabilirim?",
+          "a": "Toollo'nun renk paleti çıkarıcısına bir görsel bırakın, baskın renkleri otomatik olarak tanımlar ve kopyalayabileceğiniz HEX, RGB ve HSL değerleriyle bir palet oluşturur."
+        },
+        {
+          "q": "Çıkarıcı kaç renk buluyor?",
+          "a": "Toollo, görselinizden varsayılan olarak 5 ile 10 arasında baskın renk çıkarır. Tasarım ihtiyaçlarınıza göre çıkarılacak renk sayısını ayarlayabilirsiniz."
+        },
+        {
+          "q": "Görselim bir sunucuya yükleniyor mu?",
+          "a": "Hayır, tüm renk çıkarma işlemi canvas analizi kullanılarak tarayıcınızda gerçekleşir. Görseliniz cihazınızdan asla ayrılmaz, bu da herhangi bir fotoğraf veya tasarım dosyasıyla güvenle kullanılmasını sağlar."
+        }
+      ]
+    },
+    "placeholder-image": {
+      "title": "Yer Tutucu Görsel Üreteci",
+      "description": "Yer tutucu görseller üretin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Maketlerim için yer tutucu görselleri nasıl oluşturabilirim?",
+          "a": "İstediğiniz genişlik, yükseklik, arka plan rengi ve isteğe bağlı metni Toollo'nun üretecine girin. Anında indirebileceğiniz veya URL'sini tasarımlarınızda kullanabileceğiniz bir yer tutucu görsel oluşturur."
+        },
+        {
+          "q": "Yer tutucu görselin görünümünü özelleştirebilir miyim?",
+          "a": "Evet, özel boyutlar, arka plan rengi, metin rengi ve görüntü metni ayarlayabilirsiniz. Toollo, tel çerçeveler, maketler ve geliştirme için mükemmel temiz yer tutucu görseller oluşturur."
+        },
+        {
+          "q": "Yer tutucu görsel üreteci ücretsiz mi?",
+          "a": "Evet, tamamen ücretsiz ve sınırsızdır. İhtiyacınız kadar yer tutucu görsel oluşturun. Tüm görseller sunucu gerektirmeden tarayıcınızda oluşturulur."
+        }
+      ]
+    },
+    "uuid-generator": {
+      "title": "UUID Üreteci",
+      "description": "UUID üretin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Çevrimiçi UUID nasıl oluşturabilirim?",
+          "a": "Toollo'nun UUID üretecindeki oluştur düğmesine tıklayarak anında yeni bir UUID v4 oluşturun. Bir seferde bir veya birden fazla UUID oluşturabilir ve panoya kopyalayabilirsiniz."
+        },
+        {
+          "q": "Hangi UUID sürümleri destekleniyor?",
+          "a": "Toollo, en yaygın kullanılan sürüm olan standart UUID v4 (rastgele) tanımlayıcılar oluşturur. Her UUID kriptografik olarak rastgeledir ve benzersiz olması neredeyse garanti edilir."
+        },
+        {
+          "q": "Oluşturulan UUID'ler gerçekten rastgele ve benzersiz mi?",
+          "a": "Evet, Toollo kriptografik olarak güvenli rastgele UUID'ler oluşturmak için tarayıcının crypto API'sini kullanır. Kopya oluşturma olasılığı astronomik olarak düşüktür. Tüm üretim tarayıcınızda yerel olarak gerçekleşir."
+        }
+      ]
+    },
+    "text-case-converter": {
+      "title": "Metin Durumu Dönüştürücü",
+      "description": "Metin durumunu dönüştürün. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Metni büyük harf, küçük harf veya başlık durumuna nasıl dönüştürebilirim?",
+          "a": "Metninizi Toollo'nun metin durumu dönüştürücüsüne yapıştırın ve istediğiniz format düğmesine tıklayın. Büyük harf, küçük harf, başlık durumu, cümle durumu, camelCase, snake_case ve daha fazlasını destekler."
+        },
+        {
+          "q": "Hangi metin formatları mevcut?",
+          "a": "Toollo; büyük harf, küçük harf, başlık durumu, cümle durumu, camelCase, PascalCase, snake_case, kebab-case ve CONSTANT_CASE'i destekler. Bu, hem yazı hem de programlama için kullanışlı kılar."
+        },
+        {
+          "q": "Metin durumu dönüştürücü gizli mi?",
+          "a": "Evet, tüm metin dönüşümü tarayıcınızda çalışır. Metniniz hiçbir sunucuya gönderilmez, bu da gizli veya tescilli metinler dahil her türlü içeriği güvenle dönüştürmenizi sağlar."
+        }
+      ]
+    },
+    "word-counter": {
+      "title": "Kelime Sayacı Çevrimiçi",
+      "description": "Kelime ve karakter sayın. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Metnimdeki kelimeleri nasıl sayabilirim?",
+          "a": "Metninizi Toollo'nun kelime sayacına yapıştırın veya yazın, kelime sayısı, karakter sayısı (boşluklu ve boşluksuz), cümle sayısı, paragraf sayısı ve tahmini okuma süresini anında görüntüler."
+        },
+        {
+          "q": "Kelime sayacı okuma süresini gösteriyor mu?",
+          "a": "Evet, Toollo dakikada 200-250 kelime ortalama okuma hızına dayalı tahmini bir okuma süresi hesaplar. Ayrıca sunumlar için konuşma süresini de gösterir."
+        },
+        {
+          "q": "Metnim gizli tutuluyor mu?",
+          "a": "Evet, tüm sayma işlemi tarayıcınızda gerçekleşir. Metniniz hiçbir sunucuya yüklenmez veya depolanmaz, bu da onu denemeler, makaleler veya gizli içerikler için güvenli kılar."
+        }
+      ]
+    },
+    "markdown-preview": {
+      "title": "Markdown Önizleme",
+      "description": "Markdown önizleyin. Ücretsiz.",
+      "faq": [
+        {
+          "q": "Markdown'u çevrimiçi nasıl önizleyebilirim?",
+          "a": "Markdown'unuzu Toollo'nun düzenleyicisine yazın veya yapıştırın ve sağ panelde gerçek zamanlı olarak işlenmiş halini görün. Tablolar, kod blokları ve görev listeleri dahil tam GitHub Flavored Markdown'u destekler."
+        },
+        {
+          "q": "Markdown önizleme GitHub Flavored Markdown'u destekliyor mu?",
+          "a": "Evet, Toollo; tablolar, üstü çizili metin, görev listeleri, sözdizimi vurgulama ile çitli kod blokları ve otomatik bağlantılı URL'ler dahil GFM sözdizimini destekler."
+        },
+        {
+          "q": "Markdown içeriğim gizli mi?",
+          "a": "Evet, tüm işleme tarayıcınızda gerçekleşir. Markdown metniniz hiçbir sunucuya gönderilmez, böylece README dosyalarını, belgeleri veya herhangi bir özel içeriği güvenle önizleyebilirsiniz."
+        }
+      ]
+    }
   }
 }

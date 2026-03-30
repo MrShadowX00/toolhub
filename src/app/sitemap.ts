@@ -16,6 +16,7 @@ function getAlternates(path: string): Record<string, string> {
   for (const locale of locales) {
     alternates[locale] = getLocalePath(locale, path);
   }
+  alternates["x-default"] = getLocalePath("en" as Locale, path);
   return alternates;
 }
 

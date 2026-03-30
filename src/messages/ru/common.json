@@ -22,5 +22,6 @@
   "language": "Язык",
   "openSearch": "Открыть поиск",
   "closeSearch": "Закрыть поиск",
-  "toggleMenu": "Переключить меню"
+  "toggleMenu": "Переключить меню",
+  "relatedTools": "Похожие инструменты"
 }
