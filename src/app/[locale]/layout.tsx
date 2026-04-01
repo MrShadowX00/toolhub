@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -72,13 +73,14 @@ export default async function LocaleLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#030712" />
         <meta name="msapplication-TileColor" content="#030712" />
-        <script
+      </head>
+      <body className="flex min-h-full flex-col bg-gray-950 font-sans text-gray-100">
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7668896830420502"
           crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
-      </head>
-      <body className="flex min-h-full flex-col bg-gray-950 font-sans text-gray-100">
         <NextIntlClientProvider messages={messages}>
           <JsonLd data={getOrganizationJsonLd()} />
           <JsonLd data={getWebsiteJsonLd()} />
