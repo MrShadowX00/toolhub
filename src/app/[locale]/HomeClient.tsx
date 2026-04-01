@@ -77,20 +77,19 @@ export default function HomeClient() {
             {tc("resultsCount", { count: filteredTools.length, query: search })}
           </h2>
           {filteredTools.length > 0 ? (
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" role="list">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredTools.map((tool) => (
-                <li key={tool.id}>
-                  <ToolCard
-                    toolId={tool.id}
-                    icon={tool.icon}
-                    href={tool.href}
-                    category={tool.category}
-                    isNew={tool.isNew}
-                    isPopular={tool.isPopular}
-                  />
-                </li>
+                <ToolCard
+                  key={tool.id}
+                  toolId={tool.id}
+                  icon={tool.icon}
+                  href={tool.href}
+                  category={tool.category}
+                  isNew={tool.isNew}
+                  isPopular={tool.isPopular}
+                />
               ))}
-            </ul>
+            </div>
           ) : (
             <p className="text-gray-500">{tc("noResults")}</p>
           )}
@@ -115,20 +114,19 @@ export default function HomeClient() {
                       {categoryTools.length}
                     </span>
                   </h2>
-                  <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" role="list">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {categoryTools.map((tool) => (
-                      <li key={tool.id}>
-                        <ToolCard
-                          toolId={tool.id}
-                          icon={tool.icon}
-                          href={tool.href}
-                          category={tool.category}
-                          isNew={tool.isNew}
-                          isPopular={tool.isPopular}
-                        />
-                      </li>
+                      <ToolCard
+                        key={tool.id}
+                        toolId={tool.id}
+                        icon={tool.icon}
+                        href={tool.href}
+                        category={tool.category}
+                        isNew={tool.isNew}
+                        isPopular={tool.isPopular}
+                      />
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
                 {/* Ad between categories (after 2nd and 4th) */}
