@@ -34,7 +34,7 @@ export async function generateMetadata({
   const title = messages.home?.title || "Toollo — Free Online Tools";
   const description =
     messages.home?.description ||
-    "50+ free online tools. No signup. No tracking. Image compressor, JSON formatter, QR generator, and more — everything runs in your browser.";
+    "70+ free online tools. No signup. No tracking. Image compressor, JSON formatter, QR generator, and more — everything runs in your browser.";
 
   return generateHomeMetadata(title, description, locale);
 }

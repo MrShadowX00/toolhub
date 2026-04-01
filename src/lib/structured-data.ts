@@ -8,7 +8,7 @@ export function getOrganizationJsonLd() {
     url: baseUrl,
     logo: `${baseUrl}/icon.png`,
     description:
-      "Free online tools — image compressor, JSON formatter, QR generator, and 50+ more. No signup, no tracking.",
+      "Free online tools — image compressor, JSON formatter, QR generator, and 70+ more. No signup, no tracking.",
     sameAs: [],
   };
 }
@@ -20,7 +20,7 @@ export function getWebsiteJsonLd() {
     name: "Toollo",
     url: baseUrl,
     description:
-      "50+ free online tools. No signup. No tracking. Everything runs in your browser.",
+      "70+ free online tools. No signup. No tracking. Everything runs in your browser.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -109,7 +109,7 @@ export function getCollectionPageJsonLd(
     "@type": "CollectionPage",
     name: "Toollo — Free Online Tools",
     description:
-      "50+ free online tools. No signup. No tracking. Everything runs in your browser.",
+      "70+ free online tools. No signup. No tracking. Everything runs in your browser.",
     url: baseUrl,
     mainEntity: {
       "@type": "ItemList",
