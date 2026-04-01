@@ -4,7 +4,8 @@
     "Developer Tools": "أدوات المطورين",
     "Network Tools": "أدوات الشبكة",
     "Calculators": "الآلات الحاسبة",
-    "Generators": "المولدات"
+    "Generators": "المولدات",
+    "AI Tools": "أدوات AI"
   },
   "image-compressor": { "name": "ضاغط الصور", "description": "ضغط الصور بدون فقدان الجودة" },
   "image-converter": { "name": "محول الصور", "description": "تحويل بين PNG وJPG وWebP وAVIF" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "مولد UUID", "description": "توليد UUID وسلاسل عشوائية" },
   "text-case-converter": { "name": "محول حالة النص", "description": "تحويل النص بين الحالات" },
   "word-counter": { "name": "عداد الكلمات", "description": "عد الكلمات والأحرف ووقت القراءة" },
-  "markdown-preview": { "name": "معاينة Markdown", "description": "معاينة Markdown مع عرض مباشر" }
+  "markdown-preview": { "name": "معاينة Markdown", "description": "معاينة Markdown مع عرض مباشر" },
+  "ai-humanizer": { "name": "مُؤنسِن نصوص AI", "description": "اجعل النص المولّد بـ AI يبدو طبيعياً وبشرياً" },
+  "ai-paraphraser": { "name": "مُعيد صياغة AI", "description": "أعد كتابة النص بكلمات وأسلوب مختلف" },
+  "ai-summarizer": { "name": "مُلخّص AI", "description": "لخّص النصوص الطويلة إلى نقاط رئيسية" },
+  "plagiarism-checker": { "name": "فاحص الانتحال", "description": "تحقق من النص بحثاً عن محتوى مكرر" },
+  "ai-grammar-checker": { "name": "مدقق قواعد AI", "description": "صحّح أخطاء القواعد والإملاء وعلامات الترقيم" },
+  "json-to-csv": { "name": "JSON إلى CSV", "description": "تحويل بيانات JSON إلى تنسيق CSV" },
+  "sql-formatter": { "name": "منسق SQL", "description": "تنسيق وتجميل استعلامات SQL" },
+  "html-to-markdown": { "name": "HTML إلى Markdown", "description": "تحويل HTML إلى تنسيق Markdown" },
+  "tailwind-playground": { "name": "ملعب Tailwind CSS", "description": "معاينة فئات Tailwind CSS في الوقت الفعلي" },
+  "robots-txt-generator": { "name": "مولد Robots.txt", "description": "إنشاء ملف robots.txt لـ SEO" },
+  "calorie-calculator": { "name": "حاسبة السعرات الحرارية", "description": "حساب احتياجات السعرات اليومية والمغذيات الكبرى" },
+  "tdee-calculator": { "name": "حاسبة TDEE", "description": "حساب إجمالي إنفاق الطاقة اليومي" },
+  "salary-calculator": { "name": "حاسبة الراتب", "description": "تحويل الراتب بين الساعة والشهر والسنة" },
+  "discount-calculator": { "name": "حاسبة الخصم", "description": "حساب سعر الخصم والتوفير" },
+  "invoice-generator": { "name": "مولد الفواتير", "description": "إنشاء فواتير احترافية بصيغة PDF" },
+  "privacy-policy-generator": { "name": "مولد سياسة الخصوصية", "description": "إنشاء سياسة خصوصية لموقعك" },
+  "lorem-ipsum-generator": { "name": "مولد Lorem Ipsum", "description": "إنشاء نص وهمي للتصاميم" },
+  "password-generator": { "name": "مولد كلمات المرور", "description": "إنشاء كلمات مرور عشوائية قوية" },
+  "color-picker": { "name": "منتقي الألوان", "description": "اختيار الألوان والتحويل بين التنسيقات" },
+  "pomodoro-timer": { "name": "مؤقت بومودورو", "description": "مؤقت تركيز مع فترات عمل واستراحة" }
 }

@@ -4,7 +4,8 @@
     "Developer Tools": "डेवलपर टूल",
     "Network Tools": "नेटवर्क टूल",
     "Calculators": "कैलकुलेटर",
-    "Generators": "जनरेटर"
+    "Generators": "जनरेटर",
+    "AI Tools": "AI टूल"
   },
   "image-compressor": { "name": "इमेज कंप्रेसर", "description": "गुणवत्ता खोए बिना इमेज कंप्रेस करें" },
   "image-converter": { "name": "इमेज कन्वर्टर", "description": "PNG, JPG, WebP, AVIF के बीच कन्वर्ट करें" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID जनरेटर", "description": "UUID और रैंडम स्ट्रिंग जनरेट करें" },
   "text-case-converter": { "name": "टेक्स्ट केस कन्वर्टर", "description": "टेक्स्ट को विभिन्न केस में कन्वर्ट करें" },
   "word-counter": { "name": "शब्द गणक", "description": "शब्द, अक्षर और पढ़ने का समय गिनें" },
-  "markdown-preview": { "name": "Markdown प्रीव्यू", "description": "लाइव रेंडरिंग के साथ Markdown प्रीव्यू करें" }
+  "markdown-preview": { "name": "Markdown प्रीव्यू", "description": "लाइव रेंडरिंग के साथ Markdown प्रीव्यू करें" },
+  "ai-humanizer": { "name": "AI टेक्स्ट ह्यूमनाइज़र", "description": "AI द्वारा बनाए गए टेक्स्ट को प्राकृतिक और मानवीय बनाएं" },
+  "ai-paraphraser": { "name": "AI पैराफ़्रेज़र", "description": "अलग शब्दों और शैली में टेक्स्ट दोबारा लिखें" },
+  "ai-summarizer": { "name": "AI सारांशकर्ता", "description": "लंबे टेक्स्ट को मुख्य बिंदुओं में सारांशित करें" },
+  "plagiarism-checker": { "name": "साहित्यिक चोरी जाँच", "description": "डुप्लिकेट कंटेंट के लिए टेक्स्ट जाँचें" },
+  "ai-grammar-checker": { "name": "AI व्याकरण जाँच", "description": "व्याकरण, वर्तनी और विराम चिह्न त्रुटियाँ ठीक करें" },
+  "json-to-csv": { "name": "JSON से CSV", "description": "JSON डेटा को CSV फ़ॉर्मेट में कन्वर्ट करें" },
+  "sql-formatter": { "name": "SQL फ़ॉर्मेटर", "description": "SQL क्वेरी फ़ॉर्मेट और सुंदर बनाएं" },
+  "html-to-markdown": { "name": "HTML से Markdown", "description": "HTML को Markdown फ़ॉर्मेट में कन्वर्ट करें" },
+  "tailwind-playground": { "name": "Tailwind CSS प्लेग्राउंड", "description": "Tailwind CSS क्लासेस को रियल टाइम में प्रीव्यू करें" },
+  "robots-txt-generator": { "name": "Robots.txt जनरेटर", "description": "SEO के लिए robots.txt फ़ाइल जनरेट करें" },
+  "calorie-calculator": { "name": "कैलोरी कैलकुलेटर", "description": "दैनिक कैलोरी आवश्यकता और मैक्रोज़ कैलकुलेट करें" },
+  "tdee-calculator": { "name": "TDEE कैलकुलेटर", "description": "कुल दैनिक ऊर्जा व्यय कैलकुलेट करें" },
+  "salary-calculator": { "name": "सैलरी कैलकुलेटर", "description": "सैलरी को प्रति घंटा, मासिक और वार्षिक के बीच कन्वर्ट करें" },
+  "discount-calculator": { "name": "डिस्काउंट कैलकुलेटर", "description": "छूट मूल्य और बचत कैलकुलेट करें" },
+  "invoice-generator": { "name": "इनवॉइस जनरेटर", "description": "PDF में पेशेवर इनवॉइस बनाएं" },
+  "privacy-policy-generator": { "name": "प्राइवेसी पॉलिसी जनरेटर", "description": "अपनी वेबसाइट के लिए प्राइवेसी पॉलिसी जनरेट करें" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsum जनरेटर", "description": "डिज़ाइन के लिए प्लेसहोल्डर टेक्स्ट जनरेट करें" },
+  "password-generator": { "name": "पासवर्ड जनरेटर", "description": "मज़बूत रैंडम पासवर्ड जनरेट करें" },
+  "color-picker": { "name": "कलर पिकर", "description": "रंग चुनें और फ़ॉर्मेट के बीच कन्वर्ट करें" },
+  "pomodoro-timer": { "name": "पोमोडोरो टाइमर", "description": "काम और ब्रेक इंटरवल के साथ फ़ोकस टाइमर" }
 }

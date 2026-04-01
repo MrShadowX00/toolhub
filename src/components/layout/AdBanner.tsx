@@ -17,7 +17,7 @@ declare global {
 }
 
 export default function AdBanner({
-  slot = "",
+  slot,
   format = "horizontal",
   className,
   responsive = true,
@@ -42,28 +42,6 @@ export default function AdBanner({
     "in-article": "min-h-[250px] w-full",
   };
 
-  const layoutMap = {
-    horizontal: "in-article",
-    rectangle: "in-article",
-    square: "in-article",
-    "in-article": "in-article",
-  };
-
-  if (!slot) {
-    return (
-      <div
-        className={clsx(
-          "flex items-center justify-center rounded-lg border border-dashed border-gray-800 bg-gray-900/50 text-xs text-gray-600",
-          sizeClasses[format],
-          className
-        )}
-        aria-hidden="true"
-      >
-        Ad Space
-      </div>
-    );
-  }
-
   return (
     <div className={clsx("ad-container overflow-hidden", className)} aria-hidden="true">
       <ins
@@ -71,8 +49,8 @@ export default function AdBanner({
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-7668896830420502"
-        data-ad-slot={slot}
-        data-ad-format={responsive ? "auto" : layoutMap[format]}
+        {...(slot ? { "data-ad-slot": slot } : {})}
+        data-ad-format={responsive ? "auto" : "rectangle"}
         data-full-width-responsive={responsive ? "true" : "false"}
       />
     </div>

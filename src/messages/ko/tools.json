@@ -4,7 +4,8 @@
     "Developer Tools": "개발자 도구",
     "Network Tools": "네트워크 도구",
     "Calculators": "계산기",
-    "Generators": "생성기"
+    "Generators": "생성기",
+    "AI Tools": "AI 도구"
   },
   "image-compressor": { "name": "이미지 압축기", "description": "품질 손실 없이 이미지 압축" },
   "image-converter": { "name": "이미지 변환기", "description": "PNG, JPG, WebP, AVIF 간 변환" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID 생성기", "description": "UUID 및 랜덤 문자열 생성" },
   "text-case-converter": { "name": "텍스트 대소문자 변환", "description": "텍스트 대소문자 간 변환" },
   "word-counter": { "name": "단어 수 세기", "description": "단어, 문자 수 및 읽기 시간 계산" },
-  "markdown-preview": { "name": "Markdown 미리보기", "description": "실시간 렌더링으로 Markdown 미리보기" }
+  "markdown-preview": { "name": "Markdown 미리보기", "description": "실시간 렌더링으로 Markdown 미리보기" },
+  "ai-humanizer": { "name": "AI 텍스트 휴머나이저", "description": "AI가 생성한 텍스트를 자연스럽고 인간적으로 만들기" },
+  "ai-paraphraser": { "name": "AI 바꿔 쓰기", "description": "다른 단어와 스타일로 텍스트 다시 쓰기" },
+  "ai-summarizer": { "name": "AI 요약기", "description": "긴 텍스트를 핵심 포인트로 요약" },
+  "plagiarism-checker": { "name": "표절 검사기", "description": "텍스트의 중복 콘텐츠 확인" },
+  "ai-grammar-checker": { "name": "AI 문법 검사기", "description": "문법, 맞춤법 및 구두점 오류 수정" },
+  "json-to-csv": { "name": "JSON→CSV 변환", "description": "JSON 데이터를 CSV 형식으로 변환" },
+  "sql-formatter": { "name": "SQL 포맷터", "description": "SQL 쿼리 포맷 및 정리" },
+  "html-to-markdown": { "name": "HTML→Markdown 변환", "description": "HTML을 Markdown 형식으로 변환" },
+  "tailwind-playground": { "name": "Tailwind CSS 플레이그라운드", "description": "Tailwind CSS 클래스를 실시간으로 미리보기" },
+  "robots-txt-generator": { "name": "Robots.txt 생성기", "description": "SEO용 robots.txt 파일 생성" },
+  "calorie-calculator": { "name": "칼로리 계산기", "description": "일일 칼로리 필요량과 매크로 계산" },
+  "tdee-calculator": { "name": "TDEE 계산기", "description": "일일 총 에너지 소비량 계산" },
+  "salary-calculator": { "name": "급여 계산기", "description": "시급, 월급, 연봉 간 변환" },
+  "discount-calculator": { "name": "할인 계산기", "description": "할인 가격과 절약 금액 계산" },
+  "invoice-generator": { "name": "청구서 생성기", "description": "전문적인 PDF 청구서 생성" },
+  "privacy-policy-generator": { "name": "개인정보 보호정책 생성기", "description": "웹사이트용 개인정보 보호정책 생성" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsum 생성기", "description": "디자인용 더미 텍스트 생성" },
+  "password-generator": { "name": "비밀번호 생성기", "description": "강력한 랜덤 비밀번호 생성" },
+  "color-picker": { "name": "색상 선택기", "description": "색상 선택 및 형식 간 변환" },
+  "pomodoro-timer": { "name": "포모도로 타이머", "description": "작업과 휴식 간격이 있는 집중 타이머" }
 }

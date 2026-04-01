@@ -4,7 +4,8 @@
     "Developer Tools": "Dasturchilar uchun",
     "Network Tools": "Tarmoq vositalari",
     "Calculators": "Kalkulyatorlar",
-    "Generators": "Generatorlar"
+    "Generators": "Generatorlar",
+    "AI Tools": "AI Vositalar"
   },
   "image-compressor": { "name": "Rasmni siqish", "description": "Rasmlarni sifatini yo'qotmasdan siqing" },
   "image-converter": { "name": "Rasm konverteri", "description": "PNG, JPG, WebP, AVIF formatlar orasida konvertatsiya" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID generatori", "description": "UUID va tasodifiy qatorlar yarating" },
   "text-case-converter": { "name": "Matn registri", "description": "Matnni turli registrlar orasida aylantiring" },
   "word-counter": { "name": "So'z hisoblagich", "description": "So'zlar, belgilar va o'qish vaqtini hisoblang" },
-  "markdown-preview": { "name": "Markdown ko'rish", "description": "Markdown ni jonli rendering bilan ko'ring" }
+  "markdown-preview": { "name": "Markdown ko'rish", "description": "Markdown ni jonli rendering bilan ko'ring" },
+  "ai-humanizer": { "name": "AI Matn Gumanizatori", "description": "AI yaratgan matnni tabiiy va insoniy qiling" },
+  "ai-paraphraser": { "name": "AI Parafrazlovchi", "description": "Matnni boshqa so'zlar va uslubda qayta yozing" },
+  "ai-summarizer": { "name": "AI Xulosalovchi", "description": "Uzun matnni asosiy fikrlarga qisqartiring" },
+  "plagiarism-checker": { "name": "Plagiat tekshiruvchi", "description": "Matnni takroriy kontent uchun tekshiring" },
+  "ai-grammar-checker": { "name": "AI Grammatika tekshiruvchi", "description": "Grammatika, imlo va tinish belgilari xatolarini tuzating" },
+  "json-to-csv": { "name": "JSON dan CSV ga", "description": "JSON ma'lumotlarini CSV formatiga aylantiring" },
+  "sql-formatter": { "name": "SQL formatlash", "description": "SQL so'rovlarini formatlang va chiroylang" },
+  "html-to-markdown": { "name": "HTML dan Markdown ga", "description": "HTML ni Markdown formatiga aylantiring" },
+  "tailwind-playground": { "name": "Tailwind CSS Sinov maydoni", "description": "Tailwind CSS klasslarini real vaqtda ko'ring" },
+  "robots-txt-generator": { "name": "Robots.txt generatori", "description": "SEO uchun robots.txt faylini yarating" },
+  "calorie-calculator": { "name": "Kaloriya kalkulyatori", "description": "Kunlik kaloriya ehtiyoji va makronutrientlarni hisoblang" },
+  "tdee-calculator": { "name": "TDEE kalkulyatori", "description": "Kunlik umumiy energiya sarfini hisoblang" },
+  "salary-calculator": { "name": "Maosh kalkulyatori", "description": "Maoshni soatlik, oylik, yillik orasida aylantiring" },
+  "discount-calculator": { "name": "Chegirma kalkulyatori", "description": "Chegirma narxi va tejashni hisoblang" },
+  "invoice-generator": { "name": "Hisob-faktura generatori", "description": "PDF formatida professional hisob-fakturalar yarating" },
+  "privacy-policy-generator": { "name": "Maxfiylik siyosati generatori", "description": "Veb-saytingiz uchun maxfiylik siyosatini yarating" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsum generatori", "description": "Dizayn uchun to'ldiruvchi matn yarating" },
+  "password-generator": { "name": "Parol generatori", "description": "Kuchli tasodifiy parollar yarating" },
+  "color-picker": { "name": "Rang tanlash", "description": "Ranglarni tanlang va formatlar orasida aylantiring" },
+  "pomodoro-timer": { "name": "Pomodoro taymer", "description": "Ish va dam olish intervallari bilan fokus taymeri" }
 }

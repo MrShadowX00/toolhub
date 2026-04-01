@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Toollo — 50+ Free Online Tools | No Signup, 100% Private",
-    "description": "50+ free online tools that run entirely in your browser. Image compressor, background remover, JSON formatter, QR generator, PDF converter, and more. No signup, no file uploads, no tracking — your data never leaves your device."
+    "title": "Toollo — 70+ Free Online Tools | No Signup, 100% Private",
+    "description": "70+ free online tools that run entirely in your browser. Image compressor, background remover, JSON formatter, QR generator, PDF converter, and more. No signup, no file uploads, no tracking — your data never leaves your device."
   },
   "tools": {
     "image-compressor": {
@@ -901,6 +901,366 @@
         {
           "q": "Is my Markdown content private?",
           "a": "Yes, all rendering happens in your browser. Your Markdown text is never sent to any server, so you can safely preview README files, documentation, or any private content."
+        }
+      ]
+    },
+    "ai-humanizer": {
+      "title": "AI Text Humanizer — Make AI Text Sound Human Free",
+      "description": "Make AI-generated text sound natural and human-written. Free AI humanizer — no signup, runs entirely in your browser.",
+      "faq": [
+        {
+          "q": "Is the AI text humanizer free?",
+          "a": "Yes, Toollo's AI text humanizer is 100% free with no signup required. Paste your AI-generated text and get a natural-sounding version instantly."
+        },
+        {
+          "q": "How does the AI humanizer work?",
+          "a": "Toollo's AI humanizer rewrites AI-generated text to sound more natural and human-written by adjusting sentence structure, tone, and word choice. Everything runs in your browser for complete privacy."
+        },
+        {
+          "q": "Can I use the AI humanizer without signing up?",
+          "a": "Absolutely. Toollo requires no account, no signup, and no email. Just paste your text and humanize it instantly — your content is never stored or sent to any server."
+        }
+      ]
+    },
+    "ai-paraphraser": {
+      "title": "AI Paraphraser — Rewrite Text Online Free",
+      "description": "Rewrite and paraphrase text with AI. Free online paraphraser — no signup, browser-based, and private.",
+      "faq": [
+        {
+          "q": "Is the AI paraphraser free to use?",
+          "a": "Yes, Toollo's AI paraphraser is completely free. No signup or account needed — just paste your text and get a rewritten version instantly."
+        },
+        {
+          "q": "How does the AI paraphraser rewrite text?",
+          "a": "Toollo's paraphraser uses AI to restructure sentences, replace words with synonyms, and adjust tone while preserving the original meaning. It runs in your browser for full privacy."
+        },
+        {
+          "q": "Can I paraphrase text without creating an account?",
+          "a": "Yes, Toollo requires no account or signup. Paste your text, click paraphrase, and get your rewritten content. Your text is never uploaded or stored on any server."
+        }
+      ]
+    },
+    "ai-summarizer": {
+      "title": "AI Summarizer — Summarize Text Online Free",
+      "description": "Summarize long text into concise key points with AI. Free online summarizer — no signup, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is the AI summarizer free?",
+          "a": "Yes, Toollo's AI summarizer is 100% free with no limits. No signup required — paste your text and get a concise summary in seconds."
+        },
+        {
+          "q": "How does the AI text summarizer work?",
+          "a": "Toollo's summarizer uses AI to extract key points and condense long text into a shorter version. It preserves the main ideas while cutting unnecessary details. Everything runs in your browser."
+        },
+        {
+          "q": "Can I summarize articles without signing up?",
+          "a": "Yes, no signup or account is needed. Paste any article, essay, or document into Toollo's summarizer and get a concise summary instantly. Your text stays private and is never stored."
+        }
+      ]
+    },
+    "plagiarism-checker": {
+      "title": "Plagiarism Checker — Check Text Originality Free",
+      "description": "Check your text for plagiarism and originality. Free online plagiarism checker — no signup required.",
+      "faq": [
+        {
+          "q": "Is the plagiarism checker free?",
+          "a": "Yes, Toollo's plagiarism checker is completely free. No signup or subscription required — paste your text and check its originality instantly."
+        },
+        {
+          "q": "How does the plagiarism checker work?",
+          "a": "Toollo's plagiarism checker analyzes your text and compares it against sources to detect potential matches and unoriginal content. Results are displayed with highlighted sections and similarity scores."
+        },
+        {
+          "q": "Can I check for plagiarism without creating an account?",
+          "a": "Yes, Toollo requires no account or signup. Simply paste your text, click check, and get your plagiarism report. Your content is kept private and never stored."
+        }
+      ]
+    },
+    "ai-grammar-checker": {
+      "title": "AI Grammar Checker — Fix Grammar Online Free",
+      "description": "Fix grammar, spelling, and punctuation errors with AI. Free online grammar checker — no signup, browser-based.",
+      "faq": [
+        {
+          "q": "Is the AI grammar checker free?",
+          "a": "Yes, Toollo's AI grammar checker is 100% free with no signup required. Paste your text and get instant grammar corrections and suggestions."
+        },
+        {
+          "q": "How does the AI grammar checker fix errors?",
+          "a": "Toollo's grammar checker uses AI to detect and fix grammar mistakes, spelling errors, punctuation issues, and style improvements. It highlights errors and suggests corrections in real time."
+        },
+        {
+          "q": "Can I use the grammar checker without signing up?",
+          "a": "Absolutely. No account or signup needed. Paste your text into Toollo's grammar checker and get corrections instantly. Your text runs in your browser and is never stored on any server."
+        }
+      ]
+    },
+    "json-to-csv": {
+      "title": "JSON to CSV Converter — Convert JSON to CSV Online",
+      "description": "Convert JSON data to CSV format instantly. Free online converter — no signup, runs entirely in your browser.",
+      "faq": [
+        {
+          "q": "Is the JSON to CSV converter free?",
+          "a": "Yes, Toollo's JSON to CSV converter is completely free with no signup required. Paste your JSON and download the CSV file instantly."
+        },
+        {
+          "q": "How do I convert JSON to CSV online?",
+          "a": "Paste your JSON array or object into Toollo's converter and it will automatically generate a CSV table. You can preview the result and download it. All processing runs in your browser."
+        },
+        {
+          "q": "Can I convert JSON to CSV without uploading my data?",
+          "a": "Yes, Toollo's converter runs entirely in your browser. Your JSON data is never uploaded to any server, making it safe for sensitive or private datasets."
+        }
+      ]
+    },
+    "sql-formatter": {
+      "title": "SQL Formatter — Format SQL Queries Online Free",
+      "description": "Format and beautify SQL queries instantly. Free online SQL formatter — no signup, browser-based and private.",
+      "faq": [
+        {
+          "q": "Is the SQL formatter free to use?",
+          "a": "Yes, Toollo's SQL formatter is 100% free with no signup. Paste your SQL query and get a beautifully formatted result instantly."
+        },
+        {
+          "q": "How does the SQL formatter work?",
+          "a": "Toollo's SQL formatter parses your query and applies consistent indentation, capitalization, and line breaks to make it readable. It supports SELECT, INSERT, UPDATE, DELETE, and complex joins. All processing happens in your browser."
+        },
+        {
+          "q": "Can I format SQL queries without creating an account?",
+          "a": "Yes, no account or signup needed. Paste your SQL into Toollo's formatter and get clean, readable output. Your queries are never sent to any server."
+        }
+      ]
+    },
+    "html-to-markdown": {
+      "title": "HTML to Markdown Converter — Convert HTML Free",
+      "description": "Convert HTML to clean Markdown instantly. Free online converter — no signup, runs entirely in your browser.",
+      "faq": [
+        {
+          "q": "Is the HTML to Markdown converter free?",
+          "a": "Yes, Toollo's HTML to Markdown converter is completely free with no signup required. Paste your HTML and get clean Markdown output instantly."
+        },
+        {
+          "q": "How do I convert HTML to Markdown online?",
+          "a": "Paste your HTML code into Toollo's converter and it will automatically generate clean Markdown syntax. It handles headings, links, images, lists, bold, italic, and code blocks. All conversion runs in your browser."
+        },
+        {
+          "q": "Can I convert HTML without uploading my content?",
+          "a": "Yes, everything runs locally in your browser. Your HTML content is never uploaded or stored on any server, making it safe for private or sensitive documents."
+        }
+      ]
+    },
+    "tailwind-playground": {
+      "title": "Tailwind CSS Playground — Preview Classes Live",
+      "description": "Preview Tailwind CSS classes in real time. Free online playground — no signup, browser-based and instant.",
+      "faq": [
+        {
+          "q": "Is the Tailwind CSS playground free?",
+          "a": "Yes, Toollo's Tailwind CSS playground is completely free with no signup. Type your classes and see a live preview instantly in your browser."
+        },
+        {
+          "q": "How does the Tailwind playground work?",
+          "a": "Toollo's playground lets you type Tailwind CSS utility classes and see the rendered output in real time. It supports all Tailwind classes and updates the preview as you type — everything runs in your browser."
+        },
+        {
+          "q": "Can I use the Tailwind playground without signing up?",
+          "a": "Yes, no account or signup is needed. Open Toollo's playground, start typing Tailwind classes, and see your design come to life instantly. No installation required."
+        }
+      ]
+    },
+    "robots-txt-generator": {
+      "title": "Robots.txt Generator — Create Robots.txt Free",
+      "description": "Generate robots.txt files for your website. Free online generator — no signup, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is the robots.txt generator free?",
+          "a": "Yes, Toollo's robots.txt generator is 100% free with no signup required. Configure your rules and download the file instantly."
+        },
+        {
+          "q": "How do I create a robots.txt file?",
+          "a": "Use Toollo's generator to select which search engine bots to allow or block, specify directories to crawl or disallow, and add your sitemap URL. The tool generates a properly formatted robots.txt file you can download."
+        },
+        {
+          "q": "Can I generate robots.txt without creating an account?",
+          "a": "Yes, no account or signup needed. Configure your robots.txt rules in Toollo's generator and download the file. Everything runs in your browser with no data stored."
+        }
+      ]
+    },
+    "calorie-calculator": {
+      "title": "Calorie Calculator — Calculate Daily Calories Free",
+      "description": "Calculate your daily calorie needs based on age, weight, height, and activity. Free calorie calculator — no signup required.",
+      "faq": [
+        {
+          "q": "Is the calorie calculator free?",
+          "a": "Yes, Toollo's calorie calculator is completely free with no signup required. Enter your details and get your daily calorie needs instantly."
+        },
+        {
+          "q": "How does the calorie calculator work?",
+          "a": "Toollo uses the Mifflin-St Jeor equation to calculate your Basal Metabolic Rate (BMR) and adjusts it based on your activity level to estimate daily calorie needs. All calculations run in your browser."
+        },
+        {
+          "q": "Can I calculate calories without signing up?",
+          "a": "Yes, no account or signup needed. Enter your age, weight, height, and activity level into Toollo's calculator and get instant results. Your personal data is never stored or sent to any server."
+        }
+      ]
+    },
+    "tdee-calculator": {
+      "title": "TDEE Calculator — Total Daily Energy Expenditure",
+      "description": "Calculate your Total Daily Energy Expenditure. Free TDEE calculator — no signup, browser-based and private.",
+      "faq": [
+        {
+          "q": "Is the TDEE calculator free?",
+          "a": "Yes, Toollo's TDEE calculator is 100% free with no signup required. Get your total daily energy expenditure calculated in seconds."
+        },
+        {
+          "q": "How does the TDEE calculator work?",
+          "a": "Toollo calculates your Basal Metabolic Rate and multiplies it by an activity factor to estimate how many calories you burn per day. It provides numbers for maintenance, weight loss, and weight gain goals."
+        },
+        {
+          "q": "Can I calculate my TDEE without creating an account?",
+          "a": "Yes, no account or signup is needed. Enter your stats into Toollo's TDEE calculator and get instant results. Your health data stays in your browser and is never stored on any server."
+        }
+      ]
+    },
+    "salary-calculator": {
+      "title": "Salary Calculator — Convert Hourly to Yearly Free",
+      "description": "Convert between hourly, weekly, monthly, and yearly salary. Free salary calculator — no signup, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is the salary calculator free?",
+          "a": "Yes, Toollo's salary calculator is completely free with no signup required. Convert between hourly, weekly, monthly, and annual salary instantly."
+        },
+        {
+          "q": "How do I convert hourly wage to yearly salary?",
+          "a": "Enter your hourly rate in Toollo's salary calculator and it will instantly calculate your weekly, bi-weekly, monthly, and annual salary. You can adjust work hours and weeks per year. All calculations run in your browser."
+        },
+        {
+          "q": "Can I use the salary calculator without signing up?",
+          "a": "Yes, no account or signup needed. Enter your salary or hourly rate into Toollo's calculator and get instant conversions. Your financial data is never stored or sent to any server."
+        }
+      ]
+    },
+    "discount-calculator": {
+      "title": "Discount Calculator — Calculate Sale Price Free",
+      "description": "Calculate discounted prices and savings instantly. Free discount calculator — no signup, browser-based.",
+      "faq": [
+        {
+          "q": "Is the discount calculator free?",
+          "a": "Yes, Toollo's discount calculator is 100% free with no signup required. Enter the original price and discount percentage to see your savings instantly."
+        },
+        {
+          "q": "How does the discount calculator work?",
+          "a": "Enter the original price and discount percentage into Toollo's calculator. It instantly shows you the sale price, the amount you save, and supports multiple discounts and tax calculations. All runs in your browser."
+        },
+        {
+          "q": "Can I calculate discounts without creating an account?",
+          "a": "Yes, no account or signup needed. Use Toollo's discount calculator instantly — just enter your numbers and get results. No data is stored or tracked."
+        }
+      ]
+    },
+    "invoice-generator": {
+      "title": "Invoice Generator — Create Invoices Online Free",
+      "description": "Create professional invoices and download as PDF. Free invoice generator — no signup, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is the invoice generator free?",
+          "a": "Yes, Toollo's invoice generator is completely free with no signup required. Create professional invoices and download them as PDF instantly."
+        },
+        {
+          "q": "How do I create an invoice online?",
+          "a": "Fill in your business details, client information, and line items in Toollo's invoice generator. It calculates totals, taxes, and discounts automatically, then lets you download a professional PDF. All processing happens in your browser."
+        },
+        {
+          "q": "Can I generate invoices without signing up?",
+          "a": "Yes, no account or signup needed. Create and download invoices instantly with Toollo. Your business data is never stored on any server — everything runs locally in your browser."
+        }
+      ]
+    },
+    "privacy-policy-generator": {
+      "title": "Privacy Policy Generator — Free Policy Template",
+      "description": "Generate a privacy policy for your website or app. Free generator — no signup, customizable templates.",
+      "faq": [
+        {
+          "q": "Is the privacy policy generator free?",
+          "a": "Yes, Toollo's privacy policy generator is 100% free with no signup required. Generate a customized privacy policy for your website or app in minutes."
+        },
+        {
+          "q": "How do I create a privacy policy for my website?",
+          "a": "Answer a few questions about your website — what data you collect, whether you use cookies, and which third-party services you integrate. Toollo generates a comprehensive privacy policy you can copy or download."
+        },
+        {
+          "q": "Can I generate a privacy policy without creating an account?",
+          "a": "Yes, no account or signup needed. Use Toollo's generator to create your privacy policy instantly. The tool runs in your browser and your answers are never stored."
+        }
+      ]
+    },
+    "lorem-ipsum-generator": {
+      "title": "Lorem Ipsum Generator — Generate Placeholder Text",
+      "description": "Generate lorem ipsum placeholder text for your designs. Free generator — no signup, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is the lorem ipsum generator free?",
+          "a": "Yes, Toollo's lorem ipsum generator is completely free with no signup required. Generate paragraphs, sentences, or words of placeholder text instantly."
+        },
+        {
+          "q": "How do I generate lorem ipsum text?",
+          "a": "Choose the number of paragraphs, sentences, or words you need in Toollo's generator and click generate. You can copy the placeholder text with one click. Everything runs in your browser."
+        },
+        {
+          "q": "Can I generate placeholder text without signing up?",
+          "a": "Yes, no account or signup needed. Use Toollo's lorem ipsum generator to create placeholder text instantly for your designs, mockups, or prototypes."
+        }
+      ]
+    },
+    "password-generator": {
+      "title": "Password Generator — Generate Strong Passwords Free",
+      "description": "Generate strong, secure passwords instantly. Free password generator — no signup, runs entirely in your browser for maximum security.",
+      "faq": [
+        {
+          "q": "Is the password generator free?",
+          "a": "Yes, Toollo's password generator is 100% free with no signup required. Generate strong, random passwords instantly in your browser."
+        },
+        {
+          "q": "How does the password generator work?",
+          "a": "Toollo uses cryptographically secure random number generation to create strong passwords. You can customize length, and choose to include uppercase, lowercase, numbers, and symbols. Everything runs in your browser — no passwords are ever sent to a server."
+        },
+        {
+          "q": "Can I generate passwords without creating an account?",
+          "a": "Yes, no account or signup needed. Toollo generates passwords entirely in your browser using secure randomness. Your passwords are never transmitted or stored anywhere."
+        }
+      ]
+    },
+    "color-picker": {
+      "title": "Color Picker — Pick Colors HEX RGB HSL Free",
+      "description": "Pick colors and convert between HEX, RGB, and HSL formats. Free color picker — no signup, runs in your browser.",
+      "faq": [
+        {
+          "q": "Is the color picker free?",
+          "a": "Yes, Toollo's color picker is completely free with no signup required. Pick any color and get its HEX, RGB, and HSL values instantly."
+        },
+        {
+          "q": "How does the online color picker work?",
+          "a": "Toollo's color picker lets you visually select colors from a palette, enter specific values in HEX, RGB, or HSL, and convert between formats. You can also extract colors from images. All processing runs in your browser."
+        },
+        {
+          "q": "Can I use the color picker without signing up?",
+          "a": "Yes, no account or signup needed. Open Toollo's color picker and start selecting colors instantly. Copy color codes in any format with one click."
+        }
+      ]
+    },
+    "pomodoro-timer": {
+      "title": "Pomodoro Timer — Focus Timer Online Free",
+      "description": "Stay focused with the Pomodoro technique. Free online timer — no signup, runs in your browser with notifications.",
+      "faq": [
+        {
+          "q": "Is the Pomodoro timer free?",
+          "a": "Yes, Toollo's Pomodoro timer is 100% free with no signup required. Start a focus session instantly in your browser with customizable work and break intervals."
+        },
+        {
+          "q": "How does the Pomodoro timer work?",
+          "a": "Toollo's Pomodoro timer follows the Pomodoro technique — 25 minutes of focused work followed by a 5-minute break. After four sessions, you get a longer break. You can customize all intervals and get browser notifications when each period ends."
+        },
+        {
+          "q": "Can I use the Pomodoro timer without signing up?",
+          "a": "Yes, no account or signup needed. Open Toollo's Pomodoro timer and start your focus session instantly. The timer runs in your browser and your session data is never tracked or stored."
         }
       ]
     }

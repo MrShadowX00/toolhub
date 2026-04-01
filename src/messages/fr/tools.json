@@ -4,7 +4,8 @@
     "Developer Tools": "Outils développeur",
     "Network Tools": "Outils réseau",
     "Calculators": "Calculatrices",
-    "Generators": "Générateurs"
+    "Generators": "Générateurs",
+    "AI Tools": "Outils AI"
   },
   "image-compressor": { "name": "Compresseur d'images", "description": "Compressez des images sans perte de qualité" },
   "image-converter": { "name": "Convertisseur d'images", "description": "Convertir entre PNG, JPG, WebP, AVIF" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "Générateur UUID", "description": "Générer des UUID et chaînes aléatoires" },
   "text-case-converter": { "name": "Convertisseur de casse", "description": "Convertir le texte entre différentes casses" },
   "word-counter": { "name": "Compteur de mots", "description": "Compter mots, caractères et temps de lecture" },
-  "markdown-preview": { "name": "Aperçu Markdown", "description": "Prévisualiser Markdown avec rendu en direct" }
+  "markdown-preview": { "name": "Aperçu Markdown", "description": "Prévisualiser Markdown avec rendu en direct" },
+  "ai-humanizer": { "name": "Humaniseur de texte AI", "description": "Rendre le texte généré par AI naturel et humain" },
+  "ai-paraphraser": { "name": "Paraphraseur AI", "description": "Réécrire le texte avec des mots et un style différents" },
+  "ai-summarizer": { "name": "Résumeur AI", "description": "Résumer un texte long en points clés" },
+  "plagiarism-checker": { "name": "Vérificateur de plagiat", "description": "Vérifier le texte pour le contenu dupliqué" },
+  "ai-grammar-checker": { "name": "Correcteur grammatical AI", "description": "Corriger la grammaire, l'orthographe et la ponctuation" },
+  "json-to-csv": { "name": "JSON vers CSV", "description": "Convertir des données JSON au format CSV" },
+  "sql-formatter": { "name": "Formateur SQL", "description": "Formater et embellir les requêtes SQL" },
+  "html-to-markdown": { "name": "HTML vers Markdown", "description": "Convertir HTML au format Markdown" },
+  "tailwind-playground": { "name": "Terrain de jeu Tailwind CSS", "description": "Prévisualiser les classes Tailwind CSS en temps réel" },
+  "robots-txt-generator": { "name": "Générateur Robots.txt", "description": "Générer un fichier robots.txt pour le SEO" },
+  "calorie-calculator": { "name": "Calculateur de calories", "description": "Calculer les besoins caloriques quotidiens et les macros" },
+  "tdee-calculator": { "name": "Calculateur TDEE", "description": "Calculer la dépense énergétique quotidienne totale" },
+  "salary-calculator": { "name": "Calculateur de salaire", "description": "Convertir le salaire entre horaire, mensuel et annuel" },
+  "discount-calculator": { "name": "Calculateur de remise", "description": "Calculer le prix remisé et les économies" },
+  "invoice-generator": { "name": "Générateur de factures", "description": "Créer des factures professionnelles en PDF" },
+  "privacy-policy-generator": { "name": "Générateur de politique de confidentialité", "description": "Générer une politique de confidentialité pour votre site" },
+  "lorem-ipsum-generator": { "name": "Générateur Lorem Ipsum", "description": "Générer du texte de remplissage pour les designs" },
+  "password-generator": { "name": "Générateur de mots de passe", "description": "Générer des mots de passe aléatoires forts" },
+  "color-picker": { "name": "Sélecteur de couleurs", "description": "Choisir des couleurs et convertir entre formats" },
+  "pomodoro-timer": { "name": "Minuteur Pomodoro", "description": "Minuteur de concentration avec intervalles de travail et pause" }
 }

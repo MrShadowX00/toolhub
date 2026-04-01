@@ -4,7 +4,8 @@
     "Developer Tools": "Geliştirici Araçları",
     "Network Tools": "Ağ Araçları",
     "Calculators": "Hesap Makineleri",
-    "Generators": "Jeneratörler"
+    "Generators": "Jeneratörler",
+    "AI Tools": "AI Araçları"
   },
   "image-compressor": { "name": "Görsel Sıkıştırıcı", "description": "Kalite kaybı olmadan görselleri sıkıştırın" },
   "image-converter": { "name": "Görsel Dönüştürücü", "description": "PNG, JPG, WebP, AVIF arasında dönüştürün" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID Üreteci", "description": "UUID ve rastgele dizeler üretin" },
   "text-case-converter": { "name": "Metin Durumu Dönüştürücü", "description": "Metni farklı durumlar arasında dönüştürün" },
   "word-counter": { "name": "Kelime Sayacı", "description": "Kelime, karakter ve okuma süresini sayın" },
-  "markdown-preview": { "name": "Markdown Önizleme", "description": "Canlı render ile Markdown önizleyin" }
+  "markdown-preview": { "name": "Markdown Önizleme", "description": "Canlı render ile Markdown önizleyin" },
+  "ai-humanizer": { "name": "AI Metin İnsanlaştırıcı", "description": "AI tarafından oluşturulan metni doğal ve insani yapın" },
+  "ai-paraphraser": { "name": "AI Yeniden Yazıcı", "description": "Metni farklı kelimeler ve üslupla yeniden yazın" },
+  "ai-summarizer": { "name": "AI Özetleyici", "description": "Uzun metni ana noktalara özetleyin" },
+  "plagiarism-checker": { "name": "İntihal Denetleyici", "description": "Metni kopya içerik için kontrol edin" },
+  "ai-grammar-checker": { "name": "AI Dilbilgisi Denetleyici", "description": "Dilbilgisi, yazım ve noktalama hatalarını düzeltin" },
+  "json-to-csv": { "name": "JSON'dan CSV'ye", "description": "JSON verilerini CSV formatına dönüştürün" },
+  "sql-formatter": { "name": "SQL Biçimlendirici", "description": "SQL sorgularını biçimlendirin ve güzelleştirin" },
+  "html-to-markdown": { "name": "HTML'den Markdown'a", "description": "HTML'yi Markdown formatına dönüştürün" },
+  "tailwind-playground": { "name": "Tailwind CSS Oyun Alanı", "description": "Tailwind CSS sınıflarını gerçek zamanlı önizleyin" },
+  "robots-txt-generator": { "name": "Robots.txt Üreteci", "description": "SEO için robots.txt dosyası oluşturun" },
+  "calorie-calculator": { "name": "Kalori Hesaplayıcı", "description": "Günlük kalori ihtiyacını ve makroları hesaplayın" },
+  "tdee-calculator": { "name": "TDEE Hesaplayıcı", "description": "Toplam günlük enerji harcamasını hesaplayın" },
+  "salary-calculator": { "name": "Maaş Hesaplayıcı", "description": "Maaşı saatlik, aylık ve yıllık arasında dönüştürün" },
+  "discount-calculator": { "name": "İndirim Hesaplayıcı", "description": "İndirimli fiyatı ve tasarrufu hesaplayın" },
+  "invoice-generator": { "name": "Fatura Üreteci", "description": "PDF formatında profesyonel faturalar oluşturun" },
+  "privacy-policy-generator": { "name": "Gizlilik Politikası Üreteci", "description": "Web siteniz için gizlilik politikası oluşturun" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsum Üreteci", "description": "Tasarımlar için yer tutucu metin oluşturun" },
+  "password-generator": { "name": "Şifre Üreteci", "description": "Güçlü rastgele şifreler oluşturun" },
+  "color-picker": { "name": "Renk Seçici", "description": "Renk seçin ve formatlar arasında dönüştürün" },
+  "pomodoro-timer": { "name": "Pomodoro Zamanlayıcı", "description": "Çalışma ve mola aralıklı odaklanma zamanlayıcısı" }
 }

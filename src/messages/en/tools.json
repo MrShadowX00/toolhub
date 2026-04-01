@@ -1,10 +1,31 @@
 {
   "categories": {
+    "AI Tools": "AI Tools",
     "Image Tools": "Image Tools",
     "Developer Tools": "Developer Tools",
     "Network Tools": "Network Tools",
     "Calculators": "Calculators",
     "Generators": "Generators"
+  },
+  "ai-humanizer": {
+    "name": "AI Text Humanizer",
+    "description": "Make AI-generated text sound natural and human"
+  },
+  "ai-paraphraser": {
+    "name": "AI Paraphraser",
+    "description": "Rewrite text with different words and style"
+  },
+  "ai-summarizer": {
+    "name": "AI Summarizer",
+    "description": "Summarize long text into key points"
+  },
+  "plagiarism-checker": {
+    "name": "Plagiarism Checker",
+    "description": "Check text for duplicate content"
+  },
+  "ai-grammar-checker": {
+    "name": "AI Grammar Checker",
+    "description": "Fix grammar, spelling, and punctuation errors"
   },
   "image-compressor": {
     "name": "Image Compressor",
@@ -86,6 +107,22 @@
     "name": "HTML Entities",
     "description": "Encode and decode HTML entities"
   },
+  "json-to-csv": {
+    "name": "JSON to CSV",
+    "description": "Convert JSON data to CSV format"
+  },
+  "sql-formatter": {
+    "name": "SQL Formatter",
+    "description": "Format and beautify SQL queries"
+  },
+  "html-to-markdown": {
+    "name": "HTML to Markdown",
+    "description": "Convert HTML to Markdown format"
+  },
+  "tailwind-playground": {
+    "name": "Tailwind CSS Playground",
+    "description": "Preview Tailwind CSS classes in real time"
+  },
   "dns-lookup": {
     "name": "DNS Lookup",
     "description": "Look up DNS records for any domain"
@@ -125,6 +162,10 @@
   "sitemap-generator": {
     "name": "Sitemap Generator",
     "description": "Generate XML sitemap for websites"
+  },
+  "robots-txt-generator": {
+    "name": "Robots.txt Generator",
+    "description": "Generate robots.txt file for SEO"
   },
   "mortgage-calculator": {
     "name": "Mortgage Calculator",
@@ -166,6 +207,22 @@
     "name": "Password Strength",
     "description": "Check password strength and entropy"
   },
+  "calorie-calculator": {
+    "name": "Calorie Calculator",
+    "description": "Calculate daily calorie needs and macros"
+  },
+  "tdee-calculator": {
+    "name": "TDEE Calculator",
+    "description": "Calculate Total Daily Energy Expenditure"
+  },
+  "salary-calculator": {
+    "name": "Salary Calculator",
+    "description": "Convert salary between hourly, monthly, yearly"
+  },
+  "discount-calculator": {
+    "name": "Discount Calculator",
+    "description": "Calculate discount price and savings"
+  },
   "qr-generator": {
     "name": "QR Code Generator",
     "description": "Generate QR codes for any text or URL"
@@ -205,5 +262,29 @@
   "markdown-preview": {
     "name": "Markdown Preview",
     "description": "Preview Markdown with live rendering"
+  },
+  "invoice-generator": {
+    "name": "Invoice Generator",
+    "description": "Create professional invoices in PDF"
+  },
+  "privacy-policy-generator": {
+    "name": "Privacy Policy Generator",
+    "description": "Generate privacy policy for your website"
+  },
+  "lorem-ipsum-generator": {
+    "name": "Lorem Ipsum Generator",
+    "description": "Generate placeholder text for designs"
+  },
+  "password-generator": {
+    "name": "Password Generator",
+    "description": "Generate strong random passwords"
+  },
+  "color-picker": {
+    "name": "Color Picker",
+    "description": "Pick colors and convert between formats"
+  },
+  "pomodoro-timer": {
+    "name": "Pomodoro Timer",
+    "description": "Focus timer with work and break intervals"
   }
 }

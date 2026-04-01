@@ -4,7 +4,8 @@
     "Developer Tools": "开发者工具",
     "Network Tools": "网络工具",
     "Calculators": "计算器",
-    "Generators": "生成器"
+    "Generators": "生成器",
+    "AI Tools": "AI 工具"
   },
   "image-compressor": { "name": "图片压缩器", "description": "无损压缩图片" },
   "image-converter": { "name": "图片转换器", "description": "在PNG、JPG、WebP、AVIF之间转换" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID生成器", "description": "生成UUID和随机字符串" },
   "text-case-converter": { "name": "文本大小写转换", "description": "在不同大小写之间转换" },
   "word-counter": { "name": "字数统计", "description": "统计字数、字符数和阅读时间" },
-  "markdown-preview": { "name": "Markdown预览", "description": "实时渲染预览Markdown" }
+  "markdown-preview": { "name": "Markdown预览", "description": "实时渲染预览Markdown" },
+  "ai-humanizer": { "name": "AI文本人性化", "description": "让AI生成的文本听起来自然且像人写的" },
+  "ai-paraphraser": { "name": "AI改写工具", "description": "用不同的词汇和风格重写文本" },
+  "ai-summarizer": { "name": "AI摘要工具", "description": "将长文本总结为关键要点" },
+  "plagiarism-checker": { "name": "查重工具", "description": "检查文本是否有重复内容" },
+  "ai-grammar-checker": { "name": "AI语法检查器", "description": "修正语法、拼写和标点错误" },
+  "json-to-csv": { "name": "JSON转CSV", "description": "将JSON数据转换为CSV格式" },
+  "sql-formatter": { "name": "SQL格式化", "description": "格式化和美化SQL查询" },
+  "html-to-markdown": { "name": "HTML转Markdown", "description": "将HTML转换为Markdown格式" },
+  "tailwind-playground": { "name": "Tailwind CSS演练场", "description": "实时预览Tailwind CSS类" },
+  "robots-txt-generator": { "name": "Robots.txt生成器", "description": "为SEO生成robots.txt文件" },
+  "calorie-calculator": { "name": "卡路里计算器", "description": "计算每日卡路里需求和宏量营养素" },
+  "tdee-calculator": { "name": "TDEE计算器", "description": "计算每日总能量消耗" },
+  "salary-calculator": { "name": "薪资计算器", "description": "在时薪、月薪和年薪之间转换" },
+  "discount-calculator": { "name": "折扣计算器", "description": "计算折扣价格和节省金额" },
+  "invoice-generator": { "name": "发票生成器", "description": "创建专业的PDF发票" },
+  "privacy-policy-generator": { "name": "隐私政策生成器", "description": "为您的网站生成隐私政策" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsum生成器", "description": "为设计生成占位文本" },
+  "password-generator": { "name": "密码生成器", "description": "生成强随机密码" },
+  "color-picker": { "name": "颜色选择器", "description": "选择颜色并在格式之间转换" },
+  "pomodoro-timer": { "name": "番茄钟计时器", "description": "带工作和休息间隔的专注计时器" }
 }

@@ -4,7 +4,8 @@
     "Developer Tools": "開発者ツール",
     "Network Tools": "ネットワークツール",
     "Calculators": "計算機",
-    "Generators": "ジェネレーター"
+    "Generators": "ジェネレーター",
+    "AI Tools": "AIツール"
   },
   "image-compressor": { "name": "画像圧縮", "description": "品質を保ちながら画像を圧縮" },
   "image-converter": { "name": "画像変換", "description": "PNG、JPG、WebP、AVIF間で変換" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID生成", "description": "UUIDとランダム文字列を生成" },
   "text-case-converter": { "name": "テキストケース変換", "description": "テキストのケースを変換" },
   "word-counter": { "name": "文字数カウンター", "description": "単語数、文字数、読了時間をカウント" },
-  "markdown-preview": { "name": "Markdownプレビュー", "description": "ライブレンダリングでMarkdownをプレビュー" }
+  "markdown-preview": { "name": "Markdownプレビュー", "description": "ライブレンダリングでMarkdownをプレビュー" },
+  "ai-humanizer": { "name": "AIテキスト人間化", "description": "AI生成テキストを自然で人間らしくする" },
+  "ai-paraphraser": { "name": "AI言い換えツール", "description": "異なる言葉とスタイルでテキストを書き換え" },
+  "ai-summarizer": { "name": "AI要約ツール", "description": "長文を要点にまとめる" },
+  "plagiarism-checker": { "name": "剽窃チェッカー", "description": "テキストの重複コンテンツをチェック" },
+  "ai-grammar-checker": { "name": "AI文法チェッカー", "description": "文法、スペル、句読点の誤りを修正" },
+  "json-to-csv": { "name": "JSON→CSV変換", "description": "JSONデータをCSV形式に変換" },
+  "sql-formatter": { "name": "SQLフォーマッター", "description": "SQLクエリを整形・美化" },
+  "html-to-markdown": { "name": "HTML→Markdown変換", "description": "HTMLをMarkdown形式に変換" },
+  "tailwind-playground": { "name": "Tailwind CSSプレイグラウンド", "description": "Tailwind CSSクラスをリアルタイムでプレビュー" },
+  "robots-txt-generator": { "name": "Robots.txtジェネレーター", "description": "SEO用のrobots.txtファイルを生成" },
+  "calorie-calculator": { "name": "カロリー計算", "description": "1日のカロリー必要量とマクロを計算" },
+  "tdee-calculator": { "name": "TDEE計算", "description": "1日の総エネルギー消費量を計算" },
+  "salary-calculator": { "name": "給与計算", "description": "時給、月給、年収を相互変換" },
+  "discount-calculator": { "name": "割引計算", "description": "割引価格と節約額を計算" },
+  "invoice-generator": { "name": "請求書ジェネレーター", "description": "プロフェッショナルなPDF請求書を作成" },
+  "privacy-policy-generator": { "name": "プライバシーポリシージェネレーター", "description": "ウェブサイト用のプライバシーポリシーを生成" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsumジェネレーター", "description": "デザイン用のダミーテキストを生成" },
+  "password-generator": { "name": "パスワード生成", "description": "強力なランダムパスワードを生成" },
+  "color-picker": { "name": "カラーピッカー", "description": "色を選択しフォーマット間で変換" },
+  "pomodoro-timer": { "name": "ポモドーロタイマー", "description": "作業と休憩のインターバル付き集中タイマー" }
 }

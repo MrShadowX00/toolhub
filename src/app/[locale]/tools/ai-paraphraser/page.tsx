@@ -1,0 +1,34 @@
+import { setRequestLocale } from "next-intl/server";
+import { generateToolMetadata } from "@/lib/seo";
+import ToolLayout from "@/components/ui/ToolLayout";
+import JsonLd from "@/components/seo/JsonLd";
+import { getWebApplicationJsonLd, getBreadcrumbJsonLd, getFaqJsonLd } from "@/lib/structured-data";
+import AiParaphraserTool from "./AiParaphraserTool";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return generateToolMetadata("ai-paraphraser", (await params).locale);
+}
+
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const seoMessages = (await import(`@/messages/${locale}/seo.json`)).default;
+  const toolSeo = seoMessages.tools?.["ai-paraphraser"];
+  const name = toolSeo?.title || "AI Paraphraser";
+  const description = toolSeo?.description || "";
+  const faq = toolSeo?.faq || [];
+  return (
+    <>
+      <JsonLd data={getWebApplicationJsonLd("ai-paraphraser", name, description, locale)} />
+      <JsonLd data={getBreadcrumbJsonLd([
+        { name: "Home", url: "https://toollo.org" },
+        { name: "AI Tools", url: "https://toollo.org" },
+        { name, url: locale === "en" ? "https://toollo.org/tools/ai-paraphraser" : `https://toollo.org/${locale}/tools/ai-paraphraser` },
+      ])} />
+      {faq.length > 0 && <JsonLd data={getFaqJsonLd(faq)} />}
+      <ToolLayout toolId="ai-paraphraser" category="AI Tools" faq={faq}>
+        <AiParaphraserTool />
+      </ToolLayout>
+    </>
+  );
+}

@@ -4,7 +4,8 @@
     "Developer Tools": "Ferramentas de desenvolvedor",
     "Network Tools": "Ferramentas de rede",
     "Calculators": "Calculadoras",
-    "Generators": "Geradores"
+    "Generators": "Geradores",
+    "AI Tools": "Ferramentas AI"
   },
   "image-compressor": { "name": "Compressor de imagens", "description": "Comprima imagens sem perder qualidade" },
   "image-converter": { "name": "Conversor de imagens", "description": "Converta entre PNG, JPG, WebP, AVIF" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "Gerador UUID", "description": "Gere UUIDs e strings aleatorias" },
   "text-case-converter": { "name": "Conversor de caixa", "description": "Converta texto entre diferentes caixas" },
   "word-counter": { "name": "Contador de palavras", "description": "Conte palavras, caracteres e tempo de leitura" },
-  "markdown-preview": { "name": "Previa Markdown", "description": "Visualize Markdown com renderizacao ao vivo" }
+  "markdown-preview": { "name": "Previa Markdown", "description": "Visualize Markdown com renderizacao ao vivo" },
+  "ai-humanizer": { "name": "Humanizador de texto AI", "description": "Torne o texto gerado por AI natural e humano" },
+  "ai-paraphraser": { "name": "Parafraseador AI", "description": "Reescreva texto com palavras e estilo diferentes" },
+  "ai-summarizer": { "name": "Resumidor AI", "description": "Resuma textos longos em pontos-chave" },
+  "plagiarism-checker": { "name": "Verificador de plagio", "description": "Verifique o texto em busca de conteudo duplicado" },
+  "ai-grammar-checker": { "name": "Corretor gramatical AI", "description": "Corrija erros de gramatica, ortografia e pontuacao" },
+  "json-to-csv": { "name": "JSON para CSV", "description": "Converta dados JSON para formato CSV" },
+  "sql-formatter": { "name": "Formatador SQL", "description": "Formate e embeleze consultas SQL" },
+  "html-to-markdown": { "name": "HTML para Markdown", "description": "Converta HTML para formato Markdown" },
+  "tailwind-playground": { "name": "Playground Tailwind CSS", "description": "Visualize classes Tailwind CSS em tempo real" },
+  "robots-txt-generator": { "name": "Gerador de Robots.txt", "description": "Gere arquivo robots.txt para SEO" },
+  "calorie-calculator": { "name": "Calculadora de calorias", "description": "Calcule necessidades caloricas diarias e macros" },
+  "tdee-calculator": { "name": "Calculadora TDEE", "description": "Calcule o gasto energetico diario total" },
+  "salary-calculator": { "name": "Calculadora de salario", "description": "Converta salario entre por hora, mensal e anual" },
+  "discount-calculator": { "name": "Calculadora de desconto", "description": "Calcule o preco com desconto e a economia" },
+  "invoice-generator": { "name": "Gerador de faturas", "description": "Crie faturas profissionais em PDF" },
+  "privacy-policy-generator": { "name": "Gerador de politica de privacidade", "description": "Gere politica de privacidade para seu site" },
+  "lorem-ipsum-generator": { "name": "Gerador Lorem Ipsum", "description": "Gere texto de preenchimento para designs" },
+  "password-generator": { "name": "Gerador de senhas", "description": "Gere senhas aleatorias fortes" },
+  "color-picker": { "name": "Seletor de cores", "description": "Selecione cores e converta entre formatos" },
+  "pomodoro-timer": { "name": "Temporizador Pomodoro", "description": "Temporizador de foco com intervalos de trabalho e descanso" }
 }

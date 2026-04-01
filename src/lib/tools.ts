@@ -50,9 +50,30 @@ import {
   FileEdit,
   BookOpen,
   LucideIcon,
+  Bot,
+  RefreshCw,
+  FileSearch,
+  SpellCheck,
+  Sparkles,
+  Flame,
+  Dumbbell,
+  DollarSign,
+  BadgePercent,
+  Receipt,
+  ScrollText,
+  AlignLeft,
+  KeySquare,
+  Pipette,
+  TimerReset,
+  Table,
+  Database,
+  FileDown,
+  Wind,
+  FileQuestion,
 } from "lucide-react";
 
 export type ToolCategory =
+  | "AI Tools"
   | "Image Tools"
   | "Developer Tools"
   | "Network Tools"
@@ -74,6 +95,11 @@ export const categoryConfig: Record<
   ToolCategory,
   { emoji: string; color: string; bgColor: string }
 > = {
+  "AI Tools": {
+    emoji: "🤖",
+    color: "text-emerald-400",
+    bgColor: "bg-emerald-500/10",
+  },
   "Image Tools": {
     emoji: "🖼️",
     color: "text-pink-400",
@@ -102,6 +128,54 @@ export const categoryConfig: Record<
 };
 
 export const tools: Tool[] = [
+  // AI Tools
+  {
+    id: "ai-humanizer",
+    name: "AI Text Humanizer",
+    description: "Make AI-generated text sound natural and human",
+    category: "AI Tools",
+    icon: Bot,
+    href: "/tools/ai-humanizer",
+    isNew: true,
+    isPopular: true,
+  },
+  {
+    id: "ai-paraphraser",
+    name: "AI Paraphraser",
+    description: "Rewrite text with different words and style",
+    category: "AI Tools",
+    icon: RefreshCw,
+    href: "/tools/ai-paraphraser",
+    isPopular: true,
+  },
+  {
+    id: "ai-summarizer",
+    name: "AI Summarizer",
+    description: "Summarize long text into key points",
+    category: "AI Tools",
+    icon: FileSearch,
+    href: "/tools/ai-summarizer",
+    isNew: true,
+  },
+  {
+    id: "plagiarism-checker",
+    name: "Plagiarism Checker",
+    description: "Check text for duplicate content",
+    category: "AI Tools",
+    icon: SpellCheck,
+    href: "/tools/plagiarism-checker",
+    isPopular: true,
+  },
+  {
+    id: "ai-grammar-checker",
+    name: "AI Grammar Checker",
+    description: "Fix grammar, spelling, and punctuation errors",
+    category: "AI Tools",
+    icon: Sparkles,
+    href: "/tools/ai-grammar-checker",
+    isNew: true,
+  },
+
   // Image Tools
   {
     id: "image-compressor",
@@ -273,6 +347,43 @@ export const tools: Tool[] = [
     icon: Type,
     href: "/tools/html-entities",
   },
+  {
+    id: "json-to-csv",
+    name: "JSON to CSV",
+    description: "Convert JSON data to CSV format",
+    category: "Developer Tools",
+    icon: Table,
+    href: "/tools/json-to-csv",
+    isNew: true,
+  },
+  {
+    id: "sql-formatter",
+    name: "SQL Formatter",
+    description: "Format and beautify SQL queries",
+    category: "Developer Tools",
+    icon: Database,
+    href: "/tools/sql-formatter",
+    isNew: true,
+  },
+  {
+    id: "html-to-markdown",
+    name: "HTML to Markdown",
+    description: "Convert HTML to Markdown format",
+    category: "Developer Tools",
+    icon: FileDown,
+    href: "/tools/html-to-markdown",
+    isNew: true,
+  },
+  {
+    id: "tailwind-playground",
+    name: "Tailwind CSS Playground",
+    description: "Preview Tailwind CSS classes in real time",
+    category: "Developer Tools",
+    icon: Wind,
+    href: "/tools/tailwind-playground",
+    isNew: true,
+    isPopular: true,
+  },
 
   // Network Tools
   {
@@ -354,6 +465,15 @@ export const tools: Tool[] = [
     category: "Network Tools",
     icon: FileCode,
     href: "/tools/sitemap-generator",
+  },
+  {
+    id: "robots-txt-generator",
+    name: "Robots.txt Generator",
+    description: "Generate robots.txt file for SEO",
+    category: "Network Tools",
+    icon: FileQuestion,
+    href: "/tools/robots-txt-generator",
+    isNew: true,
   },
 
   // Calculators
@@ -438,6 +558,43 @@ export const tools: Tool[] = [
     icon: Lock,
     href: "/tools/password-strength",
   },
+  {
+    id: "calorie-calculator",
+    name: "Calorie Calculator",
+    description: "Calculate daily calorie needs and macros",
+    category: "Calculators",
+    icon: Flame,
+    href: "/tools/calorie-calculator",
+    isNew: true,
+    isPopular: true,
+  },
+  {
+    id: "tdee-calculator",
+    name: "TDEE Calculator",
+    description: "Calculate Total Daily Energy Expenditure",
+    category: "Calculators",
+    icon: Dumbbell,
+    href: "/tools/tdee-calculator",
+    isNew: true,
+  },
+  {
+    id: "salary-calculator",
+    name: "Salary Calculator",
+    description: "Convert salary between hourly, monthly, yearly",
+    category: "Calculators",
+    icon: DollarSign,
+    href: "/tools/salary-calculator",
+    isNew: true,
+  },
+  {
+    id: "discount-calculator",
+    name: "Discount Calculator",
+    description: "Calculate discount price and savings",
+    category: "Calculators",
+    icon: BadgePercent,
+    href: "/tools/discount-calculator",
+    isNew: true,
+  },
 
   // Generators
   {
@@ -521,6 +678,62 @@ export const tools: Tool[] = [
     category: "Generators",
     icon: BookOpen,
     href: "/tools/markdown-preview",
+  },
+  {
+    id: "invoice-generator",
+    name: "Invoice Generator",
+    description: "Create professional invoices in PDF",
+    category: "Generators",
+    icon: Receipt,
+    href: "/tools/invoice-generator",
+    isNew: true,
+    isPopular: true,
+  },
+  {
+    id: "privacy-policy-generator",
+    name: "Privacy Policy Generator",
+    description: "Generate privacy policy for your website",
+    category: "Generators",
+    icon: ScrollText,
+    href: "/tools/privacy-policy-generator",
+    isNew: true,
+  },
+  {
+    id: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    description: "Generate placeholder text for designs",
+    category: "Generators",
+    icon: AlignLeft,
+    href: "/tools/lorem-ipsum-generator",
+    isNew: true,
+  },
+  {
+    id: "password-generator",
+    name: "Password Generator",
+    description: "Generate strong random passwords",
+    category: "Generators",
+    icon: KeySquare,
+    href: "/tools/password-generator",
+    isNew: true,
+    isPopular: true,
+  },
+  {
+    id: "color-picker",
+    name: "Color Picker",
+    description: "Pick colors and convert between formats",
+    category: "Generators",
+    icon: Pipette,
+    href: "/tools/color-picker",
+    isNew: true,
+  },
+  {
+    id: "pomodoro-timer",
+    name: "Pomodoro Timer",
+    description: "Focus timer with work and break intervals",
+    category: "Generators",
+    icon: TimerReset,
+    href: "/tools/pomodoro-timer",
+    isNew: true,
   },
 ];
 

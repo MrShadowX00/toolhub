@@ -4,7 +4,8 @@
     "Developer Tools": "Для разработчиков",
     "Network Tools": "Сетевые инструменты",
     "Calculators": "Калькуляторы",
-    "Generators": "Генераторы"
+    "Generators": "Генераторы",
+    "AI Tools": "AI Инструменты"
   },
   "image-compressor": { "name": "Сжатие изображений", "description": "Сжимайте изображения без потери качества" },
   "image-converter": { "name": "Конвертер изображений", "description": "Конвертируйте между PNG, JPG, WebP, AVIF" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "Генератор UUID", "description": "Генерируйте UUID и случайные строки" },
   "text-case-converter": { "name": "Конвертер регистра", "description": "Конвертируйте текст между регистрами" },
   "word-counter": { "name": "Счётчик слов", "description": "Считайте слова, символы и время чтения" },
-  "markdown-preview": { "name": "Markdown предпросмотр", "description": "Предпросмотр Markdown с live-рендерингом" }
+  "markdown-preview": { "name": "Markdown предпросмотр", "description": "Предпросмотр Markdown с live-рендерингом" },
+  "ai-humanizer": { "name": "AI Гуманизатор текста", "description": "Сделать AI текст естественным и человечным" },
+  "ai-paraphraser": { "name": "AI Перефразировщик", "description": "Перепишите текст другими словами и стилем" },
+  "ai-summarizer": { "name": "AI Суммаризатор", "description": "Сократите длинный текст до ключевых моментов" },
+  "plagiarism-checker": { "name": "Проверка на плагиат", "description": "Проверьте текст на дублирование контента" },
+  "ai-grammar-checker": { "name": "AI Проверка грамматики", "description": "Исправьте грамматику, орфографию и пунктуацию" },
+  "json-to-csv": { "name": "JSON в CSV", "description": "Конвертируйте JSON данные в формат CSV" },
+  "sql-formatter": { "name": "SQL форматтер", "description": "Форматируйте и украшайте SQL запросы" },
+  "html-to-markdown": { "name": "HTML в Markdown", "description": "Конвертируйте HTML в формат Markdown" },
+  "tailwind-playground": { "name": "Tailwind CSS Песочница", "description": "Предпросмотр Tailwind CSS классов в реальном времени" },
+  "robots-txt-generator": { "name": "Генератор Robots.txt", "description": "Создайте файл robots.txt для SEO" },
+  "calorie-calculator": { "name": "Калькулятор калорий", "description": "Рассчитайте суточную потребность в калориях и макронутриентах" },
+  "tdee-calculator": { "name": "Калькулятор TDEE", "description": "Рассчитайте общий суточный расход энергии" },
+  "salary-calculator": { "name": "Калькулятор зарплаты", "description": "Конвертируйте зарплату между почасовой, месячной и годовой" },
+  "discount-calculator": { "name": "Калькулятор скидок", "description": "Рассчитайте цену со скидкой и экономию" },
+  "invoice-generator": { "name": "Генератор счетов", "description": "Создавайте профессиональные счета в PDF" },
+  "privacy-policy-generator": { "name": "Генератор политики конфиденциальности", "description": "Создайте политику конфиденциальности для вашего сайта" },
+  "lorem-ipsum-generator": { "name": "Генератор Lorem Ipsum", "description": "Создайте текст-заполнитель для дизайна" },
+  "password-generator": { "name": "Генератор паролей", "description": "Создавайте надёжные случайные пароли" },
+  "color-picker": { "name": "Выбор цвета", "description": "Выбирайте цвета и конвертируйте между форматами" },
+  "pomodoro-timer": { "name": "Таймер Помодоро", "description": "Таймер фокусировки с интервалами работы и отдыха" }
 }

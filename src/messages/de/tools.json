@@ -4,7 +4,8 @@
     "Developer Tools": "Entwicklertools",
     "Network Tools": "Netzwerktools",
     "Calculators": "Rechner",
-    "Generators": "Generatoren"
+    "Generators": "Generatoren",
+    "AI Tools": "AI-Werkzeuge"
   },
   "image-compressor": { "name": "Bildkompressor", "description": "Bilder ohne Qualitätsverlust komprimieren" },
   "image-converter": { "name": "Bildkonverter", "description": "Zwischen PNG, JPG, WebP, AVIF konvertieren" },
@@ -55,5 +56,25 @@
   "uuid-generator": { "name": "UUID-Generator", "description": "UUIDs und Zufallszeichenketten generieren" },
   "text-case-converter": { "name": "Textfall-Konverter", "description": "Text zwischen Fällen konvertieren" },
   "word-counter": { "name": "Wortzähler", "description": "Wörter, Zeichen und Lesezeit zählen" },
-  "markdown-preview": { "name": "Markdown-Vorschau", "description": "Markdown mit Live-Rendering vorschauen" }
+  "markdown-preview": { "name": "Markdown-Vorschau", "description": "Markdown mit Live-Rendering vorschauen" },
+  "ai-humanizer": { "name": "AI Text-Humanisierer", "description": "AI-generierten Text natürlich und menschlich klingen lassen" },
+  "ai-paraphraser": { "name": "AI Paraphrasierer", "description": "Text mit anderen Worten und Stil umschreiben" },
+  "ai-summarizer": { "name": "AI Zusammenfasser", "description": "Langen Text in Kernpunkte zusammenfassen" },
+  "plagiarism-checker": { "name": "Plagiatsprüfer", "description": "Text auf doppelte Inhalte prüfen" },
+  "ai-grammar-checker": { "name": "AI Grammatikprüfer", "description": "Grammatik-, Rechtschreib- und Zeichensetzungsfehler korrigieren" },
+  "json-to-csv": { "name": "JSON zu CSV", "description": "JSON-Daten in CSV-Format konvertieren" },
+  "sql-formatter": { "name": "SQL-Formatierer", "description": "SQL-Abfragen formatieren und verschönern" },
+  "html-to-markdown": { "name": "HTML zu Markdown", "description": "HTML in Markdown-Format konvertieren" },
+  "tailwind-playground": { "name": "Tailwind CSS Spielplatz", "description": "Tailwind CSS Klassen in Echtzeit vorschauen" },
+  "robots-txt-generator": { "name": "Robots.txt-Generator", "description": "Robots.txt-Datei für SEO generieren" },
+  "calorie-calculator": { "name": "Kalorienrechner", "description": "Täglichen Kalorienbedarf und Makros berechnen" },
+  "tdee-calculator": { "name": "TDEE-Rechner", "description": "Gesamten täglichen Energieverbrauch berechnen" },
+  "salary-calculator": { "name": "Gehaltsrechner", "description": "Gehalt zwischen stündlich, monatlich und jährlich umrechnen" },
+  "discount-calculator": { "name": "Rabattrechner", "description": "Rabattpreis und Ersparnis berechnen" },
+  "invoice-generator": { "name": "Rechnungsgenerator", "description": "Professionelle Rechnungen als PDF erstellen" },
+  "privacy-policy-generator": { "name": "Datenschutzrichtlinie-Generator", "description": "Datenschutzrichtlinie für Ihre Website generieren" },
+  "lorem-ipsum-generator": { "name": "Lorem Ipsum Generator", "description": "Platzhaltertext für Designs generieren" },
+  "password-generator": { "name": "Passwort-Generator", "description": "Starke zufällige Passwörter generieren" },
+  "color-picker": { "name": "Farbwähler", "description": "Farben auswählen und zwischen Formaten konvertieren" },
+  "pomodoro-timer": { "name": "Pomodoro-Timer", "description": "Fokus-Timer mit Arbeits- und Pausenintervallen" }
 }
