@@ -21,10 +21,6 @@ const securityHeaders = [
     value: "SAMEORIGIN",
   },
   {
-    key: "Content-Security-Policy",
-    value: "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagservices.com https://adservice.google.com https://www.google-analytics.com https://www.googletagmanager.com https://tpc.googlesyndication.com; frame-src 'self' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://pagead2.googlesyndication.com;",
-  },
-  {
     key: "X-XSS-Protection",
     value: "1; mode=block",
   },
